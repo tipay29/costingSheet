@@ -27,14 +27,27 @@ costing_add_fabric_row_btn.click(function(e){
     e.preventDefault();
     let fabric_row = parseInt(sessionStorage.getItem("costing_fabric_row"))+1;
     sessionStorage.setItem("costing_fabric_row", fabric_row);
-
-    let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
-    let total_column = sessionStorage.getItem("costing_total_column");
     let fabric_row_tds_add = '';
-    total_column = total_column - total_column_orig;
 
-    for (let i = 0; i < total_column; i++) {
-        fabric_row_tds_add = fabric_row_tds_add.concat('<td contenteditable="true"></td>');
+    let no_of_size = sessionStorage.getItem('costing_no_of_size');
+    if(no_of_size !== 0){
+        for (let i = 1; i <= no_of_size; i++) {
+            fabric_row_tds_add = fabric_row_tds_add.concat('' +
+                '<td class="costing_table_size">' +
+                '<input type="text" id="costing_fabric_size_'+i+'_'+fabric_row+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
+    }
+    let no_of_color = sessionStorage.getItem('costing_no_of_color');
+    if(no_of_color !== 0){
+        for (let i = 1; i <= no_of_color; i++) {
+            fabric_row_tds_add = fabric_row_tds_add.concat('' +
+                '<td class="costing_table_color">' +
+                '<input type="text" id="costing_fabric_color_'+i+'_'+fabric_row+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
     }
 
     let fabric_row_string = fabric_row.toString();
@@ -147,10 +160,26 @@ costing_add_trim_row_btn.click(function(e){
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
     let trim_row_tds_add = '';
-    total_column = total_column - total_column_orig;
 
-    for (let i = 0; i < total_column; i++) {
-        trim_row_tds_add = trim_row_tds_add.concat('<td contenteditable="true"></td>');
+    let no_of_size = sessionStorage.getItem('costing_no_of_size');
+    if(no_of_size !== 0){
+        for (let i = 1; i <= no_of_size; i++) {
+            trim_row_tds_add = trim_row_tds_add.concat('' +
+                '<td class="costing_table_size">' +
+                '<input type="text" id="costing_trim_size_'+i+'_'+trim_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
+    }
+    let no_of_color = sessionStorage.getItem('costing_no_of_color');
+    if(no_of_color !== 0){
+        for (let i = 1; i <= no_of_color; i++) {
+            trim_row_tds_add = trim_row_tds_add.concat('' +
+                '<td class="costing_table_color">' +
+                '<input type="text" id="costing_trim_color_'+i+'_'+trim_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
     }
 
     let trim_row_string = trim_row_last_num.toString();
@@ -262,10 +291,26 @@ costing_add_zipper_row_btn.click(function(e){
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
     let zipper_row_tds_add = '';
-    total_column = total_column - total_column_orig;
 
-    for (let i = 0; i < total_column; i++) {
-        zipper_row_tds_add = zipper_row_tds_add.concat('<td contenteditable="true"></td>');
+    let no_of_size = sessionStorage.getItem('costing_no_of_size');
+    if(no_of_size !== 0){
+        for (let i = 1; i <= no_of_size; i++) {
+            zipper_row_tds_add = zipper_row_tds_add.concat('' +
+                '<td class="costing_table_size">' +
+                '<input type="text" id="costing_zipper_size_'+i+'_'+zipper_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
+    }
+    let no_of_color = sessionStorage.getItem('costing_no_of_color');
+    if(no_of_color !== 0){
+        for (let i = 1; i <= no_of_color; i++) {
+            zipper_row_tds_add = zipper_row_tds_add.concat('' +
+                '<td class="costing_table_color">' +
+                '<input type="text" id="costing_zipper_color_'+i+'_'+zipper_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
     }
 
     let zipper_row_string = zipper_row_last_num.toString();
@@ -377,10 +422,26 @@ costing_add_embelishment_row_btn.click(function(e){
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
     let embelishment_row_tds_add = '';
-    total_column = total_column - total_column_orig;
 
-    for (let i = 0; i < total_column; i++) {
-        embelishment_row_tds_add = embelishment_row_tds_add.concat('<td contenteditable="true"></td>');
+    let no_of_size = sessionStorage.getItem('costing_no_of_size');
+    if(no_of_size !== 0){
+        for (let i = 1; i <= no_of_size; i++) {
+            embelishment_row_tds_add = embelishment_row_tds_add.concat('' +
+                '<td class="costing_table_size">' +
+                '<input type="text" id="costing_embelishment_size_'+i+'_'+embelishment_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
+    }
+    let no_of_color = sessionStorage.getItem('costing_no_of_color');
+    if(no_of_color !== 0){
+        for (let i = 1; i <= no_of_color; i++) {
+            embelishment_row_tds_add = embelishment_row_tds_add.concat('' +
+                '<td class="costing_table_color">' +
+                '<input type="text" id="costing_embelishment_color_'+i+'_'+embelishment_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
     }
 
     let embelishment_row_string = embelishment_row_last_num.toString();
@@ -497,10 +558,26 @@ costing_add_label_row_btn.click(function(e){
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
     let label_row_tds_add = '';
-    total_column = total_column - total_column_orig;
 
-    for (let i = 0; i < total_column; i++) {
-        label_row_tds_add = label_row_tds_add.concat('<td contenteditable="true"></td>');
+    let no_of_size = sessionStorage.getItem('costing_no_of_size');
+    if(no_of_size !== 0){
+        for (let i = 1; i <= no_of_size; i++) {
+            label_row_tds_add = label_row_tds_add.concat('' +
+                '<td class="costing_table_size">' +
+                '<input type="text" id="costing_label_size_'+i+'_'+label_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
+    }
+    let no_of_color = sessionStorage.getItem('costing_no_of_color');
+    if(no_of_color !== 0){
+        for (let i = 1; i <= no_of_color; i++) {
+            label_row_tds_add = label_row_tds_add.concat('' +
+                '<td class="costing_table_color">' +
+                '<input type="text" id="costing_label_color_'+i+'_'+label_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
     }
 
     let label_row_string = label_row_last_num.toString();
@@ -612,10 +689,26 @@ costing_add_thread_row_btn.click(function(e){
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
     let thread_row_tds_add = '';
-    total_column = total_column - total_column_orig;
 
-    for (let i = 0; i < total_column; i++) {
-        thread_row_tds_add = thread_row_tds_add.concat('<td contenteditable="true"></td>');
+    let no_of_size = sessionStorage.getItem('costing_no_of_size');
+    if(no_of_size !== 0){
+        for (let i = 1; i <= no_of_size; i++) {
+            thread_row_tds_add = thread_row_tds_add.concat('' +
+                '<td class="costing_table_size">' +
+                '<input type="text" id="costing_thread_size_'+i+'_'+thread_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
+    }
+    let no_of_color = sessionStorage.getItem('costing_no_of_color');
+    if(no_of_color !== 0){
+        for (let i = 1; i <= no_of_color; i++) {
+            thread_row_tds_add = thread_row_tds_add.concat('' +
+                '<td class="costing_table_color">' +
+                '<input type="text" id="costing_thread_color_'+i+'_'+thread_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
     }
 
     let thread_row_string = thread_row_last_num.toString();
@@ -727,10 +820,26 @@ costing_add_package_row_btn.click(function(e){
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
     let package_row_tds_add = '';
-    total_column = total_column - total_column_orig;
 
-    for (let i = 0; i < total_column; i++) {
-        package_row_tds_add = package_row_tds_add.concat('<td contenteditable="true"></td>');
+    let no_of_size = sessionStorage.getItem('costing_no_of_size');
+    if(no_of_size !== 0){
+        for (let i = 1; i <= no_of_size; i++) {
+            package_row_tds_add = package_row_tds_add.concat('' +
+                '<td class="costing_table_size">' +
+                '<input type="text" id="costing_package_size_'+i+'_'+package_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
+    }
+    let no_of_color = sessionStorage.getItem('costing_no_of_color');
+    if(no_of_color !== 0){
+        for (let i = 1; i <= no_of_color; i++) {
+            package_row_tds_add = package_row_tds_add.concat('' +
+                '<td class="costing_table_color">' +
+                '<input type="text" id="costing_package_color_'+i+'_'+package_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
     }
 
     let package_row_string = package_row_last_num.toString();
@@ -842,10 +951,26 @@ costing_add_finish_row_btn.click(function(e){
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
     let finish_row_tds_add = '';
-    total_column = total_column - total_column_orig;
 
-    for (let i = 0; i < total_column; i++) {
-        finish_row_tds_add = finish_row_tds_add.concat('<td contenteditable="true"></td>');
+    let no_of_size = sessionStorage.getItem('costing_no_of_size');
+    if(no_of_size !== 0){
+        for (let i = 1; i <= no_of_size; i++) {
+            finish_row_tds_add = finish_row_tds_add.concat('' +
+                '<td class="costing_table_size">' +
+                '<input type="text" id="costing_finish_size_'+i+'_'+finish_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
+    }
+    let no_of_color = sessionStorage.getItem('costing_no_of_color');
+    if(no_of_color !== 0){
+        for (let i = 1; i <= no_of_color; i++) {
+            finish_row_tds_add = finish_row_tds_add.concat('' +
+                '<td class="costing_table_color">' +
+                '<input type="text" id="costing_finish_color_'+i+'_'+finish_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
     }
 
     let finish_row_string = finish_row_last_num.toString();
@@ -957,10 +1082,26 @@ costing_add_export_row_btn.click(function(e){
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
     let export_row_tds_add = '';
-    total_column = total_column - total_column_orig;
 
-    for (let i = 0; i < total_column; i++) {
-        export_row_tds_add = export_row_tds_add.concat('<td contenteditable="true"></td>');
+    let no_of_size = sessionStorage.getItem('costing_no_of_size');
+    if(no_of_size !== 0){
+        for (let i = 1; i <= no_of_size; i++) {
+            export_row_tds_add = export_row_tds_add.concat('' +
+                '<td class="costing_table_size">' +
+                '<input type="text" id="costing_export_size_'+i+'_'+export_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
+    }
+    let no_of_color = sessionStorage.getItem('costing_no_of_color');
+    if(no_of_color !== 0){
+        for (let i = 1; i <= no_of_color; i++) {
+            export_row_tds_add = export_row_tds_add.concat('' +
+                '<td class="costing_table_color">' +
+                '<input type="text" id="costing_export_color_'+i+'_'+export_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
     }
 
     let export_row_string = export_row_last_num.toString();
@@ -1072,10 +1213,26 @@ costing_add_testing_row_btn.click(function(e){
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
     let testing_row_tds_add = '';
-    total_column = total_column - total_column_orig;
 
-    for (let i = 0; i < total_column; i++) {
-        testing_row_tds_add = testing_row_tds_add.concat('<td contenteditable="true"></td>');
+    let no_of_size = sessionStorage.getItem('costing_no_of_size');
+    if(no_of_size !== 0){
+        for (let i = 1; i <= no_of_size; i++) {
+            testing_row_tds_add = testing_row_tds_add.concat('' +
+                '<td class="costing_table_size">' +
+                '<input type="text" id="costing_testing_size_'+i+'_'+testing_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
+    }
+    let no_of_color = sessionStorage.getItem('costing_no_of_color');
+    if(no_of_color !== 0){
+        for (let i = 1; i <= no_of_color; i++) {
+            testing_row_tds_add = testing_row_tds_add.concat('' +
+                '<td class="costing_table_color">' +
+                '<input type="text" id="costing_testing_color_'+i+'_'+testing_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
     }
 
     let testing_row_string = testing_row_last_num.toString();
@@ -1187,10 +1344,26 @@ costing_add_other_row_btn.click(function(e){
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
     let other_row_tds_add = '';
-    total_column = total_column - total_column_orig;
 
-    for (let i = 0; i < total_column; i++) {
-        other_row_tds_add = other_row_tds_add.concat('<td contenteditable="true"></td>');
+    let no_of_size = sessionStorage.getItem('costing_no_of_size');
+    if(no_of_size !== 0){
+        for (let i = 1; i <= no_of_size; i++) {
+            other_row_tds_add = other_row_tds_add.concat('' +
+                '<td class="costing_table_size">' +
+                '<input type="text" id="costing_other_size_'+i+'_'+other_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
+    }
+    let no_of_color = sessionStorage.getItem('costing_no_of_color');
+    if(no_of_color !== 0){
+        for (let i = 1; i <= no_of_color; i++) {
+            other_row_tds_add = other_row_tds_add.concat('' +
+                '<td class="costing_table_color">' +
+                '<input type="text" id="costing_other_color_'+i+'_'+other_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
     }
 
     let other_row_string = other_row_last_num.toString();
@@ -1302,10 +1475,26 @@ costing_add_labor_row_btn.click(function(e){
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
     let labor_row_tds_add = '';
-    total_column = total_column - total_column_orig;
 
-    for (let i = 0; i < total_column; i++) {
-        labor_row_tds_add = labor_row_tds_add.concat('<td contenteditable="true"></td>');
+    let no_of_size = sessionStorage.getItem('costing_no_of_size');
+    if(no_of_size !== 0){
+        for (let i = 1; i <= no_of_size; i++) {
+            labor_row_tds_add = labor_row_tds_add.concat('' +
+                '<td class="costing_table_size">' +
+                '<input type="text" id="costing_labor_size_'+i+'_'+labor_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
+    }
+    let no_of_color = sessionStorage.getItem('costing_no_of_color');
+    if(no_of_color !== 0){
+        for (let i = 1; i <= no_of_color; i++) {
+            labor_row_tds_add = labor_row_tds_add.concat('' +
+                '<td class="costing_table_color">' +
+                '<input type="text" id="costing_labor_color_'+i+'_'+labor_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
     }
 
     let labor_row_string = labor_row_last_num.toString();

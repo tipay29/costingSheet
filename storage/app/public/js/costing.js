@@ -181,6 +181,7 @@ costing_gender_age_group_div.on('change','#costing_gender_age_group',function (e
     costing_gender_age_group = $('#costing_gender_age_group');
 
     if(costing_product_category_one.val() !== null && costing_product_category_one.val() !== 'ONCESET'){
+
         giveSizes(costing_gender_age_group.val(),costing_product_category_one.val());
 
         if(no_of_color !== null){
@@ -194,10 +195,10 @@ costing_gender_age_group_div.on('change','#costing_gender_age_group',function (e
 
 });
 
-costing_fabric_header = $('.costing_fabric_header');
-costing_fabric_header_ch = $('.costing_fabric_header_ch');
-costing_fabric_header_total = $('.costing_fabric_header_total');
-costing_fabric_final_total = $('.costing_fabric_final_total');
+costing_header = $('.costing_header');
+costing_header_ch = $('.costing_header_ch');
+costing_header_total = $('.costing_header_total');
+costing_final_total = $('.costing_final_total');
 
 function giveSizes(gender,product){
 
@@ -236,29 +237,34 @@ function giveSizes(gender,product){
         sizes = ["0-3M","3-6M","6-12M","12-18M","18-24M"];
     }
 
+    sessionStorage.setItem('costing_sizes_name',sizes);
     old_no_of_size = sessionStorage.getItem('costing_no_of_size');
     no_of_size = parseInt(sizes.length);
     sessionStorage.setItem('costing_no_of_size',no_of_size);
 
-    let fabric_header_ch ='<th class="costing_table_size" scope="col" style="vertical-align: top;background-color: #e3ed26; " colspan="'+sizes.length+'">Size尺寸</th>'
-    let fabric_header = '';
-    let fabric_data = '';
-    let fabric_header_total = '<th class="costing_table_size" style="background-color: #10ad02; " colspan="'+sizes.length+'"></th>';
-    let fabric_final_total = '<th class="costing_table_size" style="background-color: #bfcdf2; " colspan="'+sizes.length+'"></th>';
+    let header_ch ='<th class="costing_table_size" scope="col" style="vertical-align: top;background-color: #e3ed26; " colspan="'+sizes.length+'">Size尺寸</th>'
+    let header = '';
+    let header_total = '<th class="costing_table_size" style="background-color: #b5f7bd; " colspan="'+sizes.length+'"></th>';
+    let final_total = '<th class="costing_table_size" style="background-color: #bfcdf2; " colspan="'+sizes.length+'"></th>';
 
     for (let i = 0; i < sizes.length; i++) {
-        fabric_header = fabric_header.concat('<th class="costing_table_size" scope="col" style="min-width:60px ;vertical-align: top;background-color: #7b9ddb;font-size: 1em; ">' + sizes[i] +'</th>');
-        fabric_data = fabric_data.concat('<td class="costing_table_size"></td>');
+        header = header.concat('<th class="costing_table_size" scope="col" style="min-width:60px ;vertical-align: top;background-color: #7b9ddb;font-size: 1em; ">' + sizes[i] +'</th>');
     }
 
     $('.costing_table_size').remove();
+    $('.costing_table_color').remove();
 
-    costing_fabric_header_ch.append(fabric_header_ch);
-    costing_fabric_header.append(fabric_header);
-    $('.costing_fabric_data').append(fabric_data);
+    costing_header_ch.append(header_ch);
+    costing_header.append(header);
+    costing_header_total.append(header_total);
+    costing_final_total.append(final_total);
 
-    costing_fabric_header_total.append(fabric_header_total);
-    costing_fabric_final_total.append(fabric_final_total);
+    //put sizes in the with IDS
+    let categories = ['fabric','trim','zipper','embelishment','label',
+                'thread','package','finish','export','testing','other','labor'];
+    for(y = 0; y < categories.length; y++){
+        giveSizesRow(sizes,categories[y]);
+    }
 
     let total_column = parseInt(sessionStorage.getItem("costing_total_column"));
     total_column = total_column - old_no_of_size;
@@ -275,13 +281,12 @@ costing_no_of_color.change(function(e){
     no_of_color = parseInt(costing_no_of_color.val());
     sessionStorage.setItem('costing_no_of_color',no_of_color);
 
-
     if(no_of_color <= 10 && no_of_color >= 1){
-        // alert(costing_gender_age_group.val());
-
 
         if(costing_product_category_one.val() !== null &&  costing_product_category_one.val() !== 'ONCESET' &&
             typeof costing_gender_age_group === 'undefined'){
+
+
             giveSizes(costing_gender_age_group.val(),costing_product_category_one.val());
         }
 
@@ -297,23 +302,30 @@ costing_no_of_color.change(function(e){
 function giveColorColumns(no_of_color,old_no_of_color){
 
 
-    let fabric_header_ch ='<th class="costing_table_size" scope="col" style="vertical-align: top;background-color: #e3ed26; " colspan="'+no_of_color+'">Color颜色</th>'
-    let fabric_header = '';
-    let fabric_data = '';
-    let fabric_header_total = '<th class="costing_table_size" style="background-color: #10ad02; " colspan="'+no_of_color+'"></th>';
-    let fabric_final_total = '<th class="costing_table_size" style="background-color: #bfcdf2; " colspan="'+no_of_color+'"></th>';
+    let header_ch ='<th class="costing_table_color" scope="col" style="vertical-align: top;background-color: #e3ed26; " colspan="'+no_of_color+'">Color颜色</th>'
+    let header = '';
+    let header_total = '<th class="costing_table_color" style="background-color: #b5f7bd; " colspan="'+no_of_color+'"></th>';
+    let final_total = '<th class="costing_table_color" style="background-color: #bfcdf2; " colspan="'+no_of_color+'"></th>';
 
 
     for (let i = 1; i <= no_of_color; i++) {
-        fabric_header = fabric_header.concat('<th contenteditable="true" class="costing_table_size"  scope="col" style="min-width:75px ;vertical-align: top;background-color: #7b9ddb;font-size: 1em; ">' + i +'</th>');
-        fabric_data = fabric_data.concat('<td class="costing_table_size" contenteditable="true"></td>');
+        header = header.concat('<th contenteditable="true" class="costing_table_color"  scope="col" style="min-width:75px ;vertical-align: top;background-color: #7b9ddb;font-size: 1em; ">' + i +'</th>');
+
     }
 
-    costing_fabric_header_ch.append(fabric_header_ch);
-    costing_fabric_header.append(fabric_header);
-    $('.costing_fabric_data').append(fabric_data);
-    costing_fabric_header_total.append(fabric_header_total);
-    costing_fabric_final_total.append(fabric_final_total);
+
+
+    costing_header_ch.append(header_ch);
+    costing_header.append(header);
+    costing_header_total.append(header_total);
+    costing_final_total.append(final_total);
+
+    //put sizes in the with IDS
+    let categories = ['fabric','trim','zipper','embelishment','label',
+        'thread','package','finish','export','testing','other','labor'];
+    for(y = 0; y < categories.length; y++){
+        giveColorsRow(no_of_color,categories[y]);
+    }
 
     let total_column = parseInt(sessionStorage.getItem("costing_total_column"));
     total_column = total_column - old_no_of_color;
@@ -322,4 +334,51 @@ function giveColorColumns(no_of_color,old_no_of_color){
 
 }
 
+function giveSizesRow(sizes,categories){
 
+    let row_control = sessionStorage.getItem('costing_'+categories+'_row_ids').split('-');
+
+    for (let i = parseInt(row_control[0]); i <= parseInt(row_control[1]); i++) {
+        let categories_row = '#costing_'+ categories +'_tr' + i;
+        let sizes_row = '';
+
+        for (let x = 1; x <= sizes.length; x++) {
+            sizes_row = sizes_row.concat('' +
+                '<td class="costing_table_size">' +
+                '<input type="text" id="costing_'+ categories +'_size_'+x+'_'+i+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
+
+        $(categories_row).append(sizes_row);
+    }
+
+    // costing_fabric_tr
+
+
+}
+
+function giveColorsRow(no_of_color,categories){
+
+    let row_control = sessionStorage.getItem('costing_'+categories+'_row_ids').split('-');
+
+    for (let i = parseInt(row_control[0]); i <= parseInt(row_control[1]); i++) {
+        let categories_row = '#costing_'+ categories +'_tr' + i;
+
+        let colors_row = '';
+
+        for (let x = 1; x <= no_of_color; x++) {
+            colors_row = colors_row.concat('' +
+                '<td class="costing_table_color">' +
+                '<input type="text" id="costing_'+ categories +'_color_'+x+'_'+i+'" value="" class=" css-input-costing-data-solo">' +
+                '</td>'+
+                '');
+        }
+
+        $(categories_row).append(colors_row);
+    }
+
+    // costing_fabric_tr
+
+
+}

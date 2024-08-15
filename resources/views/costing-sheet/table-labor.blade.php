@@ -1,5 +1,5 @@
 
-                    <tr class="costing_fabric_header">
+                    <tr class="costing_header">
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Item</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Component</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Material ID</th>
@@ -27,7 +27,7 @@
 
                     </tbody>
 
-                    <tr class="costing_fabric_header_total">
+                    <tr class="costing_header_total">
                         <th style="background-color: #b5f7bd; ">
                             <a class="costing_btn_add_remove" id="costing_labor_show_cb_item_btn"><i style="color: gray;" class="fa fa-check-circle" aria-hidden="true"></i></a>
                             <a class="costing_btn_add_remove" id="costing_labor_hide_cb_item_btn"><i style="color: gray;" class="fa fa-times-circle" aria-hidden="true"></i></a>
@@ -55,7 +55,7 @@
                         <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>
                     </tr>
 
-                    <tr class="costing_fabric_final_total">
+                    <tr class="costing_final_total">
                         <th style="background-color: #bfcdf2; "></th>
                         <th style="background-color: #bfcdf2; "></th>
                         <th style="background-color: #bfcdf2; "></th>

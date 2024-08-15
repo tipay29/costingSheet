@@ -8,7 +8,7 @@ width: 100%;">
 
                 <table class="table table-bordered tbl m-0" style="">
 
-                    <tr  class="costing_fabric_header_ch">
+                    <tr  class="costing_header_ch">
                         <th   scope="col" style="min-width:50px ;vertical-align: top;background-color: #e3ed26; ">序号</th>
                         <th  scope="col" style="min-width:80px;vertical-align: top;background-color: #e3ed26; ">分类编号</th>
                         <th  scope="col" style="min-width:75px;vertical-align: top;background-color: #e3ed26; ">物料简码</th>
@@ -32,7 +32,7 @@ width: 100%;">
 
 
                     </tr>
-                    <tr class="costing_fabric_header">
+                    <tr class="costing_header">
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Item</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Component</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Material ID</th>
@@ -59,7 +59,7 @@ width: 100%;">
 
                     </tbody>
 
-                        <tr class="costing_fabric_header_total">
+                        <tr class="costing_header_total">
                             <th style="background-color: #b5f7bd; ">
                                 <a class="costing_btn_add_remove" id="costing_fabric_show_cb_item_btn"><i style="color: gray;" class="fa fa-check-circle" aria-hidden="true"></i></a>
                                 <a class="costing_btn_add_remove" id="costing_fabric_hide_cb_item_btn"><i style="color: gray;" class="fa fa-times-circle" aria-hidden="true"></i></a>
