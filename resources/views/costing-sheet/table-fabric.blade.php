@@ -22,10 +22,10 @@ width: 100%;">
                         <th  scope="col" style="min-width:50px;vertical-align: top;background-color: #e3ed26; ">单位</th>
                         <th  scope="col" style="min-width:65px;vertical-align: top;background-color: #e3ed26; ">规格</th>
                         <th  scope="col" style="min-width:65px;vertical-align: top;background-color: #e3ed26; ">用量</th>
+                        <th  scope="col" style="min-width:75px;vertical-align: top;background-color: #e3ed26; ">损耗</th>
                         <th  scope="col" style="min-width:80px;vertical-align: top;background-color: #e3ed26; ">总用量</th>
                         <th  scope="col" style="min-width:70px;vertical-align: top;background-color: #e3ed26; ">单价</th>
                         <th  scope="col" style="min-width:70px;vertical-align: top;background-color: #e3ed26; ">处理</th>
-                        <th  scope="col" style="min-width:75px;vertical-align: top;background-color: #e3ed26; ">损耗</th>
                         <th  scope="col" style="min-width:80px;vertical-align: top;background-color: #e3ed26; ">单价</th>
                         <th  scope="col" style="min-width:80px;vertical-align: top;background-color: #e3ed26; ">评论</th>
                         <th  scope="col" style="min-width:60px;border:1px solid var(--bs-body-bg);"></th>
@@ -46,10 +46,10 @@ width: 100%;">
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">UOM</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Width</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Usage</th>
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Wastage</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Gross Yield</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Unit Cost</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Handling</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Wastage</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Total</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Comment</th>
                         <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>
@@ -81,8 +81,13 @@ width: 100%;">
                             <th style="text-align:start;vertical-align: top;background-color: #b5f7bd; " colspan="4">1. Total Cost - Fabrics</th>
                             <th style="background-color: #b5f7bd; "></th>
                             <th style="text-align:end;background-color: #b5f7bd; "></th>
-                            <th style="background-color: #b5f7bd; ">$0.00</th>
+                            <th style="background-color: #b5f7bd; ">
+                                <input type="text" id="" disabled value="$" class="costing_fob_sign costing_fob_sign_total">
+                                <input type="text" id="costing_fabric_total_fob" value="0.00" class="css-input-costing-total" style="width: 68px;" disabled>
+                            </th>
                             <th style="background-color: #b5f7bd; "></th>
                             <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>
                         </tr>
+{{-- costing_fob_sign--}}
+
 

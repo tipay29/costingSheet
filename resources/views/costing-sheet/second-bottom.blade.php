@@ -24,7 +24,15 @@
             <div class="col-md-12 css-costing-labor-cost-table p-0" style="border: 1px solid black;min-height: 10rem;">
                 <table class="table table-bordered m-0 ">
                     <tbody>
-
+                    <tr>
+                        <td scope="col"  >LABOR COST PER PC</td>
+                        <td  id=""  style="font-weight:bold;text-align:center;">$</td>
+                        <td  id="costing_cost_per_pc_first" scope="col" style="text-align: end; background-color: #d1d2d4;">
+                        </td>
+                        <td  id="" style="font-weight:bold;text-align:center;">$</td>
+                        <td  id="costing_cost_per_pc_second" scope="col" style="text-align: end; background-color: #d1d2d4;">
+                        </td>
+                    </tr>
                         <tr>
                             <td width="40%" scope="col" style="">SMV</td>
                             <td width="3%" scope="col" style=""></td>
@@ -116,15 +124,7 @@
                             <td  id="costing_wages_per_min_second" scope="col" style="text-align: end; background-color: #d1d2d4;">
                             </td>
                         </tr>
-                        <tr>
-                            <td scope="col"  >LABOR COST PER PC</td>
-                            <td  id=""  style="font-weight:bold;text-align:center;">$</td>
-                            <td  id="costing_cost_per_pc_first" scope="col" style="text-align: end; background-color: #d1d2d4;">
-                            </td>
-                            <td  id="" style="font-weight:bold;text-align:center;">$</td>
-                            <td  id="costing_cost_per_pc_second" scope="col" style="text-align: end; background-color: #d1d2d4;">
-                            </td>
-                        </tr>
+
 
                     </tbody>
                 </table>

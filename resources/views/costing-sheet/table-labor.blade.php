@@ -13,10 +13,10 @@
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">UOM</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Width</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Usage</th>
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Wastage</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Gross Yield</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Unit Cost</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Handling</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Wastage</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Total</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Comment</th>
                         <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>
@@ -47,7 +47,10 @@
                         <th style="text-align:start;vertical-align: top;background-color:#b5f7bd;font-size:.9em; " colspan="4">12. Total Cost - Labor/Overheads/Profit</th>
                         <th style="background-color: #b5f7bd; "></th>
                         <th style="text-align:end;background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; ">$0.00</th>
+                        <th style="background-color: #b5f7bd; ">
+                            <input type="text" id="" disabled value="$" class="costing_fob_sign costing_fob_sign_total">
+                            <input type="text" id="costing_labor_total_fob" value="0.00" class="css-input-costing-total" style="width: 68px;" disabled>
+                        </th>
                         <th style="background-color: #b5f7bd; "></th>
                         <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>
                     </tr>
@@ -67,7 +70,10 @@
                         <th style="text-align:start;vertical-align: top;background-color: #bfcdf2;color:blue; " colspan="4">Total Cost - FOB</th>
                         <th style="background-color: #bfcdf2; "></th>
                         <th style="text-align:end;background-color: #bfcdf2;color:blue; "></th>
-                        <th style="background-color: #bfcdf2; ">$0.00</th>
+                        <th style="background-color: #bfcdf2; ">
+                            <input type="text" id="" disabled value="$" class="costing_fob_sign costing_fob_sign_total" style="color:blue;background-color: #bfcdf2 !important;">
+                            <input type="text" id="costing_total_cost_fob" value="0.00" class="css-input-costing-total" style="color:blue;width: 68px;background-color: #bfcdf2 !important;" disabled>
+                        </th>
                         <th style="background-color: #bfcdf2; "></th>
                         <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>
                     </tr>

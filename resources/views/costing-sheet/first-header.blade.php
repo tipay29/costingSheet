@@ -155,8 +155,9 @@
                     <input id="costing_no_of_color" class="css-input-costing" min="1" max="10" type="number">
                 </td>
                 <td class="css-text-right">TARGET FOB :</td>
-                <td contenteditable="true" id="costing_target_fob">
+                <td>
                     <input type="text" id="costing_target_fob_sign" disabled value="$" class="costing_fob_sign">
+                    <input type="text" id="costing_target_fob" class="css-input-costing" style="width: 8.3rem;">
                 </td>
             </tr>
             <tr>
@@ -169,8 +170,9 @@
                         <option value="CM" >CM :</option>
                     </select>
                 </td>
-                <td contenteditable="true" id="costing_total_fob">
+                <td >
                     <input type="text" id="costing_total_fob_sign" disabled value="$" class="costing_fob_sign">
+                    <input type="text" id="costing_total_fob_header" class="css-input-costing" style="width: 8.3rem;">
                 </td>
             </tr>
         </table>

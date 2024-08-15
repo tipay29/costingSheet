@@ -12,9 +12,13 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('storage/js/main.js') }}" defer></script>
+    <script src="{{ asset('storage/js/costing-construct.js') }}" defer></script>
     <script src="{{ asset('storage/js/costing-init.js') }}" defer></script>
-    <script src="{{ asset('storage/js/costing.js') }}" defer></script>
+    <script src="{{ asset('storage/js/costing-table-cb.js') }}" defer></script>
     <script src="{{ asset('storage/js/costing-bottom.js') }}" defer></script>
+    <script src="{{ asset('storage/js/costing.js') }}" defer></script>
+
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
