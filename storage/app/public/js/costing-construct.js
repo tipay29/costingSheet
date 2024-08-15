@@ -81,7 +81,7 @@ function getFabricRow(){
             '                                    <input type="text" id="costing_fabric_mill_supplier'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_fabric_uom" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+            '                                      <select id="costing_fabric_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" id="costing_fabric_wedth'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -579,7 +579,7 @@ function getPackageRow(){
             '                                    <input type="text" id="costing_package_material_id'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_package_categories'+item_no+'" value="Package #'+(i-before_row_count)+'" class="css-input-costing-data-solo" style="text-align: start;">\n' +
+            '                                    <input type="text" id="costing_package_categories'+item_no+'" value="Packaging #'+(i-before_row_count)+'" class="css-input-costing-data-solo" style="text-align: start;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" id="costing_package_nominated'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
