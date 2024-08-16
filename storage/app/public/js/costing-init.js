@@ -96,7 +96,9 @@ costing_add_fabric_row_btn.click(function(e){
         '                                    <input type="text" id="costing_fabric_wastage'+fabric_row_string+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
-        '                                    <td contenteditable="true"></td>\n' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_fabric_gross_yield'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
         '                                    <input type="text" id="costing_fabric_unit_cost'+fabric_row_string+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
@@ -155,7 +157,8 @@ costing_add_trim_row_btn.click(function(e){
     let trim_row_last_num = parseInt(trim_row_control[1])+1;
 
     let trim_row = sessionStorage.getItem("costing_trim_row");
-    sessionStorage.setItem("costing_trim_row", parseInt(trim_row)+1);
+    trim_row = parseInt(trim_row)+1;
+    sessionStorage.setItem("costing_trim_row", trim_row);
 
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
@@ -166,7 +169,7 @@ costing_add_trim_row_btn.click(function(e){
         for (let i = 1; i <= no_of_size; i++) {
             trim_row_tds_add = trim_row_tds_add.concat('' +
                 '<td class="costing_table_size">' +
-                '<input type="text" id="costing_trim_size_'+i+'_'+trim_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_trim_size_'+i+'_'+trim_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -176,7 +179,7 @@ costing_add_trim_row_btn.click(function(e){
         for (let i = 1; i <= no_of_color; i++) {
             trim_row_tds_add = trim_row_tds_add.concat('' +
                 '<td class="costing_table_color">' +
-                '<input type="text" id="costing_trim_color_'+i+'_'+trim_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_trim_color_'+i+'_'+trim_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -189,60 +192,62 @@ costing_add_trim_row_btn.click(function(e){
         '                                    <input type="checkbox" id="costing_trim_cb'+trim_row_string+'" class="css-costing-cb" >'+trim_row_string.padStart(3,"0")+
         '                                    </td>\n' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_component'+trim_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_trim_component'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_material_id'+trim_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_trim_material_id'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_categories'+trim_row_string+'" value="Trim" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
+        '                                    <input type="text" id="costing_trim_categories'+trim_row+'" value="Trim" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_nominated'+trim_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_trim_nominated'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_coo'+trim_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_trim_coo'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_supplier_ref'+trim_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_trim_supplier_ref'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_description'+trim_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_trim_description'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_location'+trim_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_trim_location'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_mill_supplier'+trim_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_trim_mill_supplier'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                      <select id="costing_trim_uom'+trim_row_string+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+        '                                      <select id="costing_trim_uom'+trim_row+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_wedth'+trim_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_trim_wedth'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_usage'+trim_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_trim_usage'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_wastage'+trim_row_string+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
-        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
-        '                                     </td>' +
-        '                                    <td contenteditable="true"></td>\n' +
-        '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_trim_unit_cost'+trim_row_string+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
-        '                                     </td>' +
-        '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_handling'+trim_row_string+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text" id="costing_trim_wastage'+trim_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_trim_total_cost'+trim_row_string+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="text" id="costing_trim_gross_yield'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_comment'+trim_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_trim_unit_cost'+trim_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_trim_handling'+trim_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_trim_total_cost'+trim_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_trim_comment'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
         trim_row_tds_add +
@@ -250,7 +255,7 @@ costing_add_trim_row_btn.click(function(e){
 
     costing_trim_tbody.append(trim_row_tds);
 
-    let uom = '#costing_trim_uom'+trim_row_string;
+    let uom = '#costing_trim_uom'+trim_row;
     getUOM(uom);
 
     new_ids = trim_row_control[0] + '-' + (parseInt(trim_row_control[1])+1);
@@ -286,7 +291,8 @@ costing_add_zipper_row_btn.click(function(e){
     let zipper_row_last_num = parseInt(zipper_row_control[1])+1;
 
     let zipper_row = sessionStorage.getItem("costing_zipper_row");
-    sessionStorage.setItem("costing_zipper_row", parseInt(zipper_row)+1);
+    zipper_row = parseInt(zipper_row)+1;
+    sessionStorage.setItem("costing_zipper_row", zipper_row);
 
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
@@ -297,7 +303,7 @@ costing_add_zipper_row_btn.click(function(e){
         for (let i = 1; i <= no_of_size; i++) {
             zipper_row_tds_add = zipper_row_tds_add.concat('' +
                 '<td class="costing_table_size">' +
-                '<input type="text" id="costing_zipper_size_'+i+'_'+zipper_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_zipper_size_'+i+'_'+zipper_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -307,7 +313,7 @@ costing_add_zipper_row_btn.click(function(e){
         for (let i = 1; i <= no_of_color; i++) {
             zipper_row_tds_add = zipper_row_tds_add.concat('' +
                 '<td class="costing_table_color">' +
-                '<input type="text" id="costing_zipper_color_'+i+'_'+zipper_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_zipper_color_'+i+'_'+zipper_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -320,60 +326,62 @@ costing_add_zipper_row_btn.click(function(e){
         '                                    <input type="checkbox" id="costing_zipper_cb'+zipper_row_string+'" class="css-costing-cb" >'+zipper_row_string.padStart(3,"0")+
         '                                    </td>\n' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_component'+zipper_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_zipper_component'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_material_id'+zipper_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_zipper_material_id'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_categories'+zipper_row_string+'" value="Zipper" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
+        '                                    <input type="text" id="costing_zipper_categories'+zipper_row+'" value="Zipper" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_nominated'+zipper_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_zipper_nominated'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_coo'+zipper_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_zipper_coo'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_supplier_ref'+zipper_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_zipper_supplier_ref'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_description'+zipper_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_zipper_description'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_location'+zipper_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_zipper_location'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_mill_supplier'+zipper_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_zipper_mill_supplier'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                      <select id="costing_zipper_uom'+zipper_row_string+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+        '                                      <select id="costing_zipper_uom'+zipper_row+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_wedth'+zipper_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_zipper_wedth'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_usage'+zipper_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_zipper_usage'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_wastage'+zipper_row_string+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
-        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
-        '                                     </td>' +
-        '                                    <td contenteditable="true"></td>\n' +
-        '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_zipper_unit_cost'+zipper_row_string+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
-        '                                     </td>' +
-        '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_handling'+zipper_row_string+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text" id="costing_zipper_wastage'+zipper_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_zipper_total_cost'+zipper_row_string+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="text" id="costing_zipper_gross_yield'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_comment'+zipper_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_zipper_unit_cost'+zipper_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_zipper_handling'+zipper_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_zipper_total_cost'+zipper_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_zipper_comment'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
         zipper_row_tds_add +
@@ -381,7 +389,7 @@ costing_add_zipper_row_btn.click(function(e){
 
     costing_zipper_tbody.append(zipper_row_tds);
 
-    let uom = '#costing_zipper_uom'+zipper_row_string;
+    let uom = '#costing_zipper_uom'+zipper_row;
     getUOM(uom);
 
     new_ids = zipper_row_control[0] + '-' + (parseInt(zipper_row_control[1])+1);
@@ -417,7 +425,8 @@ costing_add_embelishment_row_btn.click(function(e){
     let embelishment_row_last_num = parseInt(embelishment_row_control[1])+1;
 
     let embelishment_row = sessionStorage.getItem("costing_embelishment_row");
-    sessionStorage.setItem("costing_embelishment_row", parseInt(embelishment_row)+1);
+    embelishment_row = parseInt(embelishment_row)+1;
+    sessionStorage.setItem("costing_embelishment_row", embelishment_row);
 
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
@@ -428,7 +437,7 @@ costing_add_embelishment_row_btn.click(function(e){
         for (let i = 1; i <= no_of_size; i++) {
             embelishment_row_tds_add = embelishment_row_tds_add.concat('' +
                 '<td class="costing_table_size">' +
-                '<input type="text" id="costing_embelishment_size_'+i+'_'+embelishment_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_embelishment_size_'+i+'_'+embelishment_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -438,7 +447,7 @@ costing_add_embelishment_row_btn.click(function(e){
         for (let i = 1; i <= no_of_color; i++) {
             embelishment_row_tds_add = embelishment_row_tds_add.concat('' +
                 '<td class="costing_table_color">' +
-                '<input type="text" id="costing_embelishment_color_'+i+'_'+embelishment_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_embelishment_color_'+i+'_'+embelishment_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -451,13 +460,13 @@ costing_add_embelishment_row_btn.click(function(e){
         '                                    <input type="checkbox" id="costing_embelishment_cb'+embelishment_row_string+'" class="css-costing-cb" >'+embelishment_row_string.padStart(3,"0")+
         '                                    </td>\n' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_component'+embelishment_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_embelishment_component'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_material_id'+embelishment_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_embelishment_material_id'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <select class="css-select-costing-table" id="costing_embelishment_categories'+embelishment_row_string+'" style="text-align: start;">' +
+        '                                    <select class="css-select-costing-table" id="costing_embelishment_categories'+embelishment_row+'" style="text-align: start;">' +
         '                                     <option value="Embroidery" selected>Embroidery</option>' +
         '                                     <option value="Screen Print">Screen Print</option>' +
         '                                     <option value="Heat Transfer">Heat Transfer</option>' +
@@ -465,51 +474,53 @@ costing_add_embelishment_row_btn.click(function(e){
         '                                     </select>'+
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_nominated'+embelishment_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_embelishment_nominated'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_coo'+embelishment_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_embelishment_coo'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_supplier_ref'+embelishment_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_embelishment_supplier_ref'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_description'+embelishment_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_embelishment_description'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_location'+embelishment_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_embelishment_location'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_mill_supplier'+embelishment_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_embelishment_mill_supplier'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                      <select id="costing_embelishment_uom'+embelishment_row_string+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+        '                                      <select id="costing_embelishment_uom'+embelishment_row+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_wedth'+embelishment_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_embelishment_wedth'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_usage'+embelishment_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_embelishment_usage'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_wastage'+embelishment_row_string+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
-        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
-        '                                     </td>' +
-        '                                    <td contenteditable="true"></td>\n' +
-        '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_embelishment_unit_cost'+embelishment_row_string+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
-        '                                     </td>' +
-        '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_handling'+embelishment_row_string+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text" id="costing_embelishment_wastage'+embelishment_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_embelishment_total_cost'+embelishment_row_string+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="text" id="costing_embelishment_gross_yield'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_comment'+embelishment_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_embelishment_unit_cost'+embelishment_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_embelishment_handling'+embelishment_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_embelishment_total_cost'+embelishment_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_embelishment_comment'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
         embelishment_row_tds_add +
@@ -517,7 +528,7 @@ costing_add_embelishment_row_btn.click(function(e){
 
     costing_embelishment_tbody.append(embelishment_row_tds);
 
-    let uom = '#costing_embelishment_uom'+embelishment_row_string;
+    let uom = '#costing_embelishment_uom'+embelishment_row;
     getUOM(uom);
 
     new_ids = embelishment_row_control[0] + '-' + (parseInt(embelishment_row_control[1])+1);
@@ -553,7 +564,8 @@ costing_add_label_row_btn.click(function(e){
     let label_row_last_num = parseInt(label_row_control[1])+1;
 
     let label_row = sessionStorage.getItem("costing_label_row");
-    sessionStorage.setItem("costing_label_row", parseInt(label_row)+1);
+    label_row = parseInt(label_row)+1;
+    sessionStorage.setItem("costing_label_row", label_row);
 
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
@@ -564,7 +576,7 @@ costing_add_label_row_btn.click(function(e){
         for (let i = 1; i <= no_of_size; i++) {
             label_row_tds_add = label_row_tds_add.concat('' +
                 '<td class="costing_table_size">' +
-                '<input type="text" id="costing_label_size_'+i+'_'+label_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_label_size_'+i+'_'+label_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -574,7 +586,7 @@ costing_add_label_row_btn.click(function(e){
         for (let i = 1; i <= no_of_color; i++) {
             label_row_tds_add = label_row_tds_add.concat('' +
                 '<td class="costing_table_color">' +
-                '<input type="text" id="costing_label_color_'+i+'_'+label_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_label_color_'+i+'_'+label_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -587,60 +599,62 @@ costing_add_label_row_btn.click(function(e){
         '                                    <input type="checkbox" id="costing_label_cb'+label_row_string+'" class="css-costing-cb" >'+label_row_string.padStart(3,"0")+
         '                                    </td>\n' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_component'+label_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_label_component'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_material_id'+label_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_label_material_id'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_categories'+label_row_string+'" value="" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
+        '                                    <input type="text" id="costing_label_categories'+label_row+'" value="" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_nominated'+label_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_label_nominated'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_coo'+label_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_label_coo'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_supplier_ref'+label_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_label_supplier_ref'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_description'+label_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_label_description'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_location'+label_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_label_location'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_mill_supplier'+label_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_label_mill_supplier'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                      <select id="costing_label_uom'+label_row_string+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+        '                                      <select id="costing_label_uom'+label_row+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_wedth'+label_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_label_wedth'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_usage'+label_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_label_usage'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_wastage'+label_row_string+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
-        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
-        '                                     </td>' +
-        '                                    <td contenteditable="true"></td>\n' +
-        '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_label_unit_cost'+label_row_string+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
-        '                                     </td>' +
-        '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_handling'+label_row_string+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text" id="costing_label_wastage'+label_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_label_total_cost'+label_row_string+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="text" id="costing_label_gross_yield'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_comment'+label_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_label_unit_cost'+label_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_label_handling'+label_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_label_total_cost'+label_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_label_comment'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
         label_row_tds_add +
@@ -648,7 +662,7 @@ costing_add_label_row_btn.click(function(e){
 
     costing_label_tbody.append(label_row_tds);
 
-    let uom = '#costing_label_uom'+label_row_string;
+    let uom = '#costing_label_uom'+label_row;
     getUOM(uom);
 
     new_ids = label_row_control[0] + '-' + (parseInt(label_row_control[1])+1);
@@ -684,7 +698,8 @@ costing_add_thread_row_btn.click(function(e){
     let thread_row_last_num = parseInt(thread_row_control[1])+1;
 
     let thread_row = sessionStorage.getItem("costing_thread_row");
-    sessionStorage.setItem("costing_thread_row", parseInt(thread_row)+1);
+    thread_row = parseInt(thread_row)+1;
+    sessionStorage.setItem("costing_thread_row", thread_row);
 
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
@@ -695,7 +710,7 @@ costing_add_thread_row_btn.click(function(e){
         for (let i = 1; i <= no_of_size; i++) {
             thread_row_tds_add = thread_row_tds_add.concat('' +
                 '<td class="costing_table_size">' +
-                '<input type="text" id="costing_thread_size_'+i+'_'+thread_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_thread_size_'+i+'_'+thread_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -705,7 +720,7 @@ costing_add_thread_row_btn.click(function(e){
         for (let i = 1; i <= no_of_color; i++) {
             thread_row_tds_add = thread_row_tds_add.concat('' +
                 '<td class="costing_table_color">' +
-                '<input type="text" id="costing_thread_color_'+i+'_'+thread_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_thread_color_'+i+'_'+thread_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -718,60 +733,62 @@ costing_add_thread_row_btn.click(function(e){
         '                                    <input type="checkbox" id="costing_thread_cb'+thread_row_string+'" class="css-costing-cb" >'+thread_row_string.padStart(3,"0")+
         '                                    </td>\n' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_component'+thread_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_thread_component'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_material_id'+thread_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_thread_material_id'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_categories'+thread_row_string+'" value="Thread #'+(parseInt(thread_row)+1)+'" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
+        '                                    <input type="text" id="costing_thread_categories'+thread_row+'" value="Thread #'+(parseInt(thread_row)+1)+'" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_nominated'+thread_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_thread_nominated'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_coo'+thread_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_thread_coo'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_supplier_ref'+thread_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_thread_supplier_ref'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_description'+thread_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_thread_description'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_location'+thread_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_thread_location'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_mill_supplier'+thread_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_thread_mill_supplier'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                      <select id="costing_thread_uom'+thread_row_string+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+        '                                      <select id="costing_thread_uom'+thread_row+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_wedth'+thread_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_thread_wedth'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_usage'+thread_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_thread_usage'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_wastage'+thread_row_string+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
-        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
-        '                                     </td>' +
-        '                                    <td contenteditable="true"></td>\n' +
-        '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_thread_unit_cost'+thread_row_string+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
-        '                                     </td>' +
-        '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_handling'+thread_row_string+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text" id="costing_thread_wastage'+thread_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_thread_total_cost'+thread_row_string+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="text" id="costing_thread_gross_yield'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_comment'+thread_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_thread_unit_cost'+thread_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_thread_handling'+thread_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_thread_total_cost'+thread_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_thread_comment'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
         thread_row_tds_add +
@@ -779,7 +796,7 @@ costing_add_thread_row_btn.click(function(e){
 
     costing_thread_tbody.append(thread_row_tds);
 
-    let uom = '#costing_thread_uom'+thread_row_string;
+    let uom = '#costing_thread_uom'+thread_row;
     getUOM(uom);
 
     new_ids = thread_row_control[0] + '-' + (parseInt(thread_row_control[1])+1);
@@ -815,7 +832,8 @@ costing_add_package_row_btn.click(function(e){
     let package_row_last_num = parseInt(package_row_control[1])+1;
 
     let package_row = sessionStorage.getItem("costing_package_row");
-    sessionStorage.setItem("costing_package_row", parseInt(package_row)+1);
+    package_row = parseInt(package_row)+1;
+    sessionStorage.setItem("costing_package_row", package_row);
 
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
@@ -826,7 +844,7 @@ costing_add_package_row_btn.click(function(e){
         for (let i = 1; i <= no_of_size; i++) {
             package_row_tds_add = package_row_tds_add.concat('' +
                 '<td class="costing_table_size">' +
-                '<input type="text" id="costing_package_size_'+i+'_'+package_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_package_size_'+i+'_'+package_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -836,7 +854,7 @@ costing_add_package_row_btn.click(function(e){
         for (let i = 1; i <= no_of_color; i++) {
             package_row_tds_add = package_row_tds_add.concat('' +
                 '<td class="costing_table_color">' +
-                '<input type="text" id="costing_package_color_'+i+'_'+package_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_package_color_'+i+'_'+package_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -849,60 +867,62 @@ costing_add_package_row_btn.click(function(e){
         '                                    <input type="checkbox" id="costing_package_cb'+package_row_string+'" class="css-costing-cb" >'+package_row_string.padStart(3,"0")+
         '                                    </td>\n' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_component'+package_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_package_component'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_material_id'+package_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_package_material_id'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_categories'+package_row_string+'" value="Packaging #'+(parseInt(package_row)+1)+'" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
+        '                                    <input type="text" id="costing_package_categories'+package_row+'" value="Packaging #'+(parseInt(package_row)+1)+'" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_nominated'+package_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_package_nominated'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_coo'+package_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_package_coo'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_supplier_ref'+package_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_package_supplier_ref'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_description'+package_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_package_description'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_location'+package_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_package_location'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_mill_supplier'+package_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_package_mill_supplier'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                      <select id="costing_package_uom'+package_row_string+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+        '                                      <select id="costing_package_uom'+package_row+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_wedth'+package_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_package_wedth'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_usage'+package_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_package_usage'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_wastage'+package_row_string+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
-        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
-        '                                     </td>' +
-        '                                    <td contenteditable="true"></td>\n' +
-        '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_package_unit_cost'+package_row_string+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
-        '                                     </td>' +
-        '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_handling'+package_row_string+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text" id="costing_package_wastage'+package_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_package_total_cost'+package_row_string+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="text" id="costing_package_gross_yield'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_comment'+package_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_package_unit_cost'+package_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_package_handling'+package_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_package_total_cost'+package_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_package_comment'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
         package_row_tds_add +
@@ -910,7 +930,7 @@ costing_add_package_row_btn.click(function(e){
 
     costing_package_tbody.append(package_row_tds);
 
-    let uom = '#costing_package_uom'+package_row_string;
+    let uom = '#costing_package_uom'+package_row;
     getUOM(uom);
 
     new_ids = package_row_control[0] + '-' + (parseInt(package_row_control[1])+1);
@@ -946,7 +966,8 @@ costing_add_finish_row_btn.click(function(e){
     let finish_row_last_num = parseInt(finish_row_control[1])+1;
 
     let finish_row = sessionStorage.getItem("costing_finish_row");
-    sessionStorage.setItem("costing_finish_row", parseInt(finish_row)+1);
+    finish_row = parseInt(finish_row)+1;
+    sessionStorage.setItem("costing_finish_row", finish_row);
 
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
@@ -957,7 +978,7 @@ costing_add_finish_row_btn.click(function(e){
         for (let i = 1; i <= no_of_size; i++) {
             finish_row_tds_add = finish_row_tds_add.concat('' +
                 '<td class="costing_table_size">' +
-                '<input type="text" id="costing_finish_size_'+i+'_'+finish_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_finish_size_'+i+'_'+finish_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -967,7 +988,7 @@ costing_add_finish_row_btn.click(function(e){
         for (let i = 1; i <= no_of_color; i++) {
             finish_row_tds_add = finish_row_tds_add.concat('' +
                 '<td class="costing_table_color">' +
-                '<input type="text" id="costing_finish_color_'+i+'_'+finish_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_finish_color_'+i+'_'+finish_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -980,60 +1001,62 @@ costing_add_finish_row_btn.click(function(e){
         '                                    <input type="checkbox" id="costing_finish_cb'+finish_row_string+'" class="css-costing-cb" >'+finish_row_string.padStart(3,"0")+
         '                                    </td>\n' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_component'+finish_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_finish_component'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_material_id'+finish_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_finish_material_id'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_categories'+finish_row_string+'" value="" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
+        '                                    <input type="text" id="costing_finish_categories'+finish_row+'" value="" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_nominated'+finish_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_finish_nominated'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_coo'+finish_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_finish_coo'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_supplier_ref'+finish_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_finish_supplier_ref'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_description'+finish_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_finish_description'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_location'+finish_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_finish_location'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_mill_supplier'+finish_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_finish_mill_supplier'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                      <select id="costing_finish_uom'+finish_row_string+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+        '                                      <select id="costing_finish_uom'+finish_row+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_wedth'+finish_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_finish_wedth'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_usage'+finish_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_finish_usage'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_wastage'+finish_row_string+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
-        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
-        '                                     </td>' +
-        '                                    <td contenteditable="true"></td>\n' +
-        '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_finish_unit_cost'+finish_row_string+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
-        '                                     </td>' +
-        '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_handling'+finish_row_string+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text" id="costing_finish_wastage'+finish_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_finish_total_cost'+finish_row_string+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="text" id="costing_finish_gross_yield'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_comment'+finish_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_finish_unit_cost'+finish_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_finish_handling'+finish_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_finish_total_cost'+finish_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_finish_comment'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
         finish_row_tds_add +
@@ -1041,7 +1064,7 @@ costing_add_finish_row_btn.click(function(e){
 
     costing_finish_tbody.append(finish_row_tds);
 
-    let uom = '#costing_finish_uom'+finish_row_string;
+    let uom = '#costing_finish_uom'+finish_row;
     getUOM(uom);
 
     new_ids = finish_row_control[0] + '-' + (parseInt(finish_row_control[1])+1);
@@ -1077,7 +1100,8 @@ costing_add_export_row_btn.click(function(e){
     let export_row_last_num = parseInt(export_row_control[1])+1;
 
     let export_row = sessionStorage.getItem("costing_export_row");
-    sessionStorage.setItem("costing_export_row", parseInt(export_row)+1);
+    export_row = parseInt(export_row)+1;
+    sessionStorage.setItem("costing_export_row", export_row);
 
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
@@ -1088,7 +1112,7 @@ costing_add_export_row_btn.click(function(e){
         for (let i = 1; i <= no_of_size; i++) {
             export_row_tds_add = export_row_tds_add.concat('' +
                 '<td class="costing_table_size">' +
-                '<input type="text" id="costing_export_size_'+i+'_'+export_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_export_size_'+i+'_'+export_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -1098,7 +1122,7 @@ costing_add_export_row_btn.click(function(e){
         for (let i = 1; i <= no_of_color; i++) {
             export_row_tds_add = export_row_tds_add.concat('' +
                 '<td class="costing_table_color">' +
-                '<input type="text" id="costing_export_color_'+i+'_'+export_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_export_color_'+i+'_'+export_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -1111,60 +1135,62 @@ costing_add_export_row_btn.click(function(e){
         '                                    <input type="checkbox" id="costing_export_cb'+export_row_string+'" class="css-costing-cb" >'+export_row_string.padStart(3,"0")+
         '                                    </td>\n' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_component'+export_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_export_component'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_material_id'+export_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_export_material_id'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_categories'+export_row_string+'" value="" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
+        '                                    <input type="text" id="costing_export_categories'+export_row+'" value="" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_nominated'+export_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_export_nominated'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_coo'+export_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_export_coo'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_supplier_ref'+export_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_export_supplier_ref'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_description'+export_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_export_description'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_location'+export_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_export_location'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_mill_supplier'+export_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_export_mill_supplier'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                      <select id="costing_export_uom'+export_row_string+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+        '                                      <select id="costing_export_uom'+export_row+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_wedth'+export_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_export_wedth'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_usage'+export_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_export_usage'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_wastage'+export_row_string+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
-        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
-        '                                     </td>' +
-        '                                    <td contenteditable="true"></td>\n' +
-        '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_export_unit_cost'+export_row_string+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
-        '                                     </td>' +
-        '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_handling'+export_row_string+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text" id="costing_export_wastage'+export_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_export_total_cost'+export_row_string+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="text" id="costing_export_gross_yield'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_comment'+export_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_export_unit_cost'+export_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_export_handling'+export_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_export_total_cost'+export_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_export_comment'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
         export_row_tds_add +
@@ -1172,7 +1198,7 @@ costing_add_export_row_btn.click(function(e){
 
     costing_export_tbody.append(export_row_tds);
 
-    let uom = '#costing_export_uom'+export_row_string;
+    let uom = '#costing_export_uom'+export_row;
     getUOM(uom);
 
     new_ids = export_row_control[0] + '-' + (parseInt(export_row_control[1])+1);
@@ -1208,7 +1234,8 @@ costing_add_testing_row_btn.click(function(e){
     let testing_row_last_num = parseInt(testing_row_control[1])+1;
 
     let testing_row = sessionStorage.getItem("costing_testing_row");
-    sessionStorage.setItem("costing_testing_row", parseInt(testing_row)+1);
+    testing_row = parseInt(testing_row)+1;
+    sessionStorage.setItem("costing_testing_row", testing_row);
 
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
@@ -1219,7 +1246,7 @@ costing_add_testing_row_btn.click(function(e){
         for (let i = 1; i <= no_of_size; i++) {
             testing_row_tds_add = testing_row_tds_add.concat('' +
                 '<td class="costing_table_size">' +
-                '<input type="text" id="costing_testing_size_'+i+'_'+testing_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_testing_size_'+i+'_'+testing_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -1229,7 +1256,7 @@ costing_add_testing_row_btn.click(function(e){
         for (let i = 1; i <= no_of_color; i++) {
             testing_row_tds_add = testing_row_tds_add.concat('' +
                 '<td class="costing_table_color">' +
-                '<input type="text" id="costing_testing_color_'+i+'_'+testing_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_testing_color_'+i+'_'+testing_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -1242,60 +1269,62 @@ costing_add_testing_row_btn.click(function(e){
         '                                    <input type="checkbox" id="costing_testing_cb'+testing_row_string+'" class="css-costing-cb" >'+testing_row_string.padStart(3,"0")+
         '                                    </td>\n' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_component'+testing_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_testing_component'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_material_id'+testing_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_testing_material_id'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_categories'+testing_row_string+'" value="Testing #'+(parseInt(testing_row)+1)+'" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
+        '                                    <input type="text" id="costing_testing_categories'+testing_row+'" value="Testing #'+(parseInt(testing_row)+1)+'" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_nominated'+testing_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_testing_nominated'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_coo'+testing_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_testing_coo'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_supplier_ref'+testing_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_testing_supplier_ref'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_description'+testing_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_testing_description'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_location'+testing_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_testing_location'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_mill_supplier'+testing_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_testing_mill_supplier'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                      <select id="costing_testing_uom'+testing_row_string+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+        '                                      <select id="costing_testing_uom'+testing_row+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_wedth'+testing_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_testing_wedth'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_usage'+testing_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_testing_usage'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_wastage'+testing_row_string+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
-        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
-        '                                     </td>' +
-        '                                    <td contenteditable="true"></td>\n' +
-        '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_testing_unit_cost'+testing_row_string+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
-        '                                     </td>' +
-        '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_handling'+testing_row_string+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text" id="costing_testing_wastage'+testing_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_testing_total_cost'+testing_row_string+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="text" id="costing_testing_gross_yield'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_comment'+testing_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_testing_unit_cost'+testing_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_testing_handling'+testing_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_testing_total_cost'+testing_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_testing_comment'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
         testing_row_tds_add +
@@ -1303,7 +1332,7 @@ costing_add_testing_row_btn.click(function(e){
 
     costing_testing_tbody.append(testing_row_tds);
 
-    let uom = '#costing_testing_uom'+testing_row_string;
+    let uom = '#costing_testing_uom'+testing_row;
     getUOM(uom);
 
     new_ids = testing_row_control[0] + '-' + (parseInt(testing_row_control[1])+1);
@@ -1339,7 +1368,8 @@ costing_add_other_row_btn.click(function(e){
     let other_row_last_num = parseInt(other_row_control[1])+1;
 
     let other_row = sessionStorage.getItem("costing_other_row");
-    sessionStorage.setItem("costing_other_row", parseInt(other_row)+1);
+    other_row = parseInt(other_row)+1;
+    sessionStorage.setItem("costing_other_row", other_row);
 
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
@@ -1350,7 +1380,7 @@ costing_add_other_row_btn.click(function(e){
         for (let i = 1; i <= no_of_size; i++) {
             other_row_tds_add = other_row_tds_add.concat('' +
                 '<td class="costing_table_size">' +
-                '<input type="text" id="costing_other_size_'+i+'_'+other_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_other_size_'+i+'_'+other_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -1360,7 +1390,7 @@ costing_add_other_row_btn.click(function(e){
         for (let i = 1; i <= no_of_color; i++) {
             other_row_tds_add = other_row_tds_add.concat('' +
                 '<td class="costing_table_color">' +
-                '<input type="text" id="costing_other_color_'+i+'_'+other_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_other_color_'+i+'_'+other_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -1373,60 +1403,62 @@ costing_add_other_row_btn.click(function(e){
         '                                    <input type="checkbox" id="costing_other_cb'+other_row_string+'" class="css-costing-cb" >'+other_row_string.padStart(3,"0")+
         '                                    </td>\n' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_component'+other_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_other_component'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_material_id'+other_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_other_material_id'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_categories'+other_row_string+'" value="" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
+        '                                    <input type="text" id="costing_other_categories'+other_row+'" value="" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_nominated'+other_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_other_nominated'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_coo'+other_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_other_coo'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_supplier_ref'+other_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_other_supplier_ref'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_description'+other_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_other_description'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_location'+other_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_other_location'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_mill_supplier'+other_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_other_mill_supplier'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                      <select id="costing_other_uom'+other_row_string+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+        '                                      <select id="costing_other_uom'+other_row+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_wedth'+other_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_other_wedth'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_usage'+other_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_other_usage'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_wastage'+other_row_string+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
-        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
-        '                                     </td>' +
-        '                                    <td contenteditable="true"></td>\n' +
-        '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_other_unit_cost'+other_row_string+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
-        '                                     </td>' +
-        '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_handling'+other_row_string+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text" id="costing_other_wastage'+other_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_other_total_cost'+other_row_string+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="text" id="costing_other_gross_yield'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_comment'+other_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_other_unit_cost'+other_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_other_handling'+other_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_other_total_cost'+other_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_other_comment'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
         other_row_tds_add +
@@ -1434,7 +1466,7 @@ costing_add_other_row_btn.click(function(e){
 
     costing_other_tbody.append(other_row_tds);
 
-    let uom = '#costing_other_uom'+other_row_string;
+    let uom = '#costing_other_uom'+other_row;
     getUOM(uom);
 
     new_ids = other_row_control[0] + '-' + (parseInt(other_row_control[1])+1);
@@ -1470,7 +1502,8 @@ costing_add_labor_row_btn.click(function(e){
     let labor_row_last_num = parseInt(labor_row_control[1])+1;
 
     let labor_row = sessionStorage.getItem("costing_labor_row");
-    sessionStorage.setItem("costing_labor_row", parseInt(labor_row)+1);
+    labor_row = parseInt(labor_row)+1;
+    sessionStorage.setItem("costing_labor_row", labor_row);
 
     let total_column_orig = sessionStorage.getItem("costing_total_column_orig");
     let total_column = sessionStorage.getItem("costing_total_column");
@@ -1481,7 +1514,7 @@ costing_add_labor_row_btn.click(function(e){
         for (let i = 1; i <= no_of_size; i++) {
             labor_row_tds_add = labor_row_tds_add.concat('' +
                 '<td class="costing_table_size">' +
-                '<input type="text" id="costing_labor_size_'+i+'_'+labor_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_labor_size_'+i+'_'+labor_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -1491,7 +1524,7 @@ costing_add_labor_row_btn.click(function(e){
         for (let i = 1; i <= no_of_color; i++) {
             labor_row_tds_add = labor_row_tds_add.concat('' +
                 '<td class="costing_table_color">' +
-                '<input type="text" id="costing_labor_color_'+i+'_'+labor_row_last_num+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_labor_color_'+i+'_'+labor_row+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -1504,60 +1537,62 @@ costing_add_labor_row_btn.click(function(e){
         '                                    <input type="checkbox" id="costing_labor_cb'+labor_row_string+'" class="css-costing-cb" >'+labor_row_string.padStart(3,"0")+
         '                                    </td>\n' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_component'+labor_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_labor_component'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_material_id'+labor_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_labor_material_id'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_categories'+labor_row_string+'" value="" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
+        '                                    <input type="text" id="costing_labor_categories'+labor_row+'" value="" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_nominated'+labor_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_labor_nominated'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_coo'+labor_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_labor_coo'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_supplier_ref'+labor_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_labor_supplier_ref'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_description'+labor_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_labor_description'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_location'+labor_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_labor_location'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_mill_supplier'+labor_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_labor_mill_supplier'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                      <select id="costing_labor_uom'+labor_row_string+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+        '                                      <select id="costing_labor_uom'+labor_row+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_wedth'+labor_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_labor_wedth'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_usage'+labor_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_labor_usage'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_wastage'+labor_row_string+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
-        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
-        '                                     </td>' +
-        '                                    <td contenteditable="true"></td>\n' +
-        '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_labor_unit_cost'+labor_row_string+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
-        '                                     </td>' +
-        '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_handling'+labor_row_string+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text" id="costing_labor_wastage'+labor_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_labor_total_cost'+labor_row_string+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="text" id="costing_labor_gross_yield'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_comment'+labor_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_labor_unit_cost'+labor_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_labor_handling'+labor_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+        '                                    <input type="text" id="costing_labor_total_cost'+labor_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                     </td>' +
+        '                                    <td>\n' +
+        '                                    <input type="text" id="costing_labor_comment'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
         labor_row_tds_add +
@@ -1565,7 +1600,7 @@ costing_add_labor_row_btn.click(function(e){
 
     costing_labor_tbody.append(labor_row_tds);
 
-    let uom = '#costing_labor_uom'+labor_row_string;
+    let uom = '#costing_labor_uom'+labor_row;
     getUOM(uom);
 
     new_ids = labor_row_control[0] + '-' + (parseInt(labor_row_control[1])+1);
