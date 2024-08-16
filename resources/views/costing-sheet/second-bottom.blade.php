@@ -47,33 +47,33 @@
                         <tr>
                             <td  scope="col" style=" ">HOURS</td>
                             <td scope="col" style=""></td>
-                            <td  scope="col" contenteditable="true">
+                            <td  scope="col" >
                                 <input id="costing_hours_first" class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                             <td scope="col" style=""></td>
-                            <td  scope="col"  contenteditable="true">
+                            <td  scope="col" >
                                 <input id="costing_hours_second" class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                         </tr>
                         <tr>
                             <td scope="col" style=" ">DAYS</td>
                             <td scope="col" style=""></td>
-                            <td  scope="col" contenteditable="true">
+                            <td  scope="col">
                                 <input id="costing_days_first" class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                             <td scope="col" style=""></td>
-                            <td  scope="col"  contenteditable="true">
+                            <td  scope="col"  >
                                 <input id="costing_days_second" class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                         </tr>
                         <tr>
                             <td  scope="col" style=" ">OPERATORS</td>
                             <td scope="col" style=""></td>
-                            <td  scope="col" contenteditable="true">
+                            <td  scope="col" >
                                 <input id="costing_operators_first" class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                             <td scope="col" style=""></td>
-                            <td  scope="col"  contenteditable="true">
+                            <td  scope="col"  >
                                 <input id="costing_operators_second" class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                         </tr>
@@ -89,12 +89,12 @@
                         <tr>
                             <td  scope="col" style=" ">MONTHLY WAGE</td>
                             <td scope="col" style="text-align:center;font-weight:bold;">$</td>
-                            <td  scope="col" contenteditable="true">
-                                <input style="display:inline;width: 90px;" id="costing_monthly_wages_first" class="css-input-costing-labor-cost text-end" min="1" type="number">
+                            <td  scope="col" >
+                                <input id="costing_monthly_wages_first" class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                             <td scope="col" style="text-align:center;font-weight:bold;font-weight:bold;">$</td>
-                            <td  scope="col"  contenteditable="true">
-                                <input style="display:inline;width: 90px;" id="costing_monthly_wages_second" class="css-input-costing-labor-cost text-end" min="1" type="number">
+                            <td  scope="col"  >
+                                <input  id="costing_monthly_wages_second" class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                         </tr>
                         <tr>
@@ -141,16 +141,28 @@
                             <td width="12%" scope="col" style="border-left:1px solid black;">A</td>
                             <td width="56%" scope="col" style=" ">MATERIAL COSTS</td>
                             <td width="1%" scope="col" style="font-weight: bold;">$</td>
-                            <td width="15%" scope="col" style=" "></td>
-                            <td width="15%" scope="col" style=""></td>
+                            <td width="15%" scope="col" style=" ">
+                                <input type="number" id="costing_material_cost_fob"
+                                       val="0" class="css-input-costing-data-solo text-end" disabled>
+                            </td>
+                            <td width="15%" scope="col" style="">
+                                <input type="number" id="costing_material_cost_percent"
+                                       val="0" class="css-input-costing-data-solo text-end" disabled>
+                            </td>
                             <td width="1%" scope="col" style="font-weight: bold;border-right:1px solid black;">%</td>
                         </tr>
                         <tr style="border-top:1px solid black;border-bottom:1px solid black;">
                             <td  scope="col" style="border-left:1px solid black;">B</td>
                             <td  scope="col" style=" ">L.O.P.</td>
                             <td width="1%" scope="col" style="font-weight: bold;">$</td>
-                            <td scope="col" style=" "></td>
-                            <td  scope="col" style=""></td>
+                            <td scope="col" style=" ">
+                                <input type="number" id="costing_lop_fob"
+                                       val="0" class="css-input-costing-data-solo text-end" disabled>
+                            </td>
+                            <td  scope="col" style="">
+                                <input type="number" id="costing_lop_percent"
+                                       val="0" class="css-input-costing-data-solo text-end" disabled>
+                            </td>
                             <td width="1%" scope="col" style="font-weight: bold;border-right:1px solid black;">%</td>
                         </tr>
                         <tr style="border-top:1px solid black;border-bottom:1px solid black;">
@@ -174,65 +186,98 @@
                         <tr>
                             <td  scope="col" style=" font-weight: bold;">QTY(pcs)</td>
 
-                            <td  scope="col" style="text-align:center; font-weight: bold;" contenteditable="true"></td>
+                            <td  scope="col" >
+                                <input type="text" id="costing_moq_qty_1" class="css-input-costing-data-solo" >
+                            </td>
                             <td  scope="col"></td>
 
-                            <td scope="col" style="text-align:center; font-weight: bold;" contenteditable="true"></td>
+                            <td  scope="col" >
+                                <input type="text" id="costing_moq_qty_2" class="css-input-costing-data-solo" >
+                            </td>
                             <td  scope="col"></td>
 
-                            <td scope="col" style="text-align:center; font-weight: bold;" contenteditable="true"></td>
+                            <td  scope="col" >
+                                <input type="text" id="costing_moq_qty_3" class="css-input-costing-data-solo" >
+                            </td>
                             <td  scope="col"></td>
 
-                            <td  scope="col" style="text-align:center; font-weight: bold;" contenteditable="true"></td>
+                            <td  scope="col" >
+                                <input type="text" id="costing_moq_qty_4" class="css-input-costing-data-solo" >
+                            </td>
                             <td  scope="col"></td>
 
-                            <td  scope="col" style="text-align:center; font-weight: bold;" contenteditable="true"></td>
+                            <td  scope="col" >
+                                <input type="text" id="costing_moq_qty_5" class="css-input-costing-data-solo" >
+                            </td>
                             <td  scope="col"></td>
 
-                            <td  scope="col" style="text-align:center; font-weight: bold;" contenteditable="true"></td>
+                            <td  scope="col" >
+                                <input type="text" id="costing_moq_qty_6" class="css-input-costing-data-solo" >
+                            </td>
                             <td  scope="col"></td>
                         </tr>
                         <tr>
                             <td width="15%" scope="col" style=" font-weight: bold;">Upcharge</td>
 
-                            <td width="11%" scope="col" style="text-align:center; font-weight: bold;" contenteditable="true">10</td>
+                            <td  scope="col" >
+                                <input value="5" type="text" id="costing_moq_upcharge_1" class="css-input-costing-data-solo" >
+                            </td>
                             <td width="2%" scope="col" style=" font-weight: bold;" >%</td>
 
-                            <td width="10%" scope="col" style="text-align:center; font-weight: bold;" contenteditable="true">20</td>
+                            <td  scope="col" >
+                                <input value="10" type="text" id="costing_moq_upcharge_2" class="css-input-costing-data-solo" >
+                            </td>
                             <td width="2%" scope="col" style=" font-weight: bold;" >%</td>
 
-                            <td width="10%" scope="col" style="text-align:center; font-weight: bold;" contenteditable="true">30</td>
+                            <td  scope="col" >
+                                <input value="20" type="text" id="costing_moq_upcharge_3" class="css-input-costing-data-solo" >
+                            </td>
                             <td width="2%" scope="col" style=" font-weight: bold;" >%</td>
 
-                            <td width="10%" scope="col" style="text-align:center; font-weight: bold;" contenteditable="true">50</td>
+                            <td  scope="col" >
+                                <input value="30" type="text" id="costing_moq_upcharge_4" class="css-input-costing-data-solo" >
+                            </td>
                             <td width="2%" scope="col" style=" font-weight: bold;" >%</td>
 
-                            <td width="10%" scope="col" style="text-align:center; font-weight: bold;" contenteditable="true">100</td>
+                            <td  scope="col" >
+                                <input value="50" type="text" id="costing_moq_upcharge_5" class="css-input-costing-data-solo" >
+                            </td>
                             <td width="2%" scope="col" style=" font-weight: bold;" >%</td>
 
-                            <td width="10%" scope="col" style="text-align:center; font-weight: bold;" contenteditable="true"></td>
+                            <td  scope="col" >
+                                <input value="100" type="text" id="costing_moq_upcharge_6" class="css-input-costing-data-solo" >
+                            </td>
                             <td width="2%" scope="col" style=" font-weight: bold;" >%</td>
                         </tr>
                         <tr>
                             <td  scope="col" style=" font-weight: bold;">FOB</td>
+                            <td  scope="col" >
+                                <input value="" type="text" id="costing_moq_fob_1" class="css-input-costing-data-solo" >
+                            </td>
                             <td  scope="col"></td>
-                            <td  scope="col" style=" font-weight: bold;text-align:center;"></td>
+                            <td  scope="col" >
+                                <input value="" type="text" id="costing_moq_fob_2" class="css-input-costing-data-solo" >
+                            </td>
                             <td  scope="col"></td>
+                            <td  scope="col" >
+                                <input value="" type="text" id="costing_moq_fob_3" class="css-input-costing-data-solo" >
+                            </td>
                             <td  scope="col"></td>
-                            <td  scope="col" style=" font-weight: bold;text-align:center;"></td>
+                            <td  scope="col" >
+                                <input value="" type="text" id="costing_moq_fob_4" class="css-input-costing-data-solo" >
+                            </td>
+                            <td  scope="col" ></td>
+                            <td  scope="col" >
+                                <input value="" type="text" id="costing_moq_fob_5" class="css-input-costing-data-solo" >
+                            </td>
                             <td  scope="col"></td>
+                            <td  scope="col" >
+                                <input value="" type="text" id="costing_moq_fob_6" class="css-input-costing-data-solo" >
+                            </td>
                             <td  scope="col"></td>
-                            <td  scope="col" style=" font-weight: bold;text-align:center;"></td>
-                            <td  scope="col"></td>
-                            <td  scope="col"></td>
-                            <td scope="col" style=" font-weight: bold;text-align:center;"></td>
-                            <td  scope="col"></td>
-                            <td  scope="col"></td>
-                            <td scope="col" style=" font-weight: bold;text-align:center;"></td>
-                            <td  scope="col"></td>
-                            <td  scope="col"></td>
-                            <td  scope="col" style=" font-weight: bold;text-align:center;"></td>
-                            <td  scope="col"></td>
+
+
+
                         </tr>
 
                     </tbody>
