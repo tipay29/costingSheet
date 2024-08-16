@@ -90,26 +90,26 @@ costing_add_fabric_row_btn.click(function(e){
         '                                    <input type="text" id="costing_fabric_wedth'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_fabric_usage'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" id="costing_fabric_usage'+fabric_row_string+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_fabric_wastage'+fabric_row_string+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
+        '                                    <input type="number" id="costing_fabric_wastage'+fabric_row_string+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_fabric_gross_yield'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" disabled  id="costing_fabric_gross_yield'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_fabric_unit_cost'+fabric_row_string+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_fabric_unit_cost'+fabric_row_string+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_fabric_handling'+fabric_row_string+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_fabric_handling'+fabric_row_string+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_fabric_total_cost'+fabric_row_string+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="number" id="costing_fabric_total_cost'+fabric_row_string+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" id="costing_fabric_comment'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -225,26 +225,26 @@ costing_add_trim_row_btn.click(function(e){
         '                                    <input type="text" id="costing_trim_wedth'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_usage'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" id="costing_trim_usage'+trim_row+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_wastage'+trim_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
+        '                                    <input type="number" id="costing_trim_wastage'+trim_row+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_gross_yield'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" disabled  id="costing_trim_gross_yield'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_trim_unit_cost'+trim_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_trim_unit_cost'+trim_row+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_handling'+trim_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_trim_handling'+trim_row+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_trim_total_cost'+trim_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="number" id="costing_trim_total_cost'+trim_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" id="costing_trim_comment'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -359,26 +359,26 @@ costing_add_zipper_row_btn.click(function(e){
         '                                    <input type="text" id="costing_zipper_wedth'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_usage'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" id="costing_zipper_usage'+zipper_row+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_wastage'+zipper_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
+        '                                    <input type="number" id="costing_zipper_wastage'+zipper_row+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_gross_yield'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" disabled  id="costing_zipper_gross_yield'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_zipper_unit_cost'+zipper_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_zipper_unit_cost'+zipper_row+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_zipper_handling'+zipper_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_zipper_handling'+zipper_row+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_zipper_total_cost'+zipper_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="number" id="costing_zipper_total_cost'+zipper_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" id="costing_zipper_comment'+zipper_row+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -498,26 +498,26 @@ costing_add_embelishment_row_btn.click(function(e){
         '                                    <input type="text" id="costing_embelishment_wedth'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_usage'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" id="costing_embelishment_usage'+embelishment_row+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_wastage'+embelishment_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
+        '                                    <input type="number" id="costing_embelishment_wastage'+embelishment_row+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_gross_yield'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number"  disabled id="costing_embelishment_gross_yield'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_embelishment_unit_cost'+embelishment_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_embelishment_unit_cost'+embelishment_row+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_embelishment_handling'+embelishment_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_embelishment_handling'+embelishment_row+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_embelishment_total_cost'+embelishment_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="number" id="costing_embelishment_total_cost'+embelishment_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" id="costing_embelishment_comment'+embelishment_row+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -632,26 +632,26 @@ costing_add_label_row_btn.click(function(e){
         '                                    <input type="text" id="costing_label_wedth'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_usage'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" id="costing_label_usage'+label_row+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_wastage'+label_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
+        '                                    <input type="number" id="costing_label_wastage'+label_row+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_gross_yield'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number"  disabled id="costing_label_gross_yield'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_label_unit_cost'+label_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_label_unit_cost'+label_row+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_label_handling'+label_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_label_handling'+label_row+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_label_total_cost'+label_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="number" id="costing_label_total_cost'+label_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" id="costing_label_comment'+label_row+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -766,26 +766,26 @@ costing_add_thread_row_btn.click(function(e){
         '                                    <input type="text" id="costing_thread_wedth'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_usage'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" id="costing_thread_usage'+thread_row+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_wastage'+thread_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
+        '                                    <input type="number" id="costing_thread_wastage'+thread_row+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_gross_yield'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" disabled  id="costing_thread_gross_yield'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_thread_unit_cost'+thread_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_thread_unit_cost'+thread_row+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_thread_handling'+thread_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_thread_handling'+thread_row+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_thread_total_cost'+thread_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="number" id="costing_thread_total_cost'+thread_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" id="costing_thread_comment'+thread_row+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -900,26 +900,26 @@ costing_add_package_row_btn.click(function(e){
         '                                    <input type="text" id="costing_package_wedth'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_usage'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" id="costing_package_usage'+package_row+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_wastage'+package_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
+        '                                    <input type="number" id="costing_package_wastage'+package_row+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_gross_yield'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" disabled  id="costing_package_gross_yield'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_package_unit_cost'+package_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_package_unit_cost'+package_row+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_package_handling'+package_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_package_handling'+package_row+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_package_total_cost'+package_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="number" id="costing_package_total_cost'+package_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" id="costing_package_comment'+package_row+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -1034,26 +1034,26 @@ costing_add_finish_row_btn.click(function(e){
         '                                    <input type="text" id="costing_finish_wedth'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_usage'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" id="costing_finish_usage'+finish_row+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_wastage'+finish_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
+        '                                    <input type="number" id="costing_finish_wastage'+finish_row+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_gross_yield'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" disabled  id="costing_finish_gross_yield'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_finish_unit_cost'+finish_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_finish_unit_cost'+finish_row+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_finish_handling'+finish_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_finish_handling'+finish_row+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_finish_total_cost'+finish_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="number" id="costing_finish_total_cost'+finish_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" id="costing_finish_comment'+finish_row+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -1168,26 +1168,26 @@ costing_add_export_row_btn.click(function(e){
         '                                    <input type="text" id="costing_export_wedth'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_usage'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" id="costing_export_usage'+export_row+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_wastage'+export_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
+        '                                    <input type="number" id="costing_export_wastage'+export_row+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_gross_yield'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number"  disabled id="costing_export_gross_yield'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_export_unit_cost'+export_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_export_unit_cost'+export_row+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_export_handling'+export_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_export_handling'+export_row+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_export_total_cost'+export_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="number" id="costing_export_total_cost'+export_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" id="costing_export_comment'+export_row+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -1302,26 +1302,26 @@ costing_add_testing_row_btn.click(function(e){
         '                                    <input type="text" id="costing_testing_wedth'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_usage'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" id="costing_testing_usage'+testing_row+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_wastage'+testing_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
+        '                                    <input type="number" id="costing_testing_wastage'+testing_row+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_gross_yield'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number"  disabled id="costing_testing_gross_yield'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_testing_unit_cost'+testing_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_testing_unit_cost'+testing_row+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_testing_handling'+testing_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_testing_handling'+testing_row+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_testing_total_cost'+testing_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="number" id="costing_testing_total_cost'+testing_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" id="costing_testing_comment'+testing_row+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -1436,26 +1436,26 @@ costing_add_other_row_btn.click(function(e){
         '                                    <input type="text" id="costing_other_wedth'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_usage'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" id="costing_other_usage'+other_row+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_wastage'+other_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
+        '                                    <input type="number" id="costing_other_wastage'+other_row+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_gross_yield'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" disabled  id="costing_other_gross_yield'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_other_unit_cost'+other_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_other_unit_cost'+other_row+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_other_handling'+other_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_other_handling'+other_row+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_other_total_cost'+other_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="number" id="costing_other_total_cost'+other_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" id="costing_other_comment'+other_row+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -1570,26 +1570,26 @@ costing_add_labor_row_btn.click(function(e){
         '                                    <input type="text" id="costing_labor_wedth'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_usage'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number" id="costing_labor_usage'+labor_row+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_wastage'+labor_row+'" value="" class="css-input-costing-data" style="width: 62px;" >\n' +
+        '                                    <input type="number" id="costing_labor_wastage'+labor_row+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_gross_yield'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="number"  disabled id="costing_labor_gross_yield'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_labor_unit_cost'+labor_row+'" value="0" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_labor_unit_cost'+labor_row+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_labor_handling'+labor_row+'" value="" class="css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input type="number" id="costing_labor_handling'+labor_row+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="text" id="costing_labor_total_cost'+labor_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+        '                                    <input type="number" id="costing_labor_total_cost'+labor_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" id="costing_labor_comment'+labor_row+'" value="" class="css-input-costing-data-solo" >\n' +

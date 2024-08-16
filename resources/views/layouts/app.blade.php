@@ -17,7 +17,7 @@
     <script src="{{ asset('storage/js/costing-table-cb.js') }}" defer></script>
     <script src="{{ asset('storage/js/costing-bottom.js') }}" defer></script>
     <script src="{{ asset('storage/js/costing.js') }}" defer></script>
-
+    <script src="{{ asset('storage/js/costing-formula.js') }}" defer></script>
 
 
     <!-- Fonts -->
