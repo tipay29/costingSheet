@@ -8,8 +8,10 @@
                     <tbody>
                     @for($x=1;$x<=10;$x++)
                         <tr>
-                            <td width="8%" scope="col" style="text-align: center; ">{{$x}}</td>
-                            <td width="92%" scope="col" style=" " contenteditable="true"></td>
+                            <td width="9%" scope="col" style="text-align: center; ">{{$x}}</td>
+                            <td width="91%" scope="col" >
+                                <input id="costing_remark_{{$x}}" class="css-input-costing-labor-cost   " type="text">
+                            </td>
                         </tr>
                     @endfor
                     </tbody>
@@ -252,27 +254,27 @@
                         <tr>
                             <td  scope="col" style=" font-weight: bold;">FOB</td>
                             <td  scope="col" >
-                                <input value="" type="text" id="costing_moq_fob_1" class="css-input-costing-data-solo" >
+                                <input value="" type="text" id="costing_moq_fob_1" class="css-input-costing-data-solo" disabled>
                             </td>
                             <td  scope="col"></td>
                             <td  scope="col" >
-                                <input value="" type="text" id="costing_moq_fob_2" class="css-input-costing-data-solo" >
+                                <input value="" type="text" id="costing_moq_fob_2" class="css-input-costing-data-solo" disabled>
                             </td>
                             <td  scope="col"></td>
                             <td  scope="col" >
-                                <input value="" type="text" id="costing_moq_fob_3" class="css-input-costing-data-solo" >
+                                <input value="" type="text" id="costing_moq_fob_3" class="css-input-costing-data-solo" disabled>
                             </td>
                             <td  scope="col"></td>
                             <td  scope="col" >
-                                <input value="" type="text" id="costing_moq_fob_4" class="css-input-costing-data-solo" >
+                                <input value="" type="text" id="costing_moq_fob_4" class="css-input-costing-data-solo" disabled>
                             </td>
                             <td  scope="col" ></td>
                             <td  scope="col" >
-                                <input value="" type="text" id="costing_moq_fob_5" class="css-input-costing-data-solo" >
+                                <input value="" type="text" id="costing_moq_fob_5" class="css-input-costing-data-solo" disabled>
                             </td>
                             <td  scope="col"></td>
                             <td  scope="col" >
-                                <input value="" type="text" id="costing_moq_fob_6" class="css-input-costing-data-solo" >
+                                <input value="" type="text" id="costing_moq_fob_6" class="css-input-costing-data-solo" disabled>
                             </td>
                             <td  scope="col"></td>
 

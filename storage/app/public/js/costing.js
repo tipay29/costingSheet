@@ -29,8 +29,8 @@ costing_manufacturer_one.change(function(e){
             port = 'Ningbo';
         }
 
-        $('#costing_coo').html(coo);
-        $('#costing_port').html(port);
+        $('#costing_coo').val(coo);
+        $('#costing_port').val(port);
 });
 
 let costing_gender = $('#costing_gender');
