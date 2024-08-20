@@ -126,6 +126,7 @@ costing_add_fabric_row_btn.click(function(e){
     let fabric_row_control = sessionStorage.getItem('costing_fabric_row_ids').split('-');
     new_ids = fabric_row_control[0] + '-' + (parseInt(fabric_row_control[1])+1);
     sessionStorage.setItem('costing_fabric_row_ids',new_ids);
+    $('#costing_fabric_row_names').val(new_ids);
 
     updateItemNumber([2,3,4,5,6,7,8,9,10,11,12],'add');
 
@@ -146,6 +147,7 @@ costing_rmv_fabric_row_btn.click(function(e){
     let id_control = sessionStorage.getItem('costing_fabric_row_ids').split('-');
     new_ids = id_control[0] + '-' + (parseInt(id_control[1])-1);
     sessionStorage.setItem('costing_fabric_row_ids',new_ids);
+    $('#costing_fabric_row_names').val(new_ids);
 
     updateItemNumber([2,3,4,5,6,7,8,9,10,11,12],'rmv');
 });
@@ -260,6 +262,7 @@ costing_add_trim_row_btn.click(function(e){
 
     new_ids = trim_row_control[0] + '-' + (parseInt(trim_row_control[1])+1);
     sessionStorage.setItem('costing_trim_row_ids',new_ids);
+    $('#costing_trim_row_names').val(new_ids);
 
     updateItemNumber([3,4,5,6,7,8,9,10,11,12],'add');
 
@@ -280,6 +283,7 @@ costing_rmv_trim_row_btn.click(function(e){
 
     new_ids = trim_row_control[0] + '-' + (parseInt(trim_row_control[1])-1);
     sessionStorage.setItem('costing_trim_row_ids',new_ids);
+    $('#costing_trim_row_names').val(new_ids);
 
     updateItemNumber([3,4,5,6,7,8,9,10,11,12],'rmv');
 });
@@ -394,6 +398,7 @@ costing_add_zipper_row_btn.click(function(e){
 
     new_ids = zipper_row_control[0] + '-' + (parseInt(zipper_row_control[1])+1);
     sessionStorage.setItem('costing_zipper_row_ids',new_ids);
+    $('#costing_zipper_row_names').val(new_ids);
 
     updateItemNumber([4,5,6,7,8,9,10,11,12],'add');
 
@@ -414,6 +419,7 @@ costing_rmv_zipper_row_btn.click(function(e){
 
     new_ids = zipper_row_control[0] + '-' + (parseInt(zipper_row_control[1])-1);
     sessionStorage.setItem('costing_zipper_row_ids',new_ids);
+    $('#costing_zipper_row_names').val(new_ids);
 
     updateItemNumber([4,5,6,7,8,9,10,11,12],'rmv');
 });
@@ -533,6 +539,7 @@ costing_add_embelishment_row_btn.click(function(e){
 
     new_ids = embelishment_row_control[0] + '-' + (parseInt(embelishment_row_control[1])+1);
     sessionStorage.setItem('costing_embelishment_row_ids',new_ids);
+    $('#costing_embelishment_row_names').val(new_ids);
 
     updateItemNumber([5,6,7,8,9,10,11,12],'add');
 
@@ -553,6 +560,7 @@ costing_rmv_embelishment_row_btn.click(function(e){
 
     new_ids = embelishment_row_control[0] + '-' + (parseInt(embelishment_row_control[1])-1);
     sessionStorage.setItem('costing_embelishment_row_ids',new_ids);
+    $('#costing_embelishment_row_names').val(new_ids);
 
     updateItemNumber([5,6,7,8,9,10,11,12],'rmv');
 });
@@ -667,6 +675,7 @@ costing_add_label_row_btn.click(function(e){
 
     new_ids = label_row_control[0] + '-' + (parseInt(label_row_control[1])+1);
     sessionStorage.setItem('costing_label_row_ids',new_ids);
+    $('#costing_label_row_names').val(new_ids);
 
     updateItemNumber([6,7,8,9,10,11,12],'add');
 
@@ -687,6 +696,7 @@ costing_rmv_label_row_btn.click(function(e){
 
     new_ids = label_row_control[0] + '-' + (parseInt(label_row_control[1])-1);
     sessionStorage.setItem('costing_label_row_ids',new_ids);
+    $('#costing_label_row_names').val(new_ids);
 
     updateItemNumber([6,7,8,9,10,11,12],'rmv');
 });
@@ -801,6 +811,7 @@ costing_add_thread_row_btn.click(function(e){
 
     new_ids = thread_row_control[0] + '-' + (parseInt(thread_row_control[1])+1);
     sessionStorage.setItem('costing_thread_row_ids',new_ids);
+    $('#costing_thread_row_names').val(new_ids);
 
     updateItemNumber([7,8,9,10,11,12],'add');
 
@@ -821,6 +832,7 @@ costing_rmv_thread_row_btn.click(function(e){
 
     new_ids = thread_row_control[0] + '-' + (parseInt(thread_row_control[1])-1);
     sessionStorage.setItem('costing_thread_row_ids',new_ids);
+    $('#costing_thread_row_names').val(new_ids);
 
     updateItemNumber([7,8,9,10,11,12],'rmv');
 });
@@ -935,6 +947,7 @@ costing_add_package_row_btn.click(function(e){
 
     new_ids = package_row_control[0] + '-' + (parseInt(package_row_control[1])+1);
     sessionStorage.setItem('costing_package_row_ids',new_ids);
+    $('#costing_package_row_names').val(new_ids);
 
     updateItemNumber([8,9,10,11,12],'add');
 
@@ -955,6 +968,7 @@ costing_rmv_package_row_btn.click(function(e){
 
     new_ids = package_row_control[0] + '-' + (parseInt(package_row_control[1])-1);
     sessionStorage.setItem('costing_package_row_ids',new_ids);
+    $('#costing_package_row_names').val(new_ids);
 
     updateItemNumber([8,9,10,11,12],'rmv');
 });
@@ -1069,6 +1083,7 @@ costing_add_finish_row_btn.click(function(e){
 
     new_ids = finish_row_control[0] + '-' + (parseInt(finish_row_control[1])+1);
     sessionStorage.setItem('costing_finish_row_ids',new_ids);
+    $('#costing_finish_row_names').val(new_ids);
 
     updateItemNumber([9,10,11,12],'add');
 
@@ -1089,6 +1104,7 @@ costing_rmv_finish_row_btn.click(function(e){
 
     new_ids = finish_row_control[0] + '-' + (parseInt(finish_row_control[1])-1);
     sessionStorage.setItem('costing_finish_row_ids',new_ids);
+    $('#costing_finish_row_names').val(new_ids);
 
     updateItemNumber([9,10,11,12],'rmv');
 });
@@ -1203,6 +1219,7 @@ costing_add_export_row_btn.click(function(e){
 
     new_ids = export_row_control[0] + '-' + (parseInt(export_row_control[1])+1);
     sessionStorage.setItem('costing_export_row_ids',new_ids);
+    $('#costing_export_row_names').val(new_ids);
 
     updateItemNumber([10,11,12],'add');
 
@@ -1223,6 +1240,7 @@ costing_rmv_export_row_btn.click(function(e){
 
     new_ids = export_row_control[0] + '-' + (parseInt(export_row_control[1])-1);
     sessionStorage.setItem('costing_export_row_ids',new_ids);
+    $('#costing_export_row_names').val(new_ids);
 
     updateItemNumber([10,11,12],'rmv');
 });
@@ -1337,6 +1355,7 @@ costing_add_testing_row_btn.click(function(e){
 
     new_ids = testing_row_control[0] + '-' + (parseInt(testing_row_control[1])+1);
     sessionStorage.setItem('costing_testing_row_ids',new_ids);
+    $('#costing_testing_row_names').val(new_ids);
 
     updateItemNumber([11,12],'add');
 
@@ -1357,6 +1376,7 @@ costing_rmv_testing_row_btn.click(function(e){
 
     new_ids = testing_row_control[0] + '-' + (parseInt(testing_row_control[1])-1);
     sessionStorage.setItem('costing_testing_row_ids',new_ids);
+    $('#costing_testing_row_names').val(new_ids);
 
     updateItemNumber([11,12],'rmv');
 });
@@ -1471,6 +1491,7 @@ costing_add_other_row_btn.click(function(e){
 
     new_ids = other_row_control[0] + '-' + (parseInt(other_row_control[1])+1);
     sessionStorage.setItem('costing_other_row_ids',new_ids);
+    $('#costing_other_row_names').val(new_ids);
 
     updateItemNumber([12],'add');
 
@@ -1491,6 +1512,7 @@ costing_rmv_other_row_btn.click(function(e){
 
     new_ids = other_row_control[0] + '-' + (parseInt(other_row_control[1])-1);
     sessionStorage.setItem('costing_other_row_ids',new_ids);
+    $('#costing_other_row_names').val(new_ids);
 
     updateItemNumber([12],'rmv');
 });
@@ -1605,6 +1627,7 @@ costing_add_labor_row_btn.click(function(e){
 
     new_ids = labor_row_control[0] + '-' + (parseInt(labor_row_control[1])+1);
     sessionStorage.setItem('costing_labor_row_ids',new_ids);
+    $('#costing_labor_row_names').val(new_ids);
 
 });
 
@@ -1623,6 +1646,7 @@ costing_rmv_labor_row_btn.click(function(e){
 
     new_ids = labor_row_control[0] + '-' + (parseInt(labor_row_control[1])-1);
     sessionStorage.setItem('costing_labor_row_ids',new_ids);
+    $('#costing_labor_row_names').val(new_ids);
 
 });
 
@@ -1706,6 +1730,7 @@ function updateTrimItemNumber(operator){
     }
 
     sessionStorage.setItem('costing_trim_row_ids',new_ids);
+    $('#costing_trim_row_names').val(new_ids);
 
 }
 
@@ -1751,6 +1776,7 @@ function updateZipperItemNumber(operator){
     }
 
     sessionStorage.setItem('costing_zipper_row_ids',new_ids);
+    $('#costing_zipper_row_names').val(new_ids);
 
 }
 
@@ -1796,6 +1822,7 @@ function updateEmbelishmentItemNumber(operator){
     }
 
     sessionStorage.setItem('costing_embelishment_row_ids',new_ids);
+    $('#costing_embelishment_row_names').val(new_ids);
 
 }
 
@@ -1841,6 +1868,7 @@ function updateLabelItemNumber(operator){
     }
 
     sessionStorage.setItem('costing_label_row_ids',new_ids);
+    $('#costing_label_row_names').val(new_ids);
 
 }
 
@@ -1887,6 +1915,7 @@ function updateThreadItemNumber(operator){
     }
 
     sessionStorage.setItem('costing_thread_row_ids',new_ids);
+    $('#costing_thread_row_names').val(new_ids);
 
 }
 
@@ -1932,7 +1961,7 @@ function updatePackageItemNumber(operator){
     }
 
     sessionStorage.setItem('costing_package_row_ids',new_ids);
-
+    $('#costing_package_row_names').val(new_ids);
 }
 
 function updateFinishItemNumber(operator){
@@ -1977,7 +2006,7 @@ function updateFinishItemNumber(operator){
     }
 
     sessionStorage.setItem('costing_finish_row_ids',new_ids);
-
+    $('#costing_finish_row_names').val(new_ids);
 }
 
 function updateExportItemNumber(operator){
@@ -2022,7 +2051,7 @@ function updateExportItemNumber(operator){
     }
 
     sessionStorage.setItem('costing_export_row_ids',new_ids);
-
+    $('#costing_export_row_names').val(new_ids);
 }
 
 function updateTestingItemNumber(operator){
@@ -2067,7 +2096,7 @@ function updateTestingItemNumber(operator){
     }
 
     sessionStorage.setItem('costing_testing_row_ids',new_ids);
-
+    $('#costing_testing_row_names').val(new_ids);
 }
 
 function updateOtherItemNumber(operator){
@@ -2112,7 +2141,7 @@ function updateOtherItemNumber(operator){
     }
 
     sessionStorage.setItem('costing_other_row_ids',new_ids);
-
+    $('#costing_other_row_names').val(new_ids);
 }
 
 function updateLaborItemNumber(operator){
@@ -2157,7 +2186,7 @@ function updateLaborItemNumber(operator){
     }
 
     sessionStorage.setItem('costing_labor_row_ids',new_ids);
-
+    $('#costing_labor_row_names').val(new_ids);
 }
 
 function getUOM(uom){

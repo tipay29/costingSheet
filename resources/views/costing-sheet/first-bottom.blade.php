@@ -4,28 +4,28 @@
 
         <div class="row">
             <h6 class="text-center text-bg-secondary">SKETCHES</h6>
-            <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 12.1rem;">
-                <h6 class="text-center text-bg-secondary">FRONT</h6>
+            <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
+                <h6 class="text-center text-bg-secondary mb-5">FRONT</h6>
                 <input type="file" name="costing_front_photo" id="costing_front_photo" style="display:none;"/>
-                <label for="costing_front_photo">Click here to upload</label>
+                <label style="margin-left: 1rem;" for="costing_front_photo">Click here to upload</label>
 
             </div>
-            <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 12.1rem;">
-                <h6 class="text-center text-bg-secondary">BACK</h6>
+            <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
+                <h6 class="text-center text-bg-secondary mb-5">BACK</h6>
                 <input type="file" name="costing_back_photo" id="costing_back_photo" style="display:none;"/>
-                <label for="costing_back_photo">Click here to upload</label>
+                <label style="margin-left: 1rem;"  for="costing_back_photo">Click here to upload</label>
 
             </div>
-            <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 12.1rem;">
-                <h6 class="text-center text-bg-secondary">LEFT</h6>
+            <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
+                <h6 class="text-center text-bg-secondary mb-5">LEFT</h6>
                 <input type="file" name="costing_left_photo" id="costing_left_photo" style="display:none;"/>
-                <label for="costing_left_photo">Click here to upload</label>
+                <label style="margin-left: 1rem;"  for="costing_left_photo">Click here to upload</label>
 
             </div>
-            <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 12.1rem;">
-                <h6 class="text-center text-bg-secondary">RIGHT</h6>
+            <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
+                <h6 class="text-center text-bg-secondary mb-5">RIGHT</h6>
                 <input type="file" name="costing_right_photo" id="costing_right_photo" style="display:none;"/>
-                <label for="costing_right_photo">Click here to upload</label>
+                <label style="margin-left: 1rem;"  for="costing_right_photo">Click here to upload</label>
 
             </div>
         </div>
@@ -34,7 +34,11 @@
 
         <div class="row">
             <h6 class="text-center text-bg-secondary">CHART</h6>
-            <div class="col-md-12 " style="border: 1px solid black;min-height: 12.1rem;">
+            <div class="col-md-12 " style="border: 1px solid black;min-height: 14rem;">
+
+                <div style="width: 13.9rem; margin: auto; ">
+                    <canvas id="myChart" ></canvas>
+                </div>
 
             </div>
         </div>

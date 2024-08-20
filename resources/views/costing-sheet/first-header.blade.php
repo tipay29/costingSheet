@@ -5,32 +5,32 @@
             <tr>
                 <td width="25%" class="css-text-right">CUSTOMER NAME : </td>
                 <td width="25%" >
-                    <input id="costing_customer_name" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_customer_name" name="costing_customer_name" class="css-input-costing-labor-cost" type="text">
                 </td>
                 <td width="25%" class="css-text-right">DIVISION : </td>
                 <td width="25%">
-                    <input id="costing_division" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_division" name="costing_division" class="css-input-costing-labor-cost" type="text">
                 </td>
 
             </tr>
             <tr>
                 <td class="css-text-right">BRAND :</td>
                 <td >
-                    <input id="costing_brand" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_brand" name="costing_brand" class="css-input-costing-labor-cost" type="text">
                 </td>
                 <td class="css-text-right" >VERSION :</td>
                 <td >
-                    <input id="costing_version" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_version" name="costing_version" class="css-input-costing-labor-cost" type="text">
                 </td>
             </tr>
             <tr>
                 <td class="css-text-right">SEASON :</td>
                 <td >
-                    <input id="costing_season" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_season" name="costing_season" class="css-input-costing-labor-cost" type="text">
                 </td>
                 <td class="css-text-right">SPECIAL CONSTRUCTION :</td>
                 <td>
-                    <select class="css-select-costing" name="costing_gender" id="costing_special_construction">
+                    <select class="css-select-costing" name="costing_special_construction" id="costing_special_construction">
                         <option value="Invalid" disabled selected>Select Special Construction</option>
                         <option value="BONDING" >BONDING粘合剂</option>
                         <option value="DOWN" >DOWN羽绒</option>
@@ -44,7 +44,7 @@
             <tr>
                 <td class="css-text-right">PRODUCT CATEGORY :</td>
                 <td>
-                    <select class="css-select-costing" name="costing_manufacturer_two" id="costing_manufacturer_two">
+                    <select class="css-select-costing" name="costing_product_category" id="costing_product_category">
                         <option value="Invalid" disabled selected>Select Product Category</option>
                         <option value="Apparel" >Apparel成衣</option>
                         <option value="Equipment" >Equipment箱包设备</option>
@@ -83,7 +83,7 @@
                 </td>
                 <td class="css-text-right">COSTING SIZE :</td>
                 <td>
-                    <input id="costing_size" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_size" name="costing_size" class="css-input-costing-labor-cost" type="text">
                 </td>
             </tr>
         </table>
@@ -103,18 +103,18 @@
             <tr>
                 <td width="25%" class="css-text-right">STYLE # : </td>
                 <td width="25%"  >
-                    <input id="costing_style" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_style" name="costing_style" class="css-input-costing-labor-cost" type="text">
                 </td>
                 <td width="25%" class="css-text-right">DATE : </td>
                 <td width="25%" >
-                    <input id="costing_date" class="css-input-costing-labor-cost" type="date">
+                    <input id="costing_date" name="costing_date" class="css-input-costing-labor-cost" type="date">
                 </td>
 
             </tr>
             <tr>
                 <td class="css-text-right">STYLE NAME :</td>
                 <td >
-                    <input id="costing_style_name" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_style_name" name="costing_style_name" class="css-input-costing-labor-cost" type="text">
                 </td>
                 <td class="css-text-right">COSTING STAGE :</td>
                 <td>
@@ -146,7 +146,7 @@
             <tr>
                 <td class="css-text-right">COLOR #:</td>
                 <td >
-                    <input id="costing_color" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_color" name="costing_color" class="css-input-costing-labor-cost" type="text">
                 </td>
                 <td class="css-text-right">STATUS :</td>
                 <td>
@@ -159,7 +159,7 @@
             <tr>
                 <td class="css-text-right">COLOR NAME :</td>
                 <td >
-                    <input id="costing_color_code" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_color_name" name="costing_color_name" class="css-input-costing-labor-cost" type="text">
                 </td>
                 <td class="css-text-right">CURRENCY :</td>
                 <td>
@@ -174,19 +174,19 @@
 
                 <td class="css-text-right">NO OF COLOR :</td>
                 <td >
-                    <input id="costing_no_of_color" class="css-input-costing" min="1" max="10" type="number">
+                    <input id="costing_no_of_color" name="costing_no_of_color" class="css-input-costing" min="1" max="10" type="number">
                 </td>
                 <td class="css-text-right">TARGET FOB :</td>
                 <td>
                     <input type="text" id="costing_target_fob_sign" disabled value="$" class="costing_fob_sign">
-                    <input type="text" id="costing_target_fob" class="css-input-costing" style="width: 8.3rem;">
+                    <input type="text" id="costing_target_fob" name="costing_target_fob" class="css-input-costing" style="width: 8.3rem;">
                 </td>
             </tr>
             <tr>
 
                 <td class="css-text-right">T/P CODE :</td>
                 <td >
-                    <input id="costing_tp_code" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_tp_code" name="costing_tp_code" class="css-input-costing-labor-cost" type="text">
                 </td>
                 <td >
                     <select style="text-align: end;font-weight: bold;" class="css-select-costing" name="costing_total_fob_cm" id="costing_total_fob_cm">

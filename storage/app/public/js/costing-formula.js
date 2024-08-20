@@ -200,7 +200,7 @@ function getFinalTotalCost(){
         parseFloat(costing_other_total_fob.val())+
         parseFloat(costing_labor_total_fob.val());
 
-    $('#costing_total_cost_fob,#costing_summary_total_cost_fob').val(final_total_cost.toFixed(2));
+    $('#costing_total_cost_fob,#costing_summary_total_cost_fob,#costing_total_fob_header').val(final_total_cost.toFixed(2));
 
     let fabric_percent = (costing_fabric_total_fob.val()/final_total_cost)*100;
     let trim_percent = (costing_trim_total_fob.val()/final_total_cost)*100;
@@ -228,6 +228,22 @@ function getFinalTotalCost(){
     $('#costing_summary_testing_percent').val(testing_percent.toFixed(2));
     $('#costing_summary_other_percent').val(other_percent.toFixed(2));
     $('#costing_summary_labor_percent').val(labor_percent.toFixed(2));
+
+    updateCostingPieChart(
+        costing_fabric_total_fob.val(),
+        costing_trim_total_fob.val(),
+        costing_zipper_total_fob.val(),
+        costing_embelishment_total_fob.val(),
+        costing_label_total_fob.val(),
+        costing_thread_total_fob.val(),
+        costing_package_total_fob.val(),
+        costing_finish_total_fob.val(),
+        costing_export_total_fob.val(),
+        costing_testing_total_fob.val(),
+        costing_other_total_fob.val(),
+        costing_labor_total_fob.val(),
+    );
+
 
     $('#costing_lop_fob').val(costing_labor_total_fob.val());
     $('#costing_lop_percent').val(labor_percent.toFixed(2));
@@ -293,3 +309,99 @@ $('#costing_moq_upcharge_6').change(function(){
 
     $('#costing_moq_fob_6').val(moq_fob6.toFixed(2));
 });
+
+
+
+
+
+     data = {
+        labels: ['Fabric','Trim','Zipper',
+            'Embelishment','Label','Thread',
+            'Package','Finish','Éxport',
+            'Testing','Other','Labor'],
+        datasets: [{
+            label: '$',
+            data: [1, 1, 1,
+                1,1,1,
+                1,1,1,
+                1,1,1],
+            backgroundColor: [
+                'rgb(198,0,124)',
+                'rgb(146,185,56)',
+                'rgb(204,3,21)',
+                'rgb(84,209,239)',
+                'rgb(254,229,41)',
+                'rgb(65,64,109)',
+                'rgb(179,230,255)',
+                'rgb(255,229,150)',
+                'rgb(255,103,103)',
+                'rgb(137,45,45)',
+                'rgb(78,108,126)',
+                'rgb(105,83,83)',
+            ],
+            hoverOffset: 12
+        }]
+    };
+
+     ctx = document.getElementById('myChart').getContext('2d');
+     myChart = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                },
+                labels: {
+                    position: 'outside',
+                },
+
+            },
+            layout: {
+                padding: 25
+            },
+            font: {
+                size: 1
+            }
+        }
+    });
+
+     function updateCostingPieChart(
+         c_fabric,c_trim,c_zipper,
+         c_embelishment,c_label,c_thread,
+         c_package,c_finish,c_export,
+         c_testing,c_other,c_labor){
+            console.log(arguments);
+
+             myChart.data.datasets[0].data[0] = parseFloat(c_fabric);
+
+
+             myChart.data.datasets[0].data[1] = parseFloat(c_trim);
+
+
+             myChart.data.datasets[0].data[2] = parseFloat(c_zipper);
+
+
+             myChart.data.datasets[0].data[3] = parseFloat(c_embelishment);
+
+             myChart.data.datasets[0].data[4] = parseFloat(c_label);
+
+             myChart.data.datasets[0].data[5] = parseFloat(c_label);
+
+             myChart.data.datasets[0].data[6] = parseFloat(c_thread);
+
+             myChart.data.datasets[0].data[7] = parseFloat(c_package);
+
+             myChart.data.datasets[0].data[8] = parseFloat(c_finish);
+
+             myChart.data.datasets[0].data[9] = parseFloat(c_testing);
+
+             myChart.data.datasets[0].data[10] = parseFloat(c_other);
+
+             myChart.data.datasets[0].data[11] = parseFloat(c_labor);
+
+
+        myChart.update();
+     }
+
+

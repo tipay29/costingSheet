@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['as' => 'api.'],function() {
+
+    Route::post('costing-sheets/store','CostingSheetApiController@store')->name('costing-sheets.store');
+    Route::get('costing-sheets','CostingSheetApiController@index')->name('costing-sheets.index');
+});

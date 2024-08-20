@@ -49,7 +49,8 @@
                         <th style="text-align:end;background-color: #b5f7bd; "></th>
                         <th style="background-color: #b5f7bd; ">
                             <input type="text" id="" disabled value="$" class="costing_fob_sign costing_fob_sign_total">
-                            <input type="text" id="costing_labor_total_fob" value="0.00" class="css-input-costing-total" style="width: 68px;" disabled>
+                            <input type="text" id="costing_labor_total_fob" name="costing_labor_total_fob"
+                                   value="0.00" class="css-input-costing-total" style="width: 68px;" disabled>
                         </th>
                         <th style="background-color: #b5f7bd; "></th>
                         <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>
@@ -72,7 +73,8 @@
                         <th style="text-align:end;background-color: #bfcdf2;color:blue; "></th>
                         <th style="background-color: #bfcdf2; ">
                             <input type="text" id="" disabled value="$" class="costing_fob_sign costing_fob_sign_total" style="color:blue;background-color: #bfcdf2 !important;">
-                            <input type="text" id="costing_total_cost_fob" value="0.00" class="css-input-costing-total" style="color:blue;width: 68px;background-color: #bfcdf2 !important;" disabled>
+                            <input type="text" id="costing_total_cost_fob" name="costing_total_cost_fob"
+                                   value="0.00" class="css-input-costing-total" style="color:blue;width: 68px;background-color: #bfcdf2 !important;" disabled>
                         </th>
                         <th style="background-color: #bfcdf2; "></th>
                         <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>

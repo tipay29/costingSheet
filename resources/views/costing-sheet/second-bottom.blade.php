@@ -10,7 +10,7 @@
                         <tr>
                             <td width="9%" scope="col" style="text-align: center; ">{{$x}}</td>
                             <td width="91%" scope="col" >
-                                <input id="costing_remark_{{$x}}" class="css-input-costing-labor-cost   " type="text">
+                                <input id="costing_remark_{{$x}}" name="costing_remark_{{$x}}" class="css-input-costing-labor-cost   " type="text">
                             </td>
                         </tr>
                     @endfor
@@ -39,7 +39,8 @@
                             <td width="40%" scope="col" style="">SMV</td>
                             <td width="3%" scope="col" style=""></td>
                             <td width="27%" scope="col"  >
-                                <input id="costing_smv_first" class="css-input-costing-labor-cost text-end" min="1" type="number">
+                                <input id="costing_smv_first" name="costing_smv_first"
+                                       class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                             <td width="3%" scope="col" style=""></td>
                             <td width="27%" scope="col"  id="costing_smv_second" style="text-align: end; background-color: #d1d2d4;">
@@ -50,33 +51,39 @@
                             <td  scope="col" style=" ">HOURS</td>
                             <td scope="col" style=""></td>
                             <td  scope="col" >
-                                <input id="costing_hours_first" class="css-input-costing-labor-cost text-end" min="1" type="number">
+                                <input id="costing_hours_first" name="costing_hours_first"
+                                       class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                             <td scope="col" style=""></td>
                             <td  scope="col" >
-                                <input id="costing_hours_second" class="css-input-costing-labor-cost text-end" min="1" type="number">
+                                <input id="costing_hours_second" name="costing_hours_second"
+                                       class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                         </tr>
                         <tr>
                             <td scope="col" style=" ">DAYS</td>
                             <td scope="col" style=""></td>
                             <td  scope="col">
-                                <input id="costing_days_first" class="css-input-costing-labor-cost text-end" min="1" type="number">
+                                <input id="costing_days_first" name="costing_days_first"
+                                       class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                             <td scope="col" style=""></td>
                             <td  scope="col"  >
-                                <input id="costing_days_second" class="css-input-costing-labor-cost text-end" min="1" type="number">
+                                <input id="costing_days_second" name="costing_days_second"
+                                       class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                         </tr>
                         <tr>
                             <td  scope="col" style=" ">OPERATORS</td>
                             <td scope="col" style=""></td>
                             <td  scope="col" >
-                                <input id="costing_operators_first" class="css-input-costing-labor-cost text-end" min="1" type="number">
+                                <input id="costing_operators_first" name="costing_operators_first"
+                                       class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                             <td scope="col" style=""></td>
                             <td  scope="col"  >
-                                <input id="costing_operators_second" class="css-input-costing-labor-cost text-end" min="1" type="number">
+                                <input id="costing_operators_second" name="costing_operators_second"
+                                       class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                         </tr>
                         <tr>
@@ -85,18 +92,21 @@
                             <td id="costing_output_per_day_first"  scope="col" style="text-align: end; background-color: #d1d2d4;"></td>
                             <td scope="col" style=""></td>
                             <td   scope="col" >
-                                <input id="costing_output_per_day_second" class="css-input-costing-labor-cost text-end" min="1" type="number">
+                                <input id="costing_output_per_day_second" name="costing_output_per_day_second"
+                                       class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                         </tr>
                         <tr>
                             <td  scope="col" style=" ">MONTHLY WAGE</td>
                             <td scope="col" style="text-align:center;font-weight:bold;">$</td>
                             <td  scope="col" >
-                                <input id="costing_monthly_wages_first" class="css-input-costing-labor-cost text-end" min="1" type="number">
+                                <input id="costing_monthly_wages_first" name="costing_monthly_wages_first"
+                                       class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                             <td scope="col" style="text-align:center;font-weight:bold;font-weight:bold;">$</td>
                             <td  scope="col"  >
-                                <input  id="costing_monthly_wages_second" class="css-input-costing-labor-cost text-end" min="1" type="number">
+                                <input  id="costing_monthly_wages_second" name="costing_monthly_wages_second"
+                                        class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
                         </tr>
                         <tr>
@@ -189,32 +199,38 @@
                             <td  scope="col" style=" font-weight: bold;">QTY(pcs)</td>
 
                             <td  scope="col" >
-                                <input type="text" id="costing_moq_qty_1" class="css-input-costing-data-solo" >
+                                <input type="text" id="costing_moq_qty_1" name="costing_moq_qty_1"
+                                       class="css-input-costing-data-solo" >
                             </td>
                             <td  scope="col"></td>
 
                             <td  scope="col" >
-                                <input type="text" id="costing_moq_qty_2" class="css-input-costing-data-solo" >
+                                <input type="text" id="costing_moq_qty_2" name="costing_moq_qty_2"
+                                       class="css-input-costing-data-solo" >
                             </td>
                             <td  scope="col"></td>
 
                             <td  scope="col" >
-                                <input type="text" id="costing_moq_qty_3" class="css-input-costing-data-solo" >
+                                <input type="text" id="costing_moq_qty_3" name="costing_moq_qty_3"
+                                       class="css-input-costing-data-solo" >
                             </td>
                             <td  scope="col"></td>
 
                             <td  scope="col" >
-                                <input type="text" id="costing_moq_qty_4" class="css-input-costing-data-solo" >
+                                <input type="text" id="costing_moq_qty_4" name="costing_moq_qty_4"
+                                       class="css-input-costing-data-solo" >
                             </td>
                             <td  scope="col"></td>
 
                             <td  scope="col" >
-                                <input type="text" id="costing_moq_qty_5" class="css-input-costing-data-solo" >
+                                <input type="text" id="costing_moq_qty_5" name="costing_moq_qty_5"
+                                       class="css-input-costing-data-solo" >
                             </td>
                             <td  scope="col"></td>
 
                             <td  scope="col" >
-                                <input type="text" id="costing_moq_qty_6" class="css-input-costing-data-solo" >
+                                <input type="text" id="costing_moq_qty_6" name="costing_moq_qty_6"
+                                       class="css-input-costing-data-solo" >
                             </td>
                             <td  scope="col"></td>
                         </tr>
@@ -222,32 +238,38 @@
                             <td width="15%" scope="col" style=" font-weight: bold;">Upcharge</td>
 
                             <td  scope="col" >
-                                <input value="5" type="text" id="costing_moq_upcharge_1" class="css-input-costing-data-solo" >
+                                <input value="5" type="text" id="costing_moq_upcharge_1"
+                                       name="costing_moq_upcharge_1" class="css-input-costing-data-solo" >
                             </td>
                             <td width="2%" scope="col" style=" font-weight: bold;" >%</td>
 
                             <td  scope="col" >
-                                <input value="10" type="text" id="costing_moq_upcharge_2" class="css-input-costing-data-solo" >
+                                <input value="10" type="text" id="costing_moq_upcharge_2"
+                                       name="costing_moq_upcharge_2" class="css-input-costing-data-solo" >
                             </td>
                             <td width="2%" scope="col" style=" font-weight: bold;" >%</td>
 
                             <td  scope="col" >
-                                <input value="20" type="text" id="costing_moq_upcharge_3" class="css-input-costing-data-solo" >
+                                <input value="20" type="text" id="costing_moq_upcharge_3"
+                                       name="costing_moq_upcharge_3" class="css-input-costing-data-solo" >
                             </td>
                             <td width="2%" scope="col" style=" font-weight: bold;" >%</td>
 
                             <td  scope="col" >
-                                <input value="30" type="text" id="costing_moq_upcharge_4" class="css-input-costing-data-solo" >
+                                <input value="30" type="text" id="costing_moq_upcharge_4"
+                                       name="costing_moq_upcharge_4" class="css-input-costing-data-solo" >
                             </td>
                             <td width="2%" scope="col" style=" font-weight: bold;" >%</td>
 
                             <td  scope="col" >
-                                <input value="50" type="text" id="costing_moq_upcharge_5" class="css-input-costing-data-solo" >
+                                <input value="50" type="text" id="costing_moq_upcharge_5"
+                                       name="costing_moq_upcharge_5" class="css-input-costing-data-solo" >
                             </td>
                             <td width="2%" scope="col" style=" font-weight: bold;" >%</td>
 
                             <td  scope="col" >
-                                <input value="100" type="text" id="costing_moq_upcharge_6" class="css-input-costing-data-solo" >
+                                <input value="100" type="text" id="costing_moq_upcharge_6"
+                                       name="costing_moq_upcharge_6" class="css-input-costing-data-solo" >
                             </td>
                             <td width="2%" scope="col" style=" font-weight: bold;" >%</td>
                         </tr>

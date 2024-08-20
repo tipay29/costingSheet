@@ -48,7 +48,8 @@
                         <th style="text-align:end;background-color: #b5f7bd; "></th>
                         <th style="background-color: #b5f7bd; ">
                             <input type="text" id="" disabled value="$" class="costing_fob_sign costing_fob_sign_total">
-                            <input type="text" id="costing_export_total_fob" value="0.00" class="css-input-costing-total" style="width: 68px;" disabled>
+                            <input type="text" id="costing_export_total_fob" name="costing_export_total_fob"
+                                   value="0.00" class="css-input-costing-total" style="width: 68px;" disabled>
                         </th>
                         <th style="background-color: #b5f7bd; "></th>
                         <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>

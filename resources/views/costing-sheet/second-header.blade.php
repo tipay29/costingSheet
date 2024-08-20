@@ -17,7 +17,7 @@
                 </td>
                 <td width="25%" class="css-text-right">FORECAST QTY : </td>
                 <td width="20%" >
-                    <input id="costing_forecast_qty" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_forecast_qty" name="costing_forecast_qty" class="css-input-costing-labor-cost" type="text">
                 </td>
                 <td width="5%"> </td>
             </tr>
@@ -35,7 +35,7 @@
                 </td>
                 <td class="css-text-right">MOQ (Style) :</td>
                 <td >
-                    <input id="costing_moq_style" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_moq_style" name="costing_moq_style" class="css-input-costing-labor-cost" type="text">
                 </td>
                 <td>PCS</td>
             </tr>
@@ -53,28 +53,28 @@
                 </td>
                 <td class="css-text-right">MCQ (Color) :</td>
                 <td >
-                    <input id="costing_mcq_color" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_mcq_color" name="costing_mcq_color" class="css-input-costing-labor-cost" type="text">
                 </td>
                 <td>PCS</td>
             </tr>
             <tr>
                 <td class="css-text-right">COO :</td>
                 <td >
-                    <input id="costing_coo" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_coo" name="costing_coo" class="css-input-costing-labor-cost" type="text">
                 </td>
                 <td class="css-text-right">INCOTERMS :</td>
                 <td >
-                    <input id="costing_inco_terms" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_inco_terms" name="costing_inco_terms" class="css-input-costing-labor-cost" type="text">
                 </td>
             </tr>
             <tr>
                 <td class="css-text-right">SHIPPING PORT :</td>
                 <td >
-                    <input id="costing_port" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_port" name="costing_port" class="css-input-costing-labor-cost" type="text">
                 </td>
                 <td class="css-text-right">PAYMENT TERMS :</td>
                 <td >
-                    <input id="costing_payment_terms" class="css-input-costing-labor-cost" type="text">
+                    <input id="costing_payment_terms" name="costing_payment_terms" class="css-input-costing-labor-cost" type="text">
                 </td>
             </tr>
 
@@ -91,7 +91,7 @@
             <tr>
                 <td width="25%" class="css-text-right">PRODUCTION LEADTIME : </td>
                 <td width="25%" >
-                    <input id="costing_production_leadtime" class="css-input-costing-labor-cost" type="number">
+                    <input id="costing_production_lead_time" name="costing_production_lead_time" class="css-input-costing-labor-cost" type="number">
                 </td>
                 <td width="25%" >Days</td>
                 <td width="25%">(based on Material in-house) </td>
@@ -100,7 +100,7 @@
             <tr>
                 <td class="css-text-right">GREIGE REDUCED :</td>
                 <td >
-                    <input id="costing_greige_reduced" class="css-input-costing-labor-cost" type="number">
+                    <input id="costing_greige_reduced" name="costing_greige_reduced" class="css-input-costing-labor-cost" type="number">
                 </td>
                 <td>Days</td>
                 <td></td>
