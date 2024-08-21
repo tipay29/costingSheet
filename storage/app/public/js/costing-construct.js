@@ -94,7 +94,7 @@ function getFabricRow(){
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" disabled id="costing_fabric_gross_yield'+item_no+'" name="costing_fabric_gross_yield'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input type="number" readonly id="costing_fabric_gross_yield'+item_no+'" name="costing_fabric_gross_yield'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
@@ -107,7 +107,7 @@ function getFabricRow(){
 
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_fabric_total_cost'+item_no+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+            '                                    <input type="number" id="costing_fabric_total_cost'+item_no+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" id="costing_fabric_comment'+item_no+'" name="costing_fabric_comment'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -180,7 +180,7 @@ function getTrimRow(){
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number"  disabled id="costing_trim_gross_yield'+x+'" name="costing_trim_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input type="number"  readonly id="costing_trim_gross_yield'+x+'" name="costing_trim_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
@@ -192,7 +192,7 @@ function getTrimRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_trim_total_cost'+x+'" name="costing_trim_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+            '                                    <input type="number" id="costing_trim_total_cost'+x+'" name="costing_trim_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" id="costing_trim_comment'+x+'" name="costing_trim_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -264,7 +264,7 @@ function getZipperRow(){
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number"  disabled id="costing_zipper_gross_yield'+x+'" name="costing_zipper_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input type="number"  readonly id="costing_zipper_gross_yield'+x+'" name="costing_zipper_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
@@ -276,7 +276,7 @@ function getZipperRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_zipper_total_cost'+x+'" name="costing_zipper_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+            '                                    <input type="number" id="costing_zipper_total_cost'+x+'" name="costing_zipper_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" id="costing_zipper_comment'+x+'" name="costing_zipper_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -355,7 +355,7 @@ function getEmbelishmentRow(){
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number"  disabled id="costing_embelishment_gross_yield'+x+'" name="costing_embelishment_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input type="number"  readonly id="costing_embelishment_gross_yield'+x+'" name="costing_embelishment_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
@@ -367,7 +367,7 @@ function getEmbelishmentRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_embelishment_total_cost'+x+'" name="costing_embelishment_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+            '                                    <input type="number" id="costing_embelishment_total_cost'+x+'" name="costing_embelishment_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" id="costing_embelishment_comment'+x+'" name="costing_embelishment_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -443,7 +443,7 @@ function getLabelRow(){
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number"  disabled id="costing_label_gross_yield'+x+'" name="costing_label_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input type="number"  readonly id="costing_label_gross_yield'+x+'" name="costing_label_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
@@ -455,7 +455,7 @@ function getLabelRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_label_total_cost'+x+'" name="costing_label_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+            '                                    <input type="number" id="costing_label_total_cost'+x+'" name="costing_label_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" id="costing_label_comment'+x+'" name="costing_label_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -533,7 +533,7 @@ function getThreadRow(){
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number"  disabled id="costing_thread_gross_yield'+x+'" name="costing_thread_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input type="number" readonly id="costing_thread_gross_yield'+x+'" name="costing_thread_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
@@ -545,7 +545,7 @@ function getThreadRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_thread_total_cost'+x+'" name="costing_thread_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+            '                                    <input type="number" id="costing_thread_total_cost'+x+'" name="costing_thread_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" id="costing_thread_comment'+x+'" name="costing_thread_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -625,7 +625,7 @@ function getPackageRow(){
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number"  disabled id="costing_package_gross_yield'+x+'" name="costing_package_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input type="number" readonly id="costing_package_gross_yield'+x+'" name="costing_package_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
@@ -637,7 +637,7 @@ function getPackageRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_package_total_cost'+x+'" name="costing_package_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+            '                                    <input type="number" id="costing_package_total_cost'+x+'" name="costing_package_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" id="costing_package_comment'+x+'" name="costing_package_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -719,7 +719,7 @@ function getFinishRow(){
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number"  disabled id="costing_finish_gross_yield'+x+'" name="costing_finish_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input type="number" readonly id="costing_finish_gross_yield'+x+'" name="costing_finish_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
@@ -731,7 +731,7 @@ function getFinishRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_finish_total_cost'+x+'" name="costing_finish_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+            '                                    <input type="number" id="costing_finish_total_cost'+x+'" name="costing_finish_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" id="costing_finish_comment'+x+'" name="costing_finish_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -815,7 +815,7 @@ function getExportRow(){
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number"  disabled id="costing_export_gross_yield'+x+'" name="costing_export_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input type="number" readonly id="costing_export_gross_yield'+x+'" name="costing_export_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
@@ -827,7 +827,7 @@ function getExportRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_export_total_cost'+x+'" name="costing_export_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+            '                                    <input type="number" id="costing_export_total_cost'+x+'" name="costing_export_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" id="costing_export_comment'+x+'" name="costing_export_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -913,7 +913,7 @@ function getTestingRow(){
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" disabled id="costing_testing_gross_yield'+x+'" name="costing_testing_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input type="number" readonly id="costing_testing_gross_yield'+x+'" name="costing_testing_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
@@ -925,7 +925,7 @@ function getTestingRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_testing_total_cost'+x+'" name="costing_testing_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+            '                                    <input type="number" id="costing_testing_total_cost'+x+'" name="costing_testing_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" id="costing_testing_comment'+x+'" name="costing_testing_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -1013,7 +1013,7 @@ function getOtherRow(){
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" disabled id="costing_other_gross_yield'+x+'" name="costing_other_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input type="number" readonly id="costing_other_gross_yield'+x+'" name="costing_other_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
@@ -1025,7 +1025,7 @@ function getOtherRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_other_total_cost'+x+'" name="costing_other_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+            '                                    <input type="number" id="costing_other_total_cost'+x+'" name="costing_other_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" id="costing_other_comment'+x+'" name="costing_other_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
@@ -1115,7 +1115,7 @@ function getLaborRow(){
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" disabled id="costing_labor_gross_yield'+x+'" name="costing_labor_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input type="number" readonly id="costing_labor_gross_yield'+x+'" name="costing_labor_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
@@ -1127,7 +1127,7 @@ function getLaborRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_labor_total_cost'+x+'" name="costing_labor_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" disabled>\n' +
+            '                                    <input type="number" id="costing_labor_total_cost'+x+'" name="costing_labor_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" id="costing_labor_comment'+x+'" name="costing_labor_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +

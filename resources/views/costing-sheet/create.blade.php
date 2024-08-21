@@ -27,6 +27,7 @@
 
                             @include('costing-sheet.form')
 
+                            <input id="user_id" name="user_id" type="hidden" value="{{auth()->user()->id}}">
                             <input id="costing_fabric_row_names" name="costing_fabric_row_names" type="hidden" value="1-10">
                             <input id="costing_trim_row_names" name="costing_trim_row_names" type="hidden" value="11-40">
                             <input id="costing_zipper_row_names" name="costing_zipper_row_names" type="hidden" value="41-45">

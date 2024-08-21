@@ -196,7 +196,7 @@
                 </td>
                 <td >
                     <input type="text" id="costing_total_fob_sign" disabled value="$" class="costing_fob_sign">
-                    <input type="text" id="costing_total_fob_header" class="css-input-costing" style="width: 8.3rem;">
+                    <input type="text" id="costing_total_fob_header" name="costing_total_fob_header" class="css-input-costing" style="width: 8.3rem;" readonly>
                 </td>
             </tr>
         </table>

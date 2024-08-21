@@ -14,7 +14,9 @@ class CostingSheetController extends Controller
      */
     public function index()
     {
-        return view('costing-sheet.index');
+        $costing_sheets = CostingSheet::with('user')->get();
+
+        return view('costing-sheet.index',compact('costing_sheets'));
     }
 
 

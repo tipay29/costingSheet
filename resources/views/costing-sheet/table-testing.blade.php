@@ -49,7 +49,7 @@
                         <th style="background-color: #b5f7bd; ">
                             <input type="text" id="" disabled value="$" class="costing_fob_sign costing_fob_sign_total">
                             <input type="text" id="costing_testing_total_fob" name="costing_testing_total_fob"
-                                   value="0.00" class="css-input-costing-total" style="width: 68px;" disabled>
+                                   value="0.00" class="css-input-costing-total" style="width: 68px;" readonly>
                         </th>
                         <th style="background-color: #b5f7bd; "></th>
                         <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>

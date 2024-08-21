@@ -39,6 +39,9 @@ class CreateCostingSheetsTable extends Migration
             $table->string('cost_currency')->nullable();
             $table->double('cost_target_fob')->nullable();
             $table->string('cost_total_fob_cm')->nullable();
+            $table->double('cost_total_fob')->nullable();
+            $table->double('cost_material_fob')->nullable();
+            $table->double('cost_lop_fob')->nullable();
             $table->string('cost_vendor')->nullable();
             $table->string('cost_manufacturer_one')->nullable();
             $table->string('cost_manufacturer_two')->nullable();
@@ -49,8 +52,21 @@ class CreateCostingSheetsTable extends Migration
             $table->bigInteger('cost_mcq_color')->nullable();
             $table->string('cost_incoterms')->nullable();
             $table->string('cost_payment_terms')->nullable();
-            $table->bigInteger('cost_production_lead_time')->nullable();
-            $table->bigInteger('cost_griege_reduced')->nullable();
+            $table->string('cost_production_lead_time')->nullable();
+            $table->string('cost_griege_reduced')->nullable();
+            $table->string('cost_fabric_row_names')->nullable();
+            $table->string('cost_trim_row_names')->nullable();
+            $table->string('cost_zipper_row_names')->nullable();
+            $table->string('cost_embelishment_row_names')->nullable();
+            $table->string('cost_label_row_names')->nullable();
+            $table->string('cost_thread_row_names')->nullable();
+            $table->string('cost_package_row_names')->nullable();
+            $table->string('cost_finish_row_names')->nullable();
+            $table->string('cost_export_row_names')->nullable();
+            $table->string('cost_testing_row_names')->nullable();
+            $table->string('cost_other_row_names')->nullable();
+            $table->string('cost_labor_row_names')->nullable();
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }
