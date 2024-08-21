@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCostFabricsTable extends Migration
+class CreateCostTrimsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,8 @@ class CreateCostFabricsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cost_fabrics', function (Blueprint $table) {
+        Schema::create('cost_trims', function (Blueprint $table) {
+
             $table->id();
             $table->integer('cost_item_no')->nullable();
             $table->string('cost_component')->nullable();
@@ -69,6 +70,6 @@ class CreateCostFabricsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cost_fabrics');
+        Schema::dropIfExists('cost_trims');
     }
 }

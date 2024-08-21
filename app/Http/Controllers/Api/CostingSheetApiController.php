@@ -126,6 +126,8 @@ class CostingSheetApiController extends Controller
             'cost_testing_row_names' =>  request()->costing_testing_row_names,
             'cost_other_row_names' =>  request()->costing_other_row_names,
             'cost_labor_row_names' =>  request()->costing_labor_row_names,
+            'cost_size_head_names' =>  request()->costing_size_head_names,
+            'cost_color_head_names' =>  request()->costing_color_head_names,
             'user_id' => request()->user_id,
         ];
 

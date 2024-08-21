@@ -13,4 +13,41 @@ class CostingSheet extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function cost_fabrics(){
+        return $this->hasMany(CostFabric::class);
+    }
+    public function cost_trims(){
+        return $this->hasMany(CostTrim::class);
+    }
+    public function cost_zippers(){
+        return $this->hasMany(CostZipper::class);
+    }
+    public function cost_embelishments(){
+        return $this->hasMany(CostEmbelishment::class);
+    }
+    public function cost_labels(){
+        return $this->hasMany(CostLabel::class);
+    }
+    public function cost_threads(){
+        return $this->hasMany(CostThread::class);
+    }
+    public function cost_packages(){
+        return $this->hasMany(CostPackage::class);
+    }
+    public function cost_finishes(){
+        return $this->hasMany(CostFinish::class);
+    }
+    public function cost_exports(){
+        return $this->hasMany(CostExport::class);
+    }
+    public function cost_testings(){
+        return $this->hasMany(CostTesting::class);
+    }
+    public function cost_others(){
+        return $this->hasMany(CostOther::class);
+    }
+    public function cost_labors(){
+        return $this->hasMany(CostLabor::class);
+    }
 }

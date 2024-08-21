@@ -66,6 +66,8 @@ class CreateCostingSheetsTable extends Migration
             $table->string('cost_testing_row_names')->nullable();
             $table->string('cost_other_row_names')->nullable();
             $table->string('cost_labor_row_names')->nullable();
+            $table->string('cost_size_head_names')->nullable();
+            $table->string('cost_color_head_names')->nullable();
             $table->unsignedInteger('user_id');
             $table->timestamps();
         });

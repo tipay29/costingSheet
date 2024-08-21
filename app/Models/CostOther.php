@@ -5,8 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CostSize extends Model
+class CostOther extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function costing_sheet(){
+        return $this->belongsTo(CostingSheet::class);
+    }
 }

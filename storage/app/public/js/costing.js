@@ -238,6 +238,7 @@ function giveSizes(gender,product){
     }
 
     sessionStorage.setItem('costing_sizes_name',sizes);
+    $('#costing_size_head_names').val(sizes);
     old_no_of_size = sessionStorage.getItem('costing_no_of_size');
     no_of_size = parseInt(sizes.length);
     sessionStorage.setItem('costing_no_of_size',no_of_size);
@@ -281,7 +282,7 @@ costing_no_of_color.change(function(e){
     no_of_color = parseInt(costing_no_of_color.val());
     sessionStorage.setItem('costing_no_of_color',no_of_color);
 
-    if(no_of_color <= 10 && no_of_color >= 1){
+    if(no_of_color <= 5 && no_of_color >= 1){
 
         if(costing_product_category_one.val() !== null &&  costing_product_category_one.val() !== 'ONCESET' &&
             typeof costing_gender_age_group === 'undefined'){
@@ -309,7 +310,14 @@ function giveColorColumns(no_of_color,old_no_of_color){
 
 
     for (let i = 1; i <= no_of_color; i++) {
-        header = header.concat('<th contenteditable="true" class="costing_table_color"  scope="col" style="min-width:75px ;vertical-align: top;background-color: #7b9ddb;font-size: 1em; ">' + i +'</th>');
+
+
+        header = header.concat('<th ' +
+            '  scope="col" ' +
+            'style="min-width:75px ; ">' +
+            '<input class="costing_table_color_head'+i+'" value="'+i+'" ' +
+            ' style="border:none;height:1.63rem;background-color: #7b9ddb;font-size: 1em;text-align: center;">'
+            +'</th>');
 
     }
 
@@ -386,3 +394,73 @@ function giveColorsRow(no_of_color,categories){
 
 
 }
+
+$("body").delegate('.costing_table_color_head1','change',function(e){
+
+    $(this).val($(this).val());
+
+    let costing_colors_name = $(this).val() + ',' +
+        $(".costing_table_color_head2").val() + ',' +
+        $(".costing_table_color_head3").val() + ',' +
+        $(".costing_table_color_head4").val() + ',' +
+        $(".costing_table_color_head5").val();
+
+    sessionStorage.setItem('costing_colors_name',costing_colors_name);
+    $('#costing_color_head_names').val(costing_colors_name);
+});
+
+$("body").delegate('.costing_table_color_head2','change',function(e){
+
+    $(this).val($(this).val());
+
+    let costing_colors_name = $(".costing_table_color_head1").val() + ',' +
+        $(this).val() + ',' +
+        $(".costing_table_color_head3").val() + ',' +
+        $(".costing_table_color_head4").val() + ',' +
+        $(".costing_table_color_head5").val();
+
+    sessionStorage.setItem('costing_colors_name',costing_colors_name);
+    $('#costing_color_head_names').val(costing_colors_name);
+});
+
+$("body").delegate('.costing_table_color_head3','change',function(e){
+
+    $(this).val($(this).val());
+
+    let costing_colors_name = $(".costing_table_color_head1").val() + ',' +
+        $(".costing_table_color_head2").val() + ',' +
+        $(this).val() + ',' +
+        $(".costing_table_color_head4").val() + ',' +
+        $(".costing_table_color_head5").val();
+
+    sessionStorage.setItem('costing_colors_name',costing_colors_name);
+    $('#costing_color_head_names').val(costing_colors_name);
+});
+
+$("body").delegate('.costing_table_color_head4','change',function(e){
+
+    $(this).val($(this).val());
+
+    let costing_colors_name = $(".costing_table_color_head1").val() + ',' +
+        $(".costing_table_color_head2").val()+ ',' +
+        $(".costing_table_color_head3").val() + ',' +
+        $(this).val() + ',' +
+        $(".costing_table_color_head5").val();
+
+    sessionStorage.setItem('costing_colors_name',costing_colors_name);
+    $('#costing_color_head_names').val(costing_colors_name);
+});
+
+$("body").delegate('.costing_table_color_head5','change',function(e){
+
+    $(this).val($(this).val());
+
+    let costing_colors_name = $(".costing_table_color_head1").val() + ',' +
+        $(".costing_table_color_head2").val()+ ',' +
+        $(".costing_table_color_head3").val() + ',' +
+        $(".costing_table_color_head5").val()+ ',' +
+        $(this).val();
+
+    sessionStorage.setItem('costing_colors_name',costing_colors_name);
+    $('#costing_color_head_names').val(costing_colors_name);
+});

@@ -174,7 +174,7 @@
 
                 <td class="css-text-right">NO OF COLOR :</td>
                 <td >
-                    <input id="costing_no_of_color" name="costing_no_of_color" class="css-input-costing" min="1" max="10" type="number">
+                    <input id="costing_no_of_color" name="costing_no_of_color" class="css-input-costing" min="1" max="5" type="number">
                 </td>
                 <td class="css-text-right">TARGET FOB :</td>
                 <td>
