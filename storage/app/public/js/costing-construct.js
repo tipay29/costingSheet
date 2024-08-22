@@ -107,7 +107,7 @@ function getFabricRow(){
 
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_fabric_total_cost'+item_no+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+            '                                    <input type="number" id="costing_fabric_total_cost'+item_no+'" name="costing_fabric_total_cost'+item_no+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" id="costing_fabric_comment'+item_no+'" name="costing_fabric_comment'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +

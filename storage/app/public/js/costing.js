@@ -354,7 +354,7 @@ function giveSizesRow(sizes,categories){
         for (let x = 1; x <= sizes.length; x++) {
             sizes_row = sizes_row.concat('' +
                 '<td class="costing_table_size">' +
-                '<input type="text" id="costing_'+ categories +'_size_'+x+'_'+y+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_'+ categories +'_size_'+x+'_'+y+'" name="costing_'+ categories +'_size_'+x+'_'+y+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
@@ -381,7 +381,7 @@ function giveColorsRow(no_of_color,categories){
         for (let x = 1; x <= no_of_color; x++) {
             colors_row = colors_row.concat('' +
                 '<td class="costing_table_color">' +
-                '<input type="text" id="costing_'+ categories +'_color_'+x+'_'+y+'" value="" class=" css-input-costing-data-solo">' +
+                '<input type="text" id="costing_'+ categories +'_color_'+x+'_'+y+'" name="costing_'+ categories +'_color_'+x+'_'+y+'" value="" class=" css-input-costing-data-solo">' +
                 '</td>'+
                 '');
         }
