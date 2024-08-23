@@ -21,5 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['as' => 'api.'],function() {
 
     Route::post('costing-sheets/store','CostingSheetApiController@store')->name('costing-sheets.store');
+    Route::get('costing-sheets/{costing_sheet}/edit','CostingSheetApiController@edit')->name('costing-sheets.edit');
     Route::get('costing-sheets','CostingSheetApiController@index')->name('costing-sheets.index');
 });

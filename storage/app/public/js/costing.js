@@ -252,6 +252,7 @@ function giveSizes(gender,product){
         header = header.concat('<th class="costing_table_size" scope="col" style="min-width:60px ;vertical-align: top;background-color: #7b9ddb;font-size: 1em; ">' + sizes[i] +'</th>');
     }
 
+
     $('.costing_table_size').remove();
     $('.costing_table_color').remove();
 
@@ -285,7 +286,7 @@ costing_no_of_color.change(function(e){
     if(no_of_color <= 5 && no_of_color >= 1){
 
         if(costing_product_category_one.val() !== null &&  costing_product_category_one.val() !== 'ONCESET' &&
-            typeof costing_gender_age_group === 'undefined'){
+            costing_gender_age_group === 'undefined'){
 
 
             giveSizes(costing_gender_age_group.val(),costing_product_category_one.val());
@@ -312,7 +313,7 @@ function giveColorColumns(no_of_color,old_no_of_color){
     for (let i = 1; i <= no_of_color; i++) {
 
 
-        header = header.concat('<th ' +
+        header = header.concat('<th class="costing_table_color" ' +
             '  scope="col" ' +
             'style="min-width:75px ; ">' +
             '<input class="costing_table_color_head'+i+'" value="'+i+'" ' +
@@ -397,7 +398,8 @@ function giveColorsRow(no_of_color,categories){
 
 $("body").delegate('.costing_table_color_head1','change',function(e){
 
-    $(this).val($(this).val());
+    $('.costing_table_color_head1').val($(this).val());
+
 
     let costing_colors_name = $(this).val() + ',' +
         $(".costing_table_color_head2").val() + ',' +
@@ -411,7 +413,7 @@ $("body").delegate('.costing_table_color_head1','change',function(e){
 
 $("body").delegate('.costing_table_color_head2','change',function(e){
 
-    $(this).val($(this).val());
+    $('.costing_table_color_head2').val($(this).val());
 
     let costing_colors_name = $(".costing_table_color_head1").val() + ',' +
         $(this).val() + ',' +
@@ -425,7 +427,7 @@ $("body").delegate('.costing_table_color_head2','change',function(e){
 
 $("body").delegate('.costing_table_color_head3','change',function(e){
 
-    $(this).val($(this).val());
+    $('.costing_table_color_head3').val($(this).val());
 
     let costing_colors_name = $(".costing_table_color_head1").val() + ',' +
         $(".costing_table_color_head2").val() + ',' +
@@ -439,7 +441,7 @@ $("body").delegate('.costing_table_color_head3','change',function(e){
 
 $("body").delegate('.costing_table_color_head4','change',function(e){
 
-    $(this).val($(this).val());
+    $('.costing_table_color_head4').val($(this).val());
 
     let costing_colors_name = $(".costing_table_color_head1").val() + ',' +
         $(".costing_table_color_head2").val()+ ',' +
@@ -453,7 +455,7 @@ $("body").delegate('.costing_table_color_head4','change',function(e){
 
 $("body").delegate('.costing_table_color_head5','change',function(e){
 
-    $(this).val($(this).val());
+    $('.costing_table_color_head5').val($(this).val());
 
     let costing_colors_name = $(".costing_table_color_head1").val() + ',' +
         $(".costing_table_color_head2").val()+ ',' +

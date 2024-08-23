@@ -66,6 +66,18 @@ class CreateCostingSheetsTable extends Migration
             $table->string('cost_testing_row_names')->nullable();
             $table->string('cost_other_row_names')->nullable();
             $table->string('cost_labor_row_names')->nullable();
+            $table->double('cost_fabric_total_fob')->nullable();
+            $table->double('cost_trim_total_fob')->nullable();
+            $table->double('cost_zipper_total_fob')->nullable();
+            $table->double('cost_embelishment_total_fob')->nullable();
+            $table->double('cost_label_total_fob')->nullable();
+            $table->double('cost_thread_total_fob')->nullable();
+            $table->double('cost_package_total_fob')->nullable();
+            $table->double('cost_finish_total_fob')->nullable();
+            $table->double('cost_export_total_fob')->nullable();
+            $table->double('cost_testing_total_fob')->nullable();
+            $table->double('cost_other_total_fob')->nullable();
+            $table->double('cost_labor_total_fob')->nullable();
             $table->string('cost_size_head_names')->nullable();
             $table->string('cost_color_head_names')->nullable();
             $table->unsignedInteger('user_id');

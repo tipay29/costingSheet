@@ -48,7 +48,9 @@
                                         <tr>
                                             <td scope="row">
                                                 {{$key+1}}
-                                                <i class="fa fa-eye" aria-hidden="true" style="color:dodgerblue;"></i>
+                                                <a href="{{route('costing-sheets.edit', $costing_sheet->id)}}">
+                                                    <i class="fa fa-eye" aria-hidden="true" style="color:dodgerblue;"></i>
+                                                </a>
                                                 <i class="fa fa-external-link" aria-hidden="true" style="color:grey"></i>
                                                 <i class="fa fa-trash-o" aria-hidden="true" style="color:firebrick;"></i>
                                             </td>

@@ -50,4 +50,16 @@ class CostingSheet extends Model
     public function cost_labors(){
         return $this->hasMany(CostLabor::class);
     }
+    public function cost_sketches(){
+        return $this->hasMany(CostSketch::class);
+    }
+    public function cost_remarks(){
+        return $this->hasMany(CostRemarks::class);
+    }
+    public function cost_labor_details(){
+        return $this->hasMany(CostLaborDetail::class);
+    }
+    public function cost_moqs(){
+        return $this->hasMany(CostMoq::class);
+    }
 }

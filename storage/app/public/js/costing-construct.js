@@ -1,15 +1,58 @@
-sessionStorage.setItem("costing_fabric_row", 10);
-sessionStorage.setItem("costing_trim_row", 30);
-sessionStorage.setItem("costing_zipper_row", 5);
-sessionStorage.setItem("costing_embelishment_row", 5);
-sessionStorage.setItem("costing_label_row", 10);
-sessionStorage.setItem("costing_thread_row", 10);
-sessionStorage.setItem("costing_package_row", 10);
-sessionStorage.setItem("costing_finish_row", 5);
-sessionStorage.setItem("costing_export_row", 5);
-sessionStorage.setItem("costing_testing_row", 5);
-sessionStorage.setItem("costing_other_row", 5);
-sessionStorage.setItem("costing_labor_row", 3);
+
+let loc = window.location;
+let loc_split = loc.pathname.split('/');
+
+alert(loc_split[1]);
+
+let costing_fabric_row = 10;
+let costing_trim_row = 30;
+let costing_zipper_row = 5;
+let costing_embelishment_row = 5;
+let costing_label_row = 10;
+let costing_thread_row = 10;
+let costing_package_row = 10;
+let costing_finish_row = 5;
+let costing_export_row = 5;
+let costing_testing_row = 5;
+let costing_other_row = 5;
+let costing_labor_row = 3;
+
+
+if(loc_split.includes('costing-sheets') && loc_split.includes('edit')){
+
+    let costing_sheet_id = $('#costing_sheet_id').val();
+
+
+    $.ajax({
+        type:'GET',
+        url: '/api/costing-sheets/' + costing_sheet_id + '/edit',
+        dataType: 'JSON',
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (x,h,r) {
+            console.log(x.responseText);
+        }
+    });
+
+}
+
+sessionStorage.setItem("costing_fabric_row", costing_fabric_row);
+sessionStorage.setItem("costing_trim_row", costing_trim_row);
+sessionStorage.setItem("costing_zipper_row", costing_zipper_row);
+sessionStorage.setItem("costing_embelishment_row", costing_embelishment_row);
+sessionStorage.setItem("costing_label_row", costing_label_row);
+sessionStorage.setItem("costing_thread_row", costing_thread_row);
+sessionStorage.setItem("costing_package_row", costing_package_row);
+sessionStorage.setItem("costing_finish_row", costing_finish_row);
+sessionStorage.setItem("costing_export_row", costing_export_row);
+sessionStorage.setItem("costing_testing_row", costing_testing_row);
+sessionStorage.setItem("costing_other_row", costing_other_row);
+sessionStorage.setItem("costing_labor_row", costing_labor_row);
+
 sessionStorage.setItem("costing_total_column_orig", 20);
 sessionStorage.setItem("costing_total_column", 20);
 sessionStorage.setItem("costing_no_of_color", 0);

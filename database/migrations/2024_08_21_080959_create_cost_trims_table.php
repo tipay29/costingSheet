@@ -34,7 +34,7 @@ class CreateCostTrimsTable extends Migration
             $table->double('cost_unit_cost')->nullable();
             $table->double('cost_handling')->nullable();
             $table->double('cost_total')->nullable();
-            $table->double('cost_comment')->nullable();
+            $table->text('cost_comment')->nullable();
 
             $table->string('cost_size_1')->nullable();
             $table->string('cost_size_2')->nullable();
