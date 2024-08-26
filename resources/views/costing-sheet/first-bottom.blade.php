@@ -5,27 +5,61 @@
         <div class="row">
             <h6 class="text-center text-bg-secondary">SKETCHES</h6>
             <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
-                <h6 class="text-center text-bg-secondary mb-5">FRONT</h6>
+                <h6 class="text-center text-bg-secondary ">FRONT</h6>
                 <input type="file" name="costing_photo[]" id="costing_front_photo" style="display:none;"/>
                 <label style="margin-left: 1rem;" for="costing_front_photo">Click here to upload</label>
 
+                <input id="public_path" type="hidden" value="{{public_path()}}">
+
+                <div id="div_image" style="min-height: 150px;">
+                    <img id="#costing_display_front_photo"
+                         @if($sketches)
+                         src="{{asset($sketches->cost_front_sketch)}}"
+                         @endif
+                         class="img-fluid" alt="">
+                </div>
+
             </div>
             <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
-                <h6 class="text-center text-bg-secondary mb-5">BACK</h6>
+                <h6 class="text-center text-bg-secondary ">BACK</h6>
                 <input type="file" name="costing_photo[]" id="costing_back_photo" style="display:none;"/>
                 <label style="margin-left: 1rem;"  for="costing_back_photo">Click here to upload</label>
 
-            </div>
-            <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
-                <h6 class="text-center text-bg-secondary mb-5">LEFT</h6>
-                <input type="file" name="costing_photo[]" id="costing_left_photo" style="display:none;"/>
-                <label style="margin-left: 1rem;"  for="costing_left_photo">Click here to upload</label>
+                <div id="div_image" style="min-height: 150px;">
+                    <img id="#costing_display_back_photo"
+                         @if($sketches)
+                         src="{{asset($sketches->cost_back_sketch)}}"
+                         @endif
+                         class="img-fluid" alt="">
+                </div>
 
             </div>
             <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
-                <h6 class="text-center text-bg-secondary mb-5">RIGHT</h6>
+                <h6 class="text-center text-bg-secondary ">LEFT</h6>
+                <input type="file" name="costing_photo[]" id="costing_left_photo" style="display:none;"/>
+                <label style="margin-left: 1rem;"  for="costing_left_photo">Click here to upload</label>
+
+                <div id="div_image" style="min-height: 150px;">
+                    <img id="#costing_display_left_photo_aw"
+                         @if($sketches)
+                         src="{{asset($sketches->cost_left_sketch)}}"
+                         @endif
+                         class="img-fluid" alt="">
+                </div>
+
+            </div>
+            <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
+                <h6 class="text-center text-bg-secondary ">RIGHT</h6>
                 <input type="file" name="costing_photo[]" id="costing_right_photo" style="display:none;"/>
                 <label style="margin-left: 1rem;"  for="costing_right_photo">Click here to upload</label>
+
+                <div id="div_image" style="min-height: 150px;">
+                    <img id="#costing_display_right_photo"
+                         @if($sketches)
+                         src="{{asset($sketches->cost_right_sketch)}}"
+                         @endif
+                         class="img-fluid" alt="">
+                </div>
 
             </div>
         </div>

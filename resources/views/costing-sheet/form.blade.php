@@ -1,7 +1,7 @@
 
 
 
-<h2 class="text-center" id="costing_header_vendor"></h2>
+<h2 class="text-center" id="costing_header_vendor">Galaxy International Trading Company Ltd.</h2>
 
 <h3 class="text-bg-success text-center" style="border:1px solid black;">COSTING SHEET</h3>
 

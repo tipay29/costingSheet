@@ -31,7 +31,6 @@
                 <td class="css-text-right">SPECIAL CONSTRUCTION :</td>
                 <td>
                     <select class="css-select-costing" name="costing_special_construction" id="costing_special_construction">
-                        <option value="Invalid" disabled selected>Select Special Construction</option>
                         <option value="BONDING" >BONDING粘合剂</option>
                         <option value="DOWN" >DOWN羽绒</option>
                         <option value="ECO-DOWN" >ECO-DOWN手塞棉</option>
@@ -45,8 +44,7 @@
                 <td class="css-text-right">PRODUCT CATEGORY :</td>
                 <td>
                     <select class="css-select-costing" name="costing_product_category" id="costing_product_category">
-                        <option value="Invalid" disabled selected>Select Product Category</option>
-                        <option value="Apparel" >Apparel成衣</option>
+                        <option value="Apparel" selected>Apparel成衣</option>
                         <option value="Equipment" >Equipment箱包设备</option>
                     </select>
                 </td>
@@ -65,10 +63,10 @@
                 <td class="css-text-right">PRODUCT CATEGORY 1 :</td>
                 <td>
                     <select class="css-select-costing" name="costing_product_category_one" id="costing_product_category_one">
-                        <option value="Invalid" disabled selected>Select Product Category 1</option>
-                        <option value="TOPS" >TOPS上装</option>
-                        <option value="BOTTOMS" >BOTTOMS下装</option>
-                        <option value="ONCESET" >ONCESET套装</option>
+                        <option value="Invalid" disabled selected>Select Category One</option>
+                        <option id="TOPS" value="TOPS" >TOPS上装</option>
+                        <option id="BOTTOMS" value="BOTTOMS" >BOTTOMS下装</option>
+                        <option id="ONCESET" value="ONCESET" >ONCESET套装</option>
                     </select>
                 </td>
                 <td class="css-text-right">GENDER AGE GROUP :</td>
@@ -119,7 +117,6 @@
                 <td class="css-text-right">COSTING STAGE :</td>
                 <td>
                     <select class="css-select-costing" name="costing_stage" id="costing_stage">
-                        <option value="Invalid" disabled selected>Select Costing Stage</option>
                         <option value="Development Sample" >Development Sample</option>
                         <option value="Costing Sample">Costing Sample</option>
                         <option value="Counter Sample">Counter Sample</option>
@@ -164,7 +161,7 @@
                 <td class="css-text-right">CURRENCY :</td>
                 <td>
                     <select class="css-select-costing" name="costing_currency" id="costing_currency">
-                        <option value="$" selected>USD $</option>
+                        <option value="$" >USD $</option>
                         <option value="¥" >RMB ¥</option>
                     </select>
 
@@ -190,7 +187,7 @@
                 </td>
                 <td >
                     <select style="text-align: end;font-weight: bold;" class="css-select-costing" name="costing_total_fob_cm" id="costing_total_fob_cm">
-                        <option value="TOTAL FOB" selected>TOTAL FOB :</option>
+                        <option value="TOTAL FOB" >TOTAL FOB :</option>
                         <option value="CM" >CM :</option>
                     </select>
                 </td>

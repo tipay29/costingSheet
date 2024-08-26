@@ -6,7 +6,6 @@
                 <td width="25%" class="css-text-right">VENDOR : </td>
                 <td width="25%" >
                     <select class="css-select-costing" name="costing_vendor" id="costing_vendor">
-                        <option value="Invalid Vendor" disabled selected>Select Vendor</option>
                         <option value="Galaxy International Trading Company Ltd." >Galaxy International Trading Company Ltd.</option>
                         <option value="Horizon Outdoor (Cambodia) Co., Ltd" >Horizon Outdoor (Cambodia) Co., Ltd</option>
                         <option value="Vicmark Fashions (Cambodia) Co., Ltd." >Vicmark Fashions (Cambodia) Co., Ltd.</option>

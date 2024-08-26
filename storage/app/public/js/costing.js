@@ -37,34 +37,8 @@ let costing_gender = $('#costing_gender');
 let costing_gender_age_group_div = $('#costing_gender_age_group_div');
 
 costing_gender.change(function(e){
-    let gender_age_group = '';
 
-    if(costing_gender.val() === 'MENS'){
-        gender_age_group = '<select class="css-select-costing" name="costing_gender_age_group" id="costing_gender_age_group">\n' +
-            '                        <option value="Invalid" disabled selected>Select Age Group</option>\n' +
-            '                        <option value="Mens" >Mens男士 19 Y+</option>\n' +
-            '                    </select>';
-    }else if(costing_gender.val() === 'WOMENS'){
-        gender_age_group = '<select class="css-select-costing" name="costing_gender_age_group" id="costing_gender_age_group">\n' +
-            '                        <option value="Invalid" disabled selected>Select Age Group</option>\n' +
-            '                        <option value="Womens" >Womens女士 19 Y+</option>\n' +
-            '                    </select>';
-    }else if(costing_gender.val() === 'UNISEX'){
-        gender_age_group = '<select class="css-select-costing" name="costing_gender_age_group" id="costing_gender_age_group">\n' +
-            '                        <option value="Invalid" disabled selected>Select Age Group</option>\n' +
-            '                        <option value="Unisex" >Unisex中性 19 Y+</option>\n' +
-            '                    </select>';
-    }else if(costing_gender.val() === 'KIDS'){
-        gender_age_group = ' <select class="css-select-costing" name="costing_gender_age_group" id="costing_gender_age_group">\n' +
-            '                        <option value="Invalid" disabled selected>Select Age Group</option>\n' +
-            '                        <option value="Teen" >Teen/Youth少青 13-19 Y</option>\n' +
-            '                        <option value="Boys" >Boys男孩 13-19 Y</option>\n' +
-            '                        <option value="Girls" >Girls女孩 13-19 Y</option>\n' +
-            '                        <option value="Kid/Toddler" >Kid/Toddler幼童 1-7 Y</option>\n' +
-            '                        <option value="Baby/Infant" >Baby/Infant婴儿 0-12 M</option>\n' +
-            '                    </select>';
-    }
-
+    let gender_age_group = getAgeGroup(costing_gender.val(),null);
     costing_gender_age_group_div.html(gender_age_group);
 
 });
@@ -74,74 +48,7 @@ let costing_product_category_two_div = $('#costing_product_category_two_div');
 
 costing_product_category_one.change(function(e){
 
-    let product_category_two = '';
-
-    if(costing_product_category_one.val() === 'TOPS'){
-
-        product_category_two = ' <select class="css-select-costing" name="costing_product_category_two" id="costing_product_category_two">\n' +
-            '                        <option value="Invalid" disabled selected>Select TOPS上装</option>\n' +
-            '                        <option value="3-IN-1 JACKET" >3-IN-1 JACKET三合一</option>\n' +
-            '                        <option value="BASELAYER TOP">BASELAYER TOP打底衫</option>\n' +
-            '                        <option value="DOWN JACKET">DOWN JACKET羽绒服</option>\n' +
-            '                        <option value="DOWN VEST">DOWN VEST羽绒背心</option>\n' +
-            '                        <option value="FLEECE FULL ZIP">FLEECE FULL ZIP抓绒全拉链</option>\n' +
-            '                        <option value="FLEECE HALF ZIP">FLEECE HALF ZIP抓绒半拉链</option>\n' +
-            '                        <option value="FLEECE PANTS">FLEECE PANTS抓绒裤子</option>\n' +
-            '                        <option value="FLEECE PULL OVER">FLEECE PULL OVER抓绒套头式</option>\n' +
-            '                        <option value="FLEECE VEST">FLEECE VEST抓绒背心</option>\n' +
-            '                        <option value="HARD SHELL JACKET">HARD SHELL JACKET硬壳夹克</option>\n' +
-            '                        <option value="HOODIE">HOODIE卫衣</option>\n' +
-            '                        <option value="KNIT FULL ZIP">KNIT FULL ZIP针织衫全拉链</option>\n' +
-            '                        <option value="KNIT PULL OVER">KNIT PULL OVER针织套头</option>\n' +
-            '                        <option value="KNITWEAR">KNITWEAR针织衫</option>\n' +
-            '                        <option value="LS SHIRT">LS SHIRT长袖衬衫</option>\n' +
-            '                        <option value="LS TEE">LS TEE长T袖</option>\n' +
-            '                        <option value="OTHER KNIT TOP">OTHER KNIT TOP其它针织上装</option>\n' +
-            '                        <option value="OTHER WOVEN TOP">OTHER WOVEN TOP其它梭织上装</option>\n' +
-            '                        <option value="OVERCOAT">OVERCOAT大衣</option>\n' +
-            '                        <option value="PADDED JACKET">PADDED JACKET填充夹克</option>\n' +
-            '                        <option value="PADDED VEST">PADDED VEST填充背心</option>\n' +
-            '                        <option value="SNOWSPORTS JACKET">SNOWSPORTS JACKET滑雪服</option>\n' +
-            '                        <option value="SOFT SHELL JACKET">SOFT SHELL JACKET软壳夹克</option>\n' +
-            '                        <option value="SS POLO">SS POLO短袖衫</option>\n' +
-            '                        <option value="SS SHIRT">SS SHIRT短袖衬衫</option>\n' +
-            '                        <option value="SS TEE">SS TEE短袖</option>\n' +
-            '                        <option value="UPF JACKET">UPF JACKET防晒衣</option>\n' +
-            '                        <option value="VEST">VEST背心</option>\n' +
-            '                        <option value="WIND JACKET">WIND JACKET防风衣</option>\n' +
-            '                    </select>';
-
-    }
-    else if(costing_product_category_one.val() === 'BOTTOMS'){
-        product_category_two = '<select class="css-select-costing" name="costing_product_category_two" id="costing_product_category_two">\n' +
-            '                        <option value="Invalid" disabled selected>Select BOTTOMS下装</option>\n' +
-            '                        <option value="BASELAYER BTM" >BASELAYER BTM打底裤</option>\n' +
-            '                        <option value="CASUAL PANTS" >CASUAL PANTS休闲裤</option>\n' +
-            '                        <option value="DRESS" >DRESS短裙</option>\n' +
-            '                        <option value="HARD SHELL PANTS" >HARD SHELL PANTS硬壳裤</option>\n' +
-            '                        <option value="KNIT PANTS" >KNIT PANTS针织裤子</option>\n' +
-            '                        <option value="ONE PIECE" >ONE PIECE连衣裙</option>\n' +
-            '                        <option value="OTHER KNIT BOTTOM" >OTHER KNIT BOTTOM其它针织下装</option>\n' +
-            '                        <option value="OTHER WOVEN BOTTOM" >OTHER WOVEN BOTTOM其它梭织下装</option>\n' +
-            '                        <option value="PADDED PANTS" >PADDED PANTS填充裤</option>\n' +
-            '                        <option value="SHORTS" >SHORTS短裤</option>\n' +
-            '                        <option value="SKIRT" >SKIRT裙子</option>\n' +
-            '                        <option value="SKORT" >SKORT裙裤</option>\n' +
-            '                        <option value="SNOWSPORTS PANTS" >SNOWSPORTS PANTS滑雪裤</option>\n' +
-            '                        <option value="SOFT SHELL PANTS" >SOFT SHELL PANTS软壳裤</option>\n' +
-            '                        <option value="SWEATPANTS" >SWEATPANTS卫裤/运动裤</option>\n' +
-            '                        <option value="TEK PANTS" >TEK PANTS工装阔腿裤</option>\n' +
-            '                        <option value="TIGHTS" >TIGHTS紧身连袜裤</option>\n' +
-            '                    </select>';
-    }
-    else if(costing_product_category_one.val() === 'ONCESET'){
-        product_category_two = '<select class="css-select-costing" name="costing_product_category_two" id="costing_product_category_two">\n' +
-            '                        <option value="Invalid" disabled selected>Select ONCESET套装</option>\n' +
-            '                        <option value="ONE SET" >ONE SET套装</option>\n' +
-            '                        <option value="JUMPSUITS" >JUMPSUITS连体衣</option>\n' +
-            '                        <option value="ONE PIECE" >ONE PIECE连衣裙</option>\n' +
-            '                    </select>';
-    }
+    let product_category_two = getProductCatTwo(costing_product_category_one.val(),'');
 
     costing_product_category_two_div.html(product_category_two);
 
@@ -186,7 +93,7 @@ costing_gender_age_group_div.on('change','#costing_gender_age_group',function (e
 
         if(no_of_color !== null){
             old_no_of_color = sessionStorage.getItem('costing_no_of_color');
-            giveColorColumns(no_of_color,old_no_of_color);
+            displayColors(no_of_color,old_no_of_color);
         }
     }
 
@@ -237,42 +144,7 @@ function giveSizes(gender,product){
         sizes = ["0-3M","3-6M","6-12M","12-18M","18-24M"];
     }
 
-    sessionStorage.setItem('costing_sizes_name',sizes);
-    $('#costing_size_head_names').val(sizes);
-    old_no_of_size = sessionStorage.getItem('costing_no_of_size');
-    no_of_size = parseInt(sizes.length);
-    sessionStorage.setItem('costing_no_of_size',no_of_size);
-
-    let header_ch ='<th class="costing_table_size" scope="col" style="vertical-align: top;background-color: #e3ed26; " colspan="'+sizes.length+'">Size尺寸</th>'
-    let header = '';
-    let header_total = '<th class="costing_table_size" style="background-color: #b5f7bd; " colspan="'+sizes.length+'"></th>';
-    let final_total = '<th class="costing_table_size" style="background-color: #bfcdf2; " colspan="'+sizes.length+'"></th>';
-
-    for (let i = 0; i < sizes.length; i++) {
-        header = header.concat('<th class="costing_table_size" scope="col" style="min-width:60px ;vertical-align: top;background-color: #7b9ddb;font-size: 1em; ">' + sizes[i] +'</th>');
-    }
-
-
-    $('.costing_table_size').remove();
-    $('.costing_table_color').remove();
-
-    costing_header_ch.append(header_ch);
-    costing_header.append(header);
-    costing_header_total.append(header_total);
-    costing_final_total.append(final_total);
-
-    //put sizes in the with IDS
-    let categories = ['fabric','trim','zipper','embelishment','label',
-                'thread','package','finish','export','testing','other','labor'];
-    for(y = 0; y < categories.length; y++){
-        giveSizesRow(sizes,categories[y]);
-    }
-
-    let total_column = parseInt(sessionStorage.getItem("costing_total_column"));
-    total_column = total_column - old_no_of_size;
-    total_column = total_column + no_of_size;
-
-    sessionStorage.setItem('costing_total_column',total_column);
+  displaySizes(sizes);
 
 }
 
@@ -288,11 +160,10 @@ costing_no_of_color.change(function(e){
         if(costing_product_category_one.val() !== null &&  costing_product_category_one.val() !== 'ONCESET' &&
             costing_gender_age_group === 'undefined'){
 
-
             giveSizes(costing_gender_age_group.val(),costing_product_category_one.val());
         }
 
-        giveColorColumns(no_of_color,old_no_of_color);
+        displayColors(no_of_color,old_no_of_color);
 
     }else{
         alert('Invalid Number, 1-10 only.');
@@ -301,100 +172,9 @@ costing_no_of_color.change(function(e){
 
 });
 
-function giveColorColumns(no_of_color,old_no_of_color){
-
-
-    let header_ch ='<th class="costing_table_color" scope="col" style="vertical-align: top;background-color: #e3ed26; " colspan="'+no_of_color+'">Color颜色</th>'
-    let header = '';
-    let header_total = '<th class="costing_table_color" style="background-color: #b5f7bd; " colspan="'+no_of_color+'"></th>';
-    let final_total = '<th class="costing_table_color" style="background-color: #bfcdf2; " colspan="'+no_of_color+'"></th>';
-
-
-    for (let i = 1; i <= no_of_color; i++) {
-
-
-        header = header.concat('<th class="costing_table_color" ' +
-            '  scope="col" ' +
-            'style="min-width:75px ; ">' +
-            '<input class="costing_table_color_head'+i+'" value="'+i+'" ' +
-            ' style="border:none;height:1.63rem;background-color: #7b9ddb;font-size: 1em;text-align: center;">'
-            +'</th>');
-
-    }
 
 
 
-    costing_header_ch.append(header_ch);
-    costing_header.append(header);
-    costing_header_total.append(header_total);
-    costing_final_total.append(final_total);
-
-    //put sizes in the with IDS
-    let categories = ['fabric','trim','zipper','embelishment','label',
-        'thread','package','finish','export','testing','other','labor'];
-    for(y = 0; y < categories.length; y++){
-        giveColorsRow(no_of_color,categories[y]);
-    }
-
-    let total_column = parseInt(sessionStorage.getItem("costing_total_column"));
-    total_column = total_column - old_no_of_color;
-    total_column = total_column + no_of_color;
-    sessionStorage.setItem('costing_total_column',total_column);
-
-}
-
-function giveSizesRow(sizes,categories){
-
-    let row_control = sessionStorage.getItem('costing_'+categories+'_row_ids').split('-');
-
-    let y =1;
-    for (let i = parseInt(row_control[0]); i <= parseInt(row_control[1]); i++) {
-        let categories_row = '#costing_'+ categories +'_tr' + i;
-        let sizes_row = '';
-
-        for (let x = 1; x <= sizes.length; x++) {
-            sizes_row = sizes_row.concat('' +
-                '<td class="costing_table_size">' +
-                '<input type="text" id="costing_'+ categories +'_size_'+x+'_'+y+'" name="costing_'+ categories +'_size_'+x+'_'+y+'" value="" class=" css-input-costing-data-solo">' +
-                '</td>'+
-                '');
-        }
-
-        $(categories_row).append(sizes_row);
-        y++;
-    }
-
-    // costing_fabric_tr
-
-
-}
-
-function giveColorsRow(no_of_color,categories){
-
-    let row_control = sessionStorage.getItem('costing_'+categories+'_row_ids').split('-');
-
-    let y =1;
-    for (let i = parseInt(row_control[0]); i <= parseInt(row_control[1]); i++) {
-        let categories_row = '#costing_'+ categories +'_tr' + i;
-
-        let colors_row = '';
-
-        for (let x = 1; x <= no_of_color; x++) {
-            colors_row = colors_row.concat('' +
-                '<td class="costing_table_color">' +
-                '<input type="text" id="costing_'+ categories +'_color_'+x+'_'+y+'" name="costing_'+ categories +'_color_'+x+'_'+y+'" value="" class=" css-input-costing-data-solo">' +
-                '</td>'+
-                '');
-        }
-
-        $(categories_row).append(colors_row);
-        y++;
-    }
-
-    // costing_fabric_tr
-
-
-}
 
 $("body").delegate('.costing_table_color_head1','change',function(e){
 
@@ -466,3 +246,117 @@ $("body").delegate('.costing_table_color_head5','change',function(e){
     sessionStorage.setItem('costing_colors_name',costing_colors_name);
     $('#costing_color_head_names').val(costing_colors_name);
 });
+
+
+//get ProductCatTwo use also by Costing show-details
+function getProductCatTwo(product_one,option){
+    let product_category_two = '';
+
+    if(product_one === 'TOPS'){
+
+        product_category_two = ' <select class="css-select-costing" name="costing_product_category_two" id="costing_product_category_two">\n' +
+            '                        <option value="3-IN-1 JACKET" '+getSelected("3-IN-1 JACKET",option)+' >3-IN-1 JACKET三合一</option>\n' +
+            '                        <option value="BASELAYER TOP" '+getSelected("BASELAYER TOP",option)+' >BASELAYER TOP打底衫</option>\n' +
+            '                        <option value="DOWN JACKET" '+getSelected("DOWN JACKET",option)+' >DOWN JACKET羽绒服</option>\n' +
+            '                        <option value="DOWN VEST" '+getSelected("DOWN VEST",option)+' >DOWN VEST羽绒背心</option>\n' +
+            '                        <option value="FLEECE FULL ZIP" '+getSelected("FLEECE FULL ZIP",option)+' >FLEECE FULL ZIP抓绒全拉链</option>\n' +
+            '                        <option value="FLEECE HALF ZIP" '+getSelected("FLEECE HALF ZIP",option)+'>FLEECE HALF ZIP抓绒半拉链</option>\n' +
+            '                        <option value="FLEECE PANTS"  '+getSelected("FLEECE PANTS",option)+'>FLEECE PANTS抓绒裤子</option>\n' +
+            '                        <option value="FLEECE PULL OVER" '+getSelected("FLEECE PULL OVER",option)+'>FLEECE PULL OVER抓绒套头式</option>\n' +
+            '                        <option value="FLEECE VEST" '+getSelected("FLEECE VEST",option)+'>FLEECE VEST抓绒背心</option>\n' +
+            '                        <option value="HARD SHELL JACKET" '+getSelected("HARD SHELL JACKET",option)+'>HARD SHELL JACKET硬壳夹克</option>\n' +
+            '                        <option value="HOODIE" '+getSelected("HOODIE",option)+'>HOODIE卫衣</option>\n' +
+            '                        <option value="KNIT FULL ZIP" '+getSelected("KNIT FULL ZIP",option)+'>KNIT FULL ZIP针织衫全拉链</option>\n' +
+            '                        <option value="KNIT PULL OVER" '+getSelected("KNIT PULL OVER",option)+'>KNIT PULL OVER针织套头</option>\n' +
+            '                        <option value="KNITWEAR" '+getSelected("KNITWEAR",option)+'>KNITWEAR针织衫</option>\n' +
+            '                        <option value="LS SHIRT" '+getSelected("LS SHIRT",option)+'>LS SHIRT长袖衬衫</option>\n' +
+            '                        <option value="LS TEE" '+getSelected("LS TEE",option)+'>LS TEE长T袖</option>\n' +
+            '                        <option value="OTHER KNIT TOP" '+getSelected("OTHER KNIT TOP",option)+'>OTHER KNIT TOP其它针织上装</option>\n' +
+            '                        <option value="OTHER WOVEN TOP" '+getSelected("OTHER WOVEN TOP",option)+'>OTHER WOVEN TOP其它梭织上装</option>\n' +
+            '                        <option value="OVERCOAT" '+getSelected("OVERCOAT",option)+'>OVERCOAT大衣</option>\n' +
+            '                        <option value="PADDED JACKET" '+getSelected("PADDED JACKET",option)+'>PADDED JACKET填充夹克</option>\n' +
+            '                        <option value="PADDED VEST" '+getSelected("PADDED VEST",option)+'>PADDED VEST填充背心</option>\n' +
+            '                        <option value="SNOWSPORTS JACKET" '+getSelected("SNOWSPORTS JACKET",option)+'>SNOWSPORTS JACKET滑雪服</option>\n' +
+            '                        <option value="SOFT SHELL JACKET" '+getSelected("SOFT SHELL JACKET",option)+'>SOFT SHELL JACKET软壳夹克</option>\n' +
+            '                        <option value="SS POLO" '+getSelected("SS POLO",option)+'>SS POLO短袖衫</option>\n' +
+            '                        <option value="SS SHIRT" '+getSelected("SS SHIRT",option)+'>SS SHIRT短袖衬衫</option>\n' +
+            '                        <option value="SS TEE" '+getSelected("SS TEE",option)+'>SS TEE短袖</option>\n' +
+            '                        <option value="UPF JACKET" '+getSelected("UPF JACKET",option)+'>UPF JACKET防晒衣</option>\n' +
+            '                        <option value="VEST" '+getSelected("VEST",option)+'>VEST背心</option>\n' +
+            '                        <option value="WIND JACKET" '+getSelected("WIND JACKET",option)+'>WIND JACKET防风衣</option>\n' +
+            '                    </select>';
+
+    }
+    else if(product_one === 'BOTTOMS'){
+        product_category_two = '<select class="css-select-costing" name="costing_product_category_two" id="costing_product_category_two">\n' +
+            '                        <option value="BASELAYER BTM" '+getSelected("BASELAYER BTM",option)+'>BASELAYER BTM打底裤</option>\n' +
+            '                        <option value="CASUAL PANTS" '+getSelected("CASUAL PANTS",option)+'>CASUAL PANTS休闲裤</option>\n' +
+            '                        <option value="DRESS" '+getSelected("DRESS",option)+'>DRESS短裙</option>\n' +
+            '                        <option value="HARD SHELL PANTS" '+getSelected("HARD SHELL PANTS",option)+'>HARD SHELL PANTS硬壳裤</option>\n' +
+            '                        <option value="KNIT PANTS" '+getSelected("KNIT PANTS",option)+'>KNIT PANTS针织裤子</option>\n' +
+            '                        <option value="ONE PIECE" '+getSelected("ONE PIECE",option)+'>ONE PIECE连衣裙</option>\n' +
+            '                        <option value="OTHER KNIT BOTTOM" '+getSelected("OTHER KNIT BOTTOM",option)+'>OTHER KNIT BOTTOM其它针织下装</option>\n' +
+            '                        <option value="OTHER WOVEN BOTTOM" '+getSelected("OTHER KNIT BOTTOM",option)+'>OTHER WOVEN BOTTOM其它梭织下装</option>\n' +
+            '                        <option value="PADDED PANTS" '+getSelected("PADDED PANTS",option)+'>PADDED PANTS填充裤</option>\n' +
+            '                        <option value="SHORTS" '+getSelected("SHORTS",option)+'>SHORTS短裤</option>\n' +
+            '                        <option value="SKIRT" '+getSelected("SKIRT",option)+'>SKIRT裙子</option>\n' +
+            '                        <option value="SKORT" '+getSelected("SKORT",option)+'>SKORT裙裤</option>\n' +
+            '                        <option value="SNOWSPORTS PANTS" '+getSelected("SNOWSPORTS PANTS",option)+'>SNOWSPORTS PANTS滑雪裤</option>\n' +
+            '                        <option value="SOFT SHELL PANTS" '+getSelected("SOFT SHELL PANTS",option)+'>SOFT SHELL PANTS软壳裤</option>\n' +
+            '                        <option value="SWEATPANTS" '+getSelected("SWEATPANTS",option)+'>SWEATPANTS卫裤/运动裤</option>\n' +
+            '                        <option value="TEK PANTS" '+getSelected("TEK PANTS",option)+'>TEK PANTS工装阔腿裤</option>\n' +
+            '                        <option value="TIGHTS" '+getSelected("TIGHTS",option)+'>TIGHTS紧身连袜裤</option>\n' +
+            '                    </select>';
+    }
+    else if(product_one === 'ONCESET'){
+        product_category_two = '<select class="css-select-costing" name="costing_product_category_two" id="costing_product_category_two">\n' +
+            '                        <option value="ONE SET" '+getSelected("ONE SET",option)+'>ONE SET套装</option>\n' +
+            '                        <option value="JUMPSUITS" '+getSelected("JUMPSUITS",option)+'>JUMPSUITS连体衣</option>\n' +
+            '                        <option value="ONE PIECE" '+getSelected("ONE PIECE",option)+'>ONE PIECE连衣裙</option>\n' +
+            '                    </select>';
+    }
+
+    return product_category_two;
+}
+
+//get Selected use also by Costing show-details
+function getSelected(option,data){
+    if(option === data){
+        return 'selected';
+    }else if(option === "Invalid" && data === null){
+        return 'selected';
+    }
+}
+
+
+function getAgeGroup(gender,option){
+    let gender_age_group = '';
+
+    if(gender === 'MENS'){
+        gender_age_group = '<select class="css-select-costing" name="costing_gender_age_group" id="costing_gender_age_group">\n' +
+            '                        <option value="Invalid" disabled '+getSelected("Invalid",option)+'>Select Age Group</option>\n' +
+            '                        <option value="Mens" '+getSelected("Mens",option)+'>Mens男士 19 Y+</option>\n' +
+            '                    </select>';
+    }else if(gender === 'WOMENS'){
+        gender_age_group = '<select class="css-select-costing" name="costing_gender_age_group" id="costing_gender_age_group">\n' +
+            '                        <option value="Invalid" disabled '+getSelected("Invalid",option)+'>Select Age Group</option>\n' +
+            '                        <option value="Womens" '+getSelected("Womens",option)+'>Womens女士 19 Y+</option>\n' +
+            '                    </select>';
+    }else if(gender === 'UNISEX'){
+        gender_age_group = '<select class="css-select-costing" name="costing_gender_age_group" id="costing_gender_age_group">\n' +
+            '                        <option value="Invalid" disabled '+getSelected("Invalid",option)+'>Select Age Group</option>\n' +
+            '                        <option value="Unisex" '+getSelected("Unisex",option)+'>Unisex中性 19 Y+</option>\n' +
+            '                    </select>';
+    }else if(gender === 'KIDS'){
+        gender_age_group = ' <select class="css-select-costing" name="costing_gender_age_group" id="costing_gender_age_group">\n' +
+            '                        <option value="Invalid" disabled '+getSelected("Invalid",option)+'>Select Age Group</option>\n' +
+            '                        <option value="Teen" '+getSelected("Teen",option)+'>Teen/Youth少青 13-19 Y</option>\n' +
+            '                        <option value="Boys" '+getSelected("Boys",option)+'>Boys男孩 13-19 Y</option>\n' +
+            '                        <option value="Girls" '+getSelected("Girls",option)+'>Girls女孩 13-19 Y</option>\n' +
+            '                        <option value="Kid/Toddler" '+getSelected("Kid/Toddler",option)+'>Kid/Toddler幼童 1-7 Y</option>\n' +
+            '                        <option value="Baby/Infant" '+getSelected("Baby/Infant",option)+'>Baby/Infant婴儿 0-12 M</option>\n' +
+            '                    </select>';
+    }
+
+    return gender_age_group;
+}

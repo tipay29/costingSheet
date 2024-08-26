@@ -14,7 +14,12 @@
     <script src="{{ asset('storage/js/chart.js') }}" defer></script>
     <script src="{{ asset('storage/js/chart-label.js') }}" defer></script>
     <script src="{{ asset('storage/js/main.js') }}" defer></script>
+    <script src="{{ asset('storage/js/costing-get-categories.js') }}" defer></script>
+    <script src="{{ asset('storage/js/costing-get-size-color.js') }}" defer></script>
     <script src="{{ asset('storage/js/costing-construct.js') }}" defer></script>
+    @if(str_contains(url()->current(), 'costing-sheet') || str_contains(url()->current(), 'edit'))
+        <script src="{{ asset('storage/js/costing-show-details.js') }}" defer></script>
+    @endif
     <script src="{{ asset('storage/js/costing-init.js') }}" defer></script>
     <script src="{{ asset('storage/js/costing-table-cb.js') }}" defer></script>
     <script src="{{ asset('storage/js/costing-bottom.js') }}" defer></script>

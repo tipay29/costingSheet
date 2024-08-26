@@ -50,7 +50,7 @@
                             @csrf
 
                             <div class="d-flex justify-content-center mt-3">
-                                <button type="submit"  class="btn btn-primary" id="costing_save_btn">Save </button>
+                                <button type="submit"  class="btn btn-primary" id="costing_update_btn">Update </button>
                             </div>
 
                         </form>

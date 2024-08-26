@@ -66,7 +66,14 @@ class CostingSheetApiController extends Controller
 
     public function show(CostingSheet $costingSheet)
     {
-        //
+        $costingSheet->load([
+            'cost_fabrics','cost_trims','cost_zippers','cost_embelishments',
+            'cost_labels','cost_threads','cost_packages','cost_finishes',
+            'cost_exports','cost_testings','cost_others','cost_labors','cost_sketches',
+            'cost_remarks','cost_labor_details','cost_moqs',
+        ]);
+
+        return response()->json($costingSheet,200);
     }
 
 
@@ -293,24 +300,26 @@ class CostingSheetApiController extends Controller
                 $wholename = $pathname.$filename;
                 $image = $file;
                 $image = Image::make($image->getRealPath());
-                $image->resize(300,300);
+                $image->resize(150,150);
                 $image->save(public_path($wholename));
 
                 $imageWholeName[$key] = $wholename;
 
 
             }
+
+            $data = [
+                'cost_front_sketch' => $imageWholeName[0],
+                'cost_back_sketch' => $imageWholeName[1],
+                'cost_left_sketch' => $imageWholeName[2],
+                'cost_right_sketch' => $imageWholeName[3],
+                'costing_sheet_id' => $costing_sheet_id,
+            ];
+
+            CostSketch::create($data);
         }
 
-        $data = [
-            'cost_front_sketch' => $imageWholeName[0],
-            'cost_back_sketch' => $imageWholeName[1],
-            'cost_left_sketch' => $imageWholeName[2],
-            'cost_right_sketch' => $imageWholeName[3],
-            'costing_sheet_id' => $costing_sheet_id,
-        ];
 
-        CostSketch::create($data);
 
 
     }
