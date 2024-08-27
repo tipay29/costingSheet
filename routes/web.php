@@ -26,4 +26,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('costing-sheets/{costing_sheet}/export','CostingSheetController@export')->name('costing-sheets.export');
 Route::resource('costing-sheets','CostingSheetController');

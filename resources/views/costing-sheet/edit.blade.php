@@ -11,7 +11,9 @@
                         <h5 class="mt-2">Edit Costing Sheet</h5>
 
                         <div>
-
+                            <a href="{{route('costing-sheets.export', $costingsheet)}}"
+                               class="btn btn-outline-success">
+                                Excel</a>
                             <a href="#"
                                class="btn btn-outline-success">
                                 Approve</a>
