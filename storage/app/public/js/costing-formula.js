@@ -9,6 +9,8 @@ $('body').delegate('input.costing_formula_usage','change',function(e){
     let category = id.split('_')[1];
     let column_name = 'usage';
 
+
+
     // check if usage is valid value
     if($(this).val() > 0 && $(this).val() <= 100000){
 

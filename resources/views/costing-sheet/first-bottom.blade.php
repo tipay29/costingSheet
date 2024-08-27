@@ -6,7 +6,7 @@
             <h6 class="text-center text-bg-secondary">SKETCHES</h6>
             <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
                 <h6 class="text-center text-bg-secondary ">FRONT</h6>
-                <input type="file" name="costing_photo[]" id="costing_front_photo" style="display:none;"/>
+                <input type="file" name="costing_photo[0]" id="costing_front_photo" style="display:none;"/>
                 <label style="margin-left: 1rem;" for="costing_front_photo">Click here to upload</label>
 
                 <input id="public_path" type="hidden" value="{{public_path()}}">
@@ -22,7 +22,7 @@
             </div>
             <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
                 <h6 class="text-center text-bg-secondary ">BACK</h6>
-                <input type="file" name="costing_photo[]" id="costing_back_photo" style="display:none;"/>
+                <input type="file" name="costing_photo[1]" id="costing_back_photo" style="display:none;"/>
                 <label style="margin-left: 1rem;"  for="costing_back_photo">Click here to upload</label>
 
                 <div id="div_image" style="min-height: 150px;">
@@ -36,11 +36,11 @@
             </div>
             <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
                 <h6 class="text-center text-bg-secondary ">LEFT</h6>
-                <input type="file" name="costing_photo[]" id="costing_left_photo" style="display:none;"/>
+                <input type="file" name="costing_photo[2]" id="costing_left_photo" style="display:none;"/>
                 <label style="margin-left: 1rem;"  for="costing_left_photo">Click here to upload</label>
 
                 <div id="div_image" style="min-height: 150px;">
-                    <img id="#costing_display_left_photo_aw"
+                    <img id="#costing_display_left_photo"
                          @if($sketches)
                          src="{{asset($sketches->cost_left_sketch)}}"
                          @endif
@@ -50,7 +50,7 @@
             </div>
             <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
                 <h6 class="text-center text-bg-secondary ">RIGHT</h6>
-                <input type="file" name="costing_photo[]" id="costing_right_photo" style="display:none;"/>
+                <input type="file" name="costing_photo[3]" id="costing_right_photo" style="display:none;"/>
                 <label style="margin-left: 1rem;"  for="costing_right_photo">Click here to upload</label>
 
                 <div id="div_image" style="min-height: 150px;">

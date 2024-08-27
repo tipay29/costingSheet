@@ -90,8 +90,13 @@
     <div class="col-md-2 " style="">
         <h6 class="text-center text-bg-secondary">SKETCH</h6>
 
-{{--        <img src="{{ asset('storage/images/SampleFront.png') }}" height="70" alt="Nature" class="responsive">--}}
-
+        <div  id="div_image" style="margin:auto;height: 90px;width: 90px;">
+            <img id="#costing_display_front_photo"
+                 @if($sketches)
+                 src="{{asset($sketches->cost_front_sketch)}}"
+                 @endif
+                 class="img-fluid" alt="">
+        </div>
 
     </div>
 

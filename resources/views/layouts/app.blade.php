@@ -25,7 +25,12 @@
     <script src="{{ asset('storage/js/costing-bottom.js') }}" defer></script>
     <script src="{{ asset('storage/js/costing.js') }}" defer></script>
     <script src="{{ asset('storage/js/costing-formula.js') }}" defer></script>
-    <script src="{{ asset('storage/js/costing-save.js') }}" defer></script>
+    @if(str_contains(url()->current(), 'costing-sheet') || str_contains(url()->current(), 'create'))
+        <script src="{{ asset('storage/js/costing-save.js') }}" defer></script>
+    @endif
+    @if(str_contains(url()->current(), 'costing-sheet') || str_contains(url()->current(), 'edit'))
+        <script src="{{ asset('storage/js/costing-update.js') }}" defer></script>
+    @endif
     <script src="{{ asset('storage/js/costing-chart.js') }}" defer></script>
 
 

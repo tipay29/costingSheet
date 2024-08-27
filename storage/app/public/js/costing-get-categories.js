@@ -1,3 +1,5 @@
+
+
 function getFabricRow(){
     let costing_fabric_tds = '';
     let fabric_row_count = sessionStorage.getItem("costing_fabric_row");
@@ -6,6 +8,8 @@ function getFabricRow(){
     if(sessionStorage.getItem('cost_fabrics')){
         cost_fabrics = JSON.parse(sessionStorage.getItem('cost_fabrics'));
     }
+    console.log('fabric');
+    console.log(cost_fabrics[0]);
 
     sessionStorage.setItem("costing_fabric_row_ids", (1 + '-'+ fabric_row_count));
 
@@ -17,67 +21,77 @@ function getFabricRow(){
             '                                    <input  type="checkbox" id="costing_fabric_cb'+item_no+'" name="costing_fabric_cb'+item_no+'" class="css-costing-cb" >'+item_no.padStart(3,"0")+
             '                                    </td>\n' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('component',cost_fabrics)+'" type="text" id="costing_fabric_component'+item_no+'" name="costing_fabric_component'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('component',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_component'+item_no+'" name="costing_fabric_component'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_fabric_material_id'+item_no+'" name="costing_fabric_material_id'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('material_id',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_material_id'+item_no+'" name="costing_fabric_material_id'+item_no+'" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_fabric_categories'+item_no+'" name="costing_fabric_categories'+item_no+'" value="Fabric" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
+            '                                    <input value="'+getCategoryValue('category_data',cost_fabrics[i-1],'Fabric')+'"  type="text" id="costing_fabric_categories'+item_no+'" name="costing_fabric_categories'+item_no+'" value="Fabric" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_fabric_nominated'+item_no+'" name="costing_fabric_nominated'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('nominated',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_nominated'+item_no+'" name="costing_fabric_nominated'+item_no+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_fabric_coo'+item_no+'" name="costing_fabric_coo'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('coo',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_coo'+item_no+'" name="costing_fabric_coo'+item_no+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_fabric_supplier_ref'+item_no+'" name="costing_fabric_supplier_ref'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('supplier_ref',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_supplier_ref'+item_no+'" name="costing_fabric_supplier_ref'+item_no+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_fabric_description'+item_no+'" name="costing_fabric_description'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('description',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_description'+item_no+'" name="costing_fabric_description'+item_no+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_fabric_location'+item_no+'" name="costing_fabric_location'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('location',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_location'+item_no+'" name="costing_fabric_location'+item_no+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_fabric_mill_supplier'+item_no+'" name="costing_fabric_mill_supplier'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mill_supplier',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_mill_supplier'+item_no+'" name="costing_fabric_mill_supplier'+item_no+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_fabric_uom'+item_no+'" name="costing_fabric_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+            '                                      <select id="costing_fabric_uom'+item_no+'"   name="costing_fabric_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_fabrics[i-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_fabrics[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_fabrics[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_fabrics[i-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_fabrics[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_fabrics[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_fabrics[i-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_fabrics[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_fabrics[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_fabrics[i-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_fabrics[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_fabrics[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_fabrics[i-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_fabrics[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_fabrics[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_fabrics[i-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_fabrics[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_fabrics[i-1])+'>KG</option>' +
+            '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_fabric_wedth'+item_no+'" name="costing_fabric_wedth'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('width',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_wedth'+item_no+'" name="costing_fabric_wedth'+item_no+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_fabric_usage'+item_no+'" name="costing_fabric_usage'+item_no+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('usage',cost_fabrics[i-1],0)+'" type="number" id="costing_fabric_usage'+item_no+'" name="costing_fabric_usage'+item_no+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_fabric_wastage'+item_no+'" name="costing_fabric_wastage'+item_no+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
+            '                                    <input value="'+getCategoryValue('wastage',cost_fabrics[i-1],0)+'" type="number" id="costing_fabric_wastage'+item_no+'" name="costing_fabric_wastage'+item_no+'"  class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" readonly id="costing_fabric_gross_yield'+item_no+'" name="costing_fabric_gross_yield'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('gross_yield',cost_fabrics[i-1],0)+'" type="number" readonly id="costing_fabric_gross_yield'+item_no+'" name="costing_fabric_gross_yield'+item_no+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_fabric_unit_cost'+item_no+'" name="costing_fabric_unit_cost'+item_no+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
+            '                                    <input value="'+getCategoryValue('unit_cost',cost_fabrics[i-1],0)+'" type="number" id="costing_fabric_unit_cost'+item_no+'" name="costing_fabric_unit_cost'+item_no+'" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_fabric_handling'+item_no+'" name="costing_fabric_handling'+item_no+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
+            '                                    <input value="'+getCategoryValue('handling',cost_fabrics[i-1],0)+'" type="number" id="costing_fabric_handling'+item_no+'" name="costing_fabric_handling'+item_no+'"  class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
 
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_fabric_total_cost'+item_no+'" name="costing_fabric_total_cost'+item_no+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+            '                                    <input value="'+getCategoryValue('total',cost_fabrics[i-1],0)+'" type="number" id="costing_fabric_total_cost'+item_no+'" name="costing_fabric_total_cost'+item_no+'"  class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_fabric_comment'+item_no+'" name="costing_fabric_comment'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('comment',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_comment'+item_no+'" name="costing_fabric_comment'+item_no+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
             '                                </tr>' +
             '');
+
+
     }
 
     //costing fob sign change currency
@@ -92,6 +106,13 @@ function getTrimRow(){
     let trim_row_count = parseInt(sessionStorage.getItem("costing_trim_row")) +
         parseInt(sessionStorage.getItem("costing_fabric_row"));
 
+    let cost_trims = [];
+    if(sessionStorage.getItem('cost_trims')){
+        cost_trims = JSON.parse(sessionStorage.getItem('cost_trims'));
+    }
+    console.log('trim');
+    console.log(cost_trims[0]);
+
     let x = 1;
     sessionStorage.setItem("costing_trim_row_ids", ((parseInt(before_row_count)+1) + '-'+ trim_row_count));
     for (let i = before_row_count+1; i <= trim_row_count; i++) {
@@ -103,62 +124,70 @@ function getTrimRow(){
             '                                    <input type="checkbox" id="costing_trim_cb'+item_no+'" name="costing_trim_cb'+item_no+'" class="css-costing-cb" >'+item_no.padStart(3,"0")+
             '                                    </td>\n' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_trim_component'+x+'" name="costing_trim_component'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('component',cost_trims[x-1],'')+'"  type="text" id="costing_trim_component'+x+'" name="costing_trim_component'+x+'" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_trim_material_id'+x+'" name="costing_trim_material_id'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('material_id',cost_trims[x-1],'')+'" type="text" id="costing_trim_material_id'+x+'" name="costing_trim_material_id'+x+'" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_trim_categories'+x+'" name="costing_trim_categories'+x+'" value="Trim" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
+            '                                    <input value="'+getCategoryValue('category_data',cost_trims[x-1],'Trim')+'" type="text" id="costing_trim_categories'+x+'" name="costing_trim_categories'+x+'" value="Trim" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_trim_nominated'+x+'" name="costing_trim_nominated'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('nominated',cost_trims[x-1],'')+'" type="text" id="costing_trim_nominated'+x+'" name="costing_trim_nominated'+x+'" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_trim_coo'+x+'" name="costing_trim_nominated'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('coo',cost_trims[x-1],'')+'" type="text" id="costing_trim_coo'+x+'" name="costing_trim_nominated'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_trim_supplier_ref'+x+'" name="costing_trim_supplier_ref'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('supplier_ref',cost_trims[x-1],'')+'" type="text" id="costing_trim_supplier_ref'+x+'" name="costing_trim_supplier_ref'+x+'" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_trim_description'+x+'" name="costing_trim_description'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('description',cost_trims[x-1],'')+'" type="text" id="costing_trim_description'+x+'" name="costing_trim_description'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_trim_location'+x+'" name="costing_trim_location'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('location',cost_trims[x-1],'')+'" type="text" id="costing_trim_location'+x+'" name="costing_trim_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_trim_mill_supplier'+x+'" name="costing_trim_mill_supplier'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mill_supplier',cost_trims[x-1],'')+'" type="text" id="costing_trim_mill_supplier'+x+'" name="costing_trim_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_trim_uom'+x+'" name="costing_trim_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+            '                                      <select id="costing_trim_uom'+item_no+'"   name="costing_trim_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_trims[i-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_trims[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_trims[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_trims[i-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_trims[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_trims[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_trims[i-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_trims[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_trims[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_trims[i-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_trims[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_trims[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_trims[i-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_trims[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_trims[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_trims[i-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_trims[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_trims[i-1])+'>KG</option>' +
+            '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_trim_wedth'+x+'" name="costing_trim_wedth'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('width',cost_trims[x-1],'')+'" type="text" id="costing_trim_wedth'+x+'" name="costing_trim_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_trim_usage'+x+'" name="costing_trim_usage'+x+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('usage',cost_trims[x-1],0)+'" type="number" id="costing_trim_usage'+x+'" name="costing_trim_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_trim_wastage'+x+'" name="costing_trim_wastage'+x+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
+            '                                    <input value="'+getCategoryValue('wastage',cost_trims[x-1],0)+'" type="number" id="costing_trim_wastage'+x+'" name="costing_trim_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number"  readonly id="costing_trim_gross_yield'+x+'" name="costing_trim_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('gross_yield',cost_trims[x-1],0)+'" type="number"  readonly id="costing_trim_gross_yield'+x+'" name="costing_trim_gross_yield'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_trim_unit_cost'+x+'" name="costing_trim_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
+            '                                    <input value="'+getCategoryValue('unit_cost',cost_trims[x-1],0)+'" type="number" id="costing_trim_unit_cost'+x+'" name="costing_trim_unit_cost'+x+'"  class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_trim_handling'+x+'" name="costing_trim_handling'+x+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
+            '                                    <input value="'+getCategoryValue('handling',cost_trims[x-1],0)+'" type="number" id="costing_trim_handling'+x+'" name="costing_trim_handling'+x+'"  class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_trim_total_cost'+x+'" name="costing_trim_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+            '                                    <input value="'+getCategoryValue('total',cost_trims[x-1],0)+'" type="number" id="costing_trim_total_cost'+x+'" name="costing_trim_total_cost'+x+'" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_trim_comment'+x+'" name="costing_trim_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('comment',cost_trims[x-1],'')+'" type="text" id="costing_trim_comment'+x+'" name="costing_trim_comment'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
             '                                </tr>' +
@@ -177,6 +206,13 @@ function getZipperRow(){
         parseInt(sessionStorage.getItem("costing_trim_row")) +
         parseInt(sessionStorage.getItem("costing_zipper_row"));
 
+    let cost_zippers = [];
+    if(sessionStorage.getItem('cost_zippers')){
+        cost_zippers = JSON.parse(sessionStorage.getItem('cost_zippers'));
+    }
+    console.log('zipper');
+    console.log(cost_zippers[0]);
+
     sessionStorage.setItem("costing_zipper_row_ids", ((parseInt(before_row_count)+1) + '-'+ zipper_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= zipper_row_count; i++) {
@@ -187,62 +223,70 @@ function getZipperRow(){
             '                                    <input type="checkbox" id="costing_zipper_cb'+item_no+'" name="costing_zipper_cb'+item_no+'" class="css-costing-cb" >'+item_no.padStart(3,"0")+
             '                                    </td>\n' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_zipper_component'+x+'" name="costing_zipper_component'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('component',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_component'+x+'" name="costing_zipper_component'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_zipper_material_id'+x+'" name="costing_zipper_material_id'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('material_id',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_material_id'+x+'" name="costing_zipper_material_id'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_zipper_categories'+x+'" name="costing_zipper_categories'+x+'" value="Zipper" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
+            '                                    <input value="'+getCategoryValue('category_data',cost_zippers[x-1],'Zipper')+'" type="text" id="costing_zipper_categories'+x+'" name="costing_zipper_categories'+x+'"  class="css-input-costing-data-solo" style="text-align: start;" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_zipper_nominated'+x+'" name="costing_zipper_nominated'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('nominated',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_nominated'+x+'" name="costing_zipper_nominated'+x+'" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_zipper_coo'+x+'" name="costing_zipper_coo'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('coo',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_coo'+x+'" name="costing_zipper_coo'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_zipper_supplier_ref'+x+'" name="costing_zipper_supplier_ref'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('supplier_ref',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_supplier_ref'+x+'" name="costing_zipper_supplier_ref'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_zipper_description'+x+'" name="costing_zipper_description'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('description',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_description'+x+'" name="costing_zipper_description'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_zipper_location'+x+'" name="costing_zipper_location'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('location',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_location'+x+'" name="costing_zipper_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_zipper_mill_supplier'+x+'" name="costing_zipper_mill_supplier'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mill_supplier',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_mill_supplier'+x+'" name="costing_zipper_mill_supplier'+x+'" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_zipper_uom'+x+'" name="costing_zipper_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+            '                                      <select id="costing_zipper_uom'+item_no+'"   name="costing_fabric_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_zippers[i-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_zippers[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_zippers[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_zippers[i-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_zippers[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_zippers[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_zippers[i-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_zippers[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_zippers[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_zippers[i-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_zippers[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_zippers[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_zippers[i-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_zippers[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_zippers[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_zippers[i-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_zippers[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_zippers[i-1])+'>KG</option>' +
+            '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_zipper_wedth'+x+'" name="costing_zipper_wedth'+x+'"  value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('width',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_wedth'+x+'" name="costing_zipper_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_zipper_usage'+x+'" name="costing_zipper_usage'+x+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('usage',cost_zippers[x-1],0)+'" type="number" id="costing_zipper_usage'+x+'" name="costing_zipper_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_zipper_wastage'+x+'" name="costing_zipper_wastage'+x+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
+            '                                    <input value="'+getCategoryValue('wastage',cost_zippers[x-1],0)+'" type="number" id="costing_zipper_wastage'+x+'" name="costing_zipper_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number"  readonly id="costing_zipper_gross_yield'+x+'" name="costing_zipper_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('gross_yield',cost_zippers[x-1],0)+'" type="number"  readonly id="costing_zipper_gross_yield'+x+'" name="costing_zipper_gross_yield'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_zipper_unit_cost'+x+'" name="costing_zipper_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
+            '                                    <input value="'+getCategoryValue('unit_cost',cost_zippers[x-1],0)+'" type="number" id="costing_zipper_unit_cost'+x+'" name="costing_zipper_unit_cost'+x+'"  class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_zipper_handling'+x+'" name="costing_zipper_handling'+x+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
+            '                                    <input value="'+getCategoryValue('handling',cost_zippers[x-1],0)+'" type="number" id="costing_zipper_handling'+x+'" name="costing_zipper_handling'+x+'"  class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_zipper_total_cost'+x+'" name="costing_zipper_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+            '                                    <input value="'+getCategoryValue('total',cost_zippers[x-1],0)+'" type="number" id="costing_zipper_total_cost'+x+'" name="costing_zipper_total_cost'+x+'"  class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_zipper_comment'+x+'" name="costing_zipper_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('comment',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_comment'+x+'" name="costing_zipper_comment'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
             '                                </tr>' +
@@ -263,6 +307,13 @@ function getEmbelishmentRow(){
         parseInt(sessionStorage.getItem("costing_zipper_row")) +
         parseInt(sessionStorage.getItem("costing_embelishment_row"));
 
+    let cost_embelishments = [];
+    if(sessionStorage.getItem('cost_embelishments')){
+        cost_embelishments = JSON.parse(sessionStorage.getItem('cost_embelishments'));
+    }
+    console.log('embelishment');
+    console.log(cost_embelishments[0]);
+
     sessionStorage.setItem("costing_embelishment_row_ids", ((parseInt(before_row_count)+1) + '-'+ embelishment_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= embelishment_row_count; i++) {
@@ -273,67 +324,75 @@ function getEmbelishmentRow(){
             '                                    <input type="checkbox" id="costing_embelishment_cb'+item_no+'" name="costing_embelishment_cb'+item_no+'" class="css-costing-cb" >'+item_no.padStart(3,"0")+
             '                                    </td>\n' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_embelishment_component'+x+'" name="costing_embelishment_component'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('component',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_component'+x+'" name="costing_embelishment_component'+x+'" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_embelishment_material_id'+x+'" name="costing_embelishment_material_id'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('material_id',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_material_id'+x+'" name="costing_embelishment_material_id'+x+'" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <select class="css-select-costing-table" name="costing_embelishment_categories'+x+'" id="costing_embelishment_categories'+x+'" style="text-align: start;">' +
-            '                                     <option value="Embroidery" selected>Embroidery</option>' +
-            '                                     <option value="Screen Print">Screen Print</option>' +
-            '                                     <option value="Heat Transfer">Heat Transfer</option>' +
-            '                                     <option value="Patch">Patch</option>' +
+            '                                     <option value="Embroidery" '+getSelectedEmb("Embroidery",cost_embelishments[x-1])+'>Embroidery</option>' +
+            '                                     <option value="Screen Print" '+getSelectedEmb("Screen Print",cost_embelishments[x-1])+'>Screen Print</option>' +
+            '                                     <option value="Heat Transfer" '+getSelectedEmb("Heat Transfer",cost_embelishments[x-1])+'>Heat Transfer</option>' +
+            '                                     <option value="Patch" '+getSelectedEmb("Patch",cost_embelishments[x-1])+'>Patch</option>' +
             '                                     </select>'+
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_embelishment_nominated'+x+'" name="costing_embelishment_nominated'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('nominated',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_nominated'+x+'" name="costing_embelishment_nominated'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_embelishment_coo'+x+'" name="costing_embelishment_coo'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('coo',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_coo'+x+'" name="costing_embelishment_coo'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_embelishment_supplier_ref'+x+'" name="costing_embelishment_supplier_ref'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('supplier_ref',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_supplier_ref'+x+'" name="costing_embelishment_supplier_ref'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_embelishment_description'+x+'" name="costing_embelishment_supplier_ref'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input  value="'+getCategoryValue('description',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_description'+x+'" name="costing_embelishment_supplier_ref'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_embelishment_location'+x+'" name="costing_embelishment_location'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('location',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_location'+x+'" name="costing_embelishment_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_embelishment_mill_supplier'+x+'" name="costing_embelishment_mill_supplier'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mill_supplier',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_mill_supplier'+x+'" name="costing_embelishment_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_embelishment_uom'+x+'" name="costing_embelishment_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+            '                                      <select id="costing_embelishment_uom'+item_no+'"   name="costing_embelishment_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_embelishments[i-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_embelishments[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_embelishments[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_embelishments[i-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_embelishments[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_embelishments[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_embelishments[i-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_embelishments[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_embelishments[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_embelishments[i-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_embelishments[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_embelishments[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_embelishments[i-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_embelishments[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_embelishments[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_embelishments[i-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_embelishments[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_embelishments[i-1])+'>KG</option>' +
+            '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_embelishment_wedth'+x+'" name="costing_embelishment_wedth'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('width',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_wedth'+x+'" name="costing_embelishment_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_embelishment_usage'+x+'" name="costing_embelishment_usage'+x+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('usage',cost_embelishments[x-1],0)+'" type="number" id="costing_embelishment_usage'+x+'" name="costing_embelishment_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_embelishment_wastage'+x+'" name="costing_embelishment_wastage'+x+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
+            '                                    <input value="'+getCategoryValue('wastage',cost_embelishments[x-1],0)+'" type="number" id="costing_embelishment_wastage'+x+'" name="costing_embelishment_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number"  readonly id="costing_embelishment_gross_yield'+x+'" name="costing_embelishment_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('gross_yield',cost_embelishments[x-1],0)+'" type="number"  readonly id="costing_embelishment_gross_yield'+x+'" name="costing_embelishment_gross_yield'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_embelishment_unit_cost'+x+'" name="costing_embelishment_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
+            '                                    <input value="'+getCategoryValue('unit_cost',cost_embelishments[x-1],0)+'" type="number" id="costing_embelishment_unit_cost'+x+'" name="costing_embelishment_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_embelishment_handling'+x+'" name="costing_embelishment_handling'+x+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
+            '                                    <input value="'+getCategoryValue('handling',cost_embelishments[x-1],0)+'" type="number" id="costing_embelishment_handling'+x+'" name="costing_embelishment_handling'+x+'"  class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_embelishment_total_cost'+x+'" name="costing_embelishment_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+            '                                    <input value="'+getCategoryValue('total',cost_embelishments[x-1],0)+'" type="number" id="costing_embelishment_total_cost'+x+'" name="costing_embelishment_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_embelishment_comment'+x+'" name="costing_embelishment_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('comment',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_comment'+x+'" name="costing_embelishment_comment'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
             '                                </tr>' +
@@ -356,6 +415,13 @@ function getLabelRow(){
         parseInt(sessionStorage.getItem("costing_embelishment_row")) +
         parseInt(sessionStorage.getItem("costing_label_row"));
 
+    let cost_labels = [];
+    if(sessionStorage.getItem('cost_labels')){
+        cost_labels = JSON.parse(sessionStorage.getItem('cost_labels'));
+    }
+    console.log('label');
+    console.log(cost_labels[0]);
+
     sessionStorage.setItem("costing_label_row_ids", ((parseInt(before_row_count)+1) + '-'+ label_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= label_row_count; i++) {
@@ -366,62 +432,70 @@ function getLabelRow(){
             '                                    <input type="checkbox" id="costing_label_cb'+item_no+'" name="costing_label_cb'+item_no+'" class="css-costing-cb" >'+item_no.padStart(3,"0")+
             '                                    </td>\n' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_label_component'+x+'" name="costing_label_component'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('component',cost_labels[x-1],'')+'" type="text" id="costing_label_component'+x+'" name="costing_label_component'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_label_material_id'+x+'" name="costing_label_material_id'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('material_id',cost_labels[x-1],'')+'" type="text" id="costing_label_material_id'+x+'" name="costing_label_material_id'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_label_categories'+x+'" name="costing_label_categories'+x+'" value="" class="css-input-costing-data-solo" style="text-align: start;">\n' +
+            '                                    <input value="'+getCategoryValue('category_data',cost_labels[x-1],'')+'" type="text" id="costing_label_categories'+x+'" name="costing_label_categories'+x+'"  class="css-input-costing-data-solo" style="text-align: start;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_label_nominated'+x+'" name="costing_label_nominated'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('nominated',cost_labels[x-1],'')+'" type="text" id="costing_label_nominated'+x+'" name="costing_label_nominated'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_label_coo'+x+'" name="costing_label_coo'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('coo',cost_labels[x-1],'')+'" type="text" id="costing_label_coo'+x+'" name="costing_label_coo'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_label_supplier_ref'+x+'" name="costing_label_supplier_ref'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('supplier_ref',cost_labels[x-1],'')+'" type="text" id="costing_label_supplier_ref'+x+'" name="costing_label_supplier_ref'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_label_description'+x+'" name="costing_label_description'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('description',cost_labels[x-1],'')+'" type="text" id="costing_label_description'+x+'" name="costing_label_description'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_label_location'+x+'" name="costing_label_location'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('location',cost_labels[x-1],'')+'" type="text" id="costing_label_location'+x+'" name="costing_label_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_label_mill_supplier'+x+'" name="costing_label_mill_supplier'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mill_supplier',cost_labels[x-1],'')+'" type="text" id="costing_label_mill_supplier'+x+'" name="costing_label_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_label_uom'+x+'" name="costing_label_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+            '                                      <select id="costing_label_uom'+item_no+'"   name="costing_label_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_labels[i-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_labels[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_labels[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_labels[i-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_labels[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_labels[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_labels[i-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_labels[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_labels[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_labels[i-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_labels[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_labels[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_labels[i-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_labels[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_labels[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_labels[i-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_labels[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_labels[i-1])+'>KG</option>' +
+            '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_label_wedth'+x+'" name="costing_label_wedth'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('width',cost_labels[x-1],'')+'" type="text" id="costing_label_wedth'+x+'" name="costing_label_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_label_usage'+x+'" name="costing_label_usage'+x+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('usage',cost_labels[x-1],0)+'" type="number" id="costing_label_usage'+x+'" name="costing_label_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_label_wastage'+x+'" name="costing_label_wastage'+x+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
+            '                                    <input value="'+getCategoryValue('wastage',cost_labels[x-1],0)+'" type="number" id="costing_label_wastage'+x+'" name="costing_label_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number"  readonly id="costing_label_gross_yield'+x+'" name="costing_label_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('gross_yield',cost_labels[x-1],0)+'" type="number"  readonly id="costing_label_gross_yield'+x+'" name="costing_label_gross_yield'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_label_unit_cost'+x+'" name="costing_label_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
+            '                                    <input value="'+getCategoryValue('unit_cost',cost_labels[x-1],0)+'" type="number" id="costing_label_unit_cost'+x+'" name="costing_label_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_label_handling'+x+'" name="costing_label_handling'+x+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
+            '                                    <input value="'+getCategoryValue('handling',cost_labels[x-1],0)+'" type="number" id="costing_label_handling'+x+'" name="costing_label_handling'+x+'"  class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_label_total_cost'+x+'" name="costing_label_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+            '                                    <input value="'+getCategoryValue('total',cost_labels[x-1],0)+'" type="number" id="costing_label_total_cost'+x+'" name="costing_label_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_label_comment'+x+'" name="costing_label_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('comment',cost_labels[x-1],'')+'" type="text" id="costing_label_comment'+x+'" name="costing_label_comment'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
             '                                </tr>' +
@@ -446,6 +520,13 @@ function getThreadRow(){
         parseInt(sessionStorage.getItem("costing_label_row")) +
         parseInt(sessionStorage.getItem("costing_thread_row"));
 
+    let cost_threads = [];
+    if(sessionStorage.getItem('cost_threads')){
+        cost_threads = JSON.parse(sessionStorage.getItem('cost_threads'));
+    }
+    console.log('thread');
+    console.log(cost_threads[0]);
+
     sessionStorage.setItem("costing_thread_row_ids", ((parseInt(before_row_count)+1) + '-'+ thread_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= thread_row_count; i++) {
@@ -456,62 +537,70 @@ function getThreadRow(){
             '                                    <input type="checkbox" id="costing_thread_cb'+item_no+'" name="costing_thread_cb'+item_no+'" class="css-costing-cb" >'+item_no.padStart(3,"0")+
             '                                    </td>\n' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_thread_component'+x+'" name="costing_thread_component'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('component',cost_threads[x-1],'')+'" type="text" id="costing_thread_component'+x+'" name="costing_thread_component'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_thread_material_id'+x+'" name="costing_thread_material_id'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('material_id',cost_threads[x-1],'')+'" type="text" id="costing_thread_material_id'+x+'" name="costing_thread_material_id'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_thread_categories'+x+'" name="costing_thread_categories'+x+'" value="Thread #'+(i-before_row_count)+'" class="css-input-costing-data-solo" style="text-align: start;">\n' +
+            '                                    <input value="'+getCategoryValue('category_data',cost_threads[x-1],'Thread #'+(i-before_row_count)+'')+'" type="text" id="costing_thread_categories'+x+'" name="costing_thread_categories'+x+'" class="css-input-costing-data-solo" style="text-align: start;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_thread_nominated'+x+'" name="costing_thread_nominated'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('nominated',cost_threads[x-1],'')+'" type="text" id="costing_thread_nominated'+x+'" name="costing_thread_nominated'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_thread_coo'+x+'" name="costing_thread_coo'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('coo',cost_threads[x-1],'')+'" type="text" id="costing_thread_coo'+x+'" name="costing_thread_coo'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_thread_supplier_ref'+x+'" name="costing_thread_supplier_ref'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('supplier_ref',cost_threads[x-1],'')+'" type="text" id="costing_thread_supplier_ref'+x+'" name="costing_thread_supplier_ref'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_thread_description'+x+'" name="costing_thread_description'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('description',cost_threads[x-1],'')+'" type="text" id="costing_thread_description'+x+'" name="costing_thread_description'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_thread_location'+x+'" name="costing_thread_location'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('location',cost_threads[x-1],'')+'" type="text" id="costing_thread_location'+x+'" name="costing_thread_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_thread_mill_supplier'+x+'" name="costing_thread_mill_supplier'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mill_supplier',cost_threads[x-1],'')+'" type="text" id="costing_thread_mill_supplier'+x+'" name="costing_thread_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_thread_uom'+x+'" name="costing_thread_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+            '                                      <select id="costing_thread_uom'+item_no+'"   name="costing_thread_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_threads[i-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_threads[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_threads[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_threads[i-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_threads[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_threads[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_threads[i-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_threads[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_threads[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_threads[i-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_threads[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_threads[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_threads[i-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_threads[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_threads[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_threads[i-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_threads[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_threads[i-1])+'>KG</option>' +
+            '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_thread_wedth'+x+'" name="costing_thread_wedth'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('width',cost_threads[x-1],'')+'" type="text" id="costing_thread_wedth'+x+'" name="costing_thread_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_thread_usage'+x+'" name="costing_thread_usage'+x+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('usage',cost_threads[x-1],0)+'" type="number" id="costing_thread_usage'+x+'" name="costing_thread_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_thread_wastage'+x+'" name="costing_thread_wastage'+x+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
+            '                                    <input value="'+getCategoryValue('wastage',cost_threads[x-1],0)+'" type="number" id="costing_thread_wastage'+x+'" name="costing_thread_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" readonly id="costing_thread_gross_yield'+x+'" name="costing_thread_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('gross_yield',cost_threads[x-1],0)+'" type="number" readonly id="costing_thread_gross_yield'+x+'" name="costing_thread_gross_yield'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_thread_unit_cost'+x+'" name="costing_thread_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
+            '                                    <input value="'+getCategoryValue('unit_cost',cost_threads[x-1],0)+'" type="number" id="costing_thread_unit_cost'+x+'" name="costing_thread_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_thread_handling'+x+'" name="costing_thread_handling'+x+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
+            '                                    <input value="'+getCategoryValue('handling',cost_threads[x-1],0)+'" type="number" id="costing_thread_handling'+x+'" name="costing_thread_handling'+x+'"  class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_thread_total_cost'+x+'" name="costing_thread_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+            '                                    <input value="'+getCategoryValue('total',cost_threads[x-1],0)+'" type="number" id="costing_thread_total_cost'+x+'" name="costing_thread_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_thread_comment'+x+'" name="costing_thread_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('comment',cost_threads[x-1],'')+'" type="text" id="costing_thread_comment'+x+'" name="costing_thread_comment'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
             '                                </tr>' +
@@ -538,6 +627,13 @@ function getPackageRow(){
         parseInt(sessionStorage.getItem("costing_thread_row")) +
         parseInt(sessionStorage.getItem("costing_package_row"));
 
+    let cost_packages = [];
+    if(sessionStorage.getItem('cost_packages')){
+        cost_packages = JSON.parse(sessionStorage.getItem('cost_packages'));
+    }
+    console.log('package');
+    console.log(cost_packages[0]);
+
     sessionStorage.setItem("costing_package_row_ids", ((parseInt(before_row_count)+1) + '-'+ package_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= package_row_count; i++) {
@@ -548,62 +644,70 @@ function getPackageRow(){
             '                                    <input type="checkbox" id="costing_package_cb'+item_no+'" name="costing_package_cb'+item_no+'" class="css-costing-cb" >'+item_no.padStart(3,"0")+
             '                                    </td>\n' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_package_component'+x+'" name="costing_package_component'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('component',cost_packages[x-1],'')+'"  type="text" id="costing_package_component'+x+'" name="costing_package_component'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_package_material_id'+x+'" name="costing_package_material_id'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('material_id',cost_packages[x-1],'')+'" type="text" id="costing_package_material_id'+x+'" name="costing_package_material_id'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_package_categories'+x+'" name="costing_package_categories'+x+'" value="Packaging #'+(i-before_row_count)+'" class="css-input-costing-data-solo" style="text-align: start;">\n' +
+            '                                    <input value="'+getCategoryValue('category_data',cost_packages[x-1],'Packaging #'+(i-before_row_count)+'')+'" type="text" id="costing_package_categories'+x+'" name="costing_package_categories'+x+'" class="css-input-costing-data-solo" style="text-align: start;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_package_nominated'+x+'" name="costing_package_nominated'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('nominated',cost_packages[x-1],'')+'" type="text" id="costing_package_nominated'+x+'" name="costing_package_nominated'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_package_coo'+x+'" name="costing_package_coo'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('coo',cost_packages[x-1],'')+'" type="text" id="costing_package_coo'+x+'" name="costing_package_coo'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_package_supplier_ref'+x+'" name="costing_package_supplier_ref'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('supplier_ref',cost_packages[x-1],'')+'" type="text" id="costing_package_supplier_ref'+x+'" name="costing_package_supplier_ref'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_package_description'+x+'" name="costing_package_description'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('description',cost_packages[x-1],'')+'" type="text" id="costing_package_description'+x+'" name="costing_package_description'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_package_location'+x+'" name="costing_package_location'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('location',cost_packages[x-1],'')+'" type="text" id="costing_package_location'+x+'" name="costing_package_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_package_mill_supplier'+x+'" name="costing_package_mill_supplier'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mill_supplier',cost_packages[x-1],'')+'" type="text" id="costing_package_mill_supplier'+x+'" name="costing_package_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_package_uom'+x+'" name="costing_package_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+            '                                      <select id="costing_package_uom'+item_no+'"   name="costing_package_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_packages[i-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_packages[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_packages[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_packages[i-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_packages[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_packages[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_packages[i-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_packages[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_packages[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_packages[i-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_packages[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_packages[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_packages[i-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_packages[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_packages[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_packages[i-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_packages[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_packages[i-1])+'>KG</option>' +
+            '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_package_wedth'+x+'" name="costing_package_wedth'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('width',cost_packages[x-1],'')+'" type="text" id="costing_package_wedth'+x+'" name="costing_package_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_package_usage'+x+'" name="costing_package_usage'+x+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('usage',cost_packages[x-1],0)+'" type="number" id="costing_package_usage'+x+'" name="costing_package_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_package_wastage'+x+'" name="costing_package_wastage'+x+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
+            '                                    <input value="'+getCategoryValue('wastage',cost_packages[x-1],0)+'" type="number" id="costing_package_wastage'+x+'" name="costing_package_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" readonly id="costing_package_gross_yield'+x+'" name="costing_package_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('gross_yield',cost_packages[x-1],0)+'" type="number" readonly id="costing_package_gross_yield'+x+'" name="costing_package_gross_yield'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_package_unit_cost'+x+'" name="costing_package_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
+            '                                    <input value="'+getCategoryValue('unit_cost',cost_packages[x-1],0)+'" type="number" id="costing_package_unit_cost'+x+'" name="costing_package_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_package_handling'+x+'" name="costing_package_handling'+x+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
+            '                                    <input value="'+getCategoryValue('handling',cost_packages[x-1],0)+'" type="number" id="costing_package_handling'+x+'" name="costing_package_handling'+x+'"  class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_package_total_cost'+x+'" name="costing_package_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+            '                                    <input value="'+getCategoryValue('total',cost_packages[x-1],0)+'" type="number" id="costing_package_total_cost'+x+'" name="costing_package_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_package_comment'+x+'" name="costing_package_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('comment',cost_packages[x-1],'')+'" type="text" id="costing_package_comment'+x+'" name="costing_package_comment'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
             '                                </tr>' +
@@ -632,6 +736,13 @@ function getFinishRow(){
         parseInt(sessionStorage.getItem("costing_package_row")) +
         parseInt(sessionStorage.getItem("costing_finish_row"));
 
+    let cost_finishes = [];
+    if(sessionStorage.getItem('cost_finishes')){
+        cost_finishes = JSON.parse(sessionStorage.getItem('cost_finishes'));
+    }
+    console.log('finish');
+    console.log(cost_finishes[0]);
+
     sessionStorage.setItem("costing_finish_row_ids", ((parseInt(before_row_count)+1) + '-'+ finish_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= finish_row_count; i++) {
@@ -642,62 +753,70 @@ function getFinishRow(){
             '                                    <input type="checkbox" id="costing_finish_cb'+item_no+'" name="costing_finish_cb'+item_no+'" class="css-costing-cb" >'+item_no.padStart(3,"0")+
             '                                    </td>\n' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_finish_component'+x+'" name="costing_finish_component'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('component',cost_finishes[x-1],'')+'" type="text" id="costing_finish_component'+x+'" name="costing_finish_component'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_finish_material_id'+x+'" name="costing_finish_material_id'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('material_id',cost_finishes[x-1],'')+'" type="text" id="costing_finish_material_id'+x+'" name="costing_finish_material_id'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_finish_categories'+x+'" name="costing_finish_categories'+x+'" value="" class="css-input-costing-data-solo" style="text-align: start;">\n' +
+            '                                    <input value="'+getCategoryValue('category_data',cost_finishes[x-1],'')+'" type="text" id="costing_finish_categories'+x+'" name="costing_finish_categories'+x+'"  class="css-input-costing-data-solo" style="text-align: start;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_finish_nominated'+x+'" name="costing_finish_nominated'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('nominated',cost_finishes[x-1],'')+'" type="text" id="costing_finish_nominated'+x+'" name="costing_finish_nominated'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_finish_coo'+x+'" name="costing_finish_coo'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('coo',cost_finishes[x-1],'')+'" type="text" id="costing_finish_coo'+x+'" name="costing_finish_coo'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_finish_supplier_ref'+x+'" name="costing_finish_supplier_ref'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('supplier_ref',cost_finishes[x-1],'')+'" type="text" id="costing_finish_supplier_ref'+x+'" name="costing_finish_supplier_ref'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_finish_description'+x+'" name="costing_finish_description'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('description',cost_finishes[x-1],'')+'" type="text" id="costing_finish_description'+x+'" name="costing_finish_description'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_finish_location'+x+'" name="costing_finish_location'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('location',cost_finishes[x-1],'')+'" type="text" id="costing_finish_location'+x+'" name="costing_finish_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_finish_mill_supplier'+x+'" name="costing_finish_mill_supplier'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mill_supplier',cost_finishes[x-1],'')+'" type="text" id="costing_finish_mill_supplier'+x+'" name="costing_finish_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_finish_uom'+x+'" name="costing_finish_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+            '                                      <select id="costing_finish_uom'+item_no+'"   name="costing_finish_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_finishes[i-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_finishes[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_finishes[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_finishes[i-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_finishes[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_finishes[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_finishes[i-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_finishes[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_finishes[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_finishes[i-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_finishes[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_finishes[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_finishes[i-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_finishes[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_finishes[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_finishes[i-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_finishes[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_finishes[i-1])+'>KG</option>' +
+            '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_finish_wedth'+x+'" name="costing_finish_wedth'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('width',cost_finishes[x-1],'')+'" type="text" id="costing_finish_wedth'+x+'" name="costing_finish_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_finish_usage'+x+'" name="costing_finish_usage'+x+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('usage',cost_finishes[x-1],0)+'" type="number" id="costing_finish_usage'+x+'" name="costing_finish_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_finish_wastage'+x+'" name="costing_finish_wastage'+x+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
+            '                                    <input value="'+getCategoryValue('wastage',cost_finishes[x-1],0)+'" type="number" id="costing_finish_wastage'+x+'" name="costing_finish_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" readonly id="costing_finish_gross_yield'+x+'" name="costing_finish_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('gross_yield',cost_finishes[x-1],0)+'" type="number" readonly id="costing_finish_gross_yield'+x+'" name="costing_finish_gross_yield'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_finish_unit_cost'+x+'" name="costing_finish_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
+            '                                    <input value="'+getCategoryValue('unit_cost',cost_finishes[x-1],0)+'" type="number" id="costing_finish_unit_cost'+x+'" name="costing_finish_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_finish_handling'+x+'" name="costing_finish_handling'+x+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
-            '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
+            '                                    <input value="'+getCategoryValue('handling',cost_finishes[x-1],0)+'" type="number" id="costing_finish_handling'+x+'" name="costing_finish_handling'+x+'"  class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
+            '                                    <input  type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_finish_total_cost'+x+'" name="costing_finish_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+            '                                    <input value="'+getCategoryValue('total',cost_finishes[x-1],0)+'" type="number" id="costing_finish_total_cost'+x+'" name="costing_finish_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_finish_comment'+x+'" name="costing_finish_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('comment',cost_finishes[x-1],'')+'" type="text" id="costing_finish_comment'+x+'" name="costing_finish_comment'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
             '                                </tr>' +
@@ -728,6 +847,13 @@ function getExportRow(){
         parseInt(sessionStorage.getItem("costing_finish_row")) +
         parseInt(sessionStorage.getItem("costing_export_row"));
 
+    let cost_exports = [];
+    if(sessionStorage.getItem('cost_exports')){
+        cost_exports = JSON.parse(sessionStorage.getItem('cost_exports'));
+    }
+    console.log('export');
+    console.log(cost_exports[0]);
+
     sessionStorage.setItem("costing_export_row_ids", ((parseInt(before_row_count)+1) + '-'+ export_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= export_row_count; i++) {
@@ -738,62 +864,70 @@ function getExportRow(){
             '                                    <input type="checkbox" id="costing_export_cb'+item_no+'" name="costing_export_cb'+item_no+'" class="css-costing-cb" >'+item_no.padStart(3,"0")+
             '                                    </td>\n' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_export_component'+x+'" name="costing_export_component'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('component',cost_exports[x-1],'')+'" type="text" id="costing_export_component'+x+'" name="costing_export_component'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_export_material_id'+x+'" name="costing_export_material_id'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('material_id',cost_exports[x-1],'')+'" type="text" id="costing_export_material_id'+x+'" name="costing_export_material_id'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_export_categories'+x+'" name="costing_export_categories'+x+'" value="" class="css-input-costing-data-solo" style="text-align: start;">\n' +
+            '                                    <input value="'+getCategoryValue('category_data',cost_exports[x-1],'')+'" type="text" id="costing_export_categories'+x+'" name="costing_export_categories'+x+'"  class="css-input-costing-data-solo" style="text-align: start;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_export_nominated'+x+'" name="costing_export_nominated'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('component',cost_exports[x-1],'')+'" type="text" id="costing_export_nominated'+x+'" name="costing_export_nominated'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_export_coo'+x+'" name="costing_export_coo'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('coo',cost_exports[x-1],'')+'" type="text" id="costing_export_coo'+x+'" name="costing_export_coo'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_export_supplier_ref'+x+'" name="costing_export_supplier_ref'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('supplier_ref',cost_exports[x-1],'')+'" type="text" id="costing_export_supplier_ref'+x+'" name="costing_export_supplier_ref'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_export_description'+x+'" name="costing_export_description'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('description',cost_exports[x-1],'')+'" type="text" id="costing_export_description'+x+'" name="costing_export_description'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_export_location'+x+'" name="costing_export_location'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('location',cost_exports[x-1],'')+'" type="text" id="costing_export_location'+x+'" name="costing_export_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_export_mill_supplier'+x+'" name="costing_export_mill_supplier'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mill_supplier',cost_exports[x-1],'')+'" type="text" id="costing_export_mill_supplier'+x+'" name="costing_export_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_export_uom'+x+'" name="costing_export_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+            '                                      <select id="costing_export_uom'+item_no+'"   name="costing_export_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_exports[i-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_exports[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_exports[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_exports[i-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_exports[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_exports[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_exports[i-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_exports[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_exports[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_exports[i-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_exports[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_exports[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_exports[i-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_exports[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_exports[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_exports[i-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_exports[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_exports[i-1])+'>KG</option>' +
+            '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_export_wedth'+x+'" name="costing_export_wedth'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('width',cost_exports[x-1],'')+'" type="text" id="costing_export_wedth'+x+'" name="costing_export_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_export_usage'+x+'" name="costing_export_usage'+x+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('usage',cost_exports[x-1],0)+'" type="number" id="costing_export_usage'+x+'" name="costing_export_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                     <td>\n' +
-            '                                    <input type="number" id="costing_export_wastage'+x+'" name="costing_export_wastage'+x+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
-            '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
+            '                                    <input value="'+getCategoryValue('wastage',cost_exports[x-1],0)+'" type="number" id="costing_export_wastage'+x+'" name="costing_export_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
+            '                                    <input  type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" readonly id="costing_export_gross_yield'+x+'" name="costing_export_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
-            '                                     </td>' +
-            '                                    <td>\n' +
-            '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_export_unit_cost'+x+'" name="costing_export_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
-            '                                     </td>' +
-            '                                    <td>\n' +
-            '                                    <input type="number" id="costing_export_handling'+x+'" name="costing_export_handling'+x+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
-            '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
+            '                                    <input value="'+getCategoryValue('gross_yield',cost_exports[x-1],0)+'" type="number" readonly id="costing_export_gross_yield'+x+'" name="costing_export_gross_yield'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_export_total_cost'+x+'" name="costing_export_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+            '                                    <input value="'+getCategoryValue('unit_cost',cost_exports[x-1],0)+'" type="number" id="costing_export_unit_cost'+x+'" name="costing_export_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_export_comment'+x+'" name="costing_export_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('handling',cost_exports[x-1],0)+'" type="number" id="costing_export_handling'+x+'" name="costing_export_handling'+x+'"  class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
+            '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
+            '                                     </td>' +
+            '                                    <td>\n' +
+            '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
+            '                                    <input value="'+getCategoryValue('total',cost_exports[x-1],0)+'" type="number" id="costing_export_total_cost'+x+'" name="costing_export_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+            '                                     </td>' +
+            '                                    <td>\n' +
+            '                                    <input value="'+getCategoryValue('comment',cost_exports[x-1],'')+'" type="text" id="costing_export_comment'+x+'" name="costing_export_comment'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
             '                                </tr>' +
@@ -826,6 +960,13 @@ function getTestingRow(){
         parseInt(sessionStorage.getItem("costing_export_row")) +
         parseInt(sessionStorage.getItem("costing_testing_row"));
 
+    let cost_testings = [];
+    if(sessionStorage.getItem('cost_testings')){
+        cost_testings = JSON.parse(sessionStorage.getItem('cost_testings'));
+    }
+    console.log('testing');
+    console.log(cost_testings[0]);
+
     sessionStorage.setItem("costing_testing_row_ids", ((parseInt(before_row_count)+1) + '-'+ testing_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= testing_row_count; i++) {
@@ -836,62 +977,70 @@ function getTestingRow(){
             '                                    <input type="checkbox" id="costing_testing_cb'+item_no+'" name="costing_testing_cb'+item_no+'" class="css-costing-cb" >'+item_no.padStart(3,"0")+
             '                                    </td>\n' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_testing_component'+x+'" name="costing_testing_component'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('component',cost_testings[x-1],'')+'" type="text" id="costing_testing_component'+x+'" name="costing_testing_component'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_testing_material_id'+x+'" name="costing_testing_material_id'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('material_id',cost_testings[x-1],'')+'" type="text" id="costing_testing_material_id'+x+'" name="costing_testing_material_id'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_testing_categories'+x+'" name="costing_testing_categories'+x+'" value="Testing #'+(i-before_row_count)+'" class="css-input-costing-data-solo" style="text-align: start;">\n' +
+            '                                    <input value="'+getCategoryValue('category_data',cost_testings[x-1],'')+'" type="text" id="costing_testing_categories'+x+'" name="costing_testing_categories'+x+'" value="Testing #'+(i-before_row_count)+'" class="css-input-costing-data-solo" style="text-align: start;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_testing_nominated'+x+'" name="costing_testing_nominated'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('nominated',cost_testings[x-1],'')+'" type="text" id="costing_testing_nominated'+x+'" name="costing_testing_nominated'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_testing_coo'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('coo',cost_testings[x-1],'')+'" type="text" id="costing_testing_coo'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_testing_supplier_ref'+x+'" name="costing_testing_supplier_ref'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('supplier_ref',cost_testings[x-1],'')+'" type="text" id="costing_testing_supplier_ref'+x+'" name="costing_testing_supplier_ref'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_testing_description'+x+'" name="costing_testing_description'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('description',cost_testings[x-1],'')+'" type="text" id="costing_testing_description'+x+'" name="costing_testing_description'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_testing_location'+x+'" name="costing_testing_location'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('location',cost_testings[x-1],'')+'" type="text" id="costing_testing_location'+x+'" name="costing_testing_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_testing_mill_supplier'+x+'" name="costing_testing_mill_supplier'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mill_supplier',cost_testings[x-1],'')+'" type="text" id="costing_testing_mill_supplier'+x+'" name="costing_testing_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_testing_uom'+x+'" name="costing_testing_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+            '                                      <select id="costing_testing_uom'+item_no+'"   name="costing_testing_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_testings[i-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_testings[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_testings[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_testings[i-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_testings[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_testings[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_testings[i-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_testings[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_testings[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_testings[i-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_testings[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_testings[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_testings[i-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_testings[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_testings[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_testings[i-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_testings[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_testings[i-1])+'>KG</option>' +
+            '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_testing_wedth'+x+'" name="costing_testing_wedth'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('width',cost_testings[x-1],'')+'" type="text" id="costing_testing_wedth'+x+'" name="costing_testing_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_testing_usage'+x+'" name="costing_testing_usage'+x+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('usage',cost_testings[x-1],0)+'" type="number" id="costing_testing_usage'+x+'" name="costing_testing_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_testing_wastage'+x+'" name="costing_testing_wastage'+x+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
+            '                                    <input value="'+getCategoryValue('wastage',cost_testings[x-1],0)+'" type="number" id="costing_testing_wastage'+x+'" name="costing_testing_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" readonly id="costing_testing_gross_yield'+x+'" name="costing_testing_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('gross_yield',cost_testings[x-1],0)+'" type="number" readonly id="costing_testing_gross_yield'+x+'" name="costing_testing_gross_yield'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_testing_unit_cost'+x+'" name="costing_testing_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
+            '                                    <input value="'+getCategoryValue('unit_cost',cost_testings[x-1],0)+'" type="number" id="costing_testing_unit_cost'+x+'" name="costing_testing_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_testing_handling'+x+'" name="costing_testing_handling'+x+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
+            '                                    <input value="'+getCategoryValue('handling',cost_testings[x-1],0)+'" type="number" id="costing_testing_handling'+x+'" name="costing_testing_handling'+x+'"  class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_testing_total_cost'+x+'" name="costing_testing_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+            '                                    <input value="'+getCategoryValue('total',cost_testings[x-1],0)+'" type="number" id="costing_testing_total_cost'+x+'" name="costing_testing_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_testing_comment'+x+'" name="costing_testing_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('comment',cost_testings[x-1],'')+'" type="text" id="costing_testing_comment'+x+'" name="costing_testing_comment'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
             '                                </tr>' +
@@ -926,6 +1075,13 @@ function getOtherRow(){
         parseInt(sessionStorage.getItem("costing_testing_row")) +
         parseInt(sessionStorage.getItem("costing_other_row"));
 
+    let cost_others = [];
+    if(sessionStorage.getItem('cost_others')){
+        cost_others = JSON.parse(sessionStorage.getItem('cost_others'));
+    }
+    console.log('other');
+    console.log(cost_others[0]);
+
     sessionStorage.setItem("costing_other_row_ids", ((parseInt(before_row_count)+1) + '-'+ other_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= other_row_count; i++) {
@@ -936,62 +1092,70 @@ function getOtherRow(){
             '                                    <input type="checkbox" id="costing_other_cb'+item_no+'" name="costing_other_cb'+item_no+'" class="css-costing-cb" >'+item_no.padStart(3,"0")+
             '                                    </td>\n' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_other_component'+x+'" name="costing_other_component'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('component',cost_others[x-1],'')+'" type="text" id="costing_other_component'+x+'" name="costing_other_component'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_other_material_id'+x+'" name="costing_other_material_id'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('material_id',cost_others[x-1],'')+'" type="text" id="costing_other_material_id'+x+'" name="costing_other_material_id'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_other_categories'+x+'" name="costing_other_categories'+x+'" value="" class="css-input-costing-data-solo" style="text-align: start;">\n' +
+            '                                    <input value="'+getCategoryValue('category_data',cost_others[x-1],'')+'" type="text" id="costing_other_categories'+x+'" name="costing_other_categories'+x+'"  class="css-input-costing-data-solo" style="text-align: start;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_other_nominated'+x+'" name="costing_other_nominated'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('nominated',cost_others[x-1],'')+'" type="text" id="costing_other_nominated'+x+'" name="costing_other_nominated'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_other_coo'+x+'" name="costing_other_coo'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('coo',cost_others[x-1],'')+'" type="text" id="costing_other_coo'+x+'" name="costing_other_coo'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_other_supplier_ref'+x+'" name="costing_other_supplier_ref'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('supplier_ref',cost_others[x-1],'')+'" type="text" id="costing_other_supplier_ref'+x+'" name="costing_other_supplier_ref'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_other_description'+x+'" name="costing_other_description'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('description',cost_others[x-1],'')+'" type="text" id="costing_other_description'+x+'" name="costing_other_description'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_other_location'+x+'" name="costing_other_location'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('location',cost_others[x-1],'')+'" type="text" id="costing_other_location'+x+'" name="costing_other_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_other_mill_supplier'+x+'" name="costing_other_mill_supplier'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mill_supplier',cost_others[x-1],'')+'" type="text" id="costing_other_mill_supplier'+x+'" name="costing_other_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_other_uom'+x+'" name="costing_other_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+            '                                      <select id="costing_other_uom'+item_no+'"   name="costing_other_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_others[i-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_others[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_others[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_others[i-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_others[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_others[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_others[i-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_others[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_others[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_others[i-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_others[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_others[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_others[i-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_others[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_others[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_others[i-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_others[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_others[i-1])+'>KG</option>' +
+            '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_other_wedth'+x+'" name="costing_other_wedth'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('width',cost_others[x-1],'')+'" type="text" id="costing_other_wedth'+x+'" name="costing_other_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_other_usage'+x+'" name="costing_other_usage'+x+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('usage',cost_others[x-1],0)+'" type="number" id="costing_other_usage'+x+'" name="costing_other_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_other_wastage'+x+'" name="costing_other_wastage'+x+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
+            '                                    <input value="'+getCategoryValue('wastage',cost_others[x-1],0)+'" type="number" id="costing_other_wastage'+x+'" name="costing_other_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" readonly id="costing_other_gross_yield'+x+'" name="costing_other_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('gross_yield',cost_others[x-1],0)+'" type="number" readonly id="costing_other_gross_yield'+x+'" name="costing_other_gross_yield'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_other_unit_cost'+x+'" name="costing_other_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
+            '                                    <input value="'+getCategoryValue('unit_cost',cost_others[x-1],0)+'" type="number" id="costing_other_unit_cost'+x+'" name="costing_other_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_other_handling'+x+'" name="costing_other_handling'+x+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
+            '                                    <input value="'+getCategoryValue('handling',cost_others[x-1],0)+'" type="number" id="costing_other_handling'+x+'" name="costing_other_handling'+x+'"  class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_other_total_cost'+x+'" name="costing_other_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+            '                                    <input value="'+getCategoryValue('total',cost_others[x-1],0)+'" type="number" id="costing_other_total_cost'+x+'" name="costing_other_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_other_comment'+x+'" name="costing_other_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('comment',cost_others[x-1],'')+'" type="text" id="costing_other_comment'+x+'" name="costing_other_comment'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
             '                                </tr>' +
@@ -1028,6 +1192,13 @@ function getLaborRow(){
         parseInt(sessionStorage.getItem("costing_other_row")) +
         parseInt(sessionStorage.getItem("costing_labor_row"));
 
+    let cost_labors = [];
+    if(sessionStorage.getItem('cost_labors')){
+        cost_labors = JSON.parse(sessionStorage.getItem('cost_labors'));
+    }
+    console.log('labor');
+    console.log(cost_labors[2]);
+
     sessionStorage.setItem("costing_labor_row_ids", ((parseInt(before_row_count)+1) + '-'+ labor_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= labor_row_count; i++) {
@@ -1038,62 +1209,70 @@ function getLaborRow(){
             '                                    <input type="checkbox" id="costing_labor_cb'+item_no+'" name="costing_labor_cb'+item_no+'" class="css-costing-cb" >'+item_no.padStart(3,"0")+
             '                                    </td>\n' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_labor_component'+x+'" name="costing_labor_component'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('component',cost_labors[x-1],'')+'" type="text" id="costing_labor_component'+x+'" name="costing_labor_component'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_labor_material_id'+x+'" name="costing_labor_material_id'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('material_id',cost_labors[x-1],'')+'" type="text" id="costing_labor_material_id'+x+'" name="costing_labor_material_id'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_labor_categories'+x+'" name="costing_labor_categories'+x+'" value="" class="css-input-costing-data-solo" style="text-align: start;">\n' +
+            '                                    <input value="'+getCategoryValue('category_data',cost_labors[x-1],'')+'" type="text" id="costing_labor_categories'+x+'" name="costing_labor_categories'+x+'"  class="css-input-costing-data-solo" style="text-align: start;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_labor_nominated'+x+'" name="costing_labor_nominated'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('nominated',cost_labors[x-1],'')+'" type="text" id="costing_labor_nominated'+x+'" name="costing_labor_nominated'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_labor_coo'+x+'" name="costing_labor_coo'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('coo',cost_labors[x-1],'')+'" type="text" id="costing_labor_coo'+x+'" name="costing_labor_coo'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_labor_supplier_ref'+x+'" name="costing_labor_supplier_ref'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('supplier_ref',cost_labors[x-1],'')+'" type="text" id="costing_labor_supplier_ref'+x+'" name="costing_labor_supplier_ref'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_labor_description'+x+'" name="costing_labor_description'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('description',cost_labors[x-1],'')+'" type="text" id="costing_labor_description'+x+'" name="costing_labor_description'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_labor_location'+x+'" name="costing_labor_location'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('location',cost_labors[x-1],'')+'" type="text" id="costing_labor_location'+x+'" name="costing_labor_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_labor_mill_supplier'+x+'" name="costing_labor_mill_supplier'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mill_supplier',cost_labors[x-1],'')+'" type="text" id="costing_labor_mill_supplier'+x+'" name="costing_labor_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_labor_uom'+x+'" name="costing_labor_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+            '                                      <select id="costing_labor_uom'+item_no+'"   name="costing_labor_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_labors[i-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_labors[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_labors[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_labors[i-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_labors[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_labors[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_labors[i-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_labors[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_labors[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_labors[i-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_labors[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_labors[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_labors[i-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_labors[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_labors[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_labors[i-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_labors[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_labors[i-1])+'>KG</option>' +
+            '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_labor_wedth'+x+'" name="costing_labor_wedth'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('width',cost_labors[i-1],'')+'" type="text" id="costing_labor_wedth'+x+'" name="costing_labor_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_labor_usage'+x+'" name="costing_labor_usage'+x+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('usage',cost_labors[x-1],0)+'" type="number" id="costing_labor_usage'+x+'" name="costing_labor_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_labor_wastage'+x+'" name="costing_labor_wastage'+x+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
+            '                                    <input value="'+getCategoryValue('wastage',cost_labors[x-1],0)+'" type="number" id="costing_labor_wastage'+x+'" name="costing_labor_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" readonly id="costing_labor_gross_yield'+x+'" name="costing_labor_gross_yield'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('gross_yield',cost_labors[x-1],0)+'" type="number" readonly id="costing_labor_gross_yield'+x+'" name="costing_labor_gross_yield'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_labor_unit_cost'+x+'" name="costing_labor_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
+            '                                    <input value="'+getCategoryValue('unit_cost',cost_labors[x-1],0)+'" type="number" id="costing_labor_unit_cost'+x+'" name="costing_labor_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="number" id="costing_labor_handling'+x+'" name="costing_labor_handling'+x+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
+            '                                    <input value="'+getCategoryValue('handling',cost_labors[x-1],0)+'" type="number" id="costing_labor_handling'+x+'" name="costing_labor_handling'+x+'"  class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input type="number" id="costing_labor_total_cost'+x+'" name="costing_labor_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+            '                                    <input value="'+getCategoryValue('total',cost_labors[x-1],0)+'" type="number" id="costing_labor_total_cost'+x+'" name="costing_labor_total_cost'+x+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input type="text" id="costing_labor_comment'+x+'" name="costing_labor_comment'+x+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('comment',cost_labors[x-1],'')+'" type="text" id="costing_labor_comment'+x+'" name="costing_labor_comment'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
             '                                </tr>' +
@@ -1105,12 +1284,20 @@ function getLaborRow(){
 }
 
 
-function getCategoryValue(column,cost_category){
+function getCategoryValue(column,cost_category,default_val){
+    let val = '';
     if(cost_category === undefined){
-        return '';
+        val = '';
     }else if(cost_category === null){
-        return '';
+        val = '';
     }else{
-        return '';
+        val = cost_category['cost_' + column];
     }
+
+    if(val === '' || val === null ){
+        val = default_val;
+    }
+
+    return val;
 }
+

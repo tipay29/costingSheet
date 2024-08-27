@@ -1,5 +1,7 @@
 function showCostingSheetDetails(costing_sheet){
 
+    sessionStorage.setItem('costing_sheet_id',costing_sheet['id']);
+
     $('#costing_customer_name').val(costing_sheet['cost_customer_name']);
     $('#costing_brand').val(costing_sheet['cost_brand']);
     $('#costing_season').val(costing_sheet['cost_season']);
@@ -91,8 +93,6 @@ function showCostingSheetDetails(costing_sheet){
         '                        <option value="CM" '+getSelected("CM",costing_sheet['cost_total_fob_cm'])+'>CM :</option>' +
         '');
 
-    $('#costing_total_fob_header').val(costing_sheet['cost_total_fob']);
-
     $('#costing_vendor').html('' +
         ' <option value="Galaxy International Trading Company Ltd." '+getSelected("Galaxy International Trading Company Ltd.",costing_sheet['cost_vendor'])+'>Galaxy International Trading Company Ltd.</option>\n' +
         '                        <option value="Horizon Outdoor (Cambodia) Co., Ltd" '+getSelected("Horizon Outdoor (Cambodia) Co., Ltd",costing_sheet['cost_vendor'])+'>Horizon Outdoor (Cambodia) Co., Ltd</option>\n' +
@@ -130,12 +130,106 @@ function showCostingSheetDetails(costing_sheet){
     $('#costing_greige_reduced').val(costing_sheet['cost_griege_reduced']);
 
 
+    //total per category pluss summarry
+    $('#costing_fabric_total_fob,#costing_summary_fabric_total_fob').val(costing_sheet['cost_fabric_total_fob']);
+    $('#costing_trim_total_fob,#costing_summary_trim_total_fob').val(costing_sheet['cost_trim_total_fob']);
+    $('#costing_zipper_total_fob,#costing_summary_zipper_total_fob').val(costing_sheet['cost_zipper_total_fob']);
+    $('#costing_embelishment_total_fob,#costing_summary_embelishment_total_fob').val(costing_sheet['cost_embelishment_total_fob']);
+    $('#costing_label_total_fob,#costing_summary_label_total_fob').val(costing_sheet['cost_label_total_fob']);
+    $('#costing_thread_total_fob,#costing_summary_thread_total_fob').val(costing_sheet['cost_thread_total_fob']);
+    $('#costing_package_total_fob,#costing_summary_package_total_fob').val(costing_sheet['cost_package_total_fob']);
+    $('#costing_finish_total_fob,#costing_summary_finish_total_fob').val(costing_sheet['cost_finish_total_fob']);
+    $('#costing_export_total_fob,#costing_summary_export_total_fob').val(costing_sheet['cost_export_total_fob']);
+    $('#costing_testing_total_fob,#costing_summary_testing_total_fob').val(costing_sheet['cost_testing_total_fob']);
+    $('#costing_other_total_fob,#costing_summary_other_total_fob').val(costing_sheet['cost_other_total_fob']);
+    $('#costing_labor_total_fob,#costing_summary_labor_total_fob').val(costing_sheet['cost_labor_total_fob']);
+
+    $('#costing_total_cost_fob,#costing_summary_total_cost_fob,#costing_total_fob_header').val(costing_sheet['cost_total_fob']);
+
+    let fabric_percent = (costing_sheet['cost_fabric_total_fob']/costing_sheet['cost_total_fob'])*100;
+    let trim_percent = (costing_sheet['cost_trim_total_fob']/costing_sheet['cost_total_fob'])*100;
+    let zipper_percent = (costing_sheet['cost_zipper_total_fob']/costing_sheet['cost_total_fob'])*100;
+    let embelishment_percent = (costing_sheet['cost_embelishment_total_fob']/costing_sheet['cost_total_fob'])*100;
+    let label_percent = (costing_sheet['cost_label_total_fob']/costing_sheet['cost_total_fob'])*100;
+    let thread_percent = (costing_sheet['cost_thread_total_fob']/costing_sheet['cost_total_fob'])*100;
+    let package_percent = (costing_sheet['cost_package_total_fob']/costing_sheet['cost_total_fob'])*100;
+    let finish_percent = (costing_sheet['cost_finish_total_fob']/costing_sheet['cost_total_fob'])*100;
+    let export_percent = (costing_sheet['cost_export_total_fob']/costing_sheet['cost_total_fob'])*100;
+    let testing_percent = (costing_sheet['cost_testing_total_fob']/costing_sheet['cost_total_fob'])*100;
+    let other_percent = (costing_sheet['cost_other_total_fob']/costing_sheet['cost_total_fob'])*100;
+    let labor_percent = (costing_sheet['cost_labor_total_fob']/costing_sheet['cost_total_fob'])*100;
+
+    $('#costing_summary_fabric_percent').val(fabric_percent.toFixed(2));
+    $('#costing_summary_trim_percent').val(trim_percent.toFixed(2));
+    $('#costing_summary_zipper_percent').val(zipper_percent.toFixed(2));
+    $('#costing_summary_embelishment_percent').val(embelishment_percent.toFixed(2));
+    $('#costing_summary_label_percent').val(label_percent.toFixed(2));
+    $('#costing_summary_thread_percent').val(thread_percent.toFixed(2));
+    $('#costing_summary_package_percent').val(package_percent.toFixed(2));
+    $('#costing_summary_finish_percent').val(finish_percent.toFixed(2));
+    $('#costing_summary_export_percent').val(export_percent.toFixed(2));
+    $('#costing_summary_testing_percent').val(testing_percent.toFixed(2));
+    $('#costing_summary_other_percent').val(other_percent.toFixed(2));
+    $('#costing_summary_labor_percent,#costing_lop_percent').val(labor_percent.toFixed(2));
+
+    $('#costing_lop_fob').val(costing_sheet['cost_labor_total_fob']);
+
+    let material_cost = costing_sheet['cost_total_fob'] - costing_sheet['cost_labor_total_fob'];
+    let material_percent = (material_cost/costing_sheet['cost_total_fob'])*100;
+
+    $('#costing_material_cost_fob').val(material_cost.toFixed(2));
+    $('#costing_material_cost_percent').val(material_percent.toFixed(2));
+
+    updateCostingPieChart(
+        costing_sheet['cost_fabric_total_fob'],
+        costing_sheet['cost_trim_total_fob'],
+        costing_sheet['cost_zipper_total_fob'],
+        costing_sheet['cost_embelishment_total_fob'],
+        costing_sheet['cost_label_total_fob'],
+        costing_sheet['cost_thread_total_fob'],
+        costing_sheet['cost_package_total_fob'],
+        costing_sheet['cost_finish_total_fob'],
+        costing_sheet['cost_export_total_fob'],
+        costing_sheet['cost_testing_total_fob'],
+        costing_sheet['cost_other_total_fob'],
+        costing_sheet['cost_labor_total_fob'],
+    );
+
     showCostingSheetRemarks(costing_sheet['cost_remarks'][0]);
-    showCostingSheetMoqs(costing_sheet['cost_moqs'][0]);
+    showCostingSheetMoqs(costing_sheet['cost_moqs'][0],costing_sheet['cost_total_fob']);
     showCostingSheetLaborDetails(costing_sheet['cost_labor_details'][0]);
 }
 
+function showCostingSheetMoqs(moqs,final_total_cost){
 
+    $('#costing_moq_qty_1').val(moqs['cost_qty_pcs_1']);
+    $('#costing_moq_qty_2').val(moqs['cost_qty_pcs_2']);
+    $('#costing_moq_qty_3').val(moqs['cost_qty_pcs_3']);
+    $('#costing_moq_qty_4').val(moqs['cost_qty_pcs_4']);
+    $('#costing_moq_qty_5').val(moqs['cost_qty_pcs_5']);
+    $('#costing_moq_qty_6').val(moqs['cost_qty_pcs_6']);
+    $('#costing_moq_upcharge_1').val(moqs['cost_upcharge_1']);
+    $('#costing_moq_upcharge_2').val(moqs['cost_upcharge_2']);
+    $('#costing_moq_upcharge_3').val(moqs['cost_upcharge_3']);
+    $('#costing_moq_upcharge_4').val(moqs['cost_upcharge_4']);
+    $('#costing_moq_upcharge_5').val(moqs['cost_upcharge_5']);
+    $('#costing_moq_upcharge_6').val(moqs['cost_upcharge_6']);
+
+    let moq_fob1 = final_total_cost * (1+(moqs['cost_upcharge_1']/100));
+    let moq_fob2 = final_total_cost * (1+(moqs['cost_upcharge_2']/100));
+    let moq_fob3 = final_total_cost * (1+(moqs['cost_upcharge_3']/100));
+    let moq_fob4 = final_total_cost * (1+(moqs['cost_upcharge_4']/100));
+    let moq_fob5 = final_total_cost * (1+(moqs['cost_upcharge_5']/100));
+    let moq_fob6 = final_total_cost * (1+(moqs['cost_upcharge_6']/100));
+
+    $('#costing_moq_fob_1').val(moq_fob1.toFixed(2));
+    $('#costing_moq_fob_2').val(moq_fob2.toFixed(2));
+    $('#costing_moq_fob_3').val(moq_fob3.toFixed(2));
+    $('#costing_moq_fob_4').val(moq_fob4.toFixed(2));
+    $('#costing_moq_fob_5').val(moq_fob5.toFixed(2));
+    $('#costing_moq_fob_6').val(moq_fob6.toFixed(2));
+
+}
 
 function showCostingSheetRemarks(remarks){
     $('#costing_remark_1').val(remarks['cost_remarks_1']);
@@ -186,23 +280,7 @@ function showCostingSheetLaborDetails(labor){
     $('#costing_cost_per_pc_second').html(labor_per_pc_second.toFixed(2));
 }
 
-function showCostingSheetMoqs(moqs){
 
-
-
-    $('#costing_moq_qty_1').val(moqs['cost_qty_pcs_1']);
-    $('#costing_moq_qty_2').val(moqs['cost_qty_pcs_2']);
-    $('#costing_moq_qty_3').val(moqs['cost_qty_pcs_3']);
-    $('#costing_moq_qty_4').val(moqs['cost_qty_pcs_4']);
-    $('#costing_moq_qty_5').val(moqs['cost_qty_pcs_5']);
-    $('#costing_moq_qty_6').val(moqs['cost_qty_pcs_6']);
-    $('#costing_moq_upcharge_1').val(moqs['cost_upcharge_1']);
-    $('#costing_moq_upcharge_2').val(moqs['cost_upcharge_2']);
-    $('#costing_moq_upcharge_3').val(moqs['cost_upcharge_3']);
-    $('#costing_moq_upcharge_4').val(moqs['cost_upcharge_4']);
-    $('#costing_moq_upcharge_5').val(moqs['cost_upcharge_5']);
-    $('#costing_moq_upcharge_6').val(moqs['cost_upcharge_6']);
-}
 
 
 

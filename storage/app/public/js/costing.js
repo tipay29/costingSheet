@@ -319,14 +319,7 @@ function getProductCatTwo(product_one,option){
     return product_category_two;
 }
 
-//get Selected use also by Costing show-details
-function getSelected(option,data){
-    if(option === data){
-        return 'selected';
-    }else if(option === "Invalid" && data === null){
-        return 'selected';
-    }
-}
+
 
 
 function getAgeGroup(gender,option){

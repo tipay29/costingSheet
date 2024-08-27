@@ -1,21 +1,4 @@
-$('.css-select-costing-table-uom').html('<option value="MM">MM</option>\n' +
-    '    <option value="CM">CM</option>\n' +
-    '    <option value="M">M</option>\n' +
-    '    <option value="IN">IN</option>\n' +
-    '    <option value="FT">FT</option>\n' +
-    '    <option value="YD">YD</option>\n' +
-    '    <option value="CM2">CM2</option>\n' +
-    '    <option value="M2">M2</option>\n' +
-    '    <option value="in2">in2</option>\n' +
-    '    <option value="f\'t2">f\'t2</option>\n' +
-    '<option value="EA">EA</option>\n' +
-    '    <option value="Pair">Pair</option>\n' +
-    '    <option value="PCS">PCS</option>\n' +
-    '    <option value="ROLL">ROLL</option>\n' +
-    '    <option value="SET">SET</option>\n' +
-    '    <option value="UNIT">UNIT</option>\n' +
-    '    <option value="UNIT">GM</option>\n' +
-    '    <option value="UNIT">KG</option>');
+
 
 let costing_fabric_show_cb_item_btn = $('#costing_fabric_show_cb_item_btn');
 let costing_fabric_hide_cb_item_btn = $('#costing_fabric_hide_cb_item_btn');

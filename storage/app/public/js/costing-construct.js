@@ -7,6 +7,57 @@ sessionStorage.setItem("costing_total_column_orig", 20);
 sessionStorage.setItem("costing_total_column", 20);
 sessionStorage.setItem("costing_no_of_color", 0);
 sessionStorage.setItem("costing_no_of_size", 0);
+sessionStorage.setItem("costing_uom", [
+    'MM','CM','M','FT','YD','CM2','M2','in2',"f't2",
+    'EA','Pair','PCS','ROLL','SET','UNIT','GM','KG'
+]);
+
+
+
+//get Selected use also by Costing show-details
+function getSelected(option,data){
+    if(option === data){
+        return 'selected';
+    }else if(option === "Invalid" && data === null){
+        return 'selected';
+    }
+}
+function getSelectedUOM(option,data){
+
+    let val = '';
+    if(data === undefined){
+        val = '';
+    }else if(data === null){
+        val = '';
+    }else{
+        val = data['cost_uom'];
+    }
+
+    if(option === val){
+        return 'selected';
+    }else if(option === "Invalid" && data === null){
+        return 'selected';
+    }
+}
+
+function getSelectedEmb(option,data){
+
+    let val = '';
+    if(data === undefined){
+        val = '';
+    }else if(data === null){
+        val = '';
+    }else{
+        val = data['cost_category_data'];
+    }
+
+    if(option === val){
+        return 'selected';
+    }else if(option === "Invalid" && data === null){
+        return 'selected';
+    }
+}
+
 
 let costing_fabric_tbody = $('#costing_fabric_tbody');
 let costing_trim_tbody = $('#costing_trim_tbody');

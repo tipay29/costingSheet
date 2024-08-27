@@ -1,12 +1,12 @@
 
 
-$('#costing_form_create').submit(function(e){
+$('#costing_form_update').submit(function(e){
     e.preventDefault();
-    $('#costing_save_btn').hide();
+    $('#costing_update_btn').hide();
 
     $.ajax({
-        type:'POST',
-        url: '/api/costing-sheets/store',
+        type: 'POST',
+        url: '/api/costing-sheets/update/' + parseInt(sessionStorage.getItem('costing_sheet_id')),
         data: new FormData(this),
         dataType: 'JSON',
         contentType: false,
@@ -14,8 +14,8 @@ $('#costing_form_create').submit(function(e){
         processData: false,
         success: function (response) {
             console.log(response);
-            alert('Successfully Saved!!!');
-            window.location.href = '/costing-sheets';
+            alert('Successfully Updated!!!');
+            window.location.reload();
 
         },
         error: function (x,h,r) {

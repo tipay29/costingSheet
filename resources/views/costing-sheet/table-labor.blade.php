@@ -36,7 +36,8 @@
                         </th>
                         <th style="background-color: #b5f7bd; "></th>
                         <th style="background-color: #b5f7bd; "></th>
-                        <th style="vertical-align: top;background-color: #b5f7bd;text-align:start;font-size:.7em; ">12.Labor/ Overheads/ Profit</th>
+                        <th style="vertical-align: top;background-color: #b5f7bd;text-align:start;font-size:.7em; text-overflow: ellipsis;
+ white-space: nowrap; ">12.Labor/ Overheads/ Profit</th>
                         <th style="background-color: #b5f7bd; "></th>
                         <th style="background-color: #b5f7bd; "></th>
                         <th style="background-color: #b5f7bd; "></th>

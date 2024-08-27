@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['as' => 'api.'],function() {
 
+    Route::post('costing-sheets/update/{costing_sheet}','CostingSheetApiController@update')->name('costing-sheets.update');
     Route::post('costing-sheets/store','CostingSheetApiController@store')->name('costing-sheets.store');
     Route::get('costing-sheets/{costing_sheet}','CostingSheetApiController@show')->name('costing-sheets.show');
     Route::get('costing-sheets','CostingSheetApiController@index')->name('costing-sheets.index');

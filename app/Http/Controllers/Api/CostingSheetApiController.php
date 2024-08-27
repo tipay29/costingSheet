@@ -22,6 +22,7 @@ use App\Models\CostThread;
 use App\Models\CostTrim;
 use App\Models\CostZipper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 
@@ -63,9 +64,58 @@ class CostingSheetApiController extends Controller
         return response()->json($costing_sheet,200);
     }
 
+    public function update(CostingSheet $costingSheet)
+    {
+        //delete the existing data
+        $costingSheet->cost_fabrics()->delete();
+        $costingSheet->cost_trims()->delete();
+        $costingSheet->cost_zippers()->delete();
+        $costingSheet->cost_embelishments()->delete();
+        $costingSheet->cost_labels()->delete();
+        $costingSheet->cost_threads()->delete();
+        $costingSheet->cost_packages()->delete();
+        $costingSheet->cost_finishes()->delete();
+        $costingSheet->cost_exports()->delete();
+        $costingSheet->cost_testings()->delete();
+        $costingSheet->cost_others()->delete();
+        $costingSheet->cost_labors()->delete();
+        $costingSheet->cost_remarks()->delete();
+        $costingSheet->cost_labor_details()->delete();
+        $costingSheet->cost_moqs()->delete();
+
+        //update basic details
+        $this->updateCostingSheet($costingSheet);
+        //insert categories again
+        $categories = ['fabric','trim','zipper','embelishment','label','thread',
+            'package','finish','export','testing','other','labor'];
+        for($x = 0;$x < count($categories);$x++){
+            $row_names = 'costing_' . $categories[$x] . '_row_names';
+            $this->insertCategories(request()->$row_names,$costingSheet->id,$categories[$x]);
+        }
+
+        //insert costing sheets extra details
+        $this->insertRemarks($costingSheet->id);
+        $this->insertLaborCosts($costingSheet->id);
+        $this->insertMoqs($costingSheet->id);
+
+//        dd(count($costingSheet->cost_sketches));
+
+        if(count($costingSheet->cost_sketches) === 0 ){
+
+            $this->insertSketches($costingSheet->id);
+        }else{
+            $this->updateSketches($costingSheet);
+        }
+
+
+
+        return response()->json($costingSheet,200);
+    }
 
     public function show(CostingSheet $costingSheet)
     {
+
+
         $costingSheet->load([
             'cost_fabrics','cost_trims','cost_zippers','cost_embelishments',
             'cost_labels','cost_threads','cost_packages','cost_finishes',
@@ -77,10 +127,7 @@ class CostingSheetApiController extends Controller
     }
 
 
-    public function update(Request $request, CostingSheet $costingSheet)
-    {
-        //
-    }
+
 
 
     public function destroy(CostingSheet $costingSheet)
@@ -303,20 +350,20 @@ class CostingSheetApiController extends Controller
                 $image->resize(150,150);
                 $image->save(public_path($wholename));
 
-                $imageWholeName[$key] = $wholename;
-
+                if($key === 0){
+                    $imageWholeName['cost_front_sketch'] = $wholename;
+                }else if($key === 1){
+                    $imageWholeName['cost_back_sketch'] = $wholename;
+                }else if($key === 2){
+                    $imageWholeName['cost_left_sketch'] = $wholename;
+                }else if($key === 3){
+                    $imageWholeName['cost_right_sketch'] = $wholename;
+                }
 
             }
+            $imageWholeName['costing_sheet_id'] = $costing_sheet_id;
 
-            $data = [
-                'cost_front_sketch' => $imageWholeName[0],
-                'cost_back_sketch' => $imageWholeName[1],
-                'cost_left_sketch' => $imageWholeName[2],
-                'cost_right_sketch' => $imageWholeName[3],
-                'costing_sheet_id' => $costing_sheet_id,
-            ];
-
-            CostSketch::create($data);
+            CostSketch::create($imageWholeName);
         }
 
 
@@ -382,6 +429,125 @@ class CostingSheetApiController extends Controller
         ];
 
         CostMoq::create($data);
+
+    }
+
+    public function updateCostingSheet($costingSheet){
+        $data = [
+            'cost_customer_name' => request()->costing_customer_name,
+            'cost_brand' => request()->costing_brand,
+            'cost_season' =>  request()->costing_season,
+            'cost_product_category' =>  request()->costing_product_category,
+            'cost_product_category_one' =>  request()->costing_product_category_one,
+            'cost_product_category_two' =>  request()->costing_product_category_two,
+            'cost_division' =>  request()->costing_division,
+            'cost_version' =>  request()->costing_version,
+            'cost_special_cons' =>  request()->costing_special_construction,
+            'cost_gender' =>  request()->costing_gender,
+            'cost_age_group' =>  request()->costing_gender_age_group,
+            'cost_costing_size' =>  request()->costing_size,
+            'cost_style' =>  request()->costing_style,
+            'cost_style_name' =>  request()->costing_style_name,
+            'cost_color' =>  request()->costing_color,
+            'cost_color_name' =>  request()->costing_color_name,
+            'cost_no_of_color' =>  request()->costing_no_of_color,
+            'cost_tp_code' =>  request()->costing_tp_code,
+            'cost_date' =>  request()->costing_date,
+            'cost_costing_stage' =>  request()->costing_stage,
+            'cost_status' =>  request()->costing_status,
+            'cost_currency' =>  request()->costing_currency,
+            'cost_target_fob' =>  request()->costing_target_fob,
+            'cost_total_fob_cm' =>  request()->costing_total_fob_cm,
+            'cost_total_fob' =>  request()->costing_total_fob_header,
+            'cost_material_fob' =>  request()->costing_material_cost_fob,
+            'cost_lop_fob' =>  request()->costing_lop_fob,
+            'cost_vendor' =>  request()->costing_vendor,
+            'cost_manufacturer_one' =>  request()->costing_manufacturer_one,
+            'cost_manufacturer_two' => request()->costing_manufacturer_two ,
+            'cost_coo' =>  request()->costing_coo,
+            'cost_shipping_port' =>  request()->costing_port,
+            'cost_forecast_qty' =>  request()->costing_forecast_qty,
+            'cost_moq_style' =>  request()->costing_moq_style,
+            'cost_mcq_color' =>  request()->costing_mcq_color,
+            'cost_incoterms' =>  request()->costing_inco_terms,
+            'cost_payment_terms' =>  request()->costing_payment_terms,
+            'cost_production_lead_time' =>  request()->costing_production_lead_time,
+            'cost_griege_reduced' =>  request()->costing_greige_reduced,
+            'cost_fabric_row_names' =>  request()->costing_fabric_row_names,
+            'cost_trim_row_names' =>  request()->costing_trim_row_names,
+            'cost_zipper_row_names' =>  request()->costing_zipper_row_names,
+            'cost_embelishment_row_names' =>  request()->costing_embelishment_row_names,
+            'cost_label_row_names' =>  request()->costing_label_row_names,
+            'cost_thread_row_names' =>  request()->costing_thread_row_names,
+            'cost_package_row_names' =>  request()->costing_package_row_names,
+            'cost_finish_row_names' =>  request()->costing_finish_row_names,
+            'cost_export_row_names' =>  request()->costing_export_row_names,
+            'cost_testing_row_names' =>  request()->costing_testing_row_names,
+            'cost_other_row_names' =>  request()->costing_other_row_names,
+            'cost_labor_row_names' =>  request()->costing_labor_row_names,
+            'cost_fabric_total_fob' =>  request()->costing_fabric_total_fob,
+            'cost_trim_total_fob' =>  request()->costing_trim_total_fob,
+            'cost_zipper_total_fob' =>  request()->costing_zipper_total_fob,
+            'cost_embelishment_total_fob' =>  request()->costing_embelishment_total_fob,
+            'cost_label_total_fob' =>  request()->costing_label_total_fob,
+            'cost_thread_total_fob' =>  request()->costing_thread_total_fob,
+            'cost_package_total_fob' =>  request()->costing_package_total_fob,
+            'cost_finish_total_fob' =>  request()->costing_finish_total_fob,
+            'cost_export_total_fob' =>  request()->costing_export_total_fob,
+            'cost_testing_total_fob' =>  request()->costing_testing_total_fob,
+            'cost_other_total_fob' =>  request()->costing_other_total_fob,
+            'cost_labor_total_fob' =>  request()->costing_labor_total_fob,
+            'cost_size_head_names' =>  request()->costing_size_head_names,
+            'cost_color_head_names' =>  request()->costing_color_head_names,
+            'user_id' => request()->user_id,
+        ];
+
+         $costingSheet->update($data);
+    }
+
+    public function updateSketches($costingSheet){
+
+        $costing_sheet_id = $costingSheet->id;
+        $files = request()->file('costing_photo');
+
+        if(request()->hasFile('costing_photo'))
+        {
+            $photo = ['front','back','left','right'];
+
+            foreach ($files as $key => $file) {
+
+                $pathname = 'storage/images/costing-sheet/';
+                $filename = 'cs'. $costing_sheet_id . $photo[$key] . '.png';
+                $wholename = $pathname.$filename;
+                $image = $file;
+                $image = Image::make($image->getRealPath());
+                $image->resize(150,150);
+
+                if($key === 0){
+                    Storage::delete(asset($costingSheet->cost_sketches[0]->cost_front_sketch)); // delete file from default disk
+                    $costingSheet->cost_sketches()->update(['cost_front_sketch' => $wholename]);
+                    $image->save(public_path($wholename));
+                }else if($key === 1){
+                    Storage::delete(asset($costingSheet->cost_sketches[0]->cost_back_sketch)); // delete file from default disk
+                    $costingSheet->cost_sketches()->update(['cost_back_sketch' => $wholename]);
+                    $image->save(public_path($wholename));
+                }else if($key === 2){
+                    Storage::delete(asset($costingSheet->cost_sketches[0]->cost_left_sketch)); // delete file from default disk
+                    $costingSheet->cost_sketches()->update(['cost_left_sketch' => $wholename]);
+                    $image->save(public_path($wholename));
+                }else if($key === 3){
+                    Storage::delete(asset($costingSheet->cost_sketches[0]->cost_right_sketch)); // delete file from default disk
+                    $image->save(public_path($wholename));
+                    $costingSheet->cost_sketches()->update(['cost_right_sketch' => $wholename]);
+                }
+
+
+            }
+
+        }
+
+
+
 
     }
 }
