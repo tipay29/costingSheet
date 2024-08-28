@@ -151,7 +151,7 @@ function getTrimRow(){
             '                                    <input value="'+getCategoryValue('mill_supplier',cost_trims[x-1],'')+'" type="text" id="costing_trim_mill_supplier'+x+'" name="costing_trim_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_trim_uom'+item_no+'"   name="costing_trim_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                      <select id="costing_trim_uom'+x+'"   name="costing_trim_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
             '                                                <option value="MM" ' + getSelectedUOM('MM',cost_trims[i-1]) + '>MM</option>\n' +
             '                                                <option value="CM"  '+getSelectedUOM('CM',cost_trims[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_trims[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_trims[i-1])+'>IN</option>\n' +
             '                                                <option value="FT" '+getSelectedUOM('FT',cost_trims[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_trims[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_trims[i-1])+'>CM2</option>\n' +
@@ -250,7 +250,7 @@ function getZipperRow(){
             '                                    <input value="'+getCategoryValue('mill_supplier',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_mill_supplier'+x+'" name="costing_zipper_mill_supplier'+x+'" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_zipper_uom'+item_no+'"   name="costing_fabric_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                      <select id="costing_zipper_uom'+x+'"   name="costing_zipper_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
             '                                                <option value="MM" ' + getSelectedUOM('MM',cost_zippers[i-1]) + '>MM</option>\n' +
             '                                                <option value="CM"  '+getSelectedUOM('CM',cost_zippers[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_zippers[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_zippers[i-1])+'>IN</option>\n' +
             '                                                <option value="FT" '+getSelectedUOM('FT',cost_zippers[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_zippers[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_zippers[i-1])+'>CM2</option>\n' +
@@ -356,7 +356,7 @@ function getEmbelishmentRow(){
             '                                    <input value="'+getCategoryValue('mill_supplier',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_mill_supplier'+x+'" name="costing_embelishment_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_embelishment_uom'+item_no+'"   name="costing_embelishment_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                      <select id="costing_embelishment_uom'+x+'"   name="costing_embelishment_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
             '                                                <option value="MM" ' + getSelectedUOM('MM',cost_embelishments[i-1]) + '>MM</option>\n' +
             '                                                <option value="CM"  '+getSelectedUOM('CM',cost_embelishments[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_embelishments[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_embelishments[i-1])+'>IN</option>\n' +
             '                                                <option value="FT" '+getSelectedUOM('FT',cost_embelishments[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_embelishments[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_embelishments[i-1])+'>CM2</option>\n' +
@@ -459,7 +459,7 @@ function getLabelRow(){
             '                                    <input value="'+getCategoryValue('mill_supplier',cost_labels[x-1],'')+'" type="text" id="costing_label_mill_supplier'+x+'" name="costing_label_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_label_uom'+item_no+'"   name="costing_label_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                      <select id="costing_label_uom'+x+'"   name="costing_label_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
             '                                                <option value="MM" ' + getSelectedUOM('MM',cost_labels[i-1]) + '>MM</option>\n' +
             '                                                <option value="CM"  '+getSelectedUOM('CM',cost_labels[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_labels[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_labels[i-1])+'>IN</option>\n' +
             '                                                <option value="FT" '+getSelectedUOM('FT',cost_labels[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_labels[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_labels[i-1])+'>CM2</option>\n' +
@@ -564,7 +564,7 @@ function getThreadRow(){
             '                                    <input value="'+getCategoryValue('mill_supplier',cost_threads[x-1],'')+'" type="text" id="costing_thread_mill_supplier'+x+'" name="costing_thread_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_thread_uom'+item_no+'"   name="costing_thread_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                      <select id="costing_thread_uom'+x+'"   name="costing_thread_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
             '                                                <option value="MM" ' + getSelectedUOM('MM',cost_threads[i-1]) + '>MM</option>\n' +
             '                                                <option value="CM"  '+getSelectedUOM('CM',cost_threads[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_threads[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_threads[i-1])+'>IN</option>\n' +
             '                                                <option value="FT" '+getSelectedUOM('FT',cost_threads[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_threads[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_threads[i-1])+'>CM2</option>\n' +
@@ -671,7 +671,7 @@ function getPackageRow(){
             '                                    <input value="'+getCategoryValue('mill_supplier',cost_packages[x-1],'')+'" type="text" id="costing_package_mill_supplier'+x+'" name="costing_package_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_package_uom'+item_no+'"   name="costing_package_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                      <select id="costing_package_uom'+x+'"   name="costing_package_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
             '                                                <option value="MM" ' + getSelectedUOM('MM',cost_packages[i-1]) + '>MM</option>\n' +
             '                                                <option value="CM"  '+getSelectedUOM('CM',cost_packages[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_packages[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_packages[i-1])+'>IN</option>\n' +
             '                                                <option value="FT" '+getSelectedUOM('FT',cost_packages[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_packages[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_packages[i-1])+'>CM2</option>\n' +
@@ -780,7 +780,7 @@ function getFinishRow(){
             '                                    <input value="'+getCategoryValue('mill_supplier',cost_finishes[x-1],'')+'" type="text" id="costing_finish_mill_supplier'+x+'" name="costing_finish_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_finish_uom'+item_no+'"   name="costing_finish_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                      <select id="costing_finish_uom'+x+'"   name="costing_finish_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
             '                                                <option value="MM" ' + getSelectedUOM('MM',cost_finishes[i-1]) + '>MM</option>\n' +
             '                                                <option value="CM"  '+getSelectedUOM('CM',cost_finishes[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_finishes[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_finishes[i-1])+'>IN</option>\n' +
             '                                                <option value="FT" '+getSelectedUOM('FT',cost_finishes[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_finishes[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_finishes[i-1])+'>CM2</option>\n' +
@@ -891,7 +891,7 @@ function getExportRow(){
             '                                    <input value="'+getCategoryValue('mill_supplier',cost_exports[x-1],'')+'" type="text" id="costing_export_mill_supplier'+x+'" name="costing_export_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_export_uom'+item_no+'"   name="costing_export_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                      <select id="costing_export_uom'+x+'"   name="costing_export_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
             '                                                <option value="MM" ' + getSelectedUOM('MM',cost_exports[i-1]) + '>MM</option>\n' +
             '                                                <option value="CM"  '+getSelectedUOM('CM',cost_exports[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_exports[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_exports[i-1])+'>IN</option>\n' +
             '                                                <option value="FT" '+getSelectedUOM('FT',cost_exports[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_exports[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_exports[i-1])+'>CM2</option>\n' +
@@ -1004,7 +1004,7 @@ function getTestingRow(){
             '                                    <input value="'+getCategoryValue('mill_supplier',cost_testings[x-1],'')+'" type="text" id="costing_testing_mill_supplier'+x+'" name="costing_testing_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_testing_uom'+item_no+'"   name="costing_testing_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                      <select id="costing_testing_uom'+x+'"   name="costing_testing_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
             '                                                <option value="MM" ' + getSelectedUOM('MM',cost_testings[i-1]) + '>MM</option>\n' +
             '                                                <option value="CM"  '+getSelectedUOM('CM',cost_testings[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_testings[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_testings[i-1])+'>IN</option>\n' +
             '                                                <option value="FT" '+getSelectedUOM('FT',cost_testings[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_testings[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_testings[i-1])+'>CM2</option>\n' +
@@ -1119,7 +1119,7 @@ function getOtherRow(){
             '                                    <input value="'+getCategoryValue('mill_supplier',cost_others[x-1],'')+'" type="text" id="costing_other_mill_supplier'+x+'" name="costing_other_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_other_uom'+item_no+'"   name="costing_other_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                      <select id="costing_other_uom'+x+'"   name="costing_other_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
             '                                                <option value="MM" ' + getSelectedUOM('MM',cost_others[i-1]) + '>MM</option>\n' +
             '                                                <option value="CM"  '+getSelectedUOM('CM',cost_others[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_others[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_others[i-1])+'>IN</option>\n' +
             '                                                <option value="FT" '+getSelectedUOM('FT',cost_others[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_others[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_others[i-1])+'>CM2</option>\n' +
@@ -1236,7 +1236,7 @@ function getLaborRow(){
             '                                    <input value="'+getCategoryValue('mill_supplier',cost_labors[x-1],'')+'" type="text" id="costing_labor_mill_supplier'+x+'" name="costing_labor_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                      <select id="costing_labor_uom'+item_no+'"   name="costing_labor_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
+            '                                      <select id="costing_labor_uom'+x+'"   name="costing_labor_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
             '                                                <option value="MM" ' + getSelectedUOM('MM',cost_labors[i-1]) + '>MM</option>\n' +
             '                                                <option value="CM"  '+getSelectedUOM('CM',cost_labors[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_labors[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_labors[i-1])+'>IN</option>\n' +
             '                                                <option value="FT" '+getSelectedUOM('FT',cost_labors[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_labors[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_labors[i-1])+'>CM2</option>\n' +
