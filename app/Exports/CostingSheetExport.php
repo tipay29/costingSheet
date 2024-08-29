@@ -249,8 +249,15 @@ class CostingSheetExport implements FromCollection,WithEvents,WithTitle
                 //CHART DETAILS
                 $this->exportChart($event);
                 //CHART DETAILS
-
-
+                //REMARKS DETAILS
+                $this->exportRemarks($event);
+                //REMARKS DETAILS
+                //LABOR COST DETAILS
+                $this->exportLaborCostDetails($event);
+                //LABOR COST DETAILS
+                //MOQ DETAILS
+                $this->exportMOQs($event);
+                //MOQ COST DETAILS
             },
             AfterSheet::class => function(AfterSheet $event){
 
@@ -299,6 +306,31 @@ class CostingSheetExport implements FromCollection,WithEvents,WithTitle
                     ->getStyle('T'.$this->cost_bottom_row_start.':T'. ($this->cost_bottom_second_row_start+2))
                     ->getNumberFormat()
                     ->setFormatCode($percentageDecimal);
+
+                $event->sheet
+                    ->getStyle('K'.($this->cost_bottom_second_row_start+7).':L'. ($this->cost_bottom_second_row_start+10))
+                    ->getNumberFormat()
+                    ->setFormatCode($currencySeparatorDecimal);
+
+                $event->sheet
+                    ->getStyle('K'.($this->cost_bottom_second_row_start+1).':L'. ($this->cost_bottom_second_row_start+1))
+                    ->getNumberFormat()
+                    ->setFormatCode($currencySeparatorDecimal);
+
+                $event->sheet
+                    ->getStyle('K'.($this->cost_bottom_second_row_start+2).':L'. ($this->cost_bottom_second_row_start+6))
+                    ->getNumberFormat()
+                    ->setFormatCode($numberSeparator);
+
+                $event->sheet
+                    ->getStyle('O'.($this->cost_bottom_second_row_start+5).':T'. ($this->cost_bottom_second_row_start+5))
+                    ->getNumberFormat()
+                    ->setFormatCode($percentage);
+
+                $event->sheet
+                    ->getStyle('O'.($this->cost_bottom_second_row_start+6).':T'. ($this->cost_bottom_second_row_start+6))
+                    ->getNumberFormat()
+                    ->setFormatCode($currencySeparatorDecimal);
 
 
             }
@@ -830,5 +862,252 @@ class CostingSheetExport implements FromCollection,WithEvents,WithTitle
             ->getStyle('J'.$this->cost_bottom_row_start.':M'.$this->cost_bottom_row_start)->applyFromArray($style_chart);
         $event->sheet->getStyle('J'.($this->cost_bottom_row_start+1).':M'.($this->cost_bottom_second_row_start-1))->applyFromArray(['borders' => [
             'outline' => ['borderStyle' => Border::BORDER_THIN,],],]);
+    }
+
+    protected function exportRemarks($event)
+    {
+        $style_remark = [
+            'borders' => [
+                //outline all
+                'outline' => [
+                    'borderStyle' => Border::BORDER_THIN,
+                ],
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+                'wrapText' => true,
+            ],
+            'fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+                'color' => ['argb' => 'c9c9c3']
+            ],
+            'font' => [
+                'size' => 10,
+                'bold' => true,
+            ],
+        ];
+
+        $event->sheet->mergeCells('B'.$this->cost_bottom_second_row_start.':I'.$this->cost_bottom_second_row_start);
+        $event->sheet->mergeCells('C'.($this->cost_bottom_second_row_start+1).':I'.($this->cost_bottom_second_row_start+1));
+        $event->sheet->mergeCells('C'.($this->cost_bottom_second_row_start+2).':I'.($this->cost_bottom_second_row_start+2));
+        $event->sheet->mergeCells('C'.($this->cost_bottom_second_row_start+3).':I'.($this->cost_bottom_second_row_start+3));
+        $event->sheet->mergeCells('C'.($this->cost_bottom_second_row_start+4).':I'.($this->cost_bottom_second_row_start+4));
+        $event->sheet->mergeCells('C'.($this->cost_bottom_second_row_start+5).':I'.($this->cost_bottom_second_row_start+5));
+        $event->sheet->mergeCells('C'.($this->cost_bottom_second_row_start+6).':I'.($this->cost_bottom_second_row_start+6));
+        $event->sheet->mergeCells('C'.($this->cost_bottom_second_row_start+7).':I'.($this->cost_bottom_second_row_start+7));
+        $event->sheet->mergeCells('C'.($this->cost_bottom_second_row_start+8).':I'.($this->cost_bottom_second_row_start+8));
+        $event->sheet->mergeCells('C'.($this->cost_bottom_second_row_start+9).':I'.($this->cost_bottom_second_row_start+9));
+        $event->sheet->mergeCells('C'.($this->cost_bottom_second_row_start+10).':I'.($this->cost_bottom_second_row_start+10));
+        $event->sheet->setCellValue('B'.$this->cost_bottom_second_row_start,'REMARKS / SPECIAL REQUIREMENTS')
+            ->getStyle('B'.$this->cost_bottom_second_row_start.':I'.$this->cost_bottom_second_row_start)->applyFromArray($style_remark);
+        $event->sheet->getStyle('B'.($this->cost_bottom_second_row_start+1).':I'.($this->cost_bottom_second_row_start+10))->applyFromArray([ 'borders' => [
+        'outline' => ['borderStyle' => Border::BORDER_THIN,],]]);
+        $event->sheet->setCellValue('B'.($this->cost_bottom_second_row_start+1),1)->getStyle('B'.($this->cost_bottom_second_row_start+1))->applyFromArray([      'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,],]);
+        $event->sheet->setCellValue('B'.($this->cost_bottom_second_row_start+2),2)->getStyle('B'.($this->cost_bottom_second_row_start+2))->applyFromArray([      'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,],]);
+        $event->sheet->setCellValue('B'.($this->cost_bottom_second_row_start+3),3)->getStyle('B'.($this->cost_bottom_second_row_start+3))->applyFromArray([      'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,],]);
+        $event->sheet->setCellValue('B'.($this->cost_bottom_second_row_start+4),4)->getStyle('B'.($this->cost_bottom_second_row_start+4))->applyFromArray([      'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,],]);
+        $event->sheet->setCellValue('B'.($this->cost_bottom_second_row_start+5),5)->getStyle('B'.($this->cost_bottom_second_row_start+5))->applyFromArray([      'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,],]);
+        $event->sheet->setCellValue('B'.($this->cost_bottom_second_row_start+6),6)->getStyle('B'.($this->cost_bottom_second_row_start+6))->applyFromArray([      'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,],]);
+        $event->sheet->setCellValue('B'.($this->cost_bottom_second_row_start+7),7)->getStyle('B'.($this->cost_bottom_second_row_start+7))->applyFromArray([      'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,],]);
+        $event->sheet->setCellValue('B'.($this->cost_bottom_second_row_start+8),8)->getStyle('B'.($this->cost_bottom_second_row_start+8))->applyFromArray([      'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,],]);
+        $event->sheet->setCellValue('B'.($this->cost_bottom_second_row_start+9),9)->getStyle('B'.($this->cost_bottom_second_row_start+9))->applyFromArray([      'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,],]);
+        $event->sheet->setCellValue('B'.($this->cost_bottom_second_row_start+10),10)->getStyle('B'.($this->cost_bottom_second_row_start+10))->applyFromArray([      'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,],]);
+
+        $event->sheet->setCellValue('C'.($this->cost_bottom_second_row_start+1),$this->costing_sheet['cost_remarks'][0]['cost_remarks_1']);
+        $event->sheet->setCellValue('C'.($this->cost_bottom_second_row_start+2),$this->costing_sheet['cost_remarks'][0]['cost_remarks_2']);
+        $event->sheet->setCellValue('C'.($this->cost_bottom_second_row_start+3),$this->costing_sheet['cost_remarks'][0]['cost_remarks_3']);
+        $event->sheet->setCellValue('C'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_remarks'][0]['cost_remarks_4']);
+        $event->sheet->setCellValue('C'.($this->cost_bottom_second_row_start+5),$this->costing_sheet['cost_remarks'][0]['cost_remarks_5']);
+        $event->sheet->setCellValue('C'.($this->cost_bottom_second_row_start+6),$this->costing_sheet['cost_remarks'][0]['cost_remarks_6']);
+        $event->sheet->setCellValue('C'.($this->cost_bottom_second_row_start+7),$this->costing_sheet['cost_remarks'][0]['cost_remarks_7']);
+        $event->sheet->setCellValue('C'.($this->cost_bottom_second_row_start+8),$this->costing_sheet['cost_remarks'][0]['cost_remarks_8']);
+        $event->sheet->setCellValue('C'.($this->cost_bottom_second_row_start+9),$this->costing_sheet['cost_remarks'][0]['cost_remarks_9']);
+        $event->sheet->setCellValue('C'.($this->cost_bottom_second_row_start+10),$this->costing_sheet['cost_remarks'][0]['cost_remarks_10']);
+
+    }
+
+    protected function exportLaborCostDetails( $event)
+    {
+        $style_labor = [
+            'borders' => [
+                //outline all
+                'outline' => [
+                    'borderStyle' => Border::BORDER_THIN,
+                ],
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+                'wrapText' => true,
+            ],
+            'fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+                'color' => ['argb' => 'c9c9c3']
+            ],
+            'font' => [
+                'size' => 10,
+                'bold' => true,
+            ],
+        ];
+
+        $event->sheet->mergeCells('J'.$this->cost_bottom_second_row_start.':M'.$this->cost_bottom_second_row_start);
+        $event->sheet->mergeCells('L'.($this->cost_bottom_second_row_start+1).':M'.($this->cost_bottom_second_row_start+1));
+        $event->sheet->mergeCells('L'.($this->cost_bottom_second_row_start+2).':M'.($this->cost_bottom_second_row_start+2));
+        $event->sheet->mergeCells('L'.($this->cost_bottom_second_row_start+3).':M'.($this->cost_bottom_second_row_start+3));
+        $event->sheet->mergeCells('L'.($this->cost_bottom_second_row_start+4).':M'.($this->cost_bottom_second_row_start+4));
+        $event->sheet->mergeCells('L'.($this->cost_bottom_second_row_start+5).':M'.($this->cost_bottom_second_row_start+5));
+        $event->sheet->mergeCells('L'.($this->cost_bottom_second_row_start+6).':M'.($this->cost_bottom_second_row_start+6));
+        $event->sheet->mergeCells('L'.($this->cost_bottom_second_row_start+7).':M'.($this->cost_bottom_second_row_start+7));
+        $event->sheet->mergeCells('L'.($this->cost_bottom_second_row_start+8).':M'.($this->cost_bottom_second_row_start+8));
+        $event->sheet->mergeCells('L'.($this->cost_bottom_second_row_start+9).':M'.($this->cost_bottom_second_row_start+9));
+        $event->sheet->mergeCells('L'.($this->cost_bottom_second_row_start+10).':M'.($this->cost_bottom_second_row_start+10));
+
+        $event->sheet->setCellValue('J'.$this->cost_bottom_second_row_start,'LABOR COSTS')
+            ->getStyle('J'.$this->cost_bottom_second_row_start.':M'.$this->cost_bottom_second_row_start)->applyFromArray($style_labor);
+        $event->sheet->getStyle('J'.($this->cost_bottom_second_row_start+1).':M'.($this->cost_bottom_second_row_start+10))->applyFromArray(['borders' => [
+            'outline' => ['borderStyle' => Border::BORDER_THIN,],],]);
+
+        $event->sheet->setCellValue('J'.($this->cost_bottom_second_row_start+1),'LABOR COST PER PC')->getStyle('J'.($this->cost_bottom_second_row_start+1))->applyFromArray(['font' => ['size' => 8, 'bold' => true,]]);
+        $event->sheet->setCellValue('J'.($this->cost_bottom_second_row_start+2),'SMV')->getStyle('J'.($this->cost_bottom_second_row_start+2))->applyFromArray(['font' => ['size' => 8, 'bold' => true,]]);
+        $event->sheet->setCellValue('J'.($this->cost_bottom_second_row_start+3),'HOURS')->getStyle('J'.($this->cost_bottom_second_row_start+3))->applyFromArray(['font' => ['size' => 8, 'bold' => true,]]);
+        $event->sheet->setCellValue('J'.($this->cost_bottom_second_row_start+4),'DAYS')->getStyle('J'.($this->cost_bottom_second_row_start+4))->applyFromArray(['font' => ['size' => 8, 'bold' => true,]]);
+        $event->sheet->setCellValue('J'.($this->cost_bottom_second_row_start+5),'OPERATORS')->getStyle('J'.($this->cost_bottom_second_row_start+5))->applyFromArray(['font' => ['size' => 8, 'bold' => true,]]);
+        $event->sheet->setCellValue('J'.($this->cost_bottom_second_row_start+6),'OUTPUT PER DAY')->getStyle('J'.($this->cost_bottom_second_row_start+6))->applyFromArray(['font' => ['size' => 8, 'bold' => true,]]);
+        $event->sheet->setCellValue('J'.($this->cost_bottom_second_row_start+7),'MONTHLY WAGE')->getStyle('J'.($this->cost_bottom_second_row_start+7))->applyFromArray(['font' => ['size' => 8, 'bold' => true,]]);
+        $event->sheet->setCellValue('J'.($this->cost_bottom_second_row_start+8),'HOURLY WAGE')->getStyle('J'.($this->cost_bottom_second_row_start+8))->applyFromArray(['font' => ['size' => 8, 'bold' => true,]]);
+        $event->sheet->setCellValue('J'.($this->cost_bottom_second_row_start+9),'HW WITH INDIRECT')->getStyle('J'.($this->cost_bottom_second_row_start+9))->applyFromArray(['font' => ['size' => 8, 'bold' => true,]]);
+        $event->sheet->setCellValue('J'.($this->cost_bottom_second_row_start+10),'WAGES PER MINUTE')->getStyle('J'.($this->cost_bottom_second_row_start+10))->applyFromArray(['font' => ['size' => 8, 'bold' => true,]]);
+
+        $event->sheet->setCellValue('K'.($this->cost_bottom_second_row_start+2),$this->costing_sheet['cost_labor_details'][0]['cost_smv_1']);
+        $event->sheet->setCellValue('K'.($this->cost_bottom_second_row_start+3),$this->costing_sheet['cost_labor_details'][0]['cost_hours_1']);
+        $event->sheet->setCellValue('K'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_labor_details'][0]['cost_days_1']);
+        $event->sheet->setCellValue('K'.($this->cost_bottom_second_row_start+5),$this->costing_sheet['cost_labor_details'][0]['cost_operators_1']);
+        $event->sheet->setCellValue('K'.($this->cost_bottom_second_row_start+7),$this->costing_sheet['cost_labor_details'][0]['cost_monthly_wage_1']);
+
+        $event->sheet->setCellValue('L'.($this->cost_bottom_second_row_start+3),$this->costing_sheet['cost_labor_details'][0]['cost_hours_2']);
+        $event->sheet->setCellValue('L'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_labor_details'][0]['cost_days_2']);
+        $event->sheet->setCellValue('L'.($this->cost_bottom_second_row_start+5),$this->costing_sheet['cost_labor_details'][0]['cost_operators_2']);
+        $event->sheet->setCellValue('L'.($this->cost_bottom_second_row_start+6),$this->costing_sheet['cost_labor_details'][0]['cost_output_per_day_1']);
+        $event->sheet->setCellValue('L'.($this->cost_bottom_second_row_start+7),$this->costing_sheet['cost_labor_details'][0]['cost_monthly_wage_2']);
+
+        $smv2 = '='.'(L'.($this->cost_bottom_second_row_start+3). '*' . 'L'.($this->cost_bottom_second_row_start+5) . ')/L'.($this->cost_bottom_second_row_start+6);
+        $output_per_day2 = '='.'(K'.($this->cost_bottom_second_row_start+3). '*' . 'K'.($this->cost_bottom_second_row_start+5). ')/K'.($this->cost_bottom_second_row_start+2);
+        $hourly_wage = '='.'K'.($this->cost_bottom_second_row_start+7). '/' . 'K'.($this->cost_bottom_second_row_start+4) . '/' .'K'.($this->cost_bottom_second_row_start+3) ;
+        $hourly_wage2 = '='.'L'.($this->cost_bottom_second_row_start+7). '/' . 'L'.($this->cost_bottom_second_row_start+4) . '/' .'L'.($this->cost_bottom_second_row_start+3) ;
+        $hw_id = '='.'K'.($this->cost_bottom_second_row_start+8) . '*1.4';
+        $hw_id2 = '='.'L'.($this->cost_bottom_second_row_start+8) . '*1.4';
+        $wage_per_min = '='.'K'.($this->cost_bottom_second_row_start+8) . '/60';
+        $wage_per_min2 = '='.'L'.($this->cost_bottom_second_row_start+8) . '/60';
+        $labor_cost_per_pc = '='.'K'.($this->cost_bottom_second_row_start+9) . '*'. 'K'.($this->cost_bottom_second_row_start+2);
+        $labor_cost_per_pc2 = '='.'L'.($this->cost_bottom_second_row_start+9) . '*'. 'L'.($this->cost_bottom_second_row_start+2);
+
+        $event->sheet->setCellValue('K'.($this->cost_bottom_second_row_start+6),$output_per_day2);
+        $event->sheet->setCellValue('L'.($this->cost_bottom_second_row_start+2),$smv2);
+        $event->sheet->setCellValue('K'.($this->cost_bottom_second_row_start+8),$hourly_wage);
+        $event->sheet->setCellValue('L'.($this->cost_bottom_second_row_start+8),$hourly_wage2);
+        $event->sheet->setCellValue('K'.($this->cost_bottom_second_row_start+9),$hw_id);
+        $event->sheet->setCellValue('L'.($this->cost_bottom_second_row_start+9),$hw_id2);
+        $event->sheet->setCellValue('K'.($this->cost_bottom_second_row_start+10),$wage_per_min);
+        $event->sheet->setCellValue('L'.($this->cost_bottom_second_row_start+10),$wage_per_min2);
+        $event->sheet->setCellValue('K'.($this->cost_bottom_second_row_start+1),$labor_cost_per_pc);
+        $event->sheet->setCellValue('L'.($this->cost_bottom_second_row_start+1),$labor_cost_per_pc2);
+
+    }
+
+    protected function exportMOQs( $event)
+    {
+        $style_moq = [
+            'borders' => [
+                //outline all
+                'outline' => [
+                    'borderStyle' => Border::BORDER_THIN,
+                ],
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+                'wrapText' => true,
+            ],
+            'fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+                'color' => ['argb' => 'f7b888']
+            ],
+            'font' => [
+                'size' => 10,
+                'bold' => true,
+            ],
+        ];
+
+        $event->sheet->mergeCells('O'.($this->cost_bottom_second_row_start).':R'.($this->cost_bottom_second_row_start));
+        $event->sheet->mergeCells('O'.($this->cost_bottom_second_row_start+1).':R'.($this->cost_bottom_second_row_start+1));
+        $event->sheet->mergeCells('O'.($this->cost_bottom_second_row_start+2).':R'.($this->cost_bottom_second_row_start+2));
+        $event->sheet->mergeCells('N'.($this->cost_bottom_second_row_start+3).':T'.($this->cost_bottom_second_row_start+3));
+        $event->sheet->mergeCells('N'.($this->cost_bottom_second_row_start+8).':T'.($this->cost_bottom_second_row_start+8));
+
+        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start).':T'.($this->cost_bottom_second_row_start))->applyFromArray(['borders' => [
+            'outline' => ['borderStyle' => Border::BORDER_THIN,],],]);
+        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+1).':T'.($this->cost_bottom_second_row_start+1))->applyFromArray(['borders' => [
+            'outline' => ['borderStyle' => Border::BORDER_THIN,],],]);
+        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+2).':T'.($this->cost_bottom_second_row_start+2))->applyFromArray(['borders' => [
+            'outline' => ['borderStyle' => Border::BORDER_THIN,],],]);
+        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+3).':T'.($this->cost_bottom_second_row_start+10))->applyFromArray(['borders' => [
+            'outline' => ['borderStyle' => Border::BORDER_THIN,],],]);
+
+        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+3).':T'.($this->cost_bottom_second_row_start+3))->applyFromArray($style_moq);
+        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+8).':T'.($this->cost_bottom_second_row_start+8))->applyFromArray($style_moq);
+        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+6).':T'.($this->cost_bottom_second_row_start+6))->applyFromArray(['fill' => [
+            'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+            'color' => ['argb' => '95fcb2']],]);
+
+        $event->sheet->setCellValue('N'.($this->cost_bottom_second_row_start),'A');
+        $event->sheet->setCellValue('N'.($this->cost_bottom_second_row_start+1),'B');
+        $event->sheet->setCellValue('O'.($this->cost_bottom_second_row_start),'MATERIAL COSTS');
+        $event->sheet->setCellValue('O'.($this->cost_bottom_second_row_start+1),'LOP');
+        $event->sheet->setCellValue('O'.($this->cost_bottom_second_row_start+2),'CM');
+
+        $material_cost = '=SUM(S' . ($this->cost_bottom_row_start+1) . ':S'.($this->cost_bottom_row_start+11). ')' ;
+        $material_cost_percent = '='.'S'.($this->cost_bottom_second_row_start).'/S'.($this->cost_bottom_row_start+13);
+        $lop_percent = '='.'S'.($this->cost_bottom_second_row_start+1).'/S'.($this->cost_bottom_row_start+13);
+
+        $event->sheet->setCellValue('S'.($this->cost_bottom_second_row_start),$material_cost);
+        $event->sheet->setCellValue('S'.($this->cost_bottom_second_row_start+1),'=S'.($this->cost_bottom_row_start+12));
+        $event->sheet->setCellValue('T'.($this->cost_bottom_second_row_start),$material_cost_percent);
+        $event->sheet->setCellValue('T'.($this->cost_bottom_second_row_start+1),$lop_percent);
+
+        $event->sheet->setCellValue('N'.($this->cost_bottom_second_row_start+3),'MOQ - PRODUCTION');
+        $event->sheet->setCellValue('N'.($this->cost_bottom_second_row_start+8),'MOQ - FABRIC');
+        $event->sheet->setCellValue('N'.($this->cost_bottom_second_row_start+4),'QTY (pcs)');
+        $event->sheet->setCellValue('N'.($this->cost_bottom_second_row_start+5),'Upcharge');
+        $event->sheet->setCellValue('N'.($this->cost_bottom_second_row_start+6),'FOB');
+        $event->sheet->setCellValue('N'.($this->cost_bottom_second_row_start+9),'1. Fabric MOQ will be applied based on the order QTY, and fabric/trim MOQ.');
+
+        $event->sheet->setCellValue('O'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_1']);
+        $event->sheet->setCellValue('P'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_2']);
+        $event->sheet->setCellValue('Q'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_3']);
+        $event->sheet->setCellValue('R'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_4']);
+        $event->sheet->setCellValue('S'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_5']);
+        $event->sheet->setCellValue('T'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_6']);
+
+        $event->sheet->setCellValue('O'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_1']/100));
+        $event->sheet->setCellValue('P'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_2']/100));
+        $event->sheet->setCellValue('Q'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_3']/100));
+        $event->sheet->setCellValue('R'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_4']/100));
+        $event->sheet->setCellValue('S'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_5']/100));
+        $event->sheet->setCellValue('T'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_6']/100));
+
+        $fob_1 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'O'.($this->cost_bottom_second_row_start+5) . ')';
+        $fob_2 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'P'.($this->cost_bottom_second_row_start+5). ')';
+        $fob_3 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'Q'.($this->cost_bottom_second_row_start+5). ')';
+        $fob_4 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'R'.($this->cost_bottom_second_row_start+5). ')';
+        $fob_5 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'S'.($this->cost_bottom_second_row_start+5). ')';
+        $fob_6 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'T'.($this->cost_bottom_second_row_start+5). ')';
+
+        $event->sheet->setCellValue('O'.($this->cost_bottom_second_row_start+6),$fob_1);
+        $event->sheet->setCellValue('P'.($this->cost_bottom_second_row_start+6),$fob_2);
+        $event->sheet->setCellValue('Q'.($this->cost_bottom_second_row_start+6),$fob_3);
+        $event->sheet->setCellValue('R'.($this->cost_bottom_second_row_start+6),$fob_4);
+        $event->sheet->setCellValue('S'.($this->cost_bottom_second_row_start+6),$fob_5);
+        $event->sheet->setCellValue('T'.($this->cost_bottom_second_row_start+6),$fob_6);
     }
 }
