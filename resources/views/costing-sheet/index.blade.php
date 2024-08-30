@@ -49,7 +49,7 @@
                                             <td scope="row">
                                                 <a href="{{route('costing-sheets.edit', $costing_sheet->id)}}"><i class="fa fa-eye" aria-hidden="true" style="color:dodgerblue;"></i></a>
 
-                                                <a style="padding:0;margin: 0;" id="showSummaryModalBtn{{$costing_sheet->id}}" type="button" class="btn" data-bs-toggle="modal"
+                                                <a style="padding:0;margin: 0;" id="show_summary_btn{{$costing_sheet->id}}" type="button" class="btn showSummaryBtn" data-bs-toggle="modal"
                                                         data-bs-target="#showSummaryModal">
                                                     <i class="fa fa-external-link" aria-hidden="true" style="color:grey;"></i>
                                                 </a>

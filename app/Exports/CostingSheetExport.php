@@ -1149,63 +1149,82 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
     public function drawings()
     {
         $drawings = new Drawing();
-        $drawings->setName('Front Photo');
-        $drawings->setDescription('Front Photo Header');
-        $drawings->setPath(public_path($this->costing_sheet['cost_sketches'][0]['cost_front_sketch']));
-        $drawings->setHeight(120);
+        if(count($this->costing_sheet['cost_sketches']) > 0){
+                if($this->costing_sheet['cost_sketches'][0]['cost_right_sketch'] !== null) {
 
+                    $drawings->setName('Front Photo');
+                    $drawings->setDescription('Front Photo Header');
+                    $drawings->setPath(public_path($this->costing_sheet['cost_sketches'][0]['cost_front_sketch']));
+                    $drawings->setHeight(120);
+
+                    $drawings->setCoordinates('J3');
+                    return [$drawings];
+                }
+        }
+
+        $drawings->setPath(public_path('\\storage\\images\\white.png'));
+        $drawings->setHeight(120);
         $drawings->setCoordinates('J3');
 
-
         return [$drawings];
+
     }
 
     public function setFrontSketch($worksheet){
-
-        $drawings = new Drawing();
-        $drawings->setName('Front Sketch');
-        $drawings->setDescription('Front Sketch Photo Bottom');
-        $drawings->setPath(public_path($this->costing_sheet['cost_sketches'][0]['cost_front_sketch']));
-        $drawings->setHeight(125);
-        $drawings->setCoordinates('B' . ($this->cost_bottom_row_start+2));
-        $drawings->setWorksheet($worksheet);
-
+        if(count($this->costing_sheet['cost_sketches']) > 0){
+            if($this->costing_sheet['cost_sketches'][0]['cost_front_sketch'] !== null){
+                $drawings = new Drawing();
+                $drawings->setName('Front Sketch');
+                $drawings->setDescription('Front Sketch Photo Bottom');
+                $drawings->setPath(public_path($this->costing_sheet['cost_sketches'][0]['cost_front_sketch']));
+                $drawings->setHeight(125);
+                $drawings->setCoordinates('B' . ($this->cost_bottom_row_start+2));
+                $drawings->setWorksheet($worksheet);
+            }
+        }
     }
 
     public function setBackSketch($worksheet){
-
-        $drawings = new Drawing();
-        $drawings->setName('Back Sketch');
-        $drawings->setDescription('Back Sketch Photo Bottom');
-        $drawings->setPath(public_path($this->costing_sheet['cost_sketches'][0]['cost_back_sketch']));
-        $drawings->setHeight(125);
-        $drawings->setCoordinates('D' . ($this->cost_bottom_row_start+2));
-        $drawings->setWorksheet($worksheet);
-
+        if(count($this->costing_sheet['cost_sketches']) > 0){
+            if($this->costing_sheet['cost_sketches'][0]['cost_back_sketch'] !== null) {
+                $drawings = new Drawing();
+                $drawings->setName('Back Sketch');
+                $drawings->setDescription('Back Sketch Photo Bottom');
+                $drawings->setPath(public_path($this->costing_sheet['cost_sketches'][0]['cost_back_sketch']));
+                $drawings->setHeight(125);
+                $drawings->setCoordinates('D' . ($this->cost_bottom_row_start + 2));
+                $drawings->setWorksheet($worksheet);
+            }
+        }
     }
 
     public function setLeftSketch($worksheet){
-
-        $drawings = new Drawing();
-        $drawings->setName('Left Sketch');
-        $drawings->setDescription('Left Sketch Photo Bottom');
-        $drawings->setPath(public_path($this->costing_sheet['cost_sketches'][0]['cost_left_sketch']));
-        $drawings->setHeight(125);
-        $drawings->setCoordinates('F' . ($this->cost_bottom_row_start+2));
-        $drawings->setWorksheet($worksheet);
-
+        if(count($this->costing_sheet['cost_sketches']) > 0){
+            if($this->costing_sheet['cost_sketches'][0]['cost_left_sketch'] !== null) {
+                $drawings = new Drawing();
+                $drawings->setName('Left Sketch');
+                $drawings->setDescription('Left Sketch Photo Bottom');
+                $drawings->setPath(public_path($this->costing_sheet['cost_sketches'][0]['cost_left_sketch']));
+                $drawings->setHeight(125);
+                $drawings->setCoordinates('F' . ($this->cost_bottom_row_start + 2));
+                $drawings->setWorksheet($worksheet);
+            }
+        }
     }
 
     public function setRightSketch($worksheet){
 
-        $drawings = new Drawing();
-        $drawings->setName('Right Sketch');
-        $drawings->setDescription('Right Sketch Photo Bottom');
-        $drawings->setPath(public_path($this->costing_sheet['cost_sketches'][0]['cost_right_sketch']));
-        $drawings->setHeight(125);
-        $drawings->setCoordinates('H' . ($this->cost_bottom_row_start+2));
-        $drawings->setWorksheet($worksheet);
-
+        if(count($this->costing_sheet['cost_sketches']) > 0){
+            if($this->costing_sheet['cost_sketches'][0]['cost_right_sketch'] !== null) {
+                $drawings = new Drawing();
+                $drawings->setName('Right Sketch');
+                $drawings->setDescription('Right Sketch Photo Bottom');
+                $drawings->setPath(public_path($this->costing_sheet['cost_sketches'][0]['cost_right_sketch']));
+                $drawings->setHeight(125);
+                $drawings->setCoordinates('H' . ($this->cost_bottom_row_start + 2));
+                $drawings->setWorksheet($worksheet);
+            }
+        }
     }
 
     public function charts()

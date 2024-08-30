@@ -31,6 +31,7 @@
     @if(str_contains(url()->current(), 'costing-sheet') || str_contains(url()->current(), 'edit'))
         <script src="{{ asset('storage/js/costing-update.js') }}" defer></script>
     @endif
+    <script src="{{ asset('storage/js/costing-show-summary.js') }}" defer></script>
     <script src="{{ asset('storage/js/costing-chart.js') }}" defer></script>
 
 
