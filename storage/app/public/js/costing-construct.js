@@ -102,6 +102,9 @@ if(loc_split.includes('costing-sheets') && loc_split.includes('create')){
     sessionStorage.setItem("costing_other_row", costing_other_row);
     sessionStorage.setItem("costing_labor_row", costing_labor_row);
 
+    // sessionStorage.setItem("costing_labor_row", costing_labor_row);
+    // sessionStorage.setItem("costing_labor_row", costing_labor_row);
+
 
     getFabricRow();
     getTrimRow();
@@ -180,6 +183,7 @@ if(loc_split.includes('costing-sheets') && loc_split.includes('edit')){
             if(response['cost_no_of_color'] !== null)
             {
                 sessionStorage.setItem('cost_color_head_names',response['cost_color_head_names']);
+                $('#costing_color_head_names').val(response['cost_color_head_names']);
                 displayColors(response['cost_no_of_color'],0);
             }
 

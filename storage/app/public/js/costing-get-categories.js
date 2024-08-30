@@ -12,6 +12,7 @@ function getFabricRow(){
     console.log(cost_fabrics[0]);
 
     sessionStorage.setItem("costing_fabric_row_ids", (1 + '-'+ fabric_row_count));
+    $('#costing_fabric_row_names').val(1 + '-'+ fabric_row_count);
 
     for (let i = 1; i <= fabric_row_count; i++) {
         let item_no = i.toString();
@@ -115,6 +116,7 @@ function getTrimRow(){
 
     let x = 1;
     sessionStorage.setItem("costing_trim_row_ids", ((parseInt(before_row_count)+1) + '-'+ trim_row_count));
+    $('#costing_trim_row_names').val((parseInt(before_row_count)+1) + '-'+ trim_row_count);
     for (let i = before_row_count+1; i <= trim_row_count; i++) {
         let item_no = i.toString();
 
@@ -214,6 +216,7 @@ function getZipperRow(){
     console.log(cost_zippers[0]);
 
     sessionStorage.setItem("costing_zipper_row_ids", ((parseInt(before_row_count)+1) + '-'+ zipper_row_count));
+    $('#costing_zipper_row_names').val(((parseInt(before_row_count)+1) + '-'+ zipper_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= zipper_row_count; i++) {
         let item_no = i.toString();
@@ -315,6 +318,7 @@ function getEmbelishmentRow(){
     console.log(cost_embelishments[0]);
 
     sessionStorage.setItem("costing_embelishment_row_ids", ((parseInt(before_row_count)+1) + '-'+ embelishment_row_count));
+    $('#costing_embelishment_row_names').val(((parseInt(before_row_count)+1) + '-'+ embelishment_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= embelishment_row_count; i++) {
         let item_no = i.toString();
@@ -423,6 +427,7 @@ function getLabelRow(){
     console.log(cost_labels[0]);
 
     sessionStorage.setItem("costing_label_row_ids", ((parseInt(before_row_count)+1) + '-'+ label_row_count));
+    $('#costing_label_row_names').val(((parseInt(before_row_count)+1) + '-'+ label_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= label_row_count; i++) {
         let item_no = i.toString();
@@ -528,6 +533,7 @@ function getThreadRow(){
     console.log(cost_threads[0]);
 
     sessionStorage.setItem("costing_thread_row_ids", ((parseInt(before_row_count)+1) + '-'+ thread_row_count));
+    $('#costing_thread_row_names').val(((parseInt(before_row_count)+1) + '-'+ thread_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= thread_row_count; i++) {
         let item_no = i.toString();
@@ -635,6 +641,7 @@ function getPackageRow(){
     console.log(cost_packages[0]);
 
     sessionStorage.setItem("costing_package_row_ids", ((parseInt(before_row_count)+1) + '-'+ package_row_count));
+    $('#costing_package_row_names').val(((parseInt(before_row_count)+1) + '-'+ package_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= package_row_count; i++) {
         let item_no = i.toString();
@@ -744,6 +751,7 @@ function getFinishRow(){
     console.log(cost_finishes[0]);
 
     sessionStorage.setItem("costing_finish_row_ids", ((parseInt(before_row_count)+1) + '-'+ finish_row_count));
+    $('#costing_finish_row_names').val(((parseInt(before_row_count)+1) + '-'+ finish_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= finish_row_count; i++) {
         let item_no = i.toString();
@@ -855,6 +863,7 @@ function getExportRow(){
     console.log(cost_exports[0]);
 
     sessionStorage.setItem("costing_export_row_ids", ((parseInt(before_row_count)+1) + '-'+ export_row_count));
+    $('#costing_export_row_names').val(((parseInt(before_row_count)+1) + '-'+ export_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= export_row_count; i++) {
         let item_no = i.toString();
@@ -968,6 +977,7 @@ function getTestingRow(){
     console.log(cost_testings[0]);
 
     sessionStorage.setItem("costing_testing_row_ids", ((parseInt(before_row_count)+1) + '-'+ testing_row_count));
+    $('#costing_testing_row_names').val(((parseInt(before_row_count)+1) + '-'+ testing_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= testing_row_count; i++) {
         let item_no = i.toString();
@@ -1083,6 +1093,7 @@ function getOtherRow(){
     console.log(cost_others[0]);
 
     sessionStorage.setItem("costing_other_row_ids", ((parseInt(before_row_count)+1) + '-'+ other_row_count));
+    $('#costing_other_row_names').val(((parseInt(before_row_count)+1) + '-'+ other_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= other_row_count; i++) {
         let item_no = i.toString();
@@ -1200,6 +1211,7 @@ function getLaborRow(){
     console.log(cost_labors[2]);
 
     sessionStorage.setItem("costing_labor_row_ids", ((parseInt(before_row_count)+1) + '-'+ labor_row_count));
+    $('#costing_labor_row_names').val(((parseInt(before_row_count)+1) + '-'+ labor_row_count));
     let x = 1;
     for (let i = before_row_count+1; i <= labor_row_count; i++) {
         let item_no = i.toString();

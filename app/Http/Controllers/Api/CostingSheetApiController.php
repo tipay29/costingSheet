@@ -300,6 +300,7 @@ class CostingSheetApiController extends Controller
             'cost_payment_terms' =>  request()->costing_payment_terms,
             'cost_production_lead_time' =>  request()->costing_production_lead_time,
             'cost_griege_reduced' =>  request()->costing_greige_reduced,
+
             'cost_fabric_row_names' =>  request()->costing_fabric_row_names,
             'cost_trim_row_names' =>  request()->costing_trim_row_names,
             'cost_zipper_row_names' =>  request()->costing_zipper_row_names,

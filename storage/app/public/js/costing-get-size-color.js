@@ -1,5 +1,6 @@
 function displaySizes(sizes){
     sessionStorage.setItem('costing_sizes_name',sizes);
+
     $('#costing_size_head_names').val(sizes);
     old_no_of_size = sessionStorage.getItem('costing_no_of_size');
     no_of_size = parseInt(sizes.length);
