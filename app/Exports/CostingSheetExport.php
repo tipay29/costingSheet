@@ -4,15 +4,24 @@ namespace App\Exports;
 
 use App\Models\CostingSheet;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithCharts;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
+use Maatwebsite\Excel\Concerns\WithDrawings;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use Maatwebsite\Excel\Events\AfterSheet;
 use Maatwebsite\Excel\Events\BeforeSheet;
+use PhpOffice\PhpSpreadsheet\Chart\Chart;
+use PhpOffice\PhpSpreadsheet\Chart\DataSeries;
+use PhpOffice\PhpSpreadsheet\Chart\DataSeriesValues;
+use PhpOffice\PhpSpreadsheet\Chart\Legend;
+use PhpOffice\PhpSpreadsheet\Chart\PlotArea;
+use PhpOffice\PhpSpreadsheet\Chart\Title;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 
-class CostingSheetExport implements FromCollection,WithEvents,WithTitle
+class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithCharts
 {
 
     protected $costing_sheet;
@@ -131,10 +140,10 @@ class CostingSheetExport implements FromCollection,WithEvents,WithTitle
         return CostingSheet::where('id',0)->get();
     }
 
-    public function title(): string
-    {
-        return 'Costing Sheet';
-    }
+//    public function title(): string
+//    {
+//        return 'Costing Sheet';
+//    }
 
     public function registerEvents(): array
     {
@@ -258,6 +267,8 @@ class CostingSheetExport implements FromCollection,WithEvents,WithTitle
                 //MOQ DETAILS
                 $this->exportMOQs($event);
                 //MOQ COST DETAILS
+
+
             },
             AfterSheet::class => function(AfterSheet $event){
 
@@ -332,6 +343,22 @@ class CostingSheetExport implements FromCollection,WithEvents,WithTitle
                     ->getNumberFormat()
                     ->setFormatCode($currencySeparatorDecimal);
 
+                $label = [new DataSeriesValues('String', 'Worksheet!$B$1', null, 1)]; ;
+                $categories = [new DataSeriesValues('String', 'Worksheet!$O'.($this->cost_bottom_row_start+1).':$O'.($this->cost_bottom_row_start+12), null, 4)];
+                $values     = [new DataSeriesValues('Number', 'Worksheet!$S'.($this->cost_bottom_row_start+1).':$S'.($this->cost_bottom_row_start+12), null, 4)];
+
+                $series = new DataSeries(DataSeries::TYPE_PIECHART, DataSeries::GROUPING_STANDARD,
+                    range(0, \count($values) - 1), $label, $categories, $values);
+                $plot = new PlotArea(null, [$series]);
+
+                $legend = new Legend();
+                $chart = new Chart('Costing Sheet Chart', new Title('Costing Sheet Chart'), $legend, $plot);
+
+                $chart->setTopLeftPosition('J'.($this->cost_bottom_row_start+1));
+                $chart->setBottomRightPosition('M'.($this->cost_bottom_row_start+13));
+
+
+                $event->sheet->getDelegate()->addChart($chart);
 
             }
         ];
@@ -830,6 +857,14 @@ class CostingSheetExport implements FromCollection,WithEvents,WithTitle
         $event->sheet->getStyle('H'.($this->cost_bottom_row_start+2).':I'.($this->cost_bottom_second_row_start-1))->applyFromArray(['borders' => [
             'outline' => ['borderStyle' => Border::BORDER_THIN,],],]);
 
+        //DISPLAY PHOTO
+        $worksheet = $event->sheet->getDelegate();
+
+        $this->setFrontSketch($worksheet);
+        $this->setBackSketch($worksheet);
+        $this->setLeftSketch($worksheet);
+        $this->setRightSketch($worksheet);
+
 
     }
 
@@ -1110,4 +1145,86 @@ class CostingSheetExport implements FromCollection,WithEvents,WithTitle
         $event->sheet->setCellValue('S'.($this->cost_bottom_second_row_start+6),$fob_5);
         $event->sheet->setCellValue('T'.($this->cost_bottom_second_row_start+6),$fob_6);
     }
+
+    public function drawings()
+    {
+        $drawings = new Drawing();
+        $drawings->setName('Front Photo');
+        $drawings->setDescription('Front Photo Header');
+        $drawings->setPath(public_path($this->costing_sheet['cost_sketches'][0]['cost_front_sketch']));
+        $drawings->setHeight(120);
+
+        $drawings->setCoordinates('J3');
+
+
+        return [$drawings];
+    }
+
+    public function setFrontSketch($worksheet){
+
+        $drawings = new Drawing();
+        $drawings->setName('Front Sketch');
+        $drawings->setDescription('Front Sketch Photo Bottom');
+        $drawings->setPath(public_path($this->costing_sheet['cost_sketches'][0]['cost_front_sketch']));
+        $drawings->setHeight(125);
+        $drawings->setCoordinates('B' . ($this->cost_bottom_row_start+2));
+        $drawings->setWorksheet($worksheet);
+
+    }
+
+    public function setBackSketch($worksheet){
+
+        $drawings = new Drawing();
+        $drawings->setName('Back Sketch');
+        $drawings->setDescription('Back Sketch Photo Bottom');
+        $drawings->setPath(public_path($this->costing_sheet['cost_sketches'][0]['cost_back_sketch']));
+        $drawings->setHeight(125);
+        $drawings->setCoordinates('D' . ($this->cost_bottom_row_start+2));
+        $drawings->setWorksheet($worksheet);
+
+    }
+
+    public function setLeftSketch($worksheet){
+
+        $drawings = new Drawing();
+        $drawings->setName('Left Sketch');
+        $drawings->setDescription('Left Sketch Photo Bottom');
+        $drawings->setPath(public_path($this->costing_sheet['cost_sketches'][0]['cost_left_sketch']));
+        $drawings->setHeight(125);
+        $drawings->setCoordinates('F' . ($this->cost_bottom_row_start+2));
+        $drawings->setWorksheet($worksheet);
+
+    }
+
+    public function setRightSketch($worksheet){
+
+        $drawings = new Drawing();
+        $drawings->setName('Right Sketch');
+        $drawings->setDescription('Right Sketch Photo Bottom');
+        $drawings->setPath(public_path($this->costing_sheet['cost_sketches'][0]['cost_right_sketch']));
+        $drawings->setHeight(125);
+        $drawings->setCoordinates('H' . ($this->cost_bottom_row_start+2));
+        $drawings->setWorksheet($worksheet);
+
+    }
+
+    public function charts()
+    {
+        $label = [new DataSeriesValues('String', 'Worksheet!$B$1', null, 1)];
+        $categories = [new DataSeriesValues('String', 'Worksheet!$B$2:$B$5', null, 4)];
+        $values = [new DataSeriesValues('Number', 'Worksheet!$A$2:$A$5', null, 4)];
+        $series = new DataSeries(DataSeries::TYPE_PIECHART, DataSeries::GROUPING_STANDARD,
+            range(0, \count($values) - 1), $label, $categories, $values);
+        $plot = new PlotArea(null, [$series]);
+
+        $legend = new Legend();
+        $chart = new Chart('chart name', new Title('chart title'), $legend, $plot);
+
+
+        $chart->setTopLeftPosition('DD1');
+        $chart->setBottomRightPosition('DD2');
+
+        return $chart;
+    }
+
 }
