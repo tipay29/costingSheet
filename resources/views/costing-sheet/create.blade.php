@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container"
- style="width: 1900px !important;max-width:1900px;margin:0px !important;"
+    <div class="container cost_container_main_cs"
+ 
     >
         <div class="row">
             <div class="col-md-12" >

@@ -157,3 +157,184 @@ input::-webkit-inner-spin-button {
     vertical-align: sub;
 }
 
+
+@media only screen and (min-width: 1600px) {
+
+    .cost_container_main_cs{
+        width: 1580px !important;max-width:1580px;margin:0px !important;
+    }
+
+    .cost_item_width{
+        min-width:50px ;
+    
+    }
+    
+    
+    .cost_col_component{
+        min-width:80px;
+    }
+    
+    .cost_col_material_id{
+        min-width:75px;
+    }
+    
+    .cost_col_category{
+        min-width:80px;
+    }
+    
+    .cost_col_nominated{
+        min-width:80px;
+    }
+    
+    .cost_col_coo{
+        min-width:70px;
+    }
+    
+    .cost_col_supplier_ref{
+        min-width:95px;
+    }
+    
+    .cost_col_description{
+        min-width:140px;
+    }
+    
+    .cost_col_location{
+        min-width:80px;
+    }
+    
+    .cost_col_mill_supplier{
+        min-width:95px;
+    }
+    
+    .cost_col_uom{
+        min-width:50px;
+    }
+    
+    .cost_col_width{
+        min-width:65px;
+    }
+    
+    .cost_col_usage{
+        min-width:65px;
+    }
+    
+    .cost_col_wastage{
+        min-width:75px;
+    }
+    
+    .cost_col_gross_yield{
+        min-width:80px;
+    }
+    
+    .cost_col_unit_cost{
+        min-width:70px;
+    }
+    
+    .cost_col_handling{
+        min-width:70px;
+    }
+    
+    .cost_col_total{
+        min-width:80px;
+    }
+    
+    .cost_col_comment{
+        min-width:80px;
+    }
+    
+    .cost_col_tabspace{
+        min-width:60px;
+    }
+
+}
+
+
+@media only screen and (min-width: 1900px) {
+
+.cost_container_main_cs{
+    width: 1900px !important;max-width:1900px;margin:0px !important;
+}
+
+.cost_item_width{
+    min-width:50px ;
+
+}
+
+
+.cost_col_component{
+    min-width:80px;
+}
+
+.cost_col_material_id{
+    min-width:75px;
+}
+
+.cost_col_category{
+    min-width:80px;
+}
+
+.cost_col_nominated{
+    min-width:80px;
+}
+
+.cost_col_coo{
+    min-width:70px;
+}
+
+.cost_col_supplier_ref{
+    min-width:95px;
+}
+
+.cost_col_description{
+    min-width:140px;
+}
+
+.cost_col_location{
+    min-width:80px;
+}
+
+.cost_col_mill_supplier{
+    min-width:95px;
+}
+
+.cost_col_uom{
+    min-width:50px;
+}
+
+.cost_col_width{
+    min-width:65px;
+}
+
+.cost_col_usage{
+    min-width:65px;
+}
+
+.cost_col_wastage{
+    min-width:75px;
+}
+
+.cost_col_gross_yield{
+    min-width:80px;
+}
+
+.cost_col_unit_cost{
+    min-width:70px;
+}
+
+.cost_col_handling{
+    min-width:70px;
+}
+
+.cost_col_total{
+    min-width:80px;
+}
+
+.cost_col_comment{
+    min-width:80px;
+}
+
+.cost_col_tabspace{
+    min-width:60px;
+}
+
+}

@@ -9,26 +9,26 @@ width: 100%;">
                 <table class="table table-bordered tbl m-0" style="">
 
                     <tr  class="costing_header_ch">
-                        <th   scope="col" style="min-width:50px ;vertical-align: top;background-color: #e3ed26; ">序号</th>
-                        <th  scope="col" style="min-width:80px;vertical-align: top;background-color: #e3ed26; ">分类编号</th>
-                        <th  scope="col" style="min-width:75px;vertical-align: top;background-color: #e3ed26; ">物料简码</th>
-                        <th  scope="col" style="min-width:80px;vertical-align: top;background-color: #e3ed26; ">成本类别</th>
-                            <th  scope="col" style="min-width:80px;vertical-align: top;background-color: #e3ed26; ">指定/非指定</th>
-                        <th  scope="col" style="min-width:70px;vertical-align: top;background-color: #e3ed26; ">产地</th>
-                        <th  scope="col" style="min-width:95px;vertical-align: top;background-color: #e3ed26;font-size:.7em; ">客户料号/供应商货号</th>
-                        <th  scope="col" style="min-width:140px;vertical-align: top;background-color: #e3ed26; ">物料描述</th>
-                        <th  scope="col" style="min-width:80px;vertical-align: top;background-color: #e3ed26; ">部位名称</th>
-                        <th  scope="col" style="min-width:95px;vertical-align: top;background-color: #e3ed26; ">供应商</th>
-                        <th  scope="col" style="min-width:50px;vertical-align: top;background-color: #e3ed26; ">单位</th>
-                        <th  scope="col" style="min-width:65px;vertical-align: top;background-color: #e3ed26; ">规格</th>
-                        <th  scope="col" style="min-width:65px;vertical-align: top;background-color: #e3ed26; ">用量</th>
-                        <th  scope="col" style="min-width:75px;vertical-align: top;background-color: #e3ed26; ">损耗</th>
-                        <th  scope="col" style="min-width:80px;vertical-align: top;background-color: #e3ed26; ">总用量</th>
-                        <th  scope="col" style="min-width:70px;vertical-align: top;background-color: #e3ed26; ">单价</th>
-                        <th  scope="col" style="min-width:70px;vertical-align: top;background-color: #e3ed26; ">处理</th>
-                        <th  scope="col" style="min-width:80px;vertical-align: top;background-color: #e3ed26; ">单价</th>
-                        <th  scope="col" style="min-width:80px;vertical-align: top;background-color: #e3ed26; ">评论</th>
-                        <th  scope="col" style="min-width:60px;border:1px solid var(--bs-body-bg);"></th>
+                        <th  scope="col" class="cost_col_item_no" style="vertical-align: top;background-color: #e3ed26; ">序号</th>
+                        <th  scope="col" class="cost_col_component" style="vertical-align: top;background-color: #e3ed26; ">分类编号</th>
+                        <th  scope="col" class="cost_col_material_id" style="vertical-align: top;background-color: #e3ed26; ">物料简码</th>
+                        <th  scope="col" class="cost_col_category" style="vertical-align: top;background-color: #e3ed26; ">成本类别</th>
+                        <th  scope="col" class="cost_col_nominated" style="vertical-align: top;background-color: #e3ed26; ">指定/非指定</th>
+                        <th  scope="col" class="cost_col_coo" style="vertical-align: top;background-color: #e3ed26; ">产地</th>
+                        <th  scope="col" class="cost_col_supplier_ref" style="vertical-align: top;background-color: #e3ed26;font-size:.7em; ">客户料号/供应商货号</th>
+                        <th  scope="col" class="cost_col_description" style="vertical-align: top;background-color: #e3ed26; ">物料描述</th>
+                        <th  scope="col" class="cost_col_location" style="vertical-align: top;background-color: #e3ed26; ">部位名称</th>
+                        <th  scope="col" class="cost_col_mill_supplier" style="vertical-align: top;background-color: #e3ed26; ">供应商</th>
+                        <th  scope="col" class="cost_col_uom" style="vertical-align: top;background-color: #e3ed26; ">单位</th>
+                        <th  scope="col" class="cost_col_width" style="vertical-align: top;background-color: #e3ed26; ">规格</th>
+                        <th  scope="col" class="cost_col_usage" style="vertical-align: top;background-color: #e3ed26; ">用量</th>
+                        <th  scope="col" class="cost_col_wastage" style="vertical-align: top;background-color: #e3ed26; ">损耗</th>
+                        <th  scope="col" class="cost_col_gross_yield" style="vertical-align: top;background-color: #e3ed26; ">总用量</th>
+                        <th  scope="col" class="cost_col_unit_cost" style="vertical-align: top;background-color: #e3ed26; ">单价</th>
+                        <th  scope="col" class="cost_col_handling" style="vertical-align: top;background-color: #e3ed26; ">处理</th>
+                        <th  scope="col" class="cost_col_total" style="vertical-align: top;background-color: #e3ed26; ">单价</th>
+                        <th  scope="col" class="cost_col_comment" style="vertical-align: top;background-color: #e3ed26; ">评论</th>
+                        <th  scope="col" class="cost_col_tabspace" style="border:1px solid var(--bs-body-bg);"></th>
 
 
                     </tr>
