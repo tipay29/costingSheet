@@ -25,7 +25,7 @@ function getFabricRow(){
             '                                    <input value="'+getCategoryValue('component',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_component'+item_no+'" name="costing_fabric_component'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('material_id',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_material_id'+item_no+'" name="costing_fabric_material_id'+item_no+'" class="css-input-costing-data-solo" >\n' +
+            '                                    <input  value="'+getCategoryValue('material_id',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_material_id'+item_no+'" name="costing_fabric_material_id'+item_no+'" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input value="'+getCategoryValue('category_data',cost_fabrics[i-1],'Fabric')+'"  type="text" id="costing_fabric_categories'+item_no+'" name="costing_fabric_categories'+item_no+'" value="Fabric" class="css-input-costing-data-solo" style="text-align: start;" >\n' +

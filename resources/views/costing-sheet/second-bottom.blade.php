@@ -28,10 +28,10 @@
                     <tbody>
                     <tr>
                         <td scope="col"  >LABOR COST PER PC</td>
-                        <td  id=""  style="font-weight:bold;text-align:center;">$</td>
+                        <td class="costing_fob_sign" id=""  style="font-weight:bold;text-align:center;">$</td>
                         <td  id="costing_cost_per_pc_first" scope="col" style="text-align: end; background-color: #d1d2d4;">
                         </td>
-                        <td  id="" style="font-weight:bold;text-align:center;">$</td>
+                        <td class="costing_fob_sign" id="" style="font-weight:bold;text-align:center;">$</td>
                         <td  id="costing_cost_per_pc_second" scope="col" style="text-align: end; background-color: #d1d2d4;">
                         </td>
                     </tr>
@@ -98,12 +98,12 @@
                         </tr>
                         <tr>
                             <td  scope="col" style=" ">MONTHLY WAGE</td>
-                            <td scope="col" style="text-align:center;font-weight:bold;">$</td>
+                            <td class="costing_fob_sign" scope="col" style="text-align:center;font-weight:bold;">$</td>
                             <td  scope="col" >
                                 <input id="costing_monthly_wages_first" name="costing_monthly_wages_first"
                                        class="css-input-costing-labor-cost text-end" min="1" type="number">
                             </td>
-                            <td scope="col" style="text-align:center;font-weight:bold;font-weight:bold;">$</td>
+                            <td class="costing_fob_sign" scope="col" style="text-align:center;font-weight:bold;font-weight:bold;">$</td>
                             <td  scope="col"  >
                                 <input  id="costing_monthly_wages_second" name="costing_monthly_wages_second"
                                         class="css-input-costing-labor-cost text-end" min="1" type="number">
@@ -111,28 +111,28 @@
                         </tr>
                         <tr>
                             <td  scope="col" style=" ">HOURLY WAGE</td>
-                            <td scope="col" style="font-weight:bold;text-align:center;">$</td>
+                            <td class="costing_fob_sign" scope="col" style="font-weight:bold;text-align:center;">$</td>
                             <td  id="costing_hourly_wages_first" scope="col" style="text-align: end; background-color: #d1d2d4;">
                             </td>
-                            <td scope="col" style="font-weight:bold;text-align:center;">$</td>
+                            <td class="costing_fob_sign" scope="col" style="font-weight:bold;text-align:center;">$</td>
                             <td  id="costing_hourly_wages_second" scope="col" style="text-align: end; background-color: #d1d2d4;">
                             </td>
                         </tr>
                         <tr>
                             <td  scope="col" style=" ">HW WITH INDIRECT</td>
-                            <td scope="col" style="font-weight:bold;text-align:center;">$</td>
+                            <td class="costing_fob_sign" scope="col" style="font-weight:bold;text-align:center;">$</td>
                             <td  id="costing_hourly_wages_id_first" scope="col" style="text-align: end; background-color: #d1d2d4;">
                             </td>
-                            <td scope="col" style="font-weight:bold;text-align:center;">$</td>
+                            <td class="costing_fob_sign" scope="col" style="font-weight:bold;text-align:center;">$</td>
                             <td  id="costing_hourly_wages_id_second" scope="col" style="text-align: end; background-color: #d1d2d4;">
                             </td>
                         </tr>
                         <tr>
                             <td  scope="col" style=" ">WAGES PER MINUTE</td>
-                            <td  id=""  style="font-weight:bold;text-align:center;">$</td>
+                            <td class="costing_fob_sign" id=""  style="font-weight:bold;text-align:center;">$</td>
                             <td  id="costing_wages_per_min_first" scope="col" style="text-align: end; background-color: #d1d2d4;">
                             </td>
-                            <td  style="font-weight:bold;text-align:center;">$</td>
+                            <td class="costing_fob_sign" style="font-weight:bold;text-align:center;">$</td>
                             <td  id="costing_wages_per_min_second" scope="col" style="text-align: end; background-color: #d1d2d4;">
                             </td>
                         </tr>
@@ -152,7 +152,7 @@
                         <tr style="border-top:1px solid black;border-bottom:1px solid black;">
                             <td width="12%" scope="col" style="border-left:1px solid black;">A</td>
                             <td width="56%" scope="col" style=" ">MATERIAL COSTS</td>
-                            <td width="1%" scope="col" style="font-weight: bold;">$</td>
+                            <td class="costing_fob_sign" width="1%" scope="col" style="font-weight: bold;">$</td>
                             <td width="15%" scope="col" style=" ">
                                 <input type="number" id="costing_material_cost_fob" name="costing_material_cost_fob"
                                        val="0" class="css-input-costing-data-solo text-end" readonly>
@@ -166,7 +166,7 @@
                         <tr style="border-top:1px solid black;border-bottom:1px solid black;">
                             <td  scope="col" style="border-left:1px solid black;">B</td>
                             <td  scope="col" style=" ">L.O.P.</td>
-                            <td width="1%" scope="col" style="font-weight: bold;">$</td>
+                            <td class="costing_fob_sign" width="1%" scope="col" style="font-weight: bold;">$</td>
                             <td scope="col" style=" ">
                                 <input type="number" id="costing_lop_fob" name="costing_lop_fob"
                                        val="0" class="css-input-costing-data-solo text-end" readonly>
@@ -180,7 +180,7 @@
                         <tr style="border-top:1px solid black;border-bottom:1px solid black;">
                             <td scope="col" style="border-left:1px solid black;"></td>
                             <td  scope="col" style=" ">CM</td>
-                            <td width="1%" scope="col" style="font-weight: bold;">$</td>
+                            <td class="costing_fob_sign" width="1%" scope="col" style="font-weight: bold;">$</td>
                             <td  scope="col" style=" "></td>
                             <td  scope="col" style=""></td>
                             <td width="1%" scope="col" style="font-weight: bold;border-right:1px solid black;">%</td>
@@ -309,7 +309,7 @@
             </div>
         </div>
 
-        <div class="row" style="border:2px solid black;min-height: 4.1rem;">
+        <div class="row" style="border:2px solid black;min-height: 5rem;">
             <h6 class="text-center text-bg-secondary m-0" style="height: 1rem;">MOQ - FABRIC</h6>
             <div class="col-md-12 css-costing-summary-table p-0">
                 <table class="table table-bordered m-0">

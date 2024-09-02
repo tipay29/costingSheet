@@ -77,7 +77,7 @@ costing_currency.change(function(e){
     $('#costing_target_fob_sign').val(costing_currency.val());
     $('#costing_total_fob_sign').val(costing_currency.val());
     $('.costing_fob_sign').val(costing_currency.val());
-
+    $('.costing_fob_sign').html(costing_currency.val());
 });
 
 

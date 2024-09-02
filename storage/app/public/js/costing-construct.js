@@ -160,6 +160,10 @@ if(loc_split.includes('costing-sheets') && loc_split.includes('edit')){
             sessionStorage.setItem("costing_other_row", getRowCount(response['cost_other_row_names']));
             sessionStorage.setItem("costing_labor_row", getRowCount(response['cost_labor_row_names']));
 
+            $('#costing_target_fob_sign').val(response['cost_currency']);
+            $('#costing_total_fob_sign').val(response['cost_currency']);
+            $('.costing_fob_sign').val(response['cost_currency']);
+            $('.costing_fob_sign').html(response['cost_currency']);
 
             getFabricRow();
             getTrimRow();

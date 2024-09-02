@@ -3,9 +3,9 @@
     <div class="col-md-5">
 
         <div class="row">
-            <h6 class="text-center text-bg-secondary">SKETCHES</h6>
-            <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
-                <h6 class="text-center text-bg-secondary ">FRONT</h6>
+            <h6 class="text-center text-bg-secondary m-0">SKETCHES</h6>
+            <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 16rem;">
+                <h6 class="text-center text-bg-secondary m-0">FRONT</h6>
                 <input type="file" name="costing_photo[0]" id="costing_front_photo" style="display:none;"/>
                 <label style="margin-left: 1rem;" for="costing_front_photo">Click here to upload</label>
 
@@ -21,7 +21,7 @@
 
             </div>
             <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
-                <h6 class="text-center text-bg-secondary ">BACK</h6>
+                <h6 class="text-center text-bg-secondary m-0">BACK</h6>
                 <input type="file" name="costing_photo[1]" id="costing_back_photo" style="display:none;"/>
                 <label style="margin-left: 1rem;"  for="costing_back_photo">Click here to upload</label>
 
@@ -35,7 +35,7 @@
 
             </div>
             <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
-                <h6 class="text-center text-bg-secondary ">LEFT</h6>
+                <h6 class="text-center text-bg-secondary m-0">LEFT</h6>
                 <input type="file" name="costing_photo[2]" id="costing_left_photo" style="display:none;"/>
                 <label style="margin-left: 1rem;"  for="costing_left_photo">Click here to upload</label>
 
@@ -49,7 +49,7 @@
 
             </div>
             <div class="col-md-3 p-0" style="border: 1px solid black;min-height: 14rem;">
-                <h6 class="text-center text-bg-secondary ">RIGHT</h6>
+                <h6 class="text-center text-bg-secondary m-0">RIGHT</h6>
                 <input type="file" name="costing_photo[3]" id="costing_right_photo" style="display:none;"/>
                 <label style="margin-left: 1rem;"  for="costing_right_photo">Click here to upload</label>
 
@@ -67,8 +67,8 @@
     <div class="col-md-3">
 
         <div class="row">
-            <h6 class="text-center text-bg-secondary">CHART</h6>
-            <div class="col-md-12 " style="border: 1px solid black;min-height: 14rem;">
+            <h6 class="text-center text-bg-secondary m-0">CHART</h6>
+            <div class="col-md-12 " style="border: 1px solid black;min-height: 16rem;">
 
                 <div style="width: 13.9rem; margin: auto; ">
                     <canvas id="myChart" ></canvas>
@@ -80,14 +80,14 @@
     <div class="col-md-4">
 
         <div class="row">
-            <h6 class="text-center text-bg-secondary">COSTING SHEET BREAKDOWN</h6>
+            <h6 class="text-center text-bg-secondary m-0">COSTING SHEET BREAKDOWN</h6>
             <div class="col-md-12 css-costing-breakdown-table p-0" style="border: 1px solid black;min-height: 10rem;">
                 <table class="table table-bordered m-0">
                     <tbody>
                         <tr>
                             <td width="12%" scope="col" style="text-align: center;font-weight: bold; ">1</td>
                             <td width="55%" scope="col" style="font-weight: bold; ">FABRICS</td>
-                            <td width="2%" scope="col" style="font-weight: bold; ">$</td>
+                            <td class="costing_fob_sign" width="2%" scope="col" style="font-weight: bold; ">$</td>
                             <td width="14%" scope="col">
                                 <input type="number" id="costing_summary_fabric_total_fob"
                                        val="0" class="css-input-costing-data-solo text-end" disabled>
@@ -101,7 +101,7 @@
                         <tr>
                             <td  scope="col" style="text-align: center;font-weight: bold; ">2</td>
                             <td  scope="col" style="font-weight: bold; ">TRIMS</td>
-                            <td  scope="col" style="font-weight: bold; ">$</td>
+                            <td class="costing_fob_sign"  scope="col" style="font-weight: bold; ">$</td>
                             <td  scope="col" style="text-align: end;font-weight: bold; ">
                                 <input type="number" id="costing_summary_trim_total_fob"
                                        val="0" class="css-input-costing-data-solo text-end" disabled>
@@ -115,7 +115,7 @@
                         <tr>
                             <td  scope="col" style="text-align: center;font-weight: bold; ">3</td>
                             <td  scope="col" style="font-weight: bold; ">ZIPPERS</td>
-                            <td  scope="col" style="font-weight: bold; ">$</td>
+                            <td class="costing_fob_sign" scope="col" style="font-weight: bold; ">$</td>
                             <td  scope="col" style="text-align: end;font-weight: bold; ">
                                 <input type="number" id="costing_summary_zipper_total_fob"
                                        val="0" class="css-input-costing-data-solo text-end" disabled>
@@ -129,7 +129,7 @@
                         <tr>
                             <td  scope="col" style="text-align: center;font-weight: bold; ">4</td>
                             <td  scope="col" style="font-weight: bold; ">EMBELISHMENTS</td>
-                                    <td  scope="col" style="font-weight: bold; ">$</td>
+                                    <td class="costing_fob_sign" scope="col" style="font-weight: bold; ">$</td>
                             <td  scope="col" style="text-align: end;font-weight: bold; ">
                                 <input type="number" id="costing_summary_embelishment_total_fob"
                                        val="0" class="css-input-costing-data-solo text-end" disabled>
@@ -143,7 +143,7 @@
                         <tr>
                             <td  scope="col" style="text-align: center;font-weight: bold; ">5</td>
                             <td  scope="col" style="font-weight: bold; ">LABELS</td>
-                                    <td  scope="col" style="font-weight: bold; ">$</td>
+                                    <td class="costing_fob_sign" scope="col" style="font-weight: bold; ">$</td>
                             <td  scope="col" style="text-align: end;font-weight: bold; ">
                                 <input type="number" id="costing_summary_label_total_fob"
                                        val="0" class="css-input-costing-data-solo text-end" disabled>
@@ -157,7 +157,7 @@
                         <tr>
                             <td  scope="col" style="text-align: center;font-weight: bold;">6</td>
                             <td  scope="col" style=" font-weight: bold;">THREADS</td>
-                                    <td  scope="col" style="font-weight: bold; ">$</td>
+                                    <td class="costing_fob_sign" scope="col" style="font-weight: bold; ">$</td>
                             <td  scope="col" style="text-align: end;font-weight: bold; ">
                                 <input type="number" id="costing_summary_thread_total_fob"
                                        val="0" class="css-input-costing-data-solo text-end" disabled>
@@ -171,7 +171,7 @@
                         <tr>
                             <td  scope="col" style="text-align: center;font-weight: bold; ">7</td>
                             <td  scope="col" style=" font-weight: bold;">PACKAGING</td>
-                                    <td  scope="col" style="font-weight: bold; ">$</td>
+                                    <td class="costing_fob_sign" scope="col" style="font-weight: bold; ">$</td>
                             <td  scope="col" style="text-align: end ;font-weight: bold;">
                                 <input type="number" id="costing_summary_package_total_fob"
                                        val="0" class="css-input-costing-data-solo text-end" disabled>
@@ -185,7 +185,7 @@
                         <tr>
                             <td  scope="col" style="text-align: center;font-weight: bold; ">8</td>
                             <td  scope="col" style="font-weight: bold; ">WASHES / FINISHES</td>
-                                    <td  scope="col" style="font-weight: bold; ">$</td>
+                                    <td class="costing_fob_sign" scope="col" style="font-weight: bold; ">$</td>
                             <td  scope="col" style="text-align: end;font-weight: bold; ">
                                 <input type="number" id="costing_summary_finish_total_fob"
                                        val="0" class="css-input-costing-data-solo text-end" disabled>
@@ -199,7 +199,7 @@
                         <tr>
                             <td  scope="col" style="text-align: center;font-weight: bold; ">9</td>
                             <td  scope="col" style="font-weight: bold; ">EXPORT / IMPORT FEE</td>
-                                    <td  scope="col" style="font-weight: bold; ">$</td>
+                                    <td class="costing_fob_sign" scope="col" style="font-weight: bold; ">$</td>
                             <td  scope="col" style="text-align: end;font-weight: bold; ">
                                 <input type="number" id="costing_summary_export_total_fob"
                                        val="0" class="css-input-costing-data-solo text-end" disabled>
@@ -213,7 +213,7 @@
                         <tr>
                             <td  scope="col" style="text-align: center;font-weight: bold; ">10</td>
                             <td  scope="col" style="font-weight: bold; ">TESTING</td>
-                                    <td  scope="col" style="font-weight: bold; ">$</td>
+                                    <td class="costing_fob_sign" scope="col" style="font-weight: bold; ">$</td>
                             <td  scope="col" style="text-align: end;font-weight: bold; ">
                                 <input type="number" id="costing_summary_testing_total_fob"
                                        val="0" class="css-input-costing-data-solo text-end" disabled>
@@ -227,7 +227,7 @@
                         <tr>
                             <td  scope="col" style="text-align: center;font-weight: bold; ">11</td>
                             <td  scope="col" style=" font-weight: bold;">OTHERS</td>
-                                    <td  scope="col" style="font-weight: bold; ">$</td>
+                                    <td class="costing_fob_sign" scope="col" style="font-weight: bold; ">$</td>
                             <td  scope="col" style="text-align: end;font-weight: bold; ">
                                 <input type="number" id="costing_summary_other_total_fob"
                                        val="0" class="css-input-costing-data-solo text-end" disabled>
@@ -241,7 +241,7 @@
                         <tr>
                             <td  scope="col" style="text-align: center;font-weight: bold; ">12</td>
                             <td  scope="col" style="font-weight: bold; ">LABOR / OVERHEADS / PROFIT</td>
-                                    <td  scope="col" style="font-weight: bold; ">$</td>
+                                    <td class="costing_fob_sign" scope="col" style="font-weight: bold; ">$</td>
                             <td  scope="col" style="text-align: end;font-weight: bold; ">
                                 <input type="number" id="costing_summary_labor_total_fob"
                                        val="0" class="css-input-costing-data-solo text-end" disabled>
@@ -255,7 +255,7 @@
                         <tr>
                             <td  scope="col" style=" text-align: center;font-weight: bold;"></td>
                             <td  scope="col" style="color:blue;font-weight: bold; ">TOTAL COST - FOB</td>
-                            <td  scope="col" style="font-weight: bold; ">$</td>
+                            <td class="costing_fob_sign" scope="col" style="font-weight: bold; ">$</td>
                             <td  scope="col" style="text-align: end;color:blue;font-weight: bold; ">
                                 <input type="number" id="costing_summary_total_cost_fob"
                                        val="0" class="css-input-costing-data-solo text-end" disabled>
