@@ -246,6 +246,22 @@ input::-webkit-inner-spin-button {
         min-width:60px;
     }
 
+    .costing_formula_wastage{
+        width: 62px;
+    }
+
+    .costing_formula_unit_cost{
+        width: 57px;
+    }
+    
+    .costing_formula_handling{
+        width: 57px;
+    }
+
+    .costing_formula_total_cost{
+        width: 68px;
+    }
+
 }
 
 
@@ -335,6 +351,22 @@ input::-webkit-inner-spin-button {
 
 .cost_col_tabspace{
     min-width:76px;
+}
+
+.costing_formula_wastage{
+    width: 78px;
+}
+
+.costing_formula_unit_cost{
+    width: 73px;
+}
+
+.costing_formula_handling{
+    width: 73px;
+}
+
+.costing_formula_total_cost{
+    width: 84px;
 }
 
 }
