@@ -161,11 +161,11 @@ input::-webkit-inner-spin-button {
 @media only screen and (min-width: 1600px) {
 
     .cost_container_main_cs{
-        width: 1600px !important;max-width:1600px;margin:0px !important;
+        width: 1580px !important;max-width:1580px !important;margin:0px !important;
     }
 
-    .cost_item_width{
-        min-width:50px ;
+    .cost_col_item_no{
+        min-width:px ;
     
     }
     
@@ -249,13 +249,13 @@ input::-webkit-inner-spin-button {
 }
 
 
-@media only screen and (min-width: 1900px) {
+@media only screen and (min-width: 1920px) {
 
 .cost_container_main_cs{
-    width: 1900px !important;max-width:1900px;margin:0px !important;
+    width: 1900px !important;max-width:1900px !important;margin:0px !important;
 }
 
-.cost_item_width{
+.cost_col_item_no{
     min-width:50px ;
 
 }
