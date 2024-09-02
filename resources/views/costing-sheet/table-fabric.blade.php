@@ -7,7 +7,7 @@
 width: 100%;">
 
                 <table class="table table-bordered tbl m-0" style="">
-                    <input type="hidden">
+
                     <tr  class="costing_header_ch">
                         <th   scope="col" style="min-width:50px ;vertical-align: top;background-color: #e3ed26; ">序号</th>
                         <th  scope="col" style="min-width:80px;vertical-align: top;background-color: #e3ed26; ">分类编号</th>
