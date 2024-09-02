@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container"
- style="width: 1580px !important;max-width:1580px;margin:0px !important;"
+ style="width: 1900px !important;max-width:1900px;margin:0px !important;"
     >
         <div class="row">
             <div class="col-md-12" >
