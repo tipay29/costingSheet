@@ -9,7 +9,7 @@ width: 100%;">
                 <table class="table table-bordered tbl m-0" style="">
 
                     <tr  class="costing_header_ch">
-                        <th  scope="col" class="cost_col_item_no" style="vertical-align: top;background-color: #e3ed26; ">序号</th>
+                        <th   scope="col" class="cost_col_item_no" style="vertical-align: top;background-color: #e3ed26; ">序号</th>
                         <th  scope="col" class="cost_col_component" style="vertical-align: top;background-color: #e3ed26; ">分类编号</th>
                         <th  scope="col" class="cost_col_material_id" style="vertical-align: top;background-color: #e3ed26; ">物料简码</th>
                         <th  scope="col" class="cost_col_category" style="vertical-align: top;background-color: #e3ed26; ">成本类别</th>
@@ -68,25 +68,73 @@ width: 100%;">
 
                             </th>
                             <th style="background-color: #b5f7bd; ">
+                                <span style="display: none;" id="costing_fabric_component_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_component_btn_apply_down" class="btn_apply">&#9660</span>
                             </th>
-                            <th style="background-color: #b5f7bd; "></th>
-                            <th style="vertical-align: top;background-color: #b5f7bd; text-align:start;">1.Fabrics</th>
-                            <th style="background-color: #b5f7bd; "></th>
-                            <th style="background-color: #b5f7bd; "></th>
-                            <th style="background-color: #b5f7bd; "> </th>
-                            <th style="background-color: #b5f7bd; "></th>
-                            <th style="background-color: #b5f7bd; "></th>
-                            <th style="background-color: #b5f7bd; "></th>
-                            <th style="background-color: #b5f7bd; "></th>
-                            <th style="text-align:start;vertical-align: top;background-color: #b5f7bd; " colspan="4">1. Total Cost - Fabrics</th>
-                            <th style="background-color: #b5f7bd; "></th>
-                            <th style="text-align:end;background-color: #b5f7bd; "></th>
+                            <th style="background-color: #b5f7bd; ">
+                                <span style="display: none;" id="costing_fabric_material_id_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_material_id_btn_apply_down" class="btn_apply">&#9660</span>
+                            </th>
+                            <th style="vertical-align: top;background-color: #b5f7bd; text-align:start;">
+                                <span style="display: inline;" class="btn_apply_fabric_categories btn_apply_content">1.Fabrics</span>
+                                <span style="display: none;" id="costing_fabric_categories_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_categories_btn_apply_down" class="btn_apply">&#9660</span></th>
+                            <th style="background-color: #b5f7bd; ">
+                                <span style="display: none;" id="costing_fabric_nominated_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_nominated_btn_apply_down" class="btn_apply">&#9660</span>
+                            </th>
+                            <th style="background-color: #b5f7bd; ">
+                                <span style="display: none;" id="costing_fabric_coo_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_coo_btn_apply_down" class="btn_apply">&#9660</span>
+                            </th>
+                            <th style="background-color: #b5f7bd; ">
+                                <span style="display: none;" id="costing_fabric_supplier_ref_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_supplier_ref_btn_apply_down" class="btn_apply">&#9660</span>
+                            </th>
+                            <th style="background-color: #b5f7bd; ">
+                                <span style="display: none;" id="costing_fabric_description_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_description_btn_apply_down" class="btn_apply">&#9660</span>
+                            </th>
+                            <th style="background-color: #b5f7bd; ">
+                                <span style="display: none;" id="costing_fabric_location_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_location_btn_apply_down" class="btn_apply">&#9660</span>
+                            </th>
+                            <th style="background-color: #b5f7bd; ">
+                                <span style="display: none;" id="costing_fabric_mill_supplier_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_mill_supplier_btn_apply_down" class="btn_apply">&#9660</span>
+                            </th>
+                            <th style="background-color: #b5f7bd; ">
+                                <span style="display: none;" id="costing_fabric_uom_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_uom_btn_apply_down" class="btn_apply">&#9660</span>
+                            </th>
+                            <th style="text-align:start;vertical-align: top;background-color: #b5f7bd; " colspan="4">
+
+                                <span style="display: inline;" class="btn_apply_fabric_total_cost btn_apply_content">1. Total Cost - Fabrics</span>
+                                <span style="display: none;" id="costing_fabric_wedth_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_wedth_btn_apply_down" class="btn_apply">&#9660</span>
+                                <span style="display: none;" id="costing_fabric_usage_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_usage_btn_apply_down" class="btn_apply">&#9660</span>
+                                <span style="display: none;" id="costing_fabric_wastage_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_wastage_btn_apply_down" class="btn_apply">&#9660</span>
+                            </th>
+
+                            <th style="background-color: #b5f7bd; ">
+                                <span style="display: none;" id="costing_fabric_unit_cost_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_unit_cost_btn_apply_down" class="btn_apply">&#9660</span>
+                            </th>
+                            <th style="background-color: #b5f7bd; ">
+                                <span style="display: none;" id="costing_fabric_handling_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_handling_btn_apply_down" class="btn_apply">&#9660</span>
+                            </th>
                             <th style="background-color: #b5f7bd; ">
                                 <input type="text" id="" disabled value="$" class="costing_fob_sign costing_fob_sign_total">
                                 <input type="text" id="costing_fabric_total_fob" name="costing_fabric_total_fob"
                                        value="0.00" class="css-input-costing-total" style="width: 68px;" readonly>
                             </th>
-                            <th style="background-color: #b5f7bd; "></th>
+                            <th style="background-color: #b5f7bd; ">
+                                <span style="display: none;" id="costing_fabric_comment_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_comment_btn_apply_down" class="btn_apply">&#9660</span>
+                            </th>
                             <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>
                         </tr>
 {{-- costing_fob_sign--}}

@@ -27,7 +27,7 @@
 
                         <input id="costing_sheet_id" type="hidden" value="{{$costingsheet}}">
 
-                        <form id="costing_form_update" action="#" method="post" enctype="multipart/form-data">
+                        <form id="costing_form_update"  action="#" method="post" enctype="multipart/form-data">
 
                             @csrf
                             @include('costing-sheet.form')

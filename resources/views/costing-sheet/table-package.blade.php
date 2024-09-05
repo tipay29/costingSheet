@@ -33,25 +33,75 @@
                             <a class="costing_btn_add_remove" id="costing_add_package_row_btn"><i style="color: #0d6efd;" class="fa fa-plus-square" aria-hidden="true"></i></a>
                             <a class="costing_btn_add_remove" id="costing_rmv_package_row_btn"><i style="color: indianred;" class="fa fa-minus-square" aria-hidden="true"></i></a>
                         </th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="text-align:start;vertical-align: top;background-color: #b5f7bd; ">7.Packaging</th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="text-align:start;vertical-align: top;background-color: #b5f7bd; " colspan="4">7. Total Cost - Packaging</th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="text-align:end;background-color: #b5f7bd; "></th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_package_component_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_component_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_package_material_id_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_material_id_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="text-align:start;vertical-align: top;background-color: #b5f7bd; ">
+                            <span style="display: inline;" class="btn_apply_package_categories btn_apply_content">7.Packaging</span>
+                            <span style="display: none;" id="costing_package_categories_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_categories_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_package_nominated_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_nominated_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_package_coo_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_coo_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_package_supplier_ref_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_supplier_ref_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_package_description_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_description_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_package_location_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_location_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_package_mill_supplier_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_mill_supplier_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_package_uom_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_uom_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+
+                        <th style="text-align:start;vertical-align: top;background-color: #b5f7bd; " colspan="4">
+
+                            <span style="display: inline;" class="btn_apply_package_total_cost btn_apply_content">7. Total Cost - Packaging</span>
+                            <span style="display: none;" id="costing_package_wedth_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_wedth_btn_apply_down" class="btn_apply">&#9660</span>
+                            <span style="display: none;" id="costing_package_usage_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_usage_btn_apply_down" class="btn_apply">&#9660</span>
+                            <span style="display: none;" id="costing_package_wastage_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_wastage_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_package_unit_cost_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_unit_cost_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_package_handling_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_handling_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
                         <th style="background-color: #b5f7bd; ">
                             <input type="text" id="" disabled value="$" class="costing_fob_sign costing_fob_sign_total">
                             <input type="text" id="costing_package_total_fob" name="costing_package_total_fob"
                                    value="0.00" class="css-input-costing-total" style="width: 68px;" readonly>
                         </th>
-                        <th style="background-color: #b5f7bd; "></th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_package_comment_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_package_comment_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
                         <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>
                     </tr>
 

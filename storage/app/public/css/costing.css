@@ -165,7 +165,7 @@ input::-webkit-inner-spin-button {
     }
 
     .cost_col_item_no{
-        min-width:45px ;
+        min-width:50px ;
 
     }
 
@@ -253,7 +253,7 @@ input::-webkit-inner-spin-button {
     .costing_formula_unit_cost{
         width: 57px;
     }
-    
+
     .costing_formula_handling{
         width: 57px;
     }

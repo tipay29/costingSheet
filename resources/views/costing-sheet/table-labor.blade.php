@@ -34,26 +34,75 @@
                             <a class="costing_btn_add_remove" id="costing_add_labor_row_btn"><i style="color: #0d6efd;" class="fa fa-plus-square" aria-hidden="true"></i></a>
                             <a class="costing_btn_add_remove" id="costing_rmv_labor_row_btn"><i style="color: indianred;" class="fa fa-minus-square" aria-hidden="true"></i></a>
                         </th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_labor_component_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_component_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_labor_material_id_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_material_id_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
                         <th style="vertical-align: top;background-color: #b5f7bd;text-align:start;font-size:.7em; text-overflow: ellipsis;
- white-space: nowrap; ">12.Labor/ Overheads/ Profit</th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="text-align:start;vertical-align: top;background-color:#b5f7bd;font-size:.9em; " colspan="4">12. Total Cost - Labor/Overheads/Profit</th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="text-align:end;background-color: #b5f7bd; "></th>
+ white-space: nowrap; ">
+                            <span style="display: inline;" class="btn_apply_labor_categories btn_apply_content">12.Labor/ Overheads/ Profit</span>
+                            <span style="display: none;" id="costing_labor_categories_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_categories_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_labor_nominated_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_nominated_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_labor_coo_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_coo_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_labor_supplier_ref_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_supplier_ref_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_labor_description_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_description_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_labor_location_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_location_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_labor_mill_supplier_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_mill_supplier_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_labor_uom_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_uom_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="text-align:start;vertical-align: top;background-color: #b5f7bd; " colspan="4">
+
+                            <span style="display: inline;" class="btn_apply_labor_total_cost btn_apply_content">12. Total Cost - Labor/Overheads/Profit</span>
+                            <span style="display: none;" id="costing_labor_wedth_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_wedth_btn_apply_down" class="btn_apply">&#9660</span>
+                            <span style="display: none;" id="costing_labor_usage_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_usage_btn_apply_down" class="btn_apply">&#9660</span>
+                            <span style="display: none;" id="costing_labor_wastage_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_wastage_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_labor_unit_cost_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_unit_cost_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_labor_handling_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_handling_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
                         <th style="background-color: #b5f7bd; ">
                             <input type="text" id="" disabled value="$" class="costing_fob_sign costing_fob_sign_total">
                             <input type="text" id="costing_labor_total_fob" name="costing_labor_total_fob"
                                    value="0.00" class="css-input-costing-total" style="width: 68px;" readonly>
                         </th>
-                        <th style="background-color: #b5f7bd; "></th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_labor_comment_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_labor_comment_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
                         <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>
                     </tr>
 

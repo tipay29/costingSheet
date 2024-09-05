@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container cost_container_main_cs"
- 
+
     >
         <div class="row">
             <div class="col-md-12" >
@@ -21,7 +21,7 @@
 
                     <div class="card-body" >
 
-                        <form id="costing_form_create" action="#" method="post" enctype="multipart/form-data">
+                        <form id="costing_form_create"  action="#" method="post" enctype="multipart/form-data">
 
                             @include('costing-sheet.form')
 

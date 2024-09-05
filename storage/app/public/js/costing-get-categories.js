@@ -19,10 +19,10 @@ function getFabricRow(){
         costing_fabric_tds = costing_fabric_tds.concat('' +
             '   <tr class="costing_fabric_data" id="costing_fabric_tr'+item_no+'">\n' +
             '                                    <td  id="costing_fabric_tr_tds'+item_no+'">' +
-            '                                    <input  type="checkbox" id="costing_fabric_cb'+item_no+'" name="costing_fabric_cb'+item_no+'" class="css-costing-cb" >'+item_no.padStart(3,"0")+
+            '                                    <input   type="checkbox" id="costing_fabric_cb'+item_no+'" name="costing_fabric_cb'+item_no+'" class="css-costing-cb" >'+item_no.padStart(3,"0")+
             '                                    </td>\n' +
-            '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('component',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_component'+item_no+'" name="costing_fabric_component'+item_no+'" value="" class="css-input-costing-data-solo" >\n' +
+            '                                    <td >\n' +
+            '                                    <input  value="'+getCategoryValue('component',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_component'+item_no+'" name="costing_fabric_component'+item_no+'" value="" class=" css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input  value="'+getCategoryValue('material_id',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_material_id'+item_no+'" name="costing_fabric_material_id'+item_no+'" class="css-input-costing-data-solo" >\n' +
@@ -39,8 +39,8 @@ function getFabricRow(){
             '                                    <td>\n' +
             '                                    <input value="'+getCategoryValue('supplier_ref',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_supplier_ref'+item_no+'" name="costing_fabric_supplier_ref'+item_no+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
-            '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('description',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_description'+item_no+'" name="costing_fabric_description'+item_no+'"  class="css-input-costing-data-solo" >\n' +
+            '                                    <td >\n' +
+            '                                    <input  value="'+getCategoryValue('description',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_description'+item_no+'" name="costing_fabric_description'+item_no+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input value="'+getCategoryValue('location',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_location'+item_no+'" name="costing_fabric_location'+item_no+'"  class="css-input-costing-data-solo" >\n' +

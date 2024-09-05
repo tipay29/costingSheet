@@ -33,24 +33,73 @@
                             <a class="costing_btn_add_remove" id="costing_add_testing_row_btn"><i style="color: #0d6efd;" class="fa fa-plus-square" aria-hidden="true"></i></a>
                             <a class="costing_btn_add_remove" id="costing_rmv_testing_row_btn"><i style="color: indianred;" class="fa fa-minus-square" aria-hidden="true"></i></a>
                         </th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="text-align:start;vertical-align: top;background-color: #b5f7bd;">10.Testing</th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="text-align:start;vertical-align: top;background-color: #b5f7bd; " colspan="4">10. Total Cost - Testing</th>
-                        <th style="background-color: #b5f7bd; "></th>
-                        <th style="text-align:end;background-color: #b5f7bd; "></th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_testing_component_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_component_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_testing_material_id_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_material_id_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="text-align:start;vertical-align: top;background-color: #b5f7bd; ">
+                            <span style="display: inline;" class="btn_apply_testing_categories btn_apply_content">10.Testing</span>
+                            <span style="display: none;" id="costing_testing_categories_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_categories_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_testing_nominated_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_nominated_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_testing_coo_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_coo_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_testing_supplier_ref_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_supplier_ref_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_testing_description_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_description_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_testing_location_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_location_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_testing_mill_supplier_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_mill_supplier_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_testing_uom_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_uom_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="text-align:start;vertical-align: top;background-color: #b5f7bd; " colspan="4">
+
+                            <span style="display: inline;" class="btn_apply_testing_total_cost btn_apply_content">10. Total Cost - Testing</span>
+                            <span style="display: none;" id="costing_testing_wedth_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_wedth_btn_apply_down" class="btn_apply">&#9660</span>
+                            <span style="display: none;" id="costing_testing_usage_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_usage_btn_apply_down" class="btn_apply">&#9660</span>
+                            <span style="display: none;" id="costing_testing_wastage_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_wastage_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_testing_unit_cost_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_unit_cost_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_testing_handling_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_handling_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
                         <th style="background-color: #b5f7bd; ">
                             <input type="text" id="" disabled value="$" class="costing_fob_sign costing_fob_sign_total">
                             <input type="text" id="costing_testing_total_fob" name="costing_testing_total_fob"
                                    value="0.00" class="css-input-costing-total" style="width: 68px;" readonly>
                         </th>
-                        <th style="background-color: #b5f7bd; "></th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_testing_comment_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_comment_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
                         <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>
                     </tr>
