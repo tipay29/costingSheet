@@ -8,14 +8,16 @@ use App\Models\CostSketch;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Facades\Excel;
+use function Maatwebsite\Excel\Cache\delete;
 
 class CostingSheetController extends Controller
 {
 
     public function index()
     {
-        $costing_sheets = CostingSheet::with('user')->get();
+        $costing_sheets = CostingSheet::with('user')->orderBy('id', 'DESC')->paginate(10);
 
         return view('costing-sheet.index',compact('costing_sheets'));
     }
@@ -78,5 +80,78 @@ class CostingSheetController extends Controller
         $costingSheet->delete();
 
         return redirect()->back();
+    }
+
+    public function copy(){
+
+        $costing_sheet = CostingSheet::with(
+            'cost_fabrics','cost_trims','cost_zippers','cost_embelishments',
+            'cost_labels','cost_threads','cost_packages','cost_finishes',
+            'cost_exports','cost_testings','cost_others','cost_labors','cost_sketches',
+            'cost_remarks','cost_labor_details','cost_moqs'
+        )->where('id',request()->costing_id)->first();
+
+            if($costing_sheet === null){
+                return redirect()->back()->with('message','Invalid Costing Sheet ID!!!');
+            }
+
+        $new_costing_sheet = $costing_sheet->replicate();
+        $new_costing_sheet->save();
+
+        foreach ($costing_sheet->getRelations() as $relation => $entries){
+            foreach($entries as $entry){
+                $e = $entry->replicate();
+                $new_costing_sheet->{$relation}()->save($e);
+            }
+        }
+
+        if(count($new_costing_sheet->cost_sketches) > 0){
+
+            if($new_costing_sheet->cost_sketches[0]['cost_front_sketch'] !== null){
+                $oldPath = public_path($new_costing_sheet->cost_sketches[0]['cost_front_sketch']);
+
+                $fileExtension = pathinfo($oldPath, PATHINFO_EXTENSION);
+                $newName = 'cs'.$new_costing_sheet->id.'front.'.$fileExtension;
+                $newPathWithName = 'storage/images/costing-sheet/'.$newName;
+
+               \File::copy($oldPath , $newPathWithName);
+                $new_costing_sheet->cost_sketches()->update(['cost_front_sketch'=>$newPathWithName]);
+            }
+            if($new_costing_sheet->cost_sketches[0]['cost_back_sketch'] !== null){
+                $oldPath = public_path($new_costing_sheet->cost_sketches[0]['cost_back_sketch']);
+
+                $fileExtension = pathinfo($oldPath, PATHINFO_EXTENSION);
+                $newName = 'cs'.$new_costing_sheet->id.'back.'.$fileExtension;
+                $newPathWithName = 'storage/images/costing-sheet/'.$newName;
+
+                \File::copy($oldPath , $newPathWithName);
+                $new_costing_sheet->cost_sketches()->update(['cost_back_sketch'=>$newPathWithName]);
+            }
+            if($new_costing_sheet->cost_sketches[0]['cost_left_sketch'] !== null){
+                $oldPath = public_path($new_costing_sheet->cost_sketches[0]['cost_left_sketch']);
+
+                $fileExtension = pathinfo($oldPath, PATHINFO_EXTENSION);
+                $newName = 'cs'.$new_costing_sheet->id.'left.'.$fileExtension;
+                $newPathWithName = 'storage/images/costing-sheet/'.$newName;
+
+               \File::copy($oldPath , $newPathWithName);
+                $new_costing_sheet->cost_sketches()->update(['cost_left_sketch'=>$newPathWithName]);
+            }
+            if($new_costing_sheet->cost_sketches[0]['cost_right_sketch'] !== null){
+                $oldPath = public_path($new_costing_sheet->cost_sketches[0]['cost_right_sketch']);
+
+                $fileExtension = pathinfo($oldPath, PATHINFO_EXTENSION);
+                $newName = 'cs'.$new_costing_sheet->id.'right.'.$fileExtension;
+                $newPathWithName = 'storage/images/costing-sheet/'.$newName;
+
+              \File::copy($oldPath , $newPathWithName);
+                $new_costing_sheet->cost_sketches()->update(['cost_right_sketch'=>$newPathWithName]);
+            }
+
+
+        }
+
+      return redirect()->back();
+
     }
 }

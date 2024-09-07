@@ -1,4 +1,6 @@
-$(".cost_container_main_cs").click(function(e){
+let cs_body = $(".cost_container_main_cs");
+
+cs_body.click(function(e){
 
     if(!$(".tbl-container input").is(":focus")) {
         $('.btn_apply').hide();
@@ -27,6 +29,36 @@ $(".cost_container_main_cs").click(function(e){
     }
 
 });
+
+cs_body.keyup(function(e){
+
+    var code = (e.keyCode ? e.keyCode : e.which);
+    if (code === 9) {
+
+        if($(".tbl-container input, .tbl-container select").is(":focus")) {
+
+            let input_id = $("input:focus").attr('id');
+            let base = input_id.replace(/[0-9]/g, '');
+            let category = base.split('_')[1];
+            // let numbers = parseInt(last_focus_id.match(/\d+/g));
+
+            let column = '';
+            if(base.split('_')[3] === undefined){
+                column = base.split('_')[2];
+            }else{
+                column = base.split('_')[2] + '_' + base.split('_')[3];
+            }
+
+            sessionStorage.setItem('cost_last_focus_id',input_id)
+
+            showBTNApply(base,column,category);
+
+        }
+
+    }
+
+});
+
 
 function showBTNApply(base,column,category){
 
@@ -79,7 +111,7 @@ function applyUp(category){
             // }else if(column === 'wastage'){
             //     $('body').delegate(column_id,'change');
             // }
-
+            $(column_id).trigger("change");
         }
     }
 
@@ -99,6 +131,7 @@ function applyDown(category){
         for(let i = numbers;i < row;i++){
             let column_id = category_column+(i+1);
             $(column_id).val($(last_focus_id).val());
+            $(column_id).trigger("change");
         }
     }
 

@@ -11,12 +11,21 @@
                         <div>
 
                             <a href="{{route('costing-sheets.create')}}"
-                               class="btn btn-outline-secondary"
+                               class="btn btn-outline-primary"
                             >Create</a>
+
+
+                            <a id="costing_btn_copy_cs" type="button" class="btn btn-outline-warning" data-bs-toggle="modal"
+                               data-bs-target="#showCopyCSModal">
+                                Copy
+                            </a>
 
                             <a href="{{url()->previous()}}"
                                class="btn btn-outline-secondary">
                                 Back</a>
+                            @if(session()->has('message'))
+                                <p class="text-danger">{{session()->get('message')}}</p>
+                            @endif
                         </div>
                     </div>
 
@@ -103,15 +112,22 @@
 
                                     @endforelse
                                 </tbody>
+
+
                             </table>
                         </div>
-
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center ">
+                                {{$costing_sheets->withQueryString()->onEachSide(2)->links()}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    @include('costing-sheet.show-summary')
+    @include('costing-sheet.show-summary-modal')
+    @include('costing-sheet.show-copy-cs-modal')
 
 @endsection

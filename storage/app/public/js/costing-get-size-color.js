@@ -55,8 +55,8 @@ function giveSizesRow(sizes,categories){
         for (let x = 1; x <= sizes.length; x++) {
             let size_name = 'cost_size_' + x;
             let size_val = '';
-            if(category_val !== null){
-                 size_val = getSizeValue(category_val[y-1][size_name]);
+            if(category_val !== null && category_val !== []){
+                    size_val = getSizeValue(category_val[y-1][size_name]);
             }
             sizes_row = sizes_row.concat('' +
                 '<td class="costing_table_size">' +

@@ -202,82 +202,102 @@ function showCostingSheetDetails(costing_sheet){
 
 function showCostingSheetMoqs(moqs,final_total_cost){
 
-    $('#costing_moq_qty_1').val(moqs['cost_qty_pcs_1']);
-    $('#costing_moq_qty_2').val(moqs['cost_qty_pcs_2']);
-    $('#costing_moq_qty_3').val(moqs['cost_qty_pcs_3']);
-    $('#costing_moq_qty_4').val(moqs['cost_qty_pcs_4']);
-    $('#costing_moq_qty_5').val(moqs['cost_qty_pcs_5']);
-    $('#costing_moq_qty_6').val(moqs['cost_qty_pcs_6']);
-    $('#costing_moq_upcharge_1').val(moqs['cost_upcharge_1']);
-    $('#costing_moq_upcharge_2').val(moqs['cost_upcharge_2']);
-    $('#costing_moq_upcharge_3').val(moqs['cost_upcharge_3']);
-    $('#costing_moq_upcharge_4').val(moqs['cost_upcharge_4']);
-    $('#costing_moq_upcharge_5').val(moqs['cost_upcharge_5']);
-    $('#costing_moq_upcharge_6').val(moqs['cost_upcharge_6']);
+    if(moqs !== undefined){
 
-    let moq_fob1 = final_total_cost * (1+(moqs['cost_upcharge_1']/100));
-    let moq_fob2 = final_total_cost * (1+(moqs['cost_upcharge_2']/100));
-    let moq_fob3 = final_total_cost * (1+(moqs['cost_upcharge_3']/100));
-    let moq_fob4 = final_total_cost * (1+(moqs['cost_upcharge_4']/100));
-    let moq_fob5 = final_total_cost * (1+(moqs['cost_upcharge_5']/100));
-    let moq_fob6 = final_total_cost * (1+(moqs['cost_upcharge_6']/100));
+        $('#costing_moq_qty_1').val(moqs['cost_qty_pcs_1']);
+        $('#costing_moq_qty_2').val(moqs['cost_qty_pcs_2']);
+        $('#costing_moq_qty_3').val(moqs['cost_qty_pcs_3']);
+        $('#costing_moq_qty_4').val(moqs['cost_qty_pcs_4']);
+        $('#costing_moq_qty_5').val(moqs['cost_qty_pcs_5']);
+        $('#costing_moq_qty_6').val(moqs['cost_qty_pcs_6']);
+        $('#costing_moq_upcharge_1').val(moqs['cost_upcharge_1']);
+        $('#costing_moq_upcharge_2').val(moqs['cost_upcharge_2']);
+        $('#costing_moq_upcharge_3').val(moqs['cost_upcharge_3']);
+        $('#costing_moq_upcharge_4').val(moqs['cost_upcharge_4']);
+        $('#costing_moq_upcharge_5').val(moqs['cost_upcharge_5']);
+        $('#costing_moq_upcharge_6').val(moqs['cost_upcharge_6']);
 
-    $('#costing_moq_fob_1').val(moq_fob1.toFixed(2));
-    $('#costing_moq_fob_2').val(moq_fob2.toFixed(2));
-    $('#costing_moq_fob_3').val(moq_fob3.toFixed(2));
-    $('#costing_moq_fob_4').val(moq_fob4.toFixed(2));
-    $('#costing_moq_fob_5').val(moq_fob5.toFixed(2));
-    $('#costing_moq_fob_6').val(moq_fob6.toFixed(2));
+        let moq_fob1 = final_total_cost * (1+(moqs['cost_upcharge_1']/100));
+        let moq_fob2 = final_total_cost * (1+(moqs['cost_upcharge_2']/100));
+        let moq_fob3 = final_total_cost * (1+(moqs['cost_upcharge_3']/100));
+        let moq_fob4 = final_total_cost * (1+(moqs['cost_upcharge_4']/100));
+        let moq_fob5 = final_total_cost * (1+(moqs['cost_upcharge_5']/100));
+        let moq_fob6 = final_total_cost * (1+(moqs['cost_upcharge_6']/100));
 
+        $('#costing_moq_fob_1').val(moq_fob1.toFixed(2));
+        $('#costing_moq_fob_2').val(moq_fob2.toFixed(2));
+        $('#costing_moq_fob_3').val(moq_fob3.toFixed(2));
+        $('#costing_moq_fob_4').val(moq_fob4.toFixed(2));
+        $('#costing_moq_fob_5').val(moq_fob5.toFixed(2));
+        $('#costing_moq_fob_6').val(moq_fob6.toFixed(2));
+    }
 }
 
 function showCostingSheetRemarks(remarks){
-    $('#costing_remark_1').val(remarks['cost_remarks_1']);
-    $('#costing_remark_2').val(remarks['cost_remarks_2']);
-    $('#costing_remark_3').val(remarks['cost_remarks_3']);
-    $('#costing_remark_4').val(remarks['cost_remarks_4']);
-    $('#costing_remark_5').val(remarks['cost_remarks_5']);
-    $('#costing_remark_6').val(remarks['cost_remarks_6']);
-    $('#costing_remark_7').val(remarks['cost_remarks_7']);
-    $('#costing_remark_8').val(remarks['cost_remarks_8']);
-    $('#costing_remark_9').val(remarks['cost_remarks_9']);
-    $('#costing_remark_10').val(remarks['cost_remarks_10']);
+    if(remarks!== undefined){
+
+            $('#costing_remark_1').val(remarks['cost_remarks_1']);
+
+            $('#costing_remark_2').val(remarks['cost_remarks_2']);
+
+            $('#costing_remark_3').val(remarks['cost_remarks_3']);
+
+            $('#costing_remark_4').val(remarks['cost_remarks_4']);
+
+            $('#costing_remark_5').val(remarks['cost_remarks_5']);
+
+            $('#costing_remark_6').val(remarks['cost_remarks_6']);
+
+            $('#costing_remark_7').val(remarks['cost_remarks_7']);
+
+            $('#costing_remark_8').val(remarks['cost_remarks_8']);
+
+            $('#costing_remark_9').val(remarks['cost_remarks_9']);
+
+            $('#costing_remark_10').val(remarks['cost_remarks_10']);
+
+    }
+
 }
 
 function showCostingSheetLaborDetails(labor){
-    $('#costing_smv_first').val(labor['cost_smv_1']);
-    $('#costing_hours_first').val(labor['cost_hours_1']);
-    $('#costing_hours_second').val(labor['cost_hours_2']);
-    $('#costing_days_first').val(labor['cost_days_1']);
-    $('#costing_days_second').val(labor['cost_days_2']);
-    $('#costing_operators_first').val(labor['cost_operators_1']);
-    $('#costing_operators_second').val(labor['cost_operators_2']);
-    $('#costing_output_per_day_second').val(labor['cost_output_per_day_1']);
-    $('#costing_monthly_wages_first').val(labor['cost_monthly_wage_1']);
-    $('#costing_monthly_wages_second').val(labor['cost_monthly_wage_2']);
 
-    let out_per_day_first = parseFloat((labor['cost_hours_1']*labor['cost_operators_1'])/labor['cost_smv_1']);
-    let smv_second = parseFloat((labor['cost_hours_1']*labor['cost_operators_1'])/labor['cost_output_per_day_1']);
-    $('#costing_output_per_day_first').html(out_per_day_first);
-    $('#costing_smv_second').html(smv_second);
+    if(labor !== undefined) {
 
-    let hourly_wage_first = parseFloat(labor['cost_monthly_wage_1']/labor['cost_days_1']/labor['cost_hours_1']);
-    let hourly_wage_second = parseFloat(labor['cost_monthly_wage_2']/labor['cost_days_2']/labor['cost_hours_2']);
-    let hourly_wage_first_id = hourly_wage_first*1.4;
-    let hourly_wage_second_id = hourly_wage_second*1.4;
-    let wage_per_min_first = hourly_wage_first/60;
-    let wage_per_min_second = hourly_wage_second/60;
-    let labor_per_pc_first = hourly_wage_first_id/labor['cost_smv_1'];
-    let labor_per_pc_second = hourly_wage_second_id/smv_second;
+        $('#costing_smv_first').val(labor['cost_smv_1']);
+        $('#costing_hours_first').val(labor['cost_hours_1']);
+        $('#costing_hours_second').val(labor['cost_hours_2']);
+        $('#costing_days_first').val(labor['cost_days_1']);
+        $('#costing_days_second').val(labor['cost_days_2']);
+        $('#costing_operators_first').val(labor['cost_operators_1']);
+        $('#costing_operators_second').val(labor['cost_operators_2']);
+        $('#costing_output_per_day_second').val(labor['cost_output_per_day_1']);
+        $('#costing_monthly_wages_first').val(labor['cost_monthly_wage_1']);
+        $('#costing_monthly_wages_second').val(labor['cost_monthly_wage_2']);
 
-    $('#costing_hourly_wages_first').html(hourly_wage_first.toFixed(2));
-    $('#costing_hourly_wages_second').html(hourly_wage_second.toFixed(2));
-    $('#costing_hourly_wages_id_first').html(hourly_wage_first_id.toFixed(2));
-    $('#costing_hourly_wages_id_second').html(hourly_wage_second_id.toFixed(2));
-    $('#costing_wages_per_min_first').html(wage_per_min_first.toFixed(2));
-    $('#costing_wages_per_min_second').html(wage_per_min_second.toFixed(2));
-    $('#costing_cost_per_pc_first').html(labor_per_pc_first.toFixed(2))
-    $('#costing_cost_per_pc_second').html(labor_per_pc_second.toFixed(2));
+        let out_per_day_first = parseFloat((labor['cost_hours_1'] * labor['cost_operators_1']) / labor['cost_smv_1']);
+        let smv_second = parseFloat((labor['cost_hours_1'] * labor['cost_operators_1']) / labor['cost_output_per_day_1']);
+        $('#costing_output_per_day_first').html(out_per_day_first);
+        $('#costing_smv_second').html(smv_second);
+
+        let hourly_wage_first = parseFloat(labor['cost_monthly_wage_1'] / labor['cost_days_1'] / labor['cost_hours_1']);
+        let hourly_wage_second = parseFloat(labor['cost_monthly_wage_2'] / labor['cost_days_2'] / labor['cost_hours_2']);
+        let hourly_wage_first_id = hourly_wage_first * 1.4;
+        let hourly_wage_second_id = hourly_wage_second * 1.4;
+        let wage_per_min_first = hourly_wage_first / 60;
+        let wage_per_min_second = hourly_wage_second / 60;
+        let labor_per_pc_first = hourly_wage_first_id / labor['cost_smv_1'];
+        let labor_per_pc_second = hourly_wage_second_id / smv_second;
+
+        $('#costing_hourly_wages_first').html(hourly_wage_first.toFixed(2));
+        $('#costing_hourly_wages_second').html(hourly_wage_second.toFixed(2));
+        $('#costing_hourly_wages_id_first').html(hourly_wage_first_id.toFixed(2));
+        $('#costing_hourly_wages_id_second').html(hourly_wage_second_id.toFixed(2));
+        $('#costing_wages_per_min_first').html(wage_per_min_first.toFixed(2));
+        $('#costing_wages_per_min_second').html(wage_per_min_second.toFixed(2));
+        $('#costing_cost_per_pc_first').html(labor_per_pc_first.toFixed(2));
+        $('#costing_cost_per_pc_second').html(labor_per_pc_second.toFixed(2));
+    }
 }
 
 
