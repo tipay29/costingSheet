@@ -31,6 +31,52 @@
 
                     <div class="card-body">
 
+                        <div class="row costing-search-row-single" id="costing_search_row_single">
+
+                            <div class="col-md-9">
+                                <button class="costing-search-switch-multi" id="costing_search_switch_multi_btn">
+                                    <i class="fa fa-users" aria-hidden="true"></i></button>
+                            </div>
+
+                                <div class="col-md-3">
+                                    <form action="{{route('costing-sheets.search-single')}}" method="get">
+
+                                        <div class="input-group">
+
+                                            <input value="{{old('costing_search_solo')}}" type="text" class="form-control" placeholder="Search..." id="costing_search_solo" name="costing_search_solo">
+                                            <button class="input-group-text" id="costing_search_single_btn">
+                                                <i class="fa fa-search" aria-hidden="true"></i></button>
+
+                                        </div>
+                                    </form>
+                                </div>
+
+                        </div>
+
+                        <form action="{{route('costing-sheets.search-multi')}}" method="get">
+
+                            <div class="row costing-search-row-multi" id="costing_search_row_multi">
+
+                                    <div class="d-flex justify-content-between">
+
+                                        <button class="costing-search-switch-single" id="costing_search_switch_single_btn">
+                                            <i class="fa fa-user" aria-hidden="true"></i></button>
+
+
+                                            <input class="costing-search-input" value="{{old('costing_search_brand')}}" type="text" placeholder="Brand" id="costing_search_brand" name="costing_search_brand">
+                                            <input class="costing-search-input" value="{{old('costing_search_color')}}" type="text" placeholder="Color" id="costing_search_color" name="costing_search_color">
+                                            <input class="costing-search-input" value="{{old('costing_search_gender')}}" type="text" placeholder="Gender" id="costing_search_gender" name="costing_search_gender">
+                                            <input class="costing-search-input" value="{{old('costing_search_season')}}" type="text" placeholder="Season" id="costing_search_season" name="costing_search_season">
+                                            <input class="costing-search-input" value="{{old('costing_search_style')}}" type="text" placeholder="Style" id="costing_search_style" name="costing_search_style">
+                                            <input class="costing-search-input" value="{{old('costing_search_product_category')}}" type="text" placeholder="Product Category" id="costing_search_product_category" name="costing_search_product_category">
+
+                                            <button class="costing-search-multi-btn" id="costing_search_multi_btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+
+                                    </div>
+
+                            </div>
+                        </form>
+
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class="thead-light">

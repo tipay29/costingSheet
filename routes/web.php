@@ -26,6 +26,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('costing-sheets/search-multi','CostingSheetController@searchMulti')->name('costing-sheets.search-multi');
+Route::get('costing-sheets/search-single','CostingSheetController@searchSingle')->name('costing-sheets.search-single');
 Route::post('costing-sheets/copy','CostingSheetController@copy')->name('costing-sheets.copy');
 Route::get('costing-sheets/{costing_sheet}/export','CostingSheetController@export')->name('costing-sheets.export');
 Route::resource('costing-sheets','CostingSheetController');

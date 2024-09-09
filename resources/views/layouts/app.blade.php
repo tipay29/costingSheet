@@ -33,6 +33,7 @@
     @endif
     <script src="{{ asset('storage/js/costing-show-summary.js') }}" defer></script>
     <script src="{{ asset('storage/js/costing-apply.js') }}" defer></script>
+    <script src="{{ asset('storage/js/costing-search.js') }}" defer></script>
 
 
 

@@ -6,6 +6,7 @@ use App\Exports\CostingSheetExport;
 use App\Models\CostingSheet;
 use App\Models\CostSketch;
 use Illuminate\Http\Request;
+use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
@@ -91,9 +92,9 @@ class CostingSheetController extends Controller
             'cost_remarks','cost_labor_details','cost_moqs'
         )->where('id',request()->costing_id)->first();
 
-            if($costing_sheet === null){
-                return redirect()->back()->with('message','Invalid Costing Sheet ID!!!');
-            }
+        if($costing_sheet === null){
+            return redirect()->back()->with('message','Invalid Costing Sheet ID!!!');
+        }
 
         $new_costing_sheet = $costing_sheet->replicate();
         $new_costing_sheet->save();
@@ -148,10 +149,57 @@ class CostingSheetController extends Controller
                 $new_costing_sheet->cost_sketches()->update(['cost_right_sketch'=>$newPathWithName]);
             }
 
-
         }
 
       return redirect()->back();
 
+    }
+
+    public function searchSingle(){
+
+
+        $search = request('costing_search_solo');
+
+
+        $costing_sheets = CostingSheet::where(function($query) use ($search){
+            $query->where('cost_brand','like','%'.$search.'%')
+                ->orWhere('cost_color','like','%'.$search.'%')
+                ->orWhere('cost_color_head_names','like','%'.$search.'%')
+                ->orWhere('cost_style','like','%'.$search.'%')
+                ->orWhere('cost_style_name','like','%'.$search.'%')
+                ->orWhere('cost_vendor','like','%'.$search.'%')
+                ->orWhere('cost_season','like','%'.$search.'%')
+                ->orWhere('cost_gender','like','%'.$search.'%')
+                ->orWhere('cost_product_category','like','%'.$search.'%')
+                ->orWhere('cost_customer_name','like','%'.$search.'%');
+        })->orderBy('id', 'DESC')
+            ->with([
+                'user',
+            ])->paginate(10);
+
+        return view('costing-sheet.index',compact('costing_sheets'));
+    }
+
+    public function searchMulti(){
+
+        $costing_sheets = app(Pipeline::class)
+            ->send(
+                CostingSheet::query()
+            )
+            ->through([
+                \App\QueryFilters\Costing\Index\Brand::class,
+                \App\QueryFilters\Costing\Index\Color::class,
+                \App\QueryFilters\Costing\Index\Gender::class,
+                \App\QueryFilters\Costing\Index\ProductCategory::class,
+                \App\QueryFilters\Costing\Index\Style::class,
+                \App\QueryFilters\Costing\Index\Season::class,
+            ])
+            ->thenReturn()
+            ->orderBy('id', 'DESC')
+            ->with([
+                'user',
+            ])
+            ->paginate(10);
+        return view('costing-sheet.index',compact('costing_sheets'));
     }
 }
