@@ -33,115 +33,57 @@ costing_manufacturer_one.change(function(e){
         $('#costing_port').val(port);
 });
 
-let costing_gender = $('#costing_gender');
-let costing_gender_age_group_div = $('#costing_gender_age_group_div');
-
-costing_gender.change(function(e){
-
-    let gender_age_group = getAgeGroup(costing_gender.val(),null);
-    costing_gender_age_group_div.html(gender_age_group);
-
-});
+old_no_of_color = sessionStorage.getItem('costing_no_of_color');
 
 let costing_product_category_one = $('#costing_product_category_one');
 let costing_product_category_two_div = $('#costing_product_category_two_div');
+let costing_size_code_div = $('#costing_size_code_div');
+
 
 costing_product_category_one.change(function(e){
 
     let product_category_two = getProductCatTwo(costing_product_category_one.val(),'');
-
     costing_product_category_two_div.html(product_category_two);
 
-    let costing_gender_age_group = $('#costing_gender_age_group');
-
-    if(costing_gender_age_group.length > 0 && costing_gender_age_group.val() !== null
-       && costing_product_category_one.val() !== 'ONCESET'){
-
-            giveSizes(costing_gender_age_group.val(),costing_product_category_one.val());
-
-            if(no_of_color !== null){
-                giveColorColumns(no_of_color)
-            }
-    }
-
-
+    let size_codes = getSizeCodes(costing_product_category_one.val(),'');
+    costing_size_code_div.html(size_codes);
 
 });
 
 
-let costing_currency = $('#costing_currency');
 
 
-costing_currency.change(function(e){
-
-    $('#costing_target_fob_sign').val(costing_currency.val());
-    $('#costing_total_fob_sign').val(costing_currency.val());
-    $('.costing_fob_sign').val(costing_currency.val());
-    $('.costing_fob_sign').html(costing_currency.val());
-});
-
-
-
-costing_gender_age_group_div.on('change','#costing_gender_age_group',function (e) {
-
-
-    costing_gender_age_group = $('#costing_gender_age_group');
-
-    if(costing_product_category_one.val() !== null && costing_product_category_one.val() !== 'ONCESET'){
-
-        giveSizes(costing_gender_age_group.val(),costing_product_category_one.val());
-
-        if(no_of_color !== null){
-            old_no_of_color = sessionStorage.getItem('costing_no_of_color');
-            displayColors(no_of_color,old_no_of_color);
-        }
-    }
-
-
-
-
-});
-
-costing_header = $('.costing_header');
-costing_header_ch = $('.costing_header_ch');
-costing_header_total = $('.costing_header_total');
-costing_final_total = $('.costing_final_total');
-
-function giveSizes(gender,product){
+function giveSizes(product,size_code){
 
     let sizes = [];
-    if(gender === "Mens" && product === "TOPS"){
-         sizes = ["XXS","XS","S","M","L","XL","XXL","XXXL","S/M","M/L","L/XL"];
-    }else if(gender === "Mens" && product === "BOTTOMS"){
-          sizes = ["XXS","XS","S","M","L","XL","XXL","XXXL","S/M","M/L","L/XL"];
-    }else if(gender === "Womens" && product === "TOPS"){
-          sizes = ["XXS","XS","S","M","L","XL","XXL","XXXL","S/M","M/L","L/XL"];
-    }else if(gender === "Womens" && product === "BOTTOMS"){
-          sizes = ["XXS","XS","S","M","L","XL","XXL","XXXL","S/M","M/L","L/XL"];
-    }else if(gender === "Unisex" && product === "TOPS"){
-          sizes = ["XXS","XS","S","M","L","XL","XXL","XXXL","S/M","M/L","L/XL"];
-    }else if(gender === "Unisex" && product === "BOTTOMS"){
-          sizes = ["XXS","XS","S","M","L","XL","XXL","XXXL","S/M","M/L","L/XL"];
-    }else if(gender === "Teen" && product === "TOPS"){
-          sizes = ["XXS","XS","S","M","L","XL","XXL","XXXL","S/M","M/L","L/XL"];
-    }else if(gender === "Teen" && product === "BOTTOMS"){
-          sizes = ["XXS","XS","S","M","L","XL","XXL","XXXL","S/M","M/L","L/XL"];
-    }else if(gender === "Boys" && product === "TOPS"){
-          sizes = ["XXS","XS","S","M","L","XL","XXL","XXXL","S/M","M/L","L/XL"];
-    }else if(gender === "Boys" && product === "BOTTOMS"){
-          sizes = ["XXS","XS","S","M","L","XL","XXL","XXXL","S/M","M/L","L/XL"];
-    }else if(gender === "Girls" && product === "TOPS"){
-          sizes = ["XXS","XS","S","M","L","XL","XXL","XXXL","S/M","M/L","L/XL"];
-    }else if(gender === "Girls" && product === "BOTTOMS"){
-          sizes = ["XXS","XS","S","M","L","XL","XXL","XXXL","S/M","M/L","L/XL"];
-    }else if(gender === "Kid/Toddler" && product === "TOPS"){
-        sizes = ["2","3","4","5","6","7"];
-    }else if(gender === "Kid/Toddler" && product === "BOTTOMS"){
-        sizes = ["2","3","4","5","6","7"];
-    }else if(gender === "Baby/Infant" && product === "TOPS"){
-        sizes = ["0-3M","3-6M","6-12M","12-18M","18-24M"];
-    }else if(gender === "Baby/Infant" && product === "BOTTOMS"){
-        sizes = ["0-3M","3-6M","6-12M","12-18M","18-24M"];
+    if(product === "TOPS"){
+        if(size_code === "J-01"){
+             sizes = ["XXS","XS","S","M","L","XL","XXL","XXXL"];
+        }else if(size_code === "J-02"){
+              sizes = ["S/M","M/L","L/XL"];
+        }else if(size_code === "J-03"){
+            sizes = ["1X","2X","3X","4X","5X"];
+        }else if(size_code === "J-04"){
+            sizes = ["2","3","4","5","6","7","8"];
+        }else if(size_code === "J-07"){
+            sizes = ["0-3M","3-6M","6-12M","12-18M","18-24M"];
+        }
+    }else if(product === "BOTTOMS"){
+        if(size_code === "P-01"){
+            sizes = ["XXS","XS","S","M","L","XL","XXL","XXXL"];
+        }else if(size_code === "P-02"){
+            sizes = ["S/M","M/L","L/XL"];
+        }else if(size_code === "P-04"){
+            sizes = ["2","3","4","5","6","7","8"];
+        }else if(size_code === "P-07"){
+            sizes = ["0-3M","3-6M","6-12M","12-18M","18-24M"];
+        }else if(size_code === "P-11"){
+            sizes = ["28","29","30","31","32","33","34","35","36","37","38","39","40"];
+        }else if(size_code === "P-12"){
+            sizes = ["0","2","4","6","8","10","12","14","16"];
+        }else if(size_code === "P-12"){
+            sizes = ["16W","18W","20W","22W","24W"];
+        }
     }
 
   displaySizes(sizes);
@@ -151,16 +93,15 @@ function giveSizes(gender,product){
 let costing_no_of_color = $('#costing_no_of_color');
 
 costing_no_of_color.change(function(e){
-    old_no_of_color = sessionStorage.getItem('costing_no_of_color');
+
     no_of_color = parseInt(costing_no_of_color.val());
     sessionStorage.setItem('costing_no_of_color',no_of_color);
 
     if(no_of_color <= 5 && no_of_color >= 1){
 
-        if(costing_product_category_one.val() !== null &&  costing_product_category_one.val() !== 'ONCESET' &&
-            costing_gender_age_group === 'undefined'){
+        if(costing_product_category_one.val() !== null &&  $('#costing_size_code').val() !== null) {
 
-            giveSizes(costing_gender_age_group.val(),costing_product_category_one.val());
+                giveSizes(costing_product_category_one.val(), $('#costing_size_code').val());
         }
 
         displayColors(no_of_color,old_no_of_color);
@@ -173,7 +114,32 @@ costing_no_of_color.change(function(e){
 });
 
 
+let costing_currency = $('#costing_currency');
+costing_header = $('.costing_header');
+costing_header_ch = $('.costing_header_ch');
+costing_header_total = $('.costing_header_total');
+costing_final_total = $('.costing_final_total');
+costing_currency.change(function(e){
 
+    $('#costing_target_fob_sign').val(costing_currency.val());
+    $('#costing_total_fob_sign').val(costing_currency.val());
+    $('.costing_fob_sign').val(costing_currency.val());
+    $('.costing_fob_sign').html(costing_currency.val());
+});
+
+$("body").delegate('#costing_size_code','change',function(e){
+    //ONCE SET NO NEED BECAUSE NO SIZE CODE
+    //WHEN SELECT THE SIZE CODE ITS MATIC HAVE PRODUCT 1
+
+        giveSizes(costing_product_category_one.val(),$(this).val());
+
+        no_of_color = $('#costing_no_of_color').val();
+
+        if(no_of_color !== null && no_of_color !== ""){
+            displayColors(parseInt(no_of_color),old_no_of_color);
+        }
+
+});
 
 
 $("body").delegate('.costing_table_color_head1','change',function(e){
@@ -319,37 +285,37 @@ function getProductCatTwo(product_one,option){
     return product_category_two;
 }
 
+function getSizeCodes(product_one,option){
+    let size_codes = '';
 
+    if(product_one === 'TOPS'){
 
-
-function getAgeGroup(gender,option){
-    let gender_age_group = '';
-
-    if(gender === 'MENS'){
-        gender_age_group = '<select class="css-select-costing" name="costing_gender_age_group" id="costing_gender_age_group">\n' +
-            '                        <option value="Invalid" disabled '+getSelected("Invalid",option)+'>Select Age Group</option>\n' +
-            '                        <option value="Mens" '+getSelected("Mens",option)+'>Mens男士 19 Y+</option>\n' +
+        size_codes = ' <select class="css-select-costing" name="costing_size_code" id="costing_size_code">\n' +
+            '                        <option value="Invalid" '+getSelected("Invalid",option)+' >Select Size Code</option>\n' +
+            '                        <option value="J-01" '+getSelected("J-01",option)+' >J-01</option>\n' +
+            '                        <option value="J-02" '+getSelected("J-02",option)+' >J-02</option>\n' +
+            '                        <option value="J-03" '+getSelected("J-03",option)+' >J-03</option>\n' +
+            '                        <option value="J-04" '+getSelected("J-04",option)+' >J-04</option>\n' +
+            '                        <option value="J-07" '+getSelected("J-07",option)+' >J-07</option>\n' +
             '                    </select>';
-    }else if(gender === 'WOMENS'){
-        gender_age_group = '<select class="css-select-costing" name="costing_gender_age_group" id="costing_gender_age_group">\n' +
-            '                        <option value="Invalid" disabled '+getSelected("Invalid",option)+'>Select Age Group</option>\n' +
-            '                        <option value="Womens" '+getSelected("Womens",option)+'>Womens女士 19 Y+</option>\n' +
-            '                    </select>';
-    }else if(gender === 'UNISEX'){
-        gender_age_group = '<select class="css-select-costing" name="costing_gender_age_group" id="costing_gender_age_group">\n' +
-            '                        <option value="Invalid" disabled '+getSelected("Invalid",option)+'>Select Age Group</option>\n' +
-            '                        <option value="Unisex" '+getSelected("Unisex",option)+'>Unisex中性 19 Y+</option>\n' +
-            '                    </select>';
-    }else if(gender === 'KIDS'){
-        gender_age_group = ' <select class="css-select-costing" name="costing_gender_age_group" id="costing_gender_age_group">\n' +
-            '                        <option value="Invalid" disabled '+getSelected("Invalid",option)+'>Select Age Group</option>\n' +
-            '                        <option value="Teen" '+getSelected("Teen",option)+'>Teen/Youth少青 13-19 Y</option>\n' +
-            '                        <option value="Boys" '+getSelected("Boys",option)+'>Boys男孩 13-19 Y</option>\n' +
-            '                        <option value="Girls" '+getSelected("Girls",option)+'>Girls女孩 13-19 Y</option>\n' +
-            '                        <option value="Kid/Toddler" '+getSelected("Kid/Toddler",option)+'>Kid/Toddler幼童 1-7 Y</option>\n' +
-            '                        <option value="Baby/Infant" '+getSelected("Baby/Infant",option)+'>Baby/Infant婴儿 0-12 M</option>\n' +
+
+    }
+    else if(product_one === 'BOTTOMS'){
+        size_codes = '<select class="css-select-costing" name="costing_size_code" id="costing_size_code">\n' +
+            '                        <option value="Invalid" '+getSelected("Invalid",option)+' >Select Size Code</option>\n' +
+            '                        <option value="P-01" '+getSelected("P-01",option)+' >P-01</option>\n' +
+            '                        <option value="P-02" '+getSelected("P-02",option)+' >P-02</option>\n' +
+            '                        <option value="P-04" '+getSelected("P-04",option)+' >P-04</option>\n' +
+            '                        <option value="P-07" '+getSelected("P-07",option)+' >P-07</option>\n' +
+            '                        <option value="P-07" '+getSelected("P-07",option)+' >P-11</option>\n' +
+            '                        <option value="P-07" '+getSelected("P-07",option)+' >P-12</option>\n' +
+            '                        <option value="P-07" '+getSelected("P-07",option)+' >P-13</option>\n' +
             '                    </select>';
     }
+    else if(product_one === 'ONCESET'){
 
-    return gender_age_group;
+    }
+
+    return size_codes;
 }
+

@@ -178,7 +178,7 @@ if(loc_split.includes('costing-sheets') && loc_split.includes('edit')){
             getOtherRow();
             getLaborRow();
 
-            if(response['cost_product_category_one'] !== null && response['cost_age_group'] !== null)
+            if(response['cost_product_category_one'] !== null && response['cost_size_code'] !== null)
             {
 
                 displaySizes(response['cost_size_head_names'].split(','));

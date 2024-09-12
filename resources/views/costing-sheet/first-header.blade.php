@@ -3,6 +3,7 @@
     <div class="col-md-5 css-costing-header-left">
         <table class="table table-bordered">
             <tr>
+
                 <td width="25%" class="css-text-right">CUSTOMER NAME : </td>
                 <td width="25%" >
                     <input id="costing_customer_name" name="costing_customer_name" class="css-input-costing-labor-cost" type="text">
@@ -69,8 +70,8 @@
                         <option id="ONCESET" value="ONCESET" >ONCESET套装</option>
                     </select>
                 </td>
-                <td class="css-text-right">GENDER AGE GROUP :</td>
-                <td id="costing_gender_age_group_div">
+                <td class="css-text-right">SIZE CODES:</td>
+                <td id="costing_size_code_div">
 
                 </td>
             </tr>

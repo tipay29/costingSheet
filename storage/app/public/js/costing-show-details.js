@@ -22,6 +22,9 @@ function showCostingSheetDetails(costing_sheet){
     let product_cat_two = getProductCatTwo(costing_sheet['cost_product_category_one'],costing_sheet['cost_product_category_two']);
     $('#costing_product_category_two_div').html(product_cat_two);
 
+    let size_codes = getSizeCodes(costing_sheet['cost_product_category_one'],costing_sheet['cost_size_code']);
+    $('#costing_size_code_div').html(size_codes);
+
     $('#costing_division').val(costing_sheet['cost_division']);
     $('#costing_version').val(costing_sheet['cost_version']);
     $('#costing_special_construction').html('' +
@@ -41,8 +44,7 @@ function showCostingSheetDetails(costing_sheet){
         '                        <option value="KIDS" '+getSelected("KIDS" ,costing_sheet['cost_gender'])+'>KIDS童装</option>' +
         '');
 
-    let age_group = getAgeGroup(costing_sheet['cost_gender'],costing_sheet['cost_age_group']);
-    $('#costing_gender_age_group_div').html(age_group);
+
 
     $('#costing_size').val(costing_sheet['cost_costing_size']);
     $('#costing_style').val(costing_sheet['cost_style']);

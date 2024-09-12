@@ -14,7 +14,6 @@
                                class="btn btn-outline-primary"
                             >Create</a>
 
-
                             <a id="costing_btn_copy_cs" type="button" class="btn btn-outline-warning" data-bs-toggle="modal"
                                data-bs-target="#showCopyCSModal">
                                 Copy
@@ -57,22 +56,22 @@
 
                             <div class="row costing-search-row-multi" id="costing_search_row_multi">
 
-                                    <div class="d-flex justify-content-between">
+                                <div class="d-flex justify-content-between">
 
-                                        <button class="costing-search-switch-single" id="costing_search_switch_single_btn">
+                                    <button class="costing-search-switch-single" id="costing_search_switch_single_btn">
+
                                             <i class="fa fa-user" aria-hidden="true"></i></button>
 
-
-                                            <input class="costing-search-input" value="{{old('costing_search_brand')}}" type="text" placeholder="Brand" id="costing_search_brand" name="costing_search_brand">
-                                            <input class="costing-search-input" value="{{old('costing_search_color')}}" type="text" placeholder="Color" id="costing_search_color" name="costing_search_color">
-                                            <input class="costing-search-input" value="{{old('costing_search_gender')}}" type="text" placeholder="Gender" id="costing_search_gender" name="costing_search_gender">
-                                            <input class="costing-search-input" value="{{old('costing_search_season')}}" type="text" placeholder="Season" id="costing_search_season" name="costing_search_season">
-                                            <input class="costing-search-input" value="{{old('costing_search_style')}}" type="text" placeholder="Style" id="costing_search_style" name="costing_search_style">
-                                            <input class="costing-search-input" value="{{old('costing_search_product_category')}}" type="text" placeholder="Product Category" id="costing_search_product_category" name="costing_search_product_category">
+                                            <input class="costing-search-input" type="text" placeholder="Brand" id="costing_search_brand" name="costing_search_brand">
+                                            <input class="costing-search-input" type="text" placeholder="Color" id="costing_search_color" name="costing_search_color">
+                                            <input class="costing-search-input" type="text" placeholder="Gender" id="costing_search_gender" name="costing_search_gender">
+                                            <input class="costing-search-input" type="text" placeholder="Season" id="costing_search_season" name="costing_search_season">
+                                            <input class="costing-search-input" type="text" placeholder="Style" id="costing_search_style" name="costing_search_style">
+                                            <input class="costing-search-input" type="text" placeholder="Product Category" id="costing_search_product_category" name="costing_search_product_category">
 
                                             <button class="costing-search-multi-btn" id="costing_search_multi_btn"><i class="fa fa-search" aria-hidden="true"></i></button>
 
-                                    </div>
+                                </div>
 
                             </div>
                         </form>
@@ -152,10 +151,8 @@
                                         </tr>
                                     @empty
                                         <tr>
-
                                             <td colspan="14" class="text-danger">No Record. Please go to Create Costing Sheet.</td>
                                         </tr>
-
                                     @endforelse
                                 </tbody>
 

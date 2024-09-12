@@ -25,7 +25,7 @@ class CreateCostingSheetsTable extends Migration
             $table->string('cost_version')->nullable();
             $table->string('cost_special_cons')->nullable();
             $table->string('cost_gender')->nullable();
-            $table->string('cost_age_group')->nullable();
+            $table->string('cost_size_code')->nullable();
             $table->string('cost_costing_size')->nullable();
             $table->string('cost_style')->nullable();
             $table->string('cost_style_name')->nullable();
