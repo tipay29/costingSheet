@@ -307,9 +307,9 @@ function getSizeCodes(product_one,option){
             '                        <option value="P-02" '+getSelected("P-02",option)+' >P-02</option>\n' +
             '                        <option value="P-04" '+getSelected("P-04",option)+' >P-04</option>\n' +
             '                        <option value="P-07" '+getSelected("P-07",option)+' >P-07</option>\n' +
-            '                        <option value="P-07" '+getSelected("P-07",option)+' >P-11</option>\n' +
-            '                        <option value="P-07" '+getSelected("P-07",option)+' >P-12</option>\n' +
-            '                        <option value="P-07" '+getSelected("P-07",option)+' >P-13</option>\n' +
+            '                        <option value="P-11" '+getSelected("P-11",option)+' >P-11</option>\n' +
+            '                        <option value="P-12" '+getSelected("P-12",option)+' >P-12</option>\n' +
+            '                        <option value="P-13" '+getSelected("P-13",option)+' >P-13</option>\n' +
             '                    </select>';
     }
     else if(product_one === 'ONCESET'){
