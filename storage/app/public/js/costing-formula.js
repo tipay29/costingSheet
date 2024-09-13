@@ -388,13 +388,13 @@ $('#costing_moq_upcharge_6').change(function(){
 
              myChart.data.datasets[0].data[4] = parseFloat(c_label);
 
-             myChart.data.datasets[0].data[5] = parseFloat(c_label);
+             myChart.data.datasets[0].data[5] = parseFloat(c_thread);
 
-             myChart.data.datasets[0].data[6] = parseFloat(c_thread);
+             myChart.data.datasets[0].data[6] = parseFloat(c_package);
 
-             myChart.data.datasets[0].data[7] = parseFloat(c_package);
+             myChart.data.datasets[0].data[7] = parseFloat(c_finish);
 
-             myChart.data.datasets[0].data[8] = parseFloat(c_finish);
+            myChart.data.datasets[0].data[8] = parseFloat(c_export);
 
              myChart.data.datasets[0].data[9] = parseFloat(c_testing);
 

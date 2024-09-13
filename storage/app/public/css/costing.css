@@ -211,7 +211,7 @@ input::-webkit-inner-spin-button {
 
 
     .cost_col_component{
-        min-width:80px;
+        min-width:70px;
     }
 
     .cost_col_material_id{
@@ -219,7 +219,7 @@ input::-webkit-inner-spin-button {
     }
 
     .cost_col_category{
-        min-width:80px;
+        min-width:115px ;
     }
 
     .cost_col_nominated{
@@ -227,7 +227,7 @@ input::-webkit-inner-spin-button {
     }
 
     .cost_col_coo{
-        min-width:70px;
+        min-width:50px;
     }
 
     .cost_col_supplier_ref{
@@ -242,8 +242,12 @@ input::-webkit-inner-spin-button {
         min-width:80px;
     }
 
+    .cost_col_mtl{
+        min-width:80px;
+    }
+
     .cost_col_mill_supplier{
-        min-width:95px;
+        min-width:80px;
     }
 
     .cost_col_uom{
@@ -259,11 +263,15 @@ input::-webkit-inner-spin-button {
     }
 
     .cost_col_wastage{
-        min-width:75px;
+        min-width:58px;
+    }
+
+    .costing_formula_wastage{
+        width: 45px;
     }
 
     .cost_col_gross_yield{
-        min-width:80px;
+        min-width:68px;
     }
 
     .cost_col_unit_cost{
@@ -271,7 +279,11 @@ input::-webkit-inner-spin-button {
     }
 
     .cost_col_handling{
-        min-width:70px;
+        min-width:55px;
+    }
+
+    .costing_formula_handling{
+        width: 42px;
     }
 
     .cost_col_total{
@@ -286,17 +298,13 @@ input::-webkit-inner-spin-button {
         min-width:60px;
     }
 
-    .costing_formula_wastage{
-        width: 62px;
-    }
+
 
     .costing_formula_unit_cost{
         width: 57px;
     }
 
-    .costing_formula_handling{
-        width: 57px;
-    }
+
 
     .costing_formula_total_cost{
         width: 68px;
@@ -318,7 +326,7 @@ input::-webkit-inner-spin-button {
 
 
 .cost_col_component{
-    min-width:96px;
+    min-width:86px;
 }
 
 .cost_col_material_id{
@@ -326,7 +334,7 @@ input::-webkit-inner-spin-button {
 }
 
 .cost_col_category{
-    min-width:96px;
+    min-width:131px ;
 }
 
 .cost_col_nominated{
@@ -348,9 +356,12 @@ input::-webkit-inner-spin-button {
 .cost_col_location{
     min-width:96px;
 }
+.cost_col_mtl{
+    min-width:116px;
+}
 
 .cost_col_mill_supplier{
-    min-width:111px;
+    min-width:116px;
 }
 
 .cost_col_uom{

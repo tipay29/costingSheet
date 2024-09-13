@@ -1,7 +1,7 @@
 
                     <tr class="costing_header">
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Item</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Component</th>
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .9em; ">Component</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Material ID</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb;text-align:start; ">5.Labels</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .7em; ">Nominated/Non-nominated</th>
@@ -9,14 +9,15 @@
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Supplier Ref</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Description</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .8em; ">Location/Position</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Mill/Supplier</th>
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .8em; ">MTL</th>
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .8em; ">Supplier MTL</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">UOM</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Width</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Usage</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Wastage</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Gross Yield</th>
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .8em; ">Wastage</th>
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .8em; ">Gross Yield</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Unit Cost</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Handling</th>
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; font-size: .8em;">Handling</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Total</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Comment</th>
                         <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>
@@ -66,6 +67,7 @@
                             <span style="display: none;" id="costing_label_location_btn_apply_up" class="btn_apply">&#9650</span>
                             <span style="display: none;" id="costing_label_location_btn_apply_down" class="btn_apply">&#9660</span>
                         </th>
+                        <th style="background-color: #b5f7bd; "></th>
                         <th style="background-color: #b5f7bd; ">
                             <span style="display: none;" id="costing_label_mill_supplier_btn_apply_up" class="btn_apply">&#9650</span>
                             <span style="display: none;" id="costing_label_mill_supplier_btn_apply_down" class="btn_apply">&#9660</span>

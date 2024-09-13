@@ -151,7 +151,8 @@ class CostingSheetApiController extends Controller
             $supplier_ref = 'costing_'. $category .'_supplier_ref' . $z;
             $description = 'costing_'. $category .'_description' . $z;
             $location = 'costing_'. $category .'_location' . $z;
-            $mill_supplier = 'costing_'. $category .'_mill_supplier' . $z;
+            $mtl = 'costing_'. $category .'_mtl' . $z;
+            $supplier_mtl = 'costing_'. $category .'_supplier_mtl' . $z;
             $uom = 'costing_'. $category .'_uom' . $z;
             $wedth = 'costing_'. $category .'_wedth' . $z;
             $usage = 'costing_'. $category .'_usage' . $z;
@@ -192,7 +193,8 @@ class CostingSheetApiController extends Controller
                 'cost_supplier_ref' =>  request()->$supplier_ref,
                 'cost_description' =>  request()->$description,
                 'cost_location' =>  request()->$location,
-                'cost_mill_supplier' =>  request()->$mill_supplier,
+                'cost_mtl' =>  request()->$mtl,
+                'cost_supplier_mtl' =>  request()->$supplier_mtl,
                 'cost_uom' =>  request()->$uom,
                 'cost_width' =>  request()->$wedth,
                 'cost_usage' =>  request()->$usage,
@@ -271,7 +273,7 @@ class CostingSheetApiController extends Controller
             'cost_version' =>  request()->costing_version,
             'cost_special_cons' =>  request()->costing_special_construction,
             'cost_gender' =>  request()->costing_gender,
-            'cost_age_group' =>  request()->costing_gender_age_group,
+            'cost_size_code' =>  request()->costing_size_code,
             'cost_costing_size' =>  request()->costing_size,
             'cost_style' =>  request()->costing_style,
             'cost_style_name' =>  request()->costing_style_name,

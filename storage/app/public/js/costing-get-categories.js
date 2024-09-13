@@ -46,7 +46,10 @@ function getFabricRow(){
             '                                    <input value="'+getCategoryValue('location',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_location'+item_no+'" name="costing_fabric_location'+item_no+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('mill_supplier',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_mill_supplier'+item_no+'" name="costing_fabric_mill_supplier'+item_no+'"  class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mtl',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_mtl'+item_no+'" name="costing_fabric_mtl'+item_no+'"  class="css-input-costing-data-solo" >\n' +
+            '                                     </td>' +
+            '                                    <td>\n' +
+            '                                    <input value="'+getCategoryValue('supplier_mtl',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_supplier_mtl'+item_no+'" name="costing_fabric_supplier_mtl'+item_no+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_fabric_uom'+item_no+'"   name="costing_fabric_uom'+item_no+'" class="css-select-costing-table css-select-costing-table-uom">' +
@@ -150,7 +153,10 @@ function getTrimRow(){
             '                                    <input value="'+getCategoryValue('location',cost_trims[x-1],'')+'" type="text" id="costing_trim_location'+x+'" name="costing_trim_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('mill_supplier',cost_trims[x-1],'')+'" type="text" id="costing_trim_mill_supplier'+x+'" name="costing_trim_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mtl',cost_trims[x-1],'')+'" type="text" id="costing_trim_mtl'+x+'" name="costing_trim_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                     </td>' +
+            '                                    <td>\n' +
+            '                                    <input value="'+getCategoryValue('supplier_mtl',cost_trims[x-1],'')+'" type="text" id="costing_trim_supplier_mtl'+x+'" name="costing_trim_supplier_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_trim_uom'+x+'"   name="costing_trim_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
@@ -250,7 +256,10 @@ function getZipperRow(){
             '                                    <input value="'+getCategoryValue('location',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_location'+x+'" name="costing_zipper_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('mill_supplier',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_mill_supplier'+x+'" name="costing_zipper_mill_supplier'+x+'" class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mtl',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_mtl'+x+'" name="costing_zipper_mtl'+x+'" class="css-input-costing-data-solo" >\n' +
+            '                                     </td>' +
+            '                                    <td>\n' +
+            '                                    <input value="'+getCategoryValue('supplier_mtl',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_supplier_mtl'+x+'" name="costing_zipper_supplier_mtl'+x+'" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_zipper_uom'+x+'"   name="costing_zipper_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
@@ -357,7 +366,10 @@ function getEmbelishmentRow(){
             '                                    <input value="'+getCategoryValue('location',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_location'+x+'" name="costing_embelishment_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('mill_supplier',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_mill_supplier'+x+'" name="costing_embelishment_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mtl',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_mtl'+x+'" name="costing_embelishment_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                     </td>' +
+            '                                    <td>\n' +
+            '                                    <input value="'+getCategoryValue('supplier_mtl',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_supplier_mtl'+x+'" name="costing_embelishment_supplier_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_embelishment_uom'+x+'"   name="costing_embelishment_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
@@ -461,7 +473,10 @@ function getLabelRow(){
             '                                    <input value="'+getCategoryValue('location',cost_labels[x-1],'')+'" type="text" id="costing_label_location'+x+'" name="costing_label_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('mill_supplier',cost_labels[x-1],'')+'" type="text" id="costing_label_mill_supplier'+x+'" name="costing_label_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mtl',cost_labels[x-1],'')+'" type="text" id="costing_label_mtl'+x+'" name="costing_label_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                     </td>' +
+            '                                    <td>\n' +
+            '                                    <input value="'+getCategoryValue('supplier_mtl',cost_labels[x-1],'')+'" type="text" id="costing_label_supplier_mtl'+x+'" name="costing_label_supplier_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_label_uom'+x+'"   name="costing_label_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
@@ -567,7 +582,10 @@ function getThreadRow(){
             '                                    <input value="'+getCategoryValue('location',cost_threads[x-1],'')+'" type="text" id="costing_thread_location'+x+'" name="costing_thread_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('mill_supplier',cost_threads[x-1],'')+'" type="text" id="costing_thread_mill_supplier'+x+'" name="costing_thread_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mtl',cost_threads[x-1],'')+'" type="text" id="costing_thread_mtl'+x+'" name="costing_thread_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                     </td>' +
+            '                                    <td>\n' +
+            '                                    <input value="'+getCategoryValue('supplier_mtl',cost_threads[x-1],'')+'" type="text" id="costing_thread_supplier_mtl'+x+'" name="costing_thread_supplier_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_thread_uom'+x+'"   name="costing_thread_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
@@ -675,7 +693,10 @@ function getPackageRow(){
             '                                    <input value="'+getCategoryValue('location',cost_packages[x-1],'')+'" type="text" id="costing_package_location'+x+'" name="costing_package_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('mill_supplier',cost_packages[x-1],'')+'" type="text" id="costing_package_mill_supplier'+x+'" name="costing_package_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mtl',cost_packages[x-1],'')+'" type="text" id="costing_package_mtl'+x+'" name="costing_package_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                     </td>' +
+            '                                    <td>\n' +
+            '                                    <input value="'+getCategoryValue('supplier_mtl',cost_packages[x-1],'')+'" type="text" id="costing_package_supplier_mtl'+x+'" name="costing_package_supplier_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_package_uom'+x+'"   name="costing_package_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
@@ -785,7 +806,10 @@ function getFinishRow(){
             '                                    <input value="'+getCategoryValue('location',cost_finishes[x-1],'')+'" type="text" id="costing_finish_location'+x+'" name="costing_finish_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('mill_supplier',cost_finishes[x-1],'')+'" type="text" id="costing_finish_mill_supplier'+x+'" name="costing_finish_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mtl',cost_finishes[x-1],'')+'" type="text" id="costing_finish_mtl'+x+'" name="costing_finish_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                     </td>' +
+            '                                    <td>\n' +
+            '                                    <input value="'+getCategoryValue('supplier_mtl',cost_finishes[x-1],'')+'" type="text" id="costing_finish_supplier_mtl'+x+'" name="costing_finish_supplier_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_finish_uom'+x+'"   name="costing_finish_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
@@ -897,7 +921,10 @@ function getExportRow(){
             '                                    <input value="'+getCategoryValue('location',cost_exports[x-1],'')+'" type="text" id="costing_export_location'+x+'" name="costing_export_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('mill_supplier',cost_exports[x-1],'')+'" type="text" id="costing_export_mill_supplier'+x+'" name="costing_export_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mtl',cost_exports[x-1],'')+'" type="text" id="costing_export_mtl'+x+'" name="costing_export_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                     </td>' +
+            '                                    <td>\n' +
+            '                                    <input value="'+getCategoryValue('supplier_mtl',cost_exports[x-1],'')+'" type="text" id="costing_export_supplier_mtl'+x+'" name="costing_export_supplier_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_export_uom'+x+'"   name="costing_export_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
@@ -1011,7 +1038,10 @@ function getTestingRow(){
             '                                    <input value="'+getCategoryValue('location',cost_testings[x-1],'')+'" type="text" id="costing_testing_location'+x+'" name="costing_testing_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('mill_supplier',cost_testings[x-1],'')+'" type="text" id="costing_testing_mill_supplier'+x+'" name="costing_testing_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mtl',cost_testings[x-1],'')+'" type="text" id="costing_testing_mtl'+x+'" name="costing_testing_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                     </td>' +
+            '                                    <td>\n' +
+            '                                    <input value="'+getCategoryValue('supplier_mtl',cost_testings[x-1],'')+'" type="text" id="costing_testing_supplier_mtl'+x+'" name="costing_testing_supplier_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_testing_uom'+x+'"   name="costing_testing_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
@@ -1127,7 +1157,10 @@ function getOtherRow(){
             '                                    <input value="'+getCategoryValue('location',cost_others[x-1],'')+'" type="text" id="costing_other_location'+x+'" name="costing_other_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('mill_supplier',cost_others[x-1],'')+'" type="text" id="costing_other_mill_supplier'+x+'" name="costing_other_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mtl',cost_others[x-1],'')+'" type="text" id="costing_other_mtl'+x+'" name="costing_other_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                     </td>' +
+            '                                    <td>\n' +
+            '                                    <input value="'+getCategoryValue('supplier_mtl',cost_others[x-1],'')+'" type="text" id="costing_other_supplier_mtl'+x+'" name="costing_other_supplier_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_other_uom'+x+'"   name="costing_other_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
@@ -1245,7 +1278,10 @@ function getLaborRow(){
             '                                    <input value="'+getCategoryValue('location',cost_labors[x-1],'')+'" type="text" id="costing_labor_location'+x+'" name="costing_labor_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('mill_supplier',cost_labors[x-1],'')+'" type="text" id="costing_labor_mill_supplier'+x+'" name="costing_labor_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mtl',cost_labors[x-1],'')+'" type="text" id="costing_labor_mtl'+x+'" name="costing_labor_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                     </td>' +
+            '                                    <td>\n' +
+            '                                    <input value="'+getCategoryValue('supplier_mtl',cost_labors[x-1],'')+'" type="text" id="costing_labor_supplier_mtl'+x+'" name="costing_labor_supplier_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_labor_uom'+x+'"   name="costing_labor_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
