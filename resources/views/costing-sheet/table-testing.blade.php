@@ -3,14 +3,18 @@
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Item</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; font-size: .9em;">Component</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Material ID</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb;text-align:start; ">10.Testing</th>
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb;text-align:start; ">Category</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .7em; ">Nominated/Non-nominated</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">COO</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Supplier Ref</th>
+
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; font-size: .7em; ">Customer Material#</th>
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; font-size: .7em; ">Supplier Material#</th>
+
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Description</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .8em; ">Location/Position</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; font-size: .8em; ">MTL</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; font-size: .8em; ">Supplier MTL</th>
+
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Mill/Supplier</th>
+
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">UOM</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Width</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Usage</th>
@@ -55,10 +59,16 @@
                             <span style="display: none;" id="costing_testing_coo_btn_apply_up" class="btn_apply">&#9650</span>
                             <span style="display: none;" id="costing_testing_coo_btn_apply_down" class="btn_apply">&#9660</span>
                         </th>
+
                         <th style="background-color: #b5f7bd; ">
-                            <span style="display: none;" id="costing_testing_supplier_ref_btn_apply_up" class="btn_apply">&#9650</span>
-                            <span style="display: none;" id="costing_testing_supplier_ref_btn_apply_down" class="btn_apply">&#9660</span>
+                            <span style="display: none;" id="costing_testing_customer_mtl_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_customer_mtl_btn_apply_down" class="btn_apply">&#9660</span>
                         </th>
+                        <th style="background-color: #b5f7bd; ">
+                            <span style="display: none;" id="costing_testing_supplier_mtl_btn_apply_up" class="btn_apply">&#9650</span>
+                            <span style="display: none;" id="costing_testing_supplier_mtl_btn_apply_down" class="btn_apply">&#9660</span>
+                        </th>
+
                         <th style="background-color: #b5f7bd; ">
                             <span style="display: none;" id="costing_testing_description_btn_apply_up" class="btn_apply">&#9650</span>
                             <span style="display: none;" id="costing_testing_description_btn_apply_down" class="btn_apply">&#9660</span>
@@ -67,11 +77,13 @@
                             <span style="display: none;" id="costing_testing_location_btn_apply_up" class="btn_apply">&#9650</span>
                             <span style="display: none;" id="costing_testing_location_btn_apply_down" class="btn_apply">&#9660</span>
                         </th>
-                        <th style="background-color: #b5f7bd; "></th>
+
                         <th style="background-color: #b5f7bd; ">
                             <span style="display: none;" id="costing_testing_mill_supplier_btn_apply_up" class="btn_apply">&#9650</span>
                             <span style="display: none;" id="costing_testing_mill_supplier_btn_apply_down" class="btn_apply">&#9660</span>
                         </th>
+
+
                         <th style="background-color: #b5f7bd; ">
                             <span style="display: none;" id="costing_testing_uom_btn_apply_up" class="btn_apply">&#9650</span>
                             <span style="display: none;" id="costing_testing_uom_btn_apply_down" class="btn_apply">&#9660</span>

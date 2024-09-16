@@ -21,11 +21,15 @@ class CreateCostLaborsTable extends Migration
             $table->string('cost_category_data')->nullable();
             $table->string('cost_nominated')->nullable();
             $table->string('cost_coo')->nullable();
-            $table->string('cost_supplier_ref')->nullable();
+
+            $table->string('cost_customer_mtl')->nullable();
+            $table->string('cost_supplier_mtl')->nullable();
+
             $table->text('cost_description')->nullable();
             $table->string('cost_location')->nullable();
-            $table->string('cost_mtl')->nullable();
-            $table->string('cost_supplier_mtl')->nullable();
+
+            $table->string('cost_mill_supplier')->nullable();
+
             $table->string('cost_uom')->nullable();
             $table->string('cost_width')->nullable();
             $table->double('cost_usage')->nullable();

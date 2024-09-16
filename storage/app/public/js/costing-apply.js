@@ -154,8 +154,11 @@ $('#costing_fabric_nominated_btn_apply_down').click(function(e){   applyDown('fa
 $('#costing_fabric_coo_btn_apply_up').click(function(e){     applyUp('fabric');});
 $('#costing_fabric_coo_btn_apply_down').click(function(e){   applyDown('fabric');});
 
-$('#costing_fabric_supplier_ref_btn_apply_up').click(function(e){     applyUp('fabric');});
-$('#costing_fabric_supplier_ref_btn_apply_down').click(function(e){   applyDown('fabric');});
+$('#costing_fabric_customer_mtl_btn_apply_up').click(function(e){     applyUp('fabric');});
+$('#costing_fabric_customer_mtl_btn_apply_down').click(function(e){   applyDown('fabric');});
+
+$('#costing_fabric_supplier_mtl_btn_apply_up').click(function(e){     applyUp('fabric');});
+$('#costing_fabric_supplier_mtl_btn_apply_down').click(function(e){   applyDown('fabric');});
 
 $('#costing_fabric_description_btn_apply_up').click(function(e){     applyUp('fabric');});
 $('#costing_fabric_description_btn_apply_down').click(function(e){   applyDown('fabric');});
@@ -203,8 +206,11 @@ $('#costing_trim_nominated_btn_apply_down').click(function(e){   applyDown('trim
 $('#costing_trim_coo_btn_apply_up').click(function(e){     applyUp('trim');});
 $('#costing_trim_coo_btn_apply_down').click(function(e){   applyDown('trim');});
 
-$('#costing_trim_supplier_ref_btn_apply_up').click(function(e){     applyUp('trim');});
-$('#costing_trim_supplier_ref_btn_apply_down').click(function(e){   applyDown('trim');});
+$('#costing_trim_customer_mtl_btn_apply_up').click(function(e){     applyUp('trim');});
+$('#costing_trim_customer_mtl_btn_apply_down').click(function(e){   applyDown('trim');});
+
+$('#costing_trim_supplier_mtl_btn_apply_up').click(function(e){     applyUp('trim');});
+$('#costing_trim_supplier_mtl_btn_apply_down').click(function(e){   applyDown('trim');});
 
 $('#costing_trim_description_btn_apply_up').click(function(e){     applyUp('trim');});
 $('#costing_trim_description_btn_apply_down').click(function(e){   applyDown('trim');});
@@ -252,8 +258,11 @@ $('#costing_zipper_nominated_btn_apply_down').click(function(e){   applyDown('zi
 $('#costing_zipper_coo_btn_apply_up').click(function(e){     applyUp('zipper');});
 $('#costing_zipper_coo_btn_apply_down').click(function(e){   applyDown('zipper');});
 
-$('#costing_zipper_supplier_ref_btn_apply_up').click(function(e){     applyUp('zipper');});
-$('#costing_zipper_supplier_ref_btn_apply_down').click(function(e){   applyDown('zipper');});
+$('#costing_zipper_customer_mtl_btn_apply_up').click(function(e){     applyUp('zipper');});
+$('#costing_zipper_customer_mtl_btn_apply_down').click(function(e){   applyDown('zipper');});
+
+$('#costing_zipper_supplier_mtl_btn_apply_up').click(function(e){     applyUp('zipper');});
+$('#costing_zipper_supplier_mtl_btn_apply_down').click(function(e){   applyDown('zipper');});
 
 $('#costing_zipper_description_btn_apply_up').click(function(e){     applyUp('zipper');});
 $('#costing_zipper_description_btn_apply_down').click(function(e){   applyDown('zipper');});
@@ -301,8 +310,11 @@ $('#costing_embelishment_nominated_btn_apply_down').click(function(e){   applyDo
 $('#costing_embelishment_coo_btn_apply_up').click(function(e){     applyUp('embelishment');});
 $('#costing_embelishment_coo_btn_apply_down').click(function(e){   applyDown('embelishment');});
 
-$('#costing_embelishment_supplier_ref_btn_apply_up').click(function(e){     applyUp('embelishment');});
-$('#costing_embelishment_supplier_ref_btn_apply_down').click(function(e){   applyDown('embelishment');});
+$('#costing_embelishment_customer_mtl_btn_apply_up').click(function(e){     applyUp('embelishment');});
+$('#costing_embelishment_customer_mtl_btn_apply_down').click(function(e){   applyDown('embelishment');});
+
+$('#costing_embelishment_supplier_mtl_btn_apply_up').click(function(e){     applyUp('embelishment');});
+$('#costing_embelishment_supplier_mtl_btn_apply_down').click(function(e){   applyDown('embelishment');});
 
 $('#costing_embelishment_description_btn_apply_up').click(function(e){     applyUp('embelishment');});
 $('#costing_embelishment_description_btn_apply_down').click(function(e){   applyDown('embelishment');});
@@ -350,8 +362,11 @@ $('#costing_label_nominated_btn_apply_down').click(function(e){   applyDown('lab
 $('#costing_label_coo_btn_apply_up').click(function(e){     applyUp('label');});
 $('#costing_label_coo_btn_apply_down').click(function(e){   applyDown('label');});
 
-$('#costing_label_supplier_ref_btn_apply_up').click(function(e){     applyUp('label');});
-$('#costing_label_supplier_ref_btn_apply_down').click(function(e){   applyDown('label');});
+$('#costing_label_customer_mtl_btn_apply_up').click(function(e){     applyUp('label');});
+$('#costing_label_customer_mtl_btn_apply_down').click(function(e){   applyDown('label');});
+
+$('#costing_label_supplier_mtl_btn_apply_up').click(function(e){     applyUp('label');});
+$('#costing_label_supplier_mtl_btn_apply_down').click(function(e){   applyDown('label');});
 
 $('#costing_label_description_btn_apply_up').click(function(e){     applyUp('label');});
 $('#costing_label_description_btn_apply_down').click(function(e){   applyDown('label');});
@@ -399,8 +414,11 @@ $('#costing_thread_nominated_btn_apply_down').click(function(e){   applyDown('th
 $('#costing_thread_coo_btn_apply_up').click(function(e){     applyUp('thread');});
 $('#costing_thread_coo_btn_apply_down').click(function(e){   applyDown('thread');});
 
-$('#costing_thread_supplier_ref_btn_apply_up').click(function(e){     applyUp('thread');});
-$('#costing_thread_supplier_ref_btn_apply_down').click(function(e){   applyDown('thread');});
+$('#costing_thread_customer_mtl_btn_apply_up').click(function(e){     applyUp('thread');});
+$('#costing_thread_customer_mtl_btn_apply_down').click(function(e){   applyDown('thread');});
+
+$('#costing_thread_supplier_mtl_btn_apply_up').click(function(e){     applyUp('thread');});
+$('#costing_thread_supplier_mtl_btn_apply_down').click(function(e){   applyDown('thread');});
 
 $('#costing_thread_description_btn_apply_up').click(function(e){     applyUp('thread');});
 $('#costing_thread_description_btn_apply_down').click(function(e){   applyDown('thread');});
@@ -448,8 +466,11 @@ $('#costing_package_nominated_btn_apply_down').click(function(e){   applyDown('p
 $('#costing_package_coo_btn_apply_up').click(function(e){     applyUp('package');});
 $('#costing_package_coo_btn_apply_down').click(function(e){   applyDown('package');});
 
-$('#costing_package_supplier_ref_btn_apply_up').click(function(e){     applyUp('package');});
-$('#costing_package_supplier_ref_btn_apply_down').click(function(e){   applyDown('package');});
+$('#costing_package_customer_mtl_btn_apply_up').click(function(e){     applyUp('package');});
+$('#costing_package_customer_mtl_btn_apply_down').click(function(e){   applyDown('package');});
+
+$('#costing_package_supplier_mtl_btn_apply_up').click(function(e){     applyUp('package');});
+$('#costing_package_supplier_mtl_btn_apply_down').click(function(e){   applyDown('package');});
 
 $('#costing_package_description_btn_apply_up').click(function(e){     applyUp('package');});
 $('#costing_package_description_btn_apply_down').click(function(e){   applyDown('package');});
@@ -497,8 +518,11 @@ $('#costing_finish_nominated_btn_apply_down').click(function(e){   applyDown('fi
 $('#costing_finish_coo_btn_apply_up').click(function(e){     applyUp('finish');});
 $('#costing_finish_coo_btn_apply_down').click(function(e){   applyDown('finish');});
 
-$('#costing_finish_supplier_ref_btn_apply_up').click(function(e){     applyUp('finish');});
-$('#costing_finish_supplier_ref_btn_apply_down').click(function(e){   applyDown('finish');});
+$('#costing_finish_customer_mtl_btn_apply_up').click(function(e){     applyUp('finish');});
+$('#costing_finish_customer_mtl_btn_apply_down').click(function(e){   applyDown('finish');});
+
+$('#costing_finish_supplier_mtl_btn_apply_up').click(function(e){     applyUp('finish');});
+$('#costing_finish_supplier_mtl_btn_apply_down').click(function(e){   applyDown('finish');});
 
 $('#costing_finish_description_btn_apply_up').click(function(e){     applyUp('finish');});
 $('#costing_finish_description_btn_apply_down').click(function(e){   applyDown('finish');});
@@ -546,8 +570,11 @@ $('#costing_export_nominated_btn_apply_down').click(function(e){   applyDown('ex
 $('#costing_export_coo_btn_apply_up').click(function(e){     applyUp('export');});
 $('#costing_export_coo_btn_apply_down').click(function(e){   applyDown('export');});
 
-$('#costing_export_supplier_ref_btn_apply_up').click(function(e){     applyUp('export');});
-$('#costing_export_supplier_ref_btn_apply_down').click(function(e){   applyDown('export');});
+$('#costing_export_customer_mtl_btn_apply_up').click(function(e){     applyUp('export');});
+$('#costing_export_customer_mtl_btn_apply_down').click(function(e){   applyDown('export');});
+
+$('#costing_export_supplier_mtl_btn_apply_up').click(function(e){     applyUp('export');});
+$('#costing_export_supplier_mtl_btn_apply_down').click(function(e){   applyDown('export');});
 
 $('#costing_export_description_btn_apply_up').click(function(e){     applyUp('export');});
 $('#costing_export_description_btn_apply_down').click(function(e){   applyDown('export');});
@@ -595,8 +622,11 @@ $('#costing_testing_nominated_btn_apply_down').click(function(e){   applyDown('t
 $('#costing_testing_coo_btn_apply_up').click(function(e){     applyUp('testing');});
 $('#costing_testing_coo_btn_apply_down').click(function(e){   applyDown('testing');});
 
-$('#costing_testing_supplier_ref_btn_apply_up').click(function(e){     applyUp('testing');});
-$('#costing_testing_supplier_ref_btn_apply_down').click(function(e){   applyDown('testing');});
+$('#costing_testing_customer_mtl_btn_apply_up').click(function(e){     applyUp('testing');});
+$('#costing_testing_customer_mtl_btn_apply_down').click(function(e){   applyDown('testing');});
+
+$('#costing_testing_supplier_mtl_btn_apply_up').click(function(e){     applyUp('testing');});
+$('#costing_testing_supplier_mtl_btn_apply_down').click(function(e){   applyDown('testing');});
 
 $('#costing_testing_description_btn_apply_up').click(function(e){     applyUp('testing');});
 $('#costing_testing_description_btn_apply_down').click(function(e){   applyDown('testing');});
@@ -644,8 +674,11 @@ $('#costing_other_nominated_btn_apply_down').click(function(e){   applyDown('oth
 $('#costing_other_coo_btn_apply_up').click(function(e){     applyUp('other');});
 $('#costing_other_coo_btn_apply_down').click(function(e){   applyDown('other');});
 
-$('#costing_other_supplier_ref_btn_apply_up').click(function(e){     applyUp('other');});
-$('#costing_other_supplier_ref_btn_apply_down').click(function(e){   applyDown('other');});
+$('#costing_other_customer_mtl_btn_apply_up').click(function(e){     applyUp('other');});
+$('#costing_other_customer_mtl_btn_apply_down').click(function(e){   applyDown('other');});
+
+$('#costing_other_supplier_mtl_btn_apply_up').click(function(e){     applyUp('other');});
+$('#costing_other_supplier_mtl_btn_apply_down').click(function(e){   applyDown('other');});
 
 $('#costing_other_description_btn_apply_up').click(function(e){     applyUp('other');});
 $('#costing_other_description_btn_apply_down').click(function(e){   applyDown('other');});
@@ -693,8 +726,11 @@ $('#costing_labor_nominated_btn_apply_down').click(function(e){   applyDown('lab
 $('#costing_labor_coo_btn_apply_up').click(function(e){     applyUp('labor');});
 $('#costing_labor_coo_btn_apply_down').click(function(e){   applyDown('labor');});
 
-$('#costing_labor_supplier_ref_btn_apply_up').click(function(e){     applyUp('labor');});
-$('#costing_labor_supplier_ref_btn_apply_down').click(function(e){   applyDown('labor');});
+$('#costing_labor_customer_mtl_btn_apply_up').click(function(e){     applyUp('labor');});
+$('#costing_labor_customer_mtl_btn_apply_down').click(function(e){   applyDown('labor');});
+
+$('#costing_labor_supplier_mtl_btn_apply_up').click(function(e){     applyUp('labor');});
+$('#costing_labor_supplier_mtl_btn_apply_down').click(function(e){   applyDown('labor');});
 
 $('#costing_labor_description_btn_apply_up').click(function(e){     applyUp('labor');});
 $('#costing_labor_description_btn_apply_down').click(function(e){   applyDown('labor');});

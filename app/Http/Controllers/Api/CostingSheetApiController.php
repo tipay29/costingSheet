@@ -148,11 +148,16 @@ class CostingSheetApiController extends Controller
             $categories = 'costing_'. $category .'_categories' . $z;
             $nominated = 'costing_'. $category .'_nominated' . $z;
             $coo = 'costing_'. $category .'_coo' . $z;
-            $supplier_ref = 'costing_'. $category .'_supplier_ref' . $z;
+
+            $customer_mtl = 'costing_'. $category .'_customer_mtl' . $z;
+            $supplier_mtl = 'costing_'. $category .'_supplier_mtl' . $z;
+
+
             $description = 'costing_'. $category .'_description' . $z;
             $location = 'costing_'. $category .'_location' . $z;
-            $mtl = 'costing_'. $category .'_mtl' . $z;
-            $supplier_mtl = 'costing_'. $category .'_supplier_mtl' . $z;
+
+            $mill_supplier = 'costing_'. $category .'_mill_supplier' . $z;
+
             $uom = 'costing_'. $category .'_uom' . $z;
             $wedth = 'costing_'. $category .'_wedth' . $z;
             $usage = 'costing_'. $category .'_usage' . $z;
@@ -190,11 +195,15 @@ class CostingSheetApiController extends Controller
                 'cost_category_data' =>  request()->$categories,
                 'cost_nominated' =>  request()->$nominated,
                 'cost_coo' =>  request()->$coo,
-                'cost_supplier_ref' =>  request()->$supplier_ref,
+
+                'cost_customer_mtl' =>  request()->$customer_mtl,
+                'cost_supplier_mtl' =>  request()->$supplier_mtl,
+
                 'cost_description' =>  request()->$description,
                 'cost_location' =>  request()->$location,
-                'cost_mtl' =>  request()->$mtl,
-                'cost_supplier_mtl' =>  request()->$supplier_mtl,
+
+                'cost_mill_supplier' =>  request()->$mill_supplier,
+
                 'cost_uom' =>  request()->$uom,
                 'cost_width' =>  request()->$wedth,
                 'cost_usage' =>  request()->$usage,

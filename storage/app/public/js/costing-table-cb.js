@@ -40,120 +40,144 @@ costing_labor_hide_cb_item_btn.hide();
 costing_fabric_show_cb_item_btn.click(function(e){
     costing_fabric_hide_cb_item_btn.show();
     costing_fabric_show_cb_item_btn.hide();
+    $('.costing_fabric_cb').show();
 });
 
 costing_fabric_hide_cb_item_btn.click(function(e){
     costing_fabric_hide_cb_item_btn.hide();
     costing_fabric_show_cb_item_btn.show();
+    $('.costing_fabric_cb').hide();
 });
 
 costing_trim_show_cb_item_btn.click(function(e){
     costing_trim_hide_cb_item_btn.show();
     costing_trim_show_cb_item_btn.hide();
-});
-
-costing_zipper_hide_cb_item_btn.click(function(e){
-    costing_zipper_hide_cb_item_btn.hide();
-    costing_zipper_show_cb_item_btn.show();
-});
-
-costing_zipper_show_cb_item_btn.click(function(e){
-    costing_zipper_hide_cb_item_btn.show();
-    costing_zipper_show_cb_item_btn.hide();
+    $('.costing_trim_cb').show();
 });
 
 costing_trim_hide_cb_item_btn.click(function(e){
     costing_trim_hide_cb_item_btn.hide();
     costing_trim_show_cb_item_btn.show();
+    $('.costing_trim_cb').hide();
+});
+
+costing_zipper_show_cb_item_btn.click(function(e){
+    costing_zipper_hide_cb_item_btn.show();
+    costing_zipper_show_cb_item_btn.hide();
+    $('.costing_zipper_cb').show();
+});
+
+costing_zipper_hide_cb_item_btn.click(function(e){
+    costing_zipper_hide_cb_item_btn.hide();
+    costing_zipper_show_cb_item_btn.show();
+    $('.costing_zipper_cb').hide();
 });
 
 costing_embelishment_show_cb_item_btn.click(function(e){
     costing_embelishment_hide_cb_item_btn.show();
     costing_embelishment_show_cb_item_btn.hide();
+    $('.costing_embelishment_cb').show();
 });
 
 costing_embelishment_hide_cb_item_btn.click(function(e){
     costing_embelishment_hide_cb_item_btn.hide();
     costing_embelishment_show_cb_item_btn.show();
+    $('.costing_embelishment_cb').hide();
 });
 
 costing_label_show_cb_item_btn.click(function(e){
     costing_label_hide_cb_item_btn.show();
     costing_label_show_cb_item_btn.hide();
+    $('.costing_label_cb').show();
 });
 
 costing_label_hide_cb_item_btn.click(function(e){
     costing_label_hide_cb_item_btn.hide();
     costing_label_show_cb_item_btn.show();
+    $('.costing_label_cb').hide();
 });
 
 costing_thread_show_cb_item_btn.click(function(e){
     costing_thread_hide_cb_item_btn.show();
     costing_thread_show_cb_item_btn.hide();
+    $('.costing_thread_cb').show();
 });
 
 costing_thread_hide_cb_item_btn.click(function(e){
     costing_thread_hide_cb_item_btn.hide();
     costing_thread_show_cb_item_btn.show();
+    $('.costing_thread_cb').hide();
 });
 
 costing_package_show_cb_item_btn.click(function(e){
     costing_package_hide_cb_item_btn.show();
     costing_package_show_cb_item_btn.hide();
+    $('.costing_package_cb').show();
 });
 
 costing_package_hide_cb_item_btn.click(function(e){
     costing_package_hide_cb_item_btn.hide();
     costing_package_show_cb_item_btn.show();
+    $('.costing_package_cb').hide();
 });
 
 costing_finish_show_cb_item_btn.click(function(e){
     costing_finish_hide_cb_item_btn.show();
     costing_finish_show_cb_item_btn.hide();
+    $('.costing_finish_cb').show();
 });
 
 costing_finish_hide_cb_item_btn.click(function(e){
     costing_finish_hide_cb_item_btn.hide();
     costing_finish_show_cb_item_btn.show();
+    $('.costing_finish_cb').hide();
 });
 
 costing_export_show_cb_item_btn.click(function(e){
     costing_export_hide_cb_item_btn.show();
     costing_export_show_cb_item_btn.hide();
+    $('.costing_export_cb').show();
 });
 
 costing_export_hide_cb_item_btn.click(function(e){
     costing_export_hide_cb_item_btn.hide();
     costing_export_show_cb_item_btn.show();
+    $('.costing_export_cb').hide();
 });
 
 costing_testing_show_cb_item_btn.click(function(e){
     costing_testing_hide_cb_item_btn.show();
     costing_testing_show_cb_item_btn.hide();
+    $('.costing_testing_cb').show();
 });
 
 costing_testing_hide_cb_item_btn.click(function(e){
     costing_testing_hide_cb_item_btn.hide();
     costing_testing_show_cb_item_btn.show();
+    $('.costing_testing_cb').hide();
 });
 
 costing_other_show_cb_item_btn.click(function(e){
     costing_other_hide_cb_item_btn.show();
     costing_other_show_cb_item_btn.hide();
+    $('.costing_other_cb').show();
 });
 
 costing_other_hide_cb_item_btn.click(function(e){
     costing_other_hide_cb_item_btn.hide();
     costing_other_show_cb_item_btn.show();
+    $('.costing_other_cb').hide();
 });
 
 costing_labor_show_cb_item_btn.click(function(e){
     costing_labor_hide_cb_item_btn.show();
     costing_labor_show_cb_item_btn.hide();
+    $('.costing_labor_cb').show();
 });
 
 costing_labor_hide_cb_item_btn.click(function(e){
     costing_labor_hide_cb_item_btn.hide();
     costing_labor_show_cb_item_btn.show();
+    $('.costing_labor_cb').hide();
 });
 

@@ -15,10 +15,10 @@ width: 100%;">
                         <th  scope="col" class="cost_col_category" style="vertical-align: top;background-color: #e3ed26; ">成本类别</th>
                         <th  scope="col" class="cost_col_nominated" style="vertical-align: top;background-color: #e3ed26; ">指定/非指定</th>
                         <th  scope="col" class="cost_col_coo" style="vertical-align: top;background-color: #e3ed26; ">产地</th>
-                        <th  scope="col" class="cost_col_supplier_ref" style="vertical-align: top;background-color: #e3ed26;font-size:.7em; ">客户料号/供应商货号</th>
+                        <th  scope="col" class="cost_col_mtl" style="vertical-align: top;background-color: #e3ed26; ">MT</th>
+                        <th  scope="col" class="cost_col_supplier_ref" style="vertical-align: top;background-color: #e3ed26;font-size:.7em; ">SUPP MTL</th>
                         <th  scope="col" class="cost_col_description" style="vertical-align: top;background-color: #e3ed26; ">物料描述</th>
                         <th  scope="col" class="cost_col_location" style="vertical-align: top;background-color: #e3ed26; ">部位名称</th>
-                        <th  scope="col" class="cost_col_mtl" style="vertical-align: top;background-color: #e3ed26; "></th>
                         <th  scope="col" class="cost_col_mill_supplier" style="vertical-align: top;background-color: #e3ed26; ">供应商</th>
                         <th  scope="col" class="cost_col_uom" style="vertical-align: top;background-color: #e3ed26; ">单位</th>
                         <th  scope="col" class="cost_col_width" style="vertical-align: top;background-color: #e3ed26; ">规格</th>
@@ -37,14 +37,18 @@ width: 100%;">
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Item</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .9em; ">Component</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Material ID</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb;text-align:start; ">1.Fabrics</th>
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb;text-align:start; ">Category</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .7em; ">Nominated/Non-nominated</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">COO</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Supplier Ref</th>
+
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .7em; ">Customer Material#</th>
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .7em; ">Supplier Material#</th>
+
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Description</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .8em; ">Location/Position</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .8em; ">MTL</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .8em; ">Supplier MTL</th>
+
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Mill/Supplier</th>
+
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">UOM</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Width</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Usage</th>
@@ -90,9 +94,14 @@ width: 100%;">
                                 <span style="display: none;" id="costing_fabric_coo_btn_apply_down" class="btn_apply">&#9660</span>
                             </th>
                             <th style="background-color: #b5f7bd; ">
-                                <span style="display: none;" id="costing_fabric_supplier_ref_btn_apply_up" class="btn_apply">&#9650</span>
-                                <span style="display: none;" id="costing_fabric_supplier_ref_btn_apply_down" class="btn_apply">&#9660</span>
+                                <span style="display: none;" id="costing_fabric_customer_mtl_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_customer_mtl_btn_apply_down" class="btn_apply">&#9660</span>
                             </th>
+                            <th style="background-color: #b5f7bd; ">
+                                <span style="display: none;" id="costing_fabric_supplier_mtl_btn_apply_up" class="btn_apply">&#9650</span>
+                                <span style="display: none;" id="costing_fabric_supplier_mtl_btn_apply_down" class="btn_apply">&#9660</span>
+                            </th>
+
                             <th style="background-color: #b5f7bd; ">
                                 <span style="display: none;" id="costing_fabric_description_btn_apply_up" class="btn_apply">&#9650</span>
                                 <span style="display: none;" id="costing_fabric_description_btn_apply_down" class="btn_apply">&#9660</span>
@@ -101,11 +110,12 @@ width: 100%;">
                                 <span style="display: none;" id="costing_fabric_location_btn_apply_up" class="btn_apply">&#9650</span>
                                 <span style="display: none;" id="costing_fabric_location_btn_apply_down" class="btn_apply">&#9660</span>
                             </th>
-                            <th style="background-color: #b5f7bd; "></th>
+
                             <th style="background-color: #b5f7bd; ">
                                 <span style="display: none;" id="costing_fabric_mill_supplier_btn_apply_up" class="btn_apply">&#9650</span>
                                 <span style="display: none;" id="costing_fabric_mill_supplier_btn_apply_down" class="btn_apply">&#9660</span>
                             </th>
+
                             <th style="background-color: #b5f7bd; ">
                                 <span style="display: none;" id="costing_fabric_uom_btn_apply_up" class="btn_apply">&#9650</span>
                                 <span style="display: none;" id="costing_fabric_uom_btn_apply_down" class="btn_apply">&#9660</span>
