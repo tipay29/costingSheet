@@ -284,37 +284,41 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
                     ->getNumberFormat()
                     ->setFormatCode($numberSeparator);
                 $event->sheet
-                    ->getStyle('O11:O12')
+                    ->getStyle('P11:P12')
                     ->getNumberFormat()
                     ->setFormatCode($numberSeparator);
 
-                $event->sheet
-                    ->getStyle('N'.$this->cost_fabric_row_start.':N' . $this->cost_bottom_row_start-1)
-                    ->getNumberFormat()
-                    ->setFormatCode($numberSeparator);
                 $event->sheet
                     ->getStyle('O'.$this->cost_fabric_row_start.':O' . $this->cost_bottom_row_start-1)
                     ->getNumberFormat()
-                    ->setFormatCode($percentage);
+                    ->setFormatCode($numberSeparator);
                 $event->sheet
                     ->getStyle('P'.$this->cost_fabric_row_start.':P' . $this->cost_bottom_row_start-1)
                     ->getNumberFormat()
-                    ->setFormatCode($numberSeparatorDecimal);
+                    ->setFormatCode($percentage);
                 $event->sheet
                     ->getStyle('Q'.$this->cost_fabric_row_start.':Q' . $this->cost_bottom_row_start-1)
                     ->getNumberFormat()
-                    ->setFormatCode($currencySeparatorDecimal);
+                    ->setFormatCode($numberSeparatorDecimal);
                 $event->sheet
                     ->getStyle('R'.$this->cost_fabric_row_start.':R' . $this->cost_bottom_row_start-1)
                     ->getNumberFormat()
+                    ->setFormatCode($currencySeparatorDecimal);
+                $event->sheet
+                    ->getStyle('S'.$this->cost_fabric_row_start.':S' . $this->cost_bottom_row_start-1)
+                    ->getNumberFormat()
                     ->setFormatCode($percentage);
                 $event->sheet
-                    ->getStyle('S7:S' . ($this->cost_bottom_second_row_start+2))
+                    ->getStyle('S'.$this->cost_bottom_row_start.':S' . ($this->cost_bottom_second_row_start+2))
+                    ->getNumberFormat()
+                    ->setFormatCode($currencySeparatorDecimal);
+                $event->sheet
+                    ->getStyle('T7:T' . ($this->cost_bottom_row_start-1))
                     ->getNumberFormat()
                     ->setFormatCode($currencySeparatorDecimal);
 
                 $event->sheet
-                    ->getStyle('T'.$this->cost_bottom_row_start.':T'. ($this->cost_bottom_second_row_start+2))
+                    ->getStyle('U'.$this->cost_bottom_row_start.':U'. ($this->cost_bottom_second_row_start+2))
                     ->getNumberFormat()
                     ->setFormatCode($percentageDecimal);
 
@@ -334,12 +338,12 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
                     ->setFormatCode($numberSeparator);
 
                 $event->sheet
-                    ->getStyle('O'.($this->cost_bottom_second_row_start+5).':T'. ($this->cost_bottom_second_row_start+5))
+                    ->getStyle('O'.($this->cost_bottom_second_row_start+5).':U'. ($this->cost_bottom_second_row_start+5))
                     ->getNumberFormat()
                     ->setFormatCode($percentage);
 
                 $event->sheet
-                    ->getStyle('O'.($this->cost_bottom_second_row_start+6).':T'. ($this->cost_bottom_second_row_start+6))
+                    ->getStyle('O'.($this->cost_bottom_second_row_start+6).':U'. ($this->cost_bottom_second_row_start+6))
                     ->getNumberFormat()
                     ->setFormatCode($currencySeparatorDecimal);
 
@@ -791,18 +795,18 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
                 'font' => ['size' => 10, 'bold' => true, 'color' => ['argb' => '3a05fa'],],]);
 
 
-        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+1),'=S'.($this->cost_fabric_row_start+$this->cost_fabric_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+1))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+2),'=S'.($this->cost_trim_row_start+$this->cost_trim_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+2))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+3),'=S'.($this->cost_zipper_row_start+$this->cost_zipper_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+3))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+4),'=S'.($this->cost_embelishment_row_start+$this->cost_embelishment_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+4))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+5),'=S'.($this->cost_label_row_start+$this->cost_label_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+5))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+6),'=S'.($this->cost_thread_row_start+$this->cost_thread_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+6))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+7),'=S'.($this->cost_package_row_start+$this->cost_package_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+7))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+8),'=S'.($this->cost_finish_row_start+$this->cost_finish_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+8))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+9),'=S'.($this->cost_export_row_start+$this->cost_export_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+9))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+10),'=S'.($this->cost_testing_row_start+$this->cost_testing_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+10))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+11),'=S'.($this->cost_other_row_start+$this->cost_other_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+11))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+12),'=S'.($this->cost_labor_row_start+$this->cost_labor_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+12))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+1),'=T'.($this->cost_fabric_row_start+$this->cost_fabric_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+1))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+2),'=T'.($this->cost_trim_row_start+$this->cost_trim_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+2))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+3),'=T'.($this->cost_zipper_row_start+$this->cost_zipper_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+3))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+4),'=T'.($this->cost_embelishment_row_start+$this->cost_embelishment_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+4))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+5),'=T'.($this->cost_label_row_start+$this->cost_label_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+5))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+6),'=T'.($this->cost_thread_row_start+$this->cost_thread_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+6))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+7),'=T'.($this->cost_package_row_start+$this->cost_package_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+7))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+8),'=T'.($this->cost_finish_row_start+$this->cost_finish_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+8))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+9),'=T'.($this->cost_export_row_start+$this->cost_export_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+9))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+10),'=T'.($this->cost_testing_row_start+$this->cost_testing_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+10))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+11),'=T'.($this->cost_other_row_start+$this->cost_other_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+11))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+12),'=T'.($this->cost_labor_row_start+$this->cost_labor_data_row_count+1))->getStyle('S' . ($this->cost_bottom_row_start+12))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
         $event->sheet->setCellValue('S' . ($this->cost_bottom_row_start+13),'=SUM(S'.($this->cost_bottom_row_start+1).':S'.($this->cost_bottom_row_start+12).')')
             ->getStyle('S' . ($this->cost_bottom_row_start+13))->applyFromArray([
                 'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,],
