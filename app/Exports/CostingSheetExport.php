@@ -131,8 +131,8 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
         $this->cost_sizes_head_name = explode(",",$this->costing_sheet->cost_size_head_names);
         $this->cost_colors_count = count(array_diff(explode(",",$this->costing_sheet->cost_color_head_names) , ["undefined"] ));
         $this->cost_colors_head_name = array_diff(explode(",",$this->costing_sheet->cost_color_head_names) , ["undefined"] );
-        $this->letters = ['V','W','X','Y','Z','AA','AB','AC'
-            ,'AD','AE','AF','AG','AH','AI','AJ','AK','AL','AM','AN','AO'];
+        $this->letters = ['W','X','Y','Z','AA','AB','AC'
+            ,'AD','AE','AF','AG','AH','AI','AJ','AK','AL','AM','AN','AO','AP'];
     }
 
     public function collection()
@@ -161,14 +161,14 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
                 //MAIN TITLE
                 $style_main_title = ['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER, 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
                     'font' => ['size' => 25, 'bold' => true,],];
-                $event->sheet->mergeCells('B1:T1');
+                $event->sheet->mergeCells('B1:U1');
                 $event->sheet->setCellValue('B1',$this->costing_sheet->cost_vendor)
                     ->getStyle('B1')
                     ->applyFromArray($style_main_title);
                 $style_main_title = ['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER, 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
                     'font' => ['size' => 13, 'bold' => true,],
                     'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'color' => ['argb' => '95fcb2']],];
-                $event->sheet->mergeCells('B2:T2');
+                $event->sheet->mergeCells('B2:U2');
                 $event->sheet->setCellValue('B2','COSTING SHEET')
                     ->getStyle('B2')
                     ->applyFromArray($style_main_title);
@@ -177,14 +177,14 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
                 $this->exportHeaderDetails($event);
                 //FIRST HEADER DETAILS
                 //BORDER
-                $event->sheet->mergeCells('B9:T9')->getStyle('B9:T9')->applyFromArray(['borders' => ['bottom' => ['borderStyle' => Border::BORDER_MEDIUM,],],]);
-                $event->sheet->mergeCells('B10:T10');
+                $event->sheet->mergeCells('B9:U9')->getStyle('B9:U9')->applyFromArray(['borders' => ['bottom' => ['borderStyle' => Border::BORDER_MEDIUM,],],]);
+                $event->sheet->mergeCells('B10:U10');
                 //BORDER
                 //SECOND HEADER DETAILS
                 //SECOND HEADER DETAILS
                 //BORDER
-                $event->sheet->mergeCells('B16:T16')->getStyle('B16:T16')->applyFromArray(['borders' => ['bottom' => ['borderStyle' => Border::BORDER_MEDIUM,],],]);
-                $event->sheet->mergeCells('B17:T17');
+                $event->sheet->mergeCells('B16:U16')->getStyle('B16:U16')->applyFromArray(['borders' => ['bottom' => ['borderStyle' => Border::BORDER_MEDIUM,],],]);
+                $event->sheet->mergeCells('B17:U17');
                 //BORDER
                 //FABRIC CATEGORY DETAILS
                 $this->exportCategoryHeader($event,$this->cost_fabric_row_start,'1.Fabrics');
@@ -222,12 +222,12 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
                 $this->exportCategoryFooter($event,$this->cost_package_row_start+$this->cost_package_data_row_count+1,$this->cost_package_row_start+1,'7.','Packagings');
                 //PACKAGE CATEGORY DETAILS
                 //FINISH CATEGORY DETAILS
-                $this->exportCategoryHeader($event,$this->cost_finish_row_start,'8.Washes/Finishes');
+                $this->exportCategoryHeader($event,$this->cost_finish_row_start,'8.Washes/ Finishes');
                 $this->exportCategoryData($event,$this->cost_finish_row_start+1,$this->costing_sheet->cost_finishes);
                 $this->exportCategoryFooter($event,$this->cost_finish_row_start+$this->cost_finish_data_row_count+1,$this->cost_finish_row_start+1,'8.','Washes/Finishes');
                 //FINISH CATEGORY DETAILS
                 //EXPORT CATEGORY DETAILS
-                $this->exportCategoryHeader($event,$this->cost_export_row_start,'9.Export/Import');
+                $this->exportCategoryHeader($event,$this->cost_export_row_start,'9.Export/ Import');
                 $this->exportCategoryData($event,$this->cost_export_row_start+1,$this->costing_sheet->cost_exports);
                 $this->exportCategoryFooter($event,$this->cost_export_row_start+$this->cost_export_data_row_count+1,$this->cost_export_row_start+1,'9.','Export/Import');
                 //EXPORT CATEGORY DETAILS
@@ -366,23 +366,24 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
     protected function setColumnsWidth($event){
         $event->sheet->getColumnDimension('B')->setWidth(7);
         $event->sheet->getColumnDimension('C')->setWidth(11);
-        $event->sheet->getColumnDimension('D')->setWidth(11);
+        $event->sheet->getColumnDimension('D')->setWidth(10);
         $event->sheet->getColumnDimension('E')->setWidth(12);
         $event->sheet->getColumnDimension('F')->setWidth(10);
         $event->sheet->getColumnDimension('G')->setWidth(10);
-        $event->sheet->getColumnDimension('H')->setWidth(15);
-        $event->sheet->getColumnDimension('I')->setWidth(19);
-        $event->sheet->getColumnDimension('J')->setWidth(16);
-        $event->sheet->getColumnDimension('K')->setWidth(16);
-        $event->sheet->getColumnDimension('L')->setWidth(7);
-        $event->sheet->getColumnDimension('M')->setWidth(10);
+        $event->sheet->getColumnDimension('H')->setWidth(13);
+        $event->sheet->getColumnDimension('I')->setWidth(13);
+        $event->sheet->getColumnDimension('J')->setWidth(19);
+        $event->sheet->getColumnDimension('K')->setWidth(13);
+        $event->sheet->getColumnDimension('L')->setWidth(13);
+        $event->sheet->getColumnDimension('M')->setWidth(7);
         $event->sheet->getColumnDimension('N')->setWidth(10);
-        $event->sheet->getColumnDimension('O')->setWidth(10);
-        $event->sheet->getColumnDimension('P')->setWidth(11);
-        $event->sheet->getColumnDimension('Q')->setWidth(10);
-        $event->sheet->getColumnDimension('R')->setWidth(10);
-        $event->sheet->getColumnDimension('S')->setWidth(12);
-        $event->sheet->getColumnDimension('T')->setWidth(15);
+        $event->sheet->getColumnDimension('O')->setWidth(8);
+        $event->sheet->getColumnDimension('P')->setWidth(10);
+        $event->sheet->getColumnDimension('Q')->setWidth(11);
+        $event->sheet->getColumnDimension('R')->setWidth(8);
+        $event->sheet->getColumnDimension('S')->setWidth(10);
+        $event->sheet->getColumnDimension('T')->setWidth(12);
+        $event->sheet->getColumnDimension('U')->setWidth(15);
     }
 
     protected function exportHeaderChinese($event){
@@ -413,19 +414,20 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
         $event->sheet->setCellValue('E18','成本类别')->getStyle('E18')->applyFromArray($style_ch);
         $event->sheet->setCellValue('F18','指定/非指定')->getStyle('F18')->applyFromArray($style_ch)->applyFromArray(['font' => ['size' => 6]]);
         $event->sheet->setCellValue('G18','产地')->getStyle('G18')->applyFromArray($style_ch);
-        $event->sheet->setCellValue('H18','客户料号/供应商货号')->getStyle('H18')->applyFromArray($style_ch)->applyFromArray(['font' => ['size' => 7]]);
-        $event->sheet->setCellValue('I18','物料描述')->getStyle('I18')->applyFromArray($style_ch);
-        $event->sheet->setCellValue('J18','部位名称')->getStyle('J18')->applyFromArray($style_ch);
-        $event->sheet->setCellValue('K18','供应商')->getStyle('K18')->applyFromArray($style_ch);
-        $event->sheet->setCellValue('L18','单位')->getStyle('L18')->applyFromArray($style_ch);
-        $event->sheet->setCellValue('M18','规格')->getStyle('M18')->applyFromArray($style_ch);
-        $event->sheet->setCellValue('N18','用量')->getStyle('N18')->applyFromArray($style_ch);
-        $event->sheet->setCellValue('O18','损耗')->getStyle('O18')->applyFromArray($style_ch);
-        $event->sheet->setCellValue('P18','总用量')->getStyle('P18')->applyFromArray($style_ch);
-        $event->sheet->setCellValue('Q18','单价')->getStyle('Q18')->applyFromArray($style_ch);
-        $event->sheet->setCellValue('R18','处理')->getStyle('R18')->applyFromArray($style_ch);
-        $event->sheet->setCellValue('S18','单价')->getStyle('S18')->applyFromArray($style_ch);
-        $event->sheet->setCellValue('T18','评论')->getStyle('T18')->applyFromArray($style_ch);
+        $event->sheet->setCellValue('H18','客户料号')->getStyle('H18')->applyFromArray($style_ch)->applyFromArray(['font' => ['size' => 7]]);
+        $event->sheet->setCellValue('I18','供应商货号')->getStyle('I18')->applyFromArray($style_ch);
+        $event->sheet->setCellValue('J18','物料描述')->getStyle('J18')->applyFromArray($style_ch);
+        $event->sheet->setCellValue('K18','部位名称')->getStyle('K18')->applyFromArray($style_ch);
+        $event->sheet->setCellValue('L18','供应商')->getStyle('L18')->applyFromArray($style_ch);
+        $event->sheet->setCellValue('M18','单位')->getStyle('M18')->applyFromArray($style_ch);
+        $event->sheet->setCellValue('N18','规格')->getStyle('N18')->applyFromArray($style_ch);
+        $event->sheet->setCellValue('O18','用量')->getStyle('O18')->applyFromArray($style_ch);
+        $event->sheet->setCellValue('P18','损耗')->getStyle('P18')->applyFromArray($style_ch);
+        $event->sheet->setCellValue('Q18','总用量')->getStyle('Q18')->applyFromArray($style_ch);
+        $event->sheet->setCellValue('R18','单价')->getStyle('R18')->applyFromArray($style_ch);
+        $event->sheet->setCellValue('S18','处理')->getStyle('S18')->applyFromArray($style_ch);
+        $event->sheet->setCellValue('T18','单价')->getStyle('T18')->applyFromArray($style_ch);
+        $event->sheet->setCellValue('U18','评论')->getStyle('U18')->applyFromArray($style_ch);
 
         $event->sheet->mergeCells($this->letters[0].'18:'.$this->letters[$this->cost_sizes_count-1] . '18');
         $event->sheet->setCellValue($this->letters[0].'18','Size尺寸')->getStyle($this->letters[0].'18:'.$this->letters[$this->cost_sizes_count-1] . '18')->applyFromArray($style_ch);
@@ -440,10 +442,10 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
         $event->sheet->mergeCells('D3:E3');$event->sheet->mergeCells('D4:E4');$event->sheet->mergeCells('D5:E5');$event->sheet->mergeCells('D6:E6');$event->sheet->mergeCells('D7:E7');$event->sheet->mergeCells('D8:E8');
         $event->sheet->mergeCells('F3:G3');$event->sheet->mergeCells('F4:G4');$event->sheet->mergeCells('F5:G5');$event->sheet->mergeCells('F6:G6');$event->sheet->mergeCells('F7:G7');$event->sheet->mergeCells('F8:G8');
         $event->sheet->mergeCells('H3:I3');$event->sheet->mergeCells('H4:I4');$event->sheet->mergeCells('H5:I5');$event->sheet->mergeCells('H6:I6');$event->sheet->mergeCells('H7:I7');$event->sheet->mergeCells('H8:I8');
-        $event->sheet->mergeCells('L3:N3');$event->sheet->mergeCells('L4:N4');$event->sheet->mergeCells('L5:N5');$event->sheet->mergeCells('L6:N6');$event->sheet->mergeCells('L7:N7');$event->sheet->mergeCells('L8:N8');
-        $event->sheet->mergeCells('O3:P3');$event->sheet->mergeCells('O4:P4');$event->sheet->mergeCells('O5:P5');$event->sheet->mergeCells('O6:P6');$event->sheet->mergeCells('O7:P7');$event->sheet->mergeCells('O8:P8');
-        $event->sheet->mergeCells('Q3:R3');$event->sheet->mergeCells('Q4:R4');$event->sheet->mergeCells('Q5:R5');$event->sheet->mergeCells('Q6:R6');$event->sheet->mergeCells('Q7:R7');$event->sheet->mergeCells('Q8:R8');
-        $event->sheet->mergeCells('S3:T3');$event->sheet->mergeCells('S4:T4');$event->sheet->mergeCells('S5:T5');$event->sheet->mergeCells('S6:T6');$event->sheet->mergeCells('S7:T7');$event->sheet->mergeCells('S8:T8');
+        $event->sheet->mergeCells('M3:O3');$event->sheet->mergeCells('M4:O4');$event->sheet->mergeCells('M5:O5');$event->sheet->mergeCells('M6:O6');$event->sheet->mergeCells('M7:O7');$event->sheet->mergeCells('M8:O8');
+        $event->sheet->mergeCells('P3:Q3');$event->sheet->mergeCells('P4:Q4');$event->sheet->mergeCells('P5:Q5');$event->sheet->mergeCells('P6:Q6');$event->sheet->mergeCells('P7:Q7');$event->sheet->mergeCells('P8:Q8');
+        $event->sheet->mergeCells('R3:S3');$event->sheet->mergeCells('R4:S4');$event->sheet->mergeCells('R5:S5');$event->sheet->mergeCells('R6:S6');$event->sheet->mergeCells('R7:S7');$event->sheet->mergeCells('R8:S8');
+        $event->sheet->mergeCells('T3:U3');$event->sheet->mergeCells('T4:U4');$event->sheet->mergeCells('T5:U5');$event->sheet->mergeCells('T6:U6');$event->sheet->mergeCells('T7:U7');$event->sheet->mergeCells('T8:U8');
 
         $style_header_name = ['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT, 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
             'font' => ['size' => 9, 'bold' => true,],];
@@ -473,45 +475,45 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
         $event->sheet->setCellValue('H4',$this->costing_sheet->cost_version);
         $event->sheet->setCellValue('H5',$this->costing_sheet->cost_special_cons);
         $event->sheet->setCellValue('H6',$this->costing_sheet->cost_gender);
-        $event->sheet->setCellValue('H7',$this->costing_sheet->cost_age_group);
+        $event->sheet->setCellValue('H7',$this->costing_sheet->cost_size_code);
         $event->sheet->setCellValue('H8',$this->costing_sheet->cost_costing_size);
 
-        $event->sheet->setCellValue('L3','STYLE # :')->getStyle('L3')->applyFromArray($style_header_name);
-        $event->sheet->setCellValue('L4','STYLE NAME :')->getStyle('L4')->applyFromArray($style_header_name);
-        $event->sheet->setCellValue('L5','COLOR # :')->getStyle('L5')->applyFromArray($style_header_name);
-        $event->sheet->setCellValue('L6','COLOR NAME :')->getStyle('L6')->applyFromArray($style_header_name);
-        $event->sheet->setCellValue('L7','NO OF COLOR :')->getStyle('L7')->applyFromArray($style_header_name);
-        $event->sheet->setCellValue('L8','T/P CODE :')->getStyle('L8')->applyFromArray($style_header_name);
+        $event->sheet->setCellValue('M3','STYLE # :')->getStyle('M3')->applyFromArray($style_header_name);
+        $event->sheet->setCellValue('M4','STYLE NAME :')->getStyle('M4')->applyFromArray($style_header_name);
+        $event->sheet->setCellValue('M5','COLOR # :')->getStyle('M5')->applyFromArray($style_header_name);
+        $event->sheet->setCellValue('M6','COLOR NAME :')->getStyle('M6')->applyFromArray($style_header_name);
+        $event->sheet->setCellValue('M7','NO OF COLOR :')->getStyle('M7')->applyFromArray($style_header_name);
+        $event->sheet->setCellValue('M8','T/P CODE :')->getStyle('M8')->applyFromArray($style_header_name);
 
-        $event->sheet->setCellValue('O3',$this->costing_sheet->cost_style);
-        $event->sheet->setCellValue('O4',$this->costing_sheet->cost_style_name);
-        $event->sheet->setCellValue('O5',$this->costing_sheet->cost_color);
-        $event->sheet->setCellValue('O6',$this->costing_sheet->cost_color);
-        $event->sheet->setCellValue('O7',$this->costing_sheet->cost_no_of_color);
-        $event->sheet->setCellValue('O8',$this->costing_sheet->cost_tp_code);
+        $event->sheet->setCellValue('P3',$this->costing_sheet->cost_style);
+        $event->sheet->setCellValue('P4',$this->costing_sheet->cost_style_name);
+        $event->sheet->setCellValue('P5',$this->costing_sheet->cost_color);
+        $event->sheet->setCellValue('P6',$this->costing_sheet->cost_color);
+        $event->sheet->setCellValue('P7',$this->costing_sheet->cost_no_of_color);
+        $event->sheet->setCellValue('P8',$this->costing_sheet->cost_tp_code);
 
-        $event->sheet->setCellValue('Q3','DATE :')->getStyle('Q3')->applyFromArray($style_header_name);
-        $event->sheet->setCellValue('Q4','COSTING STAGE :')->getStyle('Q4')->applyFromArray($style_header_name);
-        $event->sheet->setCellValue('Q5','STATUS :')->getStyle('Q5')->applyFromArray($style_header_name);
-        $event->sheet->setCellValue('Q6','CURRENCY :')->getStyle('Q6')->applyFromArray($style_header_name);
-        $event->sheet->setCellValue('Q7','TARGET FOB :')->getStyle('Q7')->applyFromArray($style_header_name);
-        $event->sheet->setCellValue('Q8',$this->costing_sheet->cost_total_fob_cm)->getStyle('Q8')->applyFromArray($style_header_name);
+        $event->sheet->setCellValue('R3','DATE :')->getStyle('R3')->applyFromArray($style_header_name);
+        $event->sheet->setCellValue('R4','COSTING STAGE :')->getStyle('R4')->applyFromArray($style_header_name);
+        $event->sheet->setCellValue('R5','STATUS :')->getStyle('R5')->applyFromArray($style_header_name);
+        $event->sheet->setCellValue('R6','CURRENCY :')->getStyle('R6')->applyFromArray($style_header_name);
+        $event->sheet->setCellValue('R7','TARGET FOB :')->getStyle('R7')->applyFromArray($style_header_name);
+        $event->sheet->setCellValue('R8',$this->costing_sheet->cost_total_fob_cm)->getStyle('R8')->applyFromArray($style_header_name);
 
-        $event->sheet->setCellValue('S3',$this->costing_sheet->cost_date);
-        $event->sheet->setCellValue('S4',$this->costing_sheet->cost_costing_stage);
-        $event->sheet->setCellValue('S5',$this->costing_sheet->cost_status);
-        $event->sheet->setCellValue('S6',$this->costing_sheet->cost_currency);
-        $event->sheet->setCellValue('S7',$this->costing_sheet->cost_target_fob);
-        $event->sheet->setCellValue('S8',$this->costing_sheet->cost_total_fob);
+        $event->sheet->setCellValue('T3',$this->costing_sheet->cost_date);
+        $event->sheet->setCellValue('T4',$this->costing_sheet->cost_costing_stage);
+        $event->sheet->setCellValue('T5',$this->costing_sheet->cost_status);
+        $event->sheet->setCellValue('T6',$this->costing_sheet->cost_currency);
+        $event->sheet->setCellValue('T7',$this->costing_sheet->cost_target_fob);
+        $event->sheet->setCellValue('T8',$this->costing_sheet->cost_total_fob);
 
         $event->sheet->mergeCells('B11:C11');$event->sheet->mergeCells('B12:C12');$event->sheet->mergeCells('B13:C13');$event->sheet->mergeCells('B14:C14');$event->sheet->mergeCells('B15:C15');
         $event->sheet->mergeCells('D11:E11');$event->sheet->mergeCells('D12:E12');$event->sheet->mergeCells('D13:E13');$event->sheet->mergeCells('D14:E14');$event->sheet->mergeCells('D15:E15');
         $event->sheet->mergeCells('F11:G11');$event->sheet->mergeCells('F12:G12');$event->sheet->mergeCells('F13:G13');$event->sheet->mergeCells('F14:G14');$event->sheet->mergeCells('F15:G15');
         $event->sheet->mergeCells('H11:I11');$event->sheet->mergeCells('H12:I12');$event->sheet->mergeCells('H13:I13');$event->sheet->mergeCells('H14:I14');$event->sheet->mergeCells('H15:I15');
-        $event->sheet->mergeCells('L11:N11');$event->sheet->mergeCells('L12:N12');
-        $event->sheet->mergeCells('O11:P11');$event->sheet->mergeCells('O12:P12');
-        $event->sheet->mergeCells('Q11:R11');$event->sheet->mergeCells('Q12:R12');
-        $event->sheet->mergeCells('S11:T11');$event->sheet->mergeCells('S12:T12');
+        $event->sheet->mergeCells('M11:O11');$event->sheet->mergeCells('M12:O12');
+        $event->sheet->mergeCells('P11:Q11');$event->sheet->mergeCells('P12:Q12');
+        $event->sheet->mergeCells('R11:S11');$event->sheet->mergeCells('R12:S12');
+        $event->sheet->mergeCells('T11:U11');$event->sheet->mergeCells('T12:U12');
 
         $event->sheet->setCellValue('B11','VENDOR :')->getStyle('B11')->applyFromArray($style_header_name);
         $event->sheet->setCellValue('B12','MANUFACTURER 1 :')->getStyle('B12')->applyFromArray($style_header_name);
@@ -538,15 +540,15 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
         $event->sheet->setCellValue('H14',$this->costing_sheet->cost_incoterms);
         $event->sheet->setCellValue('H15',$this->costing_sheet->cost_payment_terms);
 
-        $event->sheet->setCellValue('L11','PRODUCTION LEADTIME :')->getStyle('L11')->applyFromArray($style_header_name);
-        $event->sheet->setCellValue('L12','GREIGE REDUCED :')->getStyle('L12')->applyFromArray($style_header_name);
+        $event->sheet->setCellValue('M11','PRODUCTION LEADTIME :')->getStyle('M11')->applyFromArray($style_header_name);
+        $event->sheet->setCellValue('M12','GREIGE REDUCED :')->getStyle('M12')->applyFromArray($style_header_name);
 
-        $event->sheet->setCellValue('O11',$this->costing_sheet->cost_production_lead_time);
-        $event->sheet->setCellValue('O12',$this->costing_sheet->cost_griege_reduced);
+        $event->sheet->setCellValue('P11',$this->costing_sheet->cost_production_lead_time);
+        $event->sheet->setCellValue('P12',$this->costing_sheet->cost_griege_reduced);
 
-        $event->sheet->setCellValue('Q11','Days')->getStyle('Q11')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
-        $event->sheet->setCellValue('Q12','Days')->getStyle('Q12')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
-        $event->sheet->setCellValue('S12','(based on Material in-house)')->getStyle('S12')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
+        $event->sheet->setCellValue('R11','Days')->getStyle('R11')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
+        $event->sheet->setCellValue('R12','Days')->getStyle('R12')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
+        $event->sheet->setCellValue('T12','(based on Material in-house)')->getStyle('T12')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
 
     }
 
@@ -576,23 +578,24 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
         $event->sheet->setCellValue('B' . $row_start,'Item')->getStyle('B' . $row_start)->applyFromArray($style_head);
         $event->sheet->setCellValue('C' . $row_start,'Component')->getStyle('C' . $row_start)->applyFromArray($style_head);
         $event->sheet->setCellValue('D' . $row_start,'Material ID')->getStyle('D' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('E' . $row_start,$category)->getStyle('E' . $row_start)->applyFromArray($style_head)->applyFromArray(['alignment' => [
+        $event->sheet->setCellValue('E' . $row_start,'Category')->getStyle('E' . $row_start)->applyFromArray($style_head)->applyFromArray(['alignment' => [
             'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT, 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER, 'wrapText' => true,]]);
         $event->sheet->setCellValue('F' . $row_start,'Nominated/ Non-nominated')->getStyle('F' . $row_start)->applyFromArray($style_head)->applyFromArray(['font' => ['size' => 5]]);
         $event->sheet->setCellValue('G' . $row_start,'COO')->getStyle('G' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('H' . $row_start,'Supplier Ref')->getStyle('H' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('I' . $row_start,'Description')->getStyle('I' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('J' . $row_start,'Location/ Position')->getStyle('J' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('K' . $row_start,'Mill/Supplier')->getStyle('K' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('L' . $row_start,'UOM')->getStyle('L' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('M' . $row_start,'Width')->getStyle('M' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('N' . $row_start,'Usage')->getStyle('N' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('O' . $row_start,'Wastage')->getStyle('O' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('P' . $row_start,'Gross Yield')->getStyle('P' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('Q' . $row_start,'Unit Cost')->getStyle('Q' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('R' . $row_start,'Handling')->getStyle('R' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('S' . $row_start,'Total')->getStyle('S' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('T' . $row_start,'Comment')->getStyle('T' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('H' . $row_start,'Customer Material#')->getStyle('H' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('I' . $row_start,'Supplier Material#')->getStyle('I' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('J' . $row_start,'Description')->getStyle('J' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('K' . $row_start,'Location/ Position')->getStyle('K' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('L' . $row_start,'Mill/Supplier')->getStyle('L' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('M' . $row_start,'UOM')->getStyle('M' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('N' . $row_start,'Width')->getStyle('N' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('O' . $row_start,'Usage')->getStyle('O' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('P' . $row_start,'Wastage')->getStyle('P' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('Q' . $row_start,'Gross Yield')->getStyle('Q' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('R' . $row_start,'Unit Cost')->getStyle('R' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('S' . $row_start,'Handling')->getStyle('S' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('T' . $row_start,'Total')->getStyle('T' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('U' . $row_start,'Comment')->getStyle('U' . $row_start)->applyFromArray($style_head);
         for($w = 0;$w < $this->cost_sizes_count;$w++){
             $event->sheet->setCellValue($this->letters[$w].$row_start,$this->cost_sizes_head_name[$w])->getStyle($this->letters[$w].$row_start)->applyFromArray($style_head);
         }
@@ -624,20 +627,21 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
                 'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,'wrapText' => true,]]);
             $event->sheet->setCellValue('F' . $row_start,$data['cost_nominated'])->getStyle('F' . $row_start)->applyFromArray($style_data);
             $event->sheet->setCellValue('G' . $row_start,$data['cost_coo'])->getStyle('G' . $row_start)->applyFromArray($style_data);
-            $event->sheet->setCellValue('H' . $row_start,$data['cost_supplier_ref'])->getStyle('H' . $row_start)->applyFromArray($style_data);
-            $event->sheet->setCellValue('I' . $row_start,$data['cost_description'])->getStyle('I' . $row_start)->applyFromArray($style_data);
-            $event->sheet->setCellValue('J' . $row_start,$data['cost_location'])->getStyle('J' . $row_start)->applyFromArray($style_data);
-            $event->sheet->setCellValue('K' . $row_start,$data['cost_mill_supplier'])->getStyle('K' . $row_start)->applyFromArray($style_data);
-            $event->sheet->setCellValue('L' . $row_start,$data['cost_uom'])->getStyle('L' . $row_start)->applyFromArray($style_data);
-            $event->sheet->setCellValue('M' . $row_start,$data['cost_width'])->getStyle('M' . $row_start)->applyFromArray($style_data);
-            $event->sheet->setCellValue('N' . $row_start,$data['cost_usage'])->getStyle('N' . $row_start)->applyFromArray($style_data);
-            $event->sheet->setCellValue('O' . $row_start,($data['cost_wastage']/100))->getStyle('O' . $row_start)->applyFromArray($style_data);
-            $event->sheet->setCellValue('P' . $row_start,'=N'.$row_start. '*(O'.$row_start.')+N'.$row_start)->getStyle('P' . $row_start)->applyFromArray($style_data);
-            $event->sheet->setCellValue('Q' . $row_start,$data['cost_unit_cost'])->getStyle('Q' . $row_start)->applyFromArray($style_data);
-            $event->sheet->setCellValue('R' . $row_start,($data['cost_handling']/100))->getStyle('R' . $row_start)->applyFromArray($style_data);
-            $event->sheet->setCellValue('S' . $row_start,'=P'.$row_start.'*Q'.$row_start.'*(1+(R'.$row_start.'))')->getStyle('S' . $row_start)->applyFromArray($style_data)->applyFromArray(['alignment' => [
+            $event->sheet->setCellValue('H' . $row_start,$data['cost_customer_mtl'])->getStyle('H' . $row_start)->applyFromArray($style_data);
+            $event->sheet->setCellValue('I' . $row_start,$data['cost_supplier_mtl'])->getStyle('I' . $row_start)->applyFromArray($style_data);
+            $event->sheet->setCellValue('J' . $row_start,$data['cost_description'])->getStyle('J' . $row_start)->applyFromArray($style_data);
+            $event->sheet->setCellValue('K' . $row_start,$data['cost_location'])->getStyle('K' . $row_start)->applyFromArray($style_data);
+            $event->sheet->setCellValue('L' . $row_start,$data['cost_mill_supplier'])->getStyle('L' . $row_start)->applyFromArray($style_data);
+            $event->sheet->setCellValue('M' . $row_start,$data['cost_uom'])->getStyle('M' . $row_start)->applyFromArray($style_data);
+            $event->sheet->setCellValue('N' . $row_start,$data['cost_width'])->getStyle('N' . $row_start)->applyFromArray($style_data);
+            $event->sheet->setCellValue('O' . $row_start,$data['cost_usage'])->getStyle('O' . $row_start)->applyFromArray($style_data);
+            $event->sheet->setCellValue('P' . $row_start,($data['cost_wastage']/100))->getStyle('P' . $row_start)->applyFromArray($style_data);
+            $event->sheet->setCellValue('Q' . $row_start,'=O'.$row_start. '*(P'.$row_start.')+O'.$row_start)->getStyle('Q' . $row_start)->applyFromArray($style_data);
+            $event->sheet->setCellValue('R' . $row_start,$data['cost_unit_cost'])->getStyle('R' . $row_start)->applyFromArray($style_data);
+            $event->sheet->setCellValue('S' . $row_start,($data['cost_handling']/100))->getStyle('S' . $row_start)->applyFromArray($style_data);
+            $event->sheet->setCellValue('T' . $row_start,'=Q'.$row_start.'*R'.$row_start.'*(1+(S'.$row_start.'))')->getStyle('T' . $row_start)->applyFromArray($style_data)->applyFromArray(['alignment' => [
                 'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,'wrapText' => true,]]);;
-            $event->sheet->setCellValue('T' . $row_start,$data['cost_comment'])->getStyle('T' . $row_start)->applyFromArray($style_data);
+            $event->sheet->setCellValue('U' . $row_start,$data['cost_comment'])->getStyle('U' . $row_start)->applyFromArray($style_data);
 
             $a = 1;
             for($w = 0;$w < $this->cost_sizes_count;$w++){
@@ -672,9 +676,9 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
             ],
         ];
         $event->sheet->setCellValue('E' . $row_start,$string1.$string2)->getStyle('E' . $row_start)->applyFromArray($style_footer);
-        $event->sheet->setCellValue('M' . $row_start,$string1.' Total Cost - '. $string2)->getStyle('M' . $row_start)->applyFromArray($style_footer);
-        $event->sheet->setCellValue('S' . $row_start,'=SUBTOTAL(9,S'.$data_start.':S'.$data_end.')')->getStyle('S' . $row_start)->applyFromArray(['font' => ['bold'=>true]]);
-        $event->sheet->getStyle('B' . $row_start . ':T'. $row_start)->applyFromArray(['borders' => ['outline' => ['borderStyle' => Border::BORDER_THIN,],],
+        $event->sheet->setCellValue('N' . $row_start,$string1.' Total Cost - '. $string2)->getStyle('N' . $row_start)->applyFromArray($style_footer);
+        $event->sheet->setCellValue('T' . $row_start,'=SUBTOTAL(9,T'.$data_start.':T'.$data_end.')')->getStyle('T' . $row_start)->applyFromArray(['font' => ['bold'=>true]]);
+        $event->sheet->getStyle('B' . $row_start . ':U'. $row_start)->applyFromArray(['borders' => ['outline' => ['borderStyle' => Border::BORDER_THIN,],],
             'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'color' => ['argb' => '95fcb2']],]);
     }
 
@@ -692,9 +696,9 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
             ],
         ];
         $event->sheet->setCellValue('E' . $row_start,'Total Cost')->getStyle('E' . $row_start)->applyFromArray($style_total);
-        $event->sheet->setCellValue('M' . $row_start,'Total Cost - FOB')->getStyle('M' . $row_start)->applyFromArray($style_total);
-        $event->sheet->setCellValue('S' . $row_start,'=SUBTOTAL(9,S'.$fob_start.':S'.$fob_end.')')->getStyle('S' . $row_start)->applyFromArray($style_total)->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,],]);
-        $event->sheet->getStyle('B' . $row_start . ':T'. $row_start)->applyFromArray(['borders' => ['outline' => ['borderStyle' => Border::BORDER_THIN,],],
+        $event->sheet->setCellValue('N' . $row_start,'Total Cost - FOB')->getStyle('N' . $row_start)->applyFromArray($style_total);
+        $event->sheet->setCellValue('T' . $row_start,'=SUBTOTAL(9,T'.$fob_start.':T'.$fob_end.')')->getStyle('T' . $row_start)->applyFromArray($style_total)->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,],]);
+        $event->sheet->getStyle('B' . $row_start . ':U'. $row_start)->applyFromArray(['borders' => ['outline' => ['borderStyle' => Border::BORDER_THIN,],],
             'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'color' => ['argb' => '7ab2ff']],]);
 
     }
@@ -723,7 +727,7 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
             ],
         ];
 
-        $event->sheet->mergeCells('N'.$this->cost_bottom_row_start.':T'.$this->cost_bottom_row_start);
+        $event->sheet->mergeCells('N'.$this->cost_bottom_row_start.':U'.$this->cost_bottom_row_start);
         $event->sheet->mergeCells('O'.($this->cost_bottom_row_start+1).':R'.($this->cost_bottom_row_start+1));
         $event->sheet->mergeCells('O'.($this->cost_bottom_row_start+2).':R'.($this->cost_bottom_row_start+2));
         $event->sheet->mergeCells('O'.($this->cost_bottom_row_start+3).':R'.($this->cost_bottom_row_start+3));
@@ -738,10 +742,24 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
         $event->sheet->mergeCells('O'.($this->cost_bottom_row_start+12).':R'.($this->cost_bottom_row_start+12));
         $event->sheet->mergeCells('O'.($this->cost_bottom_row_start+13).':R'.($this->cost_bottom_row_start+13));
 
+        $event->sheet->mergeCells('S'.($this->cost_bottom_row_start+1).':T'.($this->cost_bottom_row_start+1));
+        $event->sheet->mergeCells('S'.($this->cost_bottom_row_start+2).':T'.($this->cost_bottom_row_start+2));
+        $event->sheet->mergeCells('S'.($this->cost_bottom_row_start+3).':T'.($this->cost_bottom_row_start+3));
+        $event->sheet->mergeCells('S'.($this->cost_bottom_row_start+4).':T'.($this->cost_bottom_row_start+4));
+        $event->sheet->mergeCells('S'.($this->cost_bottom_row_start+5).':T'.($this->cost_bottom_row_start+5));
+        $event->sheet->mergeCells('S'.($this->cost_bottom_row_start+6).':T'.($this->cost_bottom_row_start+6));
+        $event->sheet->mergeCells('S'.($this->cost_bottom_row_start+7).':T'.($this->cost_bottom_row_start+7));
+        $event->sheet->mergeCells('S'.($this->cost_bottom_row_start+8).':T'.($this->cost_bottom_row_start+8));
+        $event->sheet->mergeCells('S'.($this->cost_bottom_row_start+9).':T'.($this->cost_bottom_row_start+9));
+        $event->sheet->mergeCells('S'.($this->cost_bottom_row_start+10).':T'.($this->cost_bottom_row_start+10));
+        $event->sheet->mergeCells('S'.($this->cost_bottom_row_start+11).':T'.($this->cost_bottom_row_start+11));
+        $event->sheet->mergeCells('S'.($this->cost_bottom_row_start+12).':T'.($this->cost_bottom_row_start+12));
+        $event->sheet->mergeCells('S'.($this->cost_bottom_row_start+13).':T'.($this->cost_bottom_row_start+13));
+
         $event->sheet->setCellValue('N' . $this->cost_bottom_row_start,'COSTING SHEET BREAKDOWN')
-            ->getStyle('N'.$this->cost_bottom_row_start.':T'.$this->cost_bottom_row_start)->applyFromArray($style_summary);
-        $event->sheet->getStyle('N' . ($this->cost_bottom_row_start+1) . ':T'. ($this->cost_bottom_second_row_start-2))->applyFromArray($style_summary);
-        $event->sheet->getStyle('N' . ($this->cost_bottom_second_row_start-1) . ':T'. ($this->cost_bottom_second_row_start-1))->applyFromArray($style_summary);
+            ->getStyle('N'.$this->cost_bottom_row_start.':U'.$this->cost_bottom_row_start)->applyFromArray($style_summary);
+        $event->sheet->getStyle('N' . ($this->cost_bottom_row_start+1) . ':U'. ($this->cost_bottom_second_row_start-2))->applyFromArray($style_summary);
+        $event->sheet->getStyle('N' . ($this->cost_bottom_second_row_start-1) . ':U'. ($this->cost_bottom_second_row_start-1))->applyFromArray($style_summary);
 
         $event->sheet->setCellValue('N' . ($this->cost_bottom_row_start+1),1);
         $event->sheet->setCellValue('O' . ($this->cost_bottom_row_start+1),'FABRIC')->getStyle('O' . ($this->cost_bottom_row_start+1))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,]]);
@@ -790,21 +808,21 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
                 'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,],
                 'font' => ['size' => 10, 'bold' => true, 'color' => ['argb' => '3a05fa'],],]);
 
-        $event->sheet->setCellValue('T' . ($this->cost_bottom_row_start+1),'=S'. ($this->cost_bottom_row_start+1).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+1))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('T' . ($this->cost_bottom_row_start+2),'=S'. ($this->cost_bottom_row_start+2).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+2))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('T' . ($this->cost_bottom_row_start+3),'=S'. ($this->cost_bottom_row_start+3).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+3))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('T' . ($this->cost_bottom_row_start+4),'=S'. ($this->cost_bottom_row_start+4).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+4))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('T' . ($this->cost_bottom_row_start+5),'=S'. ($this->cost_bottom_row_start+5).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+5))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('T' . ($this->cost_bottom_row_start+6),'=S'. ($this->cost_bottom_row_start+6).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+6))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('T' . ($this->cost_bottom_row_start+7),'=S'. ($this->cost_bottom_row_start+7).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+7))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('T' . ($this->cost_bottom_row_start+8),'=S'. ($this->cost_bottom_row_start+8).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+8))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('T' . ($this->cost_bottom_row_start+9),'=S'. ($this->cost_bottom_row_start+9).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+9))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('T' . ($this->cost_bottom_row_start+10),'=S'. ($this->cost_bottom_row_start+10).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+10))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('T' . ($this->cost_bottom_row_start+11),'=S'. ($this->cost_bottom_row_start+11).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+11))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('T' . ($this->cost_bottom_row_start+12),'=S'. ($this->cost_bottom_row_start+12).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+12))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
-        $event->sheet->setCellValue('T' . ($this->cost_bottom_row_start+13),'=SUM(T'.($this->cost_bottom_row_start+1).':T'.($this->cost_bottom_row_start+12).')')
-            ->getStyle('T' . ($this->cost_bottom_row_start+13))->applyFromArray([
-                'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,],
+        $event->sheet->setCellValue('U' . ($this->cost_bottom_row_start+1),'=S'. ($this->cost_bottom_row_start+1).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+1))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('U' . ($this->cost_bottom_row_start+2),'=S'. ($this->cost_bottom_row_start+2).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+2))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('U' . ($this->cost_bottom_row_start+3),'=S'. ($this->cost_bottom_row_start+3).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+3))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('U' . ($this->cost_bottom_row_start+4),'=S'. ($this->cost_bottom_row_start+4).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+4))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('U' . ($this->cost_bottom_row_start+5),'=S'. ($this->cost_bottom_row_start+5).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+5))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('U' . ($this->cost_bottom_row_start+6),'=S'. ($this->cost_bottom_row_start+6).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+6))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('U' . ($this->cost_bottom_row_start+7),'=S'. ($this->cost_bottom_row_start+7).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+7))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('U' . ($this->cost_bottom_row_start+8),'=S'. ($this->cost_bottom_row_start+8).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+8))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('U' . ($this->cost_bottom_row_start+9),'=S'. ($this->cost_bottom_row_start+9).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+9))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('U' . ($this->cost_bottom_row_start+10),'=S'. ($this->cost_bottom_row_start+10).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+10))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('U' . ($this->cost_bottom_row_start+11),'=S'. ($this->cost_bottom_row_start+11).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+11))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('U' . ($this->cost_bottom_row_start+12),'=S'. ($this->cost_bottom_row_start+12).'/S'.($this->cost_bottom_row_start+13))->getStyle('T' . ($this->cost_bottom_row_start+12))->applyFromArray(['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,]]);
+        $event->sheet->setCellValue('U' . ($this->cost_bottom_row_start+13),'=SUM(U'.($this->cost_bottom_row_start+1).':U'.($this->cost_bottom_row_start+12).')')
+            ->getStyle('U' . ($this->cost_bottom_row_start+13))->applyFromArray([
+
                 'font' => ['size' => 10, 'bold' => true, 'color' => ['argb' => '3a05fa'],],]);
 
     }
@@ -1077,21 +1095,30 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
         $event->sheet->mergeCells('O'.($this->cost_bottom_second_row_start).':R'.($this->cost_bottom_second_row_start));
         $event->sheet->mergeCells('O'.($this->cost_bottom_second_row_start+1).':R'.($this->cost_bottom_second_row_start+1));
         $event->sheet->mergeCells('O'.($this->cost_bottom_second_row_start+2).':R'.($this->cost_bottom_second_row_start+2));
-        $event->sheet->mergeCells('N'.($this->cost_bottom_second_row_start+3).':T'.($this->cost_bottom_second_row_start+3));
-        $event->sheet->mergeCells('N'.($this->cost_bottom_second_row_start+8).':T'.($this->cost_bottom_second_row_start+8));
+        $event->sheet->mergeCells('N'.($this->cost_bottom_second_row_start+3).':U'.($this->cost_bottom_second_row_start+3));
+        $event->sheet->mergeCells('N'.($this->cost_bottom_second_row_start+8).':U'.($this->cost_bottom_second_row_start+8));
 
-        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start).':T'.($this->cost_bottom_second_row_start))->applyFromArray(['borders' => [
+        $event->sheet->mergeCells('N'.($this->cost_bottom_second_row_start+4).':O'.($this->cost_bottom_second_row_start+4));
+        $event->sheet->mergeCells('N'.($this->cost_bottom_second_row_start+5).':O'.($this->cost_bottom_second_row_start+5));
+        $event->sheet->mergeCells('N'.($this->cost_bottom_second_row_start+6).':O'.($this->cost_bottom_second_row_start+6));
+        $event->sheet->mergeCells('N'.($this->cost_bottom_second_row_start+7).':O'.($this->cost_bottom_second_row_start+7));
+
+        $event->sheet->mergeCells('S'.($this->cost_bottom_second_row_start).':T'.($this->cost_bottom_second_row_start));
+        $event->sheet->mergeCells('S'.($this->cost_bottom_second_row_start+1).':T'.($this->cost_bottom_second_row_start+1));
+        $event->sheet->mergeCells('S'.($this->cost_bottom_second_row_start+2).':T'.($this->cost_bottom_second_row_start+2));
+
+        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start).':U'.($this->cost_bottom_second_row_start))->applyFromArray(['borders' => [
             'outline' => ['borderStyle' => Border::BORDER_THIN,],],]);
-        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+1).':T'.($this->cost_bottom_second_row_start+1))->applyFromArray(['borders' => [
+        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+1).':U'.($this->cost_bottom_second_row_start+1))->applyFromArray(['borders' => [
             'outline' => ['borderStyle' => Border::BORDER_THIN,],],]);
-        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+2).':T'.($this->cost_bottom_second_row_start+2))->applyFromArray(['borders' => [
+        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+2).':U'.($this->cost_bottom_second_row_start+2))->applyFromArray(['borders' => [
             'outline' => ['borderStyle' => Border::BORDER_THIN,],],]);
-        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+3).':T'.($this->cost_bottom_second_row_start+10))->applyFromArray(['borders' => [
+        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+3).':U'.($this->cost_bottom_second_row_start+10))->applyFromArray(['borders' => [
             'outline' => ['borderStyle' => Border::BORDER_THIN,],],]);
 
-        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+3).':T'.($this->cost_bottom_second_row_start+3))->applyFromArray($style_moq);
-        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+8).':T'.($this->cost_bottom_second_row_start+8))->applyFromArray($style_moq);
-        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+6).':T'.($this->cost_bottom_second_row_start+6))->applyFromArray(['fill' => [
+        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+3).':U'.($this->cost_bottom_second_row_start+3))->applyFromArray($style_moq);
+        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+8).':U'.($this->cost_bottom_second_row_start+8))->applyFromArray($style_moq);
+        $event->sheet->getStyle('N'.($this->cost_bottom_second_row_start+6).':U'.($this->cost_bottom_second_row_start+6))->applyFromArray(['fill' => [
             'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
             'color' => ['argb' => '95fcb2']],]);
 
@@ -1107,8 +1134,8 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
 
         $event->sheet->setCellValue('S'.($this->cost_bottom_second_row_start),$material_cost);
         $event->sheet->setCellValue('S'.($this->cost_bottom_second_row_start+1),'=S'.($this->cost_bottom_row_start+12));
-        $event->sheet->setCellValue('T'.($this->cost_bottom_second_row_start),$material_cost_percent);
-        $event->sheet->setCellValue('T'.($this->cost_bottom_second_row_start+1),$lop_percent);
+        $event->sheet->setCellValue('U'.($this->cost_bottom_second_row_start),$material_cost_percent);
+        $event->sheet->setCellValue('U'.($this->cost_bottom_second_row_start+1),$lop_percent);
 
         $event->sheet->setCellValue('N'.($this->cost_bottom_second_row_start+3),'MOQ - PRODUCTION');
         $event->sheet->setCellValue('N'.($this->cost_bottom_second_row_start+8),'MOQ - FABRIC');
@@ -1117,33 +1144,33 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
         $event->sheet->setCellValue('N'.($this->cost_bottom_second_row_start+6),'FOB');
         $event->sheet->setCellValue('N'.($this->cost_bottom_second_row_start+9),'1. Fabric MOQ will be applied based on the order QTY, and fabric/trim MOQ.');
 
-        $event->sheet->setCellValue('O'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_1']);
-        $event->sheet->setCellValue('P'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_2']);
-        $event->sheet->setCellValue('Q'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_3']);
-        $event->sheet->setCellValue('R'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_4']);
-        $event->sheet->setCellValue('S'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_5']);
-        $event->sheet->setCellValue('T'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_6']);
+        $event->sheet->setCellValue('P'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_1']);
+        $event->sheet->setCellValue('Q'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_2']);
+        $event->sheet->setCellValue('R'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_3']);
+        $event->sheet->setCellValue('S'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_4']);
+        $event->sheet->setCellValue('T'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_5']);
+        $event->sheet->setCellValue('U'.($this->cost_bottom_second_row_start+4),$this->costing_sheet['cost_moqs'][0]['cost_qty_pcs_6']);
 
-        $event->sheet->setCellValue('O'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_1']/100));
-        $event->sheet->setCellValue('P'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_2']/100));
-        $event->sheet->setCellValue('Q'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_3']/100));
-        $event->sheet->setCellValue('R'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_4']/100));
-        $event->sheet->setCellValue('S'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_5']/100));
-        $event->sheet->setCellValue('T'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_6']/100));
+        $event->sheet->setCellValue('P'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_1']/100));
+        $event->sheet->setCellValue('Q'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_2']/100));
+        $event->sheet->setCellValue('R'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_3']/100));
+        $event->sheet->setCellValue('S'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_4']/100));
+        $event->sheet->setCellValue('T'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_5']/100));
+        $event->sheet->setCellValue('U'.($this->cost_bottom_second_row_start+5),($this->costing_sheet['cost_moqs'][0]['cost_upcharge_6']/100));
 
-        $fob_1 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'O'.($this->cost_bottom_second_row_start+5) . ')';
-        $fob_2 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'P'.($this->cost_bottom_second_row_start+5). ')';
-        $fob_3 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'Q'.($this->cost_bottom_second_row_start+5). ')';
-        $fob_4 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'R'.($this->cost_bottom_second_row_start+5). ')';
-        $fob_5 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'S'.($this->cost_bottom_second_row_start+5). ')';
-        $fob_6 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'T'.($this->cost_bottom_second_row_start+5). ')';
+        $fob_1 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'P'.($this->cost_bottom_second_row_start+5) . ')';
+        $fob_2 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'Q'.($this->cost_bottom_second_row_start+5). ')';
+        $fob_3 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'R'.($this->cost_bottom_second_row_start+5). ')';
+        $fob_4 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'S'.($this->cost_bottom_second_row_start+5). ')';
+        $fob_5 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'T'.($this->cost_bottom_second_row_start+5). ')';
+        $fob_6 = '=S'.($this->cost_bottom_row_start+13). '*(1+'. 'U'.($this->cost_bottom_second_row_start+5). ')';
 
-        $event->sheet->setCellValue('O'.($this->cost_bottom_second_row_start+6),$fob_1);
-        $event->sheet->setCellValue('P'.($this->cost_bottom_second_row_start+6),$fob_2);
-        $event->sheet->setCellValue('Q'.($this->cost_bottom_second_row_start+6),$fob_3);
-        $event->sheet->setCellValue('R'.($this->cost_bottom_second_row_start+6),$fob_4);
-        $event->sheet->setCellValue('S'.($this->cost_bottom_second_row_start+6),$fob_5);
-        $event->sheet->setCellValue('T'.($this->cost_bottom_second_row_start+6),$fob_6);
+        $event->sheet->setCellValue('P'.($this->cost_bottom_second_row_start+6),$fob_1);
+        $event->sheet->setCellValue('Q'.($this->cost_bottom_second_row_start+6),$fob_2);
+        $event->sheet->setCellValue('R'.($this->cost_bottom_second_row_start+6),$fob_3);
+        $event->sheet->setCellValue('S'.($this->cost_bottom_second_row_start+6),$fob_4);
+        $event->sheet->setCellValue('T'.($this->cost_bottom_second_row_start+6),$fob_5);
+        $event->sheet->setCellValue('U'.($this->cost_bottom_second_row_start+6),$fob_6);
     }
 
     public function drawings()

@@ -696,7 +696,7 @@ function getPackageRow(){
             '                                    <input value="'+getCategoryValue('location',cost_packages[x-1],'')+'" type="text" id="costing_package_location'+x+'" name="costing_package_location'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('supplier_ref',cost_packages[x-1],'')+'" type="text" id="costing_package_supplier_ref'+x+'" name="costing_package_supplier_ref'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('mill_supplier',cost_packages[x-1],'')+'" type="text" id="costing_package_mill_supplier'+x+'" name="costing_package_mill_supplier'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_package_uom'+x+'"   name="costing_package_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +

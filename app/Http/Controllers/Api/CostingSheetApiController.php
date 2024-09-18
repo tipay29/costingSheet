@@ -456,7 +456,7 @@ class CostingSheetApiController extends Controller
             'cost_version' =>  request()->costing_version,
             'cost_special_cons' =>  request()->costing_special_construction,
             'cost_gender' =>  request()->costing_gender,
-            'cost_age_group' =>  request()->costing_gender_age_group,
+            'cost_size_code' =>  request()->costing_size_code,
             'cost_costing_size' =>  request()->costing_size,
             'cost_style' =>  request()->costing_style,
             'cost_style_name' =>  request()->costing_style_name,
