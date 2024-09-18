@@ -472,7 +472,7 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
         $event->sheet->setCellValue('F4','VERSION :')->getStyle('F4')->applyFromArray($style_header_name);
         $event->sheet->setCellValue('F5','SPECIAL CONSTRUCTION :')->getStyle('F5')->applyFromArray($style_header_name)->applyFromArray(['font'=>['size'=>6]]);
         $event->sheet->setCellValue('F6','GENDER :')->getStyle('F6')->applyFromArray($style_header_name);
-        $event->sheet->setCellValue('F7','GENDER AGE GROUP :')->getStyle('F7')->applyFromArray($style_header_name);
+        $event->sheet->setCellValue('F7','SIZE CODES :')->getStyle('F7')->applyFromArray($style_header_name);
         $event->sheet->setCellValue('F8','COSTING SIZE :')->getStyle('F8')->applyFromArray($style_header_name);
 
         $event->sheet->setCellValue('H3',$this->costing_sheet->cost_division);
