@@ -120,6 +120,8 @@ function getTrimRow(){
     let x = 1;
     sessionStorage.setItem("costing_trim_row_ids", ((parseInt(before_row_count)+1) + '-'+ trim_row_count));
     $('#costing_trim_row_names').val((parseInt(before_row_count)+1) + '-'+ trim_row_count);
+    console.log(before_row_count+1);
+    console.log(trim_row_count);
     for (let i = before_row_count+1; i <= trim_row_count; i++) {
         let item_no = i.toString();
 
@@ -160,13 +162,13 @@ function getTrimRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_trim_uom'+x+'"   name="costing_trim_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
-            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_trims[i-1]) + '>MM</option>\n' +
-            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_trims[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_trims[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_trims[i-1])+'>IN</option>\n' +
-            '                                                <option value="FT" '+getSelectedUOM('FT',cost_trims[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_trims[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_trims[i-1])+'>CM2</option>\n' +
-            '                                                <option value="M2" '+getSelectedUOM('M2',cost_trims[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_trims[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_trims[i-1])+'>f\'t2</option>\n' +
-            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_trims[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_trims[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_trims[i-1])+'>PCS</option>\n' +
-            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_trims[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_trims[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_trims[i-1])+'>UNIT</option>\n' +
-            '                                               <option value="GM" '+getSelectedUOM('GM',cost_trims[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_trims[i-1])+'>KG</option>' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_trims[x-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_trims[x-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_trims[x-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_trims[x-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_trims[x-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_trims[x-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_trims[x-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_trims[x-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_trims[x-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_trims[x-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_trims[x-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_trims[x-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_trims[x-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_trims[x-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_trims[x-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_trims[x-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_trims[x-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_trims[x-1])+'>KG</option>' +
             '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -263,13 +265,13 @@ function getZipperRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_zipper_uom'+x+'"   name="costing_zipper_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
-            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_zippers[i-1]) + '>MM</option>\n' +
-            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_zippers[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_zippers[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_zippers[i-1])+'>IN</option>\n' +
-            '                                                <option value="FT" '+getSelectedUOM('FT',cost_zippers[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_zippers[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_zippers[i-1])+'>CM2</option>\n' +
-            '                                                <option value="M2" '+getSelectedUOM('M2',cost_zippers[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_zippers[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_zippers[i-1])+'>f\'t2</option>\n' +
-            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_zippers[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_zippers[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_zippers[i-1])+'>PCS</option>\n' +
-            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_zippers[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_zippers[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_zippers[i-1])+'>UNIT</option>\n' +
-            '                                               <option value="GM" '+getSelectedUOM('GM',cost_zippers[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_zippers[i-1])+'>KG</option>' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_zippers[x-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_zippers[x-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_zippers[x-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_zippers[x-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_zippers[x-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_zippers[x-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_zippers[x-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_zippers[x-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_zippers[x-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_zippers[x-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_zippers[x-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_zippers[x-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_zippers[x-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_zippers[x-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_zippers[x-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_zippers[x-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_zippers[x-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_zippers[x-1])+'>KG</option>' +
             '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -373,13 +375,13 @@ function getEmbelishmentRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_embelishment_uom'+x+'"   name="costing_embelishment_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
-            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_embelishments[i-1]) + '>MM</option>\n' +
-            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_embelishments[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_embelishments[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_embelishments[i-1])+'>IN</option>\n' +
-            '                                                <option value="FT" '+getSelectedUOM('FT',cost_embelishments[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_embelishments[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_embelishments[i-1])+'>CM2</option>\n' +
-            '                                                <option value="M2" '+getSelectedUOM('M2',cost_embelishments[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_embelishments[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_embelishments[i-1])+'>f\'t2</option>\n' +
-            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_embelishments[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_embelishments[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_embelishments[i-1])+'>PCS</option>\n' +
-            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_embelishments[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_embelishments[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_embelishments[i-1])+'>UNIT</option>\n' +
-            '                                               <option value="GM" '+getSelectedUOM('GM',cost_embelishments[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_embelishments[i-1])+'>KG</option>' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_embelishments[x-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_embelishments[x-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_embelishments[x-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_embelishments[x-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_embelishments[x-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_embelishments[x-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_embelishments[x-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_embelishments[x-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_embelishments[x-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_embelishments[x-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_embelishments[x-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_embelishments[x-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_embelishments[x-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_embelishments[x-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_embelishments[x-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_embelishments[x-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_embelishments[x-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_embelishments[x-1])+'>KG</option>' +
             '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -480,13 +482,13 @@ function getLabelRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_label_uom'+x+'"   name="costing_label_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
-            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_labels[i-1]) + '>MM</option>\n' +
-            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_labels[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_labels[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_labels[i-1])+'>IN</option>\n' +
-            '                                                <option value="FT" '+getSelectedUOM('FT',cost_labels[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_labels[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_labels[i-1])+'>CM2</option>\n' +
-            '                                                <option value="M2" '+getSelectedUOM('M2',cost_labels[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_labels[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_labels[i-1])+'>f\'t2</option>\n' +
-            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_labels[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_labels[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_labels[i-1])+'>PCS</option>\n' +
-            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_labels[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_labels[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_labels[i-1])+'>UNIT</option>\n' +
-            '                                               <option value="GM" '+getSelectedUOM('GM',cost_labels[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_labels[i-1])+'>KG</option>' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_labels[x-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_labels[x-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_labels[x-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_labels[x-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_labels[x-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_labels[x-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_labels[x-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_labels[x-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_labels[x-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_labels[x-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_labels[x-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_labels[x-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_labels[x-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_labels[x-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_labels[x-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_labels[x-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_labels[x-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_labels[x-1])+'>KG</option>' +
             '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -589,13 +591,13 @@ function getThreadRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_thread_uom'+x+'"   name="costing_thread_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
-            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_threads[i-1]) + '>MM</option>\n' +
-            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_threads[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_threads[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_threads[i-1])+'>IN</option>\n' +
-            '                                                <option value="FT" '+getSelectedUOM('FT',cost_threads[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_threads[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_threads[i-1])+'>CM2</option>\n' +
-            '                                                <option value="M2" '+getSelectedUOM('M2',cost_threads[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_threads[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_threads[i-1])+'>f\'t2</option>\n' +
-            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_threads[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_threads[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_threads[i-1])+'>PCS</option>\n' +
-            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_threads[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_threads[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_threads[i-1])+'>UNIT</option>\n' +
-            '                                               <option value="GM" '+getSelectedUOM('GM',cost_threads[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_threads[i-1])+'>KG</option>' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_threads[x-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_threads[x-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_threads[x-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_threads[x-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_threads[x-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_threads[x-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_threads[x-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_threads[x-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_threads[x-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_threads[x-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_threads[x-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_threads[x-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_threads[x-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_threads[x-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_threads[x-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_threads[x-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_threads[x-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_threads[x-1])+'>KG</option>' +
             '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -700,13 +702,13 @@ function getPackageRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_package_uom'+x+'"   name="costing_package_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
-            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_packages[i-1]) + '>MM</option>\n' +
-            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_packages[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_packages[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_packages[i-1])+'>IN</option>\n' +
-            '                                                <option value="FT" '+getSelectedUOM('FT',cost_packages[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_packages[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_packages[i-1])+'>CM2</option>\n' +
-            '                                                <option value="M2" '+getSelectedUOM('M2',cost_packages[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_packages[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_packages[i-1])+'>f\'t2</option>\n' +
-            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_packages[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_packages[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_packages[i-1])+'>PCS</option>\n' +
-            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_packages[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_packages[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_packages[i-1])+'>UNIT</option>\n' +
-            '                                               <option value="GM" '+getSelectedUOM('GM',cost_packages[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_packages[i-1])+'>KG</option>' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_packages[x-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_packages[x-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_packages[x-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_packages[x-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_packages[x-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_packages[x-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_packages[x-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_packages[x-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_packages[x-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_packages[x-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_packages[x-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_packages[x-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_packages[x-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_packages[x-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_packages[x-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_packages[x-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_packages[x-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_packages[x-1])+'>KG</option>' +
             '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -813,13 +815,13 @@ function getFinishRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_finish_uom'+x+'"   name="costing_finish_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
-            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_finishes[i-1]) + '>MM</option>\n' +
-            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_finishes[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_finishes[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_finishes[i-1])+'>IN</option>\n' +
-            '                                                <option value="FT" '+getSelectedUOM('FT',cost_finishes[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_finishes[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_finishes[i-1])+'>CM2</option>\n' +
-            '                                                <option value="M2" '+getSelectedUOM('M2',cost_finishes[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_finishes[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_finishes[i-1])+'>f\'t2</option>\n' +
-            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_finishes[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_finishes[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_finishes[i-1])+'>PCS</option>\n' +
-            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_finishes[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_finishes[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_finishes[i-1])+'>UNIT</option>\n' +
-            '                                               <option value="GM" '+getSelectedUOM('GM',cost_finishes[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_finishes[i-1])+'>KG</option>' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_finishes[x-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_finishes[x-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_finishes[x-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_finishes[x-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_finishes[x-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_finishes[x-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_finishes[x-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_finishes[x-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_finishes[x-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_finishes[x-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_finishes[x-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_finishes[x-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_finishes[x-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_finishes[x-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_finishes[x-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_finishes[x-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_finishes[x-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_finishes[x-1])+'>KG</option>' +
             '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -928,13 +930,13 @@ function getExportRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_export_uom'+x+'"   name="costing_export_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
-            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_exports[i-1]) + '>MM</option>\n' +
-            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_exports[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_exports[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_exports[i-1])+'>IN</option>\n' +
-            '                                                <option value="FT" '+getSelectedUOM('FT',cost_exports[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_exports[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_exports[i-1])+'>CM2</option>\n' +
-            '                                                <option value="M2" '+getSelectedUOM('M2',cost_exports[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_exports[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_exports[i-1])+'>f\'t2</option>\n' +
-            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_exports[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_exports[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_exports[i-1])+'>PCS</option>\n' +
-            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_exports[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_exports[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_exports[i-1])+'>UNIT</option>\n' +
-            '                                               <option value="GM" '+getSelectedUOM('GM',cost_exports[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_exports[i-1])+'>KG</option>' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_exports[x-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_exports[x-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_exports[x-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_exports[x-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_exports[x-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_exports[x-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_exports[x-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_exports[x-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_exports[x-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_exports[x-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_exports[x-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_exports[x-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_exports[x-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_exports[x-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_exports[x-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_exports[x-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_exports[x-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_exports[x-1])+'>KG</option>' +
             '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -1045,13 +1047,13 @@ function getTestingRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_testing_uom'+x+'"   name="costing_testing_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
-            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_testings[i-1]) + '>MM</option>\n' +
-            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_testings[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_testings[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_testings[i-1])+'>IN</option>\n' +
-            '                                                <option value="FT" '+getSelectedUOM('FT',cost_testings[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_testings[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_testings[i-1])+'>CM2</option>\n' +
-            '                                                <option value="M2" '+getSelectedUOM('M2',cost_testings[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_testings[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_testings[i-1])+'>f\'t2</option>\n' +
-            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_testings[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_testings[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_testings[i-1])+'>PCS</option>\n' +
-            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_testings[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_testings[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_testings[i-1])+'>UNIT</option>\n' +
-            '                                               <option value="GM" '+getSelectedUOM('GM',cost_testings[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_testings[i-1])+'>KG</option>' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_testings[x-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_testings[x-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_testings[x-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_testings[x-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_testings[x-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_testings[x-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_testings[x-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_testings[x-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_testings[x-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_testings[x-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_testings[x-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_testings[x-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_testings[x-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_testings[x-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_testings[x-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_testings[x-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_testings[x-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_testings[x-1])+'>KG</option>' +
             '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -1164,13 +1166,13 @@ function getOtherRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_other_uom'+x+'"   name="costing_other_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
-            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_others[i-1]) + '>MM</option>\n' +
-            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_others[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_others[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_others[i-1])+'>IN</option>\n' +
-            '                                                <option value="FT" '+getSelectedUOM('FT',cost_others[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_others[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_others[i-1])+'>CM2</option>\n' +
-            '                                                <option value="M2" '+getSelectedUOM('M2',cost_others[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_others[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_others[i-1])+'>f\'t2</option>\n' +
-            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_others[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_others[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_others[i-1])+'>PCS</option>\n' +
-            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_others[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_others[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_others[i-1])+'>UNIT</option>\n' +
-            '                                               <option value="GM" '+getSelectedUOM('GM',cost_others[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_others[i-1])+'>KG</option>' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_others[x-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_others[x-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_others[x-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_others[x-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_others[x-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_others[x-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_others[x-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_others[x-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_others[x-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_others[x-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_others[x-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_others[x-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_others[x-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_others[x-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_others[x-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_others[x-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_others[x-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_others[x-1])+'>KG</option>' +
             '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -1285,13 +1287,13 @@ function getLaborRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                      <select id="costing_labor_uom'+x+'"   name="costing_labor_uom'+x+'" class="css-select-costing-table css-select-costing-table-uom">' +
-            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_labors[i-1]) + '>MM</option>\n' +
-            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_labors[i-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_labors[i-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_labors[i-1])+'>IN</option>\n' +
-            '                                                <option value="FT" '+getSelectedUOM('FT',cost_labors[i-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_labors[i-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_labors[i-1])+'>CM2</option>\n' +
-            '                                                <option value="M2" '+getSelectedUOM('M2',cost_labors[i-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_labors[i-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_labors[i-1])+'>f\'t2</option>\n' +
-            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_labors[i-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_labors[i-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_labors[i-1])+'>PCS</option>\n' +
-            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_labors[i-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_labors[i-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_labors[i-1])+'>UNIT</option>\n' +
-            '                                               <option value="GM" '+getSelectedUOM('GM',cost_labors[i-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_labors[i-1])+'>KG</option>' +
+            '                                                <option value="MM" ' + getSelectedUOM('MM',cost_labors[x-1]) + '>MM</option>\n' +
+            '                                                <option value="CM"  '+getSelectedUOM('CM',cost_labors[x-1])+'>CM</option><option value="M"  '+getSelectedUOM('M',cost_labors[x-1])+'>M</option><option value="IN" '+getSelectedUOM('IN',cost_labors[x-1])+'>IN</option>\n' +
+            '                                                <option value="FT" '+getSelectedUOM('FT',cost_labors[x-1])+'>FT</option><option value="YD" '+getSelectedUOM('YD',cost_labors[x-1])+'>YD</option><option value="CM2" '+getSelectedUOM('CM2',cost_labors[x-1])+'>CM2</option>\n' +
+            '                                                <option value="M2" '+getSelectedUOM('M2',cost_labors[x-1])+'>M2</option><option value="in2" '+getSelectedUOM('in2',cost_labors[x-1])+'>in2</option><option value="f\'t2" '+getSelectedUOM('f\'t2',cost_labors[x-1])+'>f\'t2</option>\n' +
+            '                                                <option value="EA"  '+getSelectedUOM('EA',cost_labors[x-1])+'>EA</option><option value="Pair" '+getSelectedUOM('Pair',cost_labors[x-1])+'>Pair</option><option value="PCS" '+getSelectedUOM('PCS',cost_labors[x-1])+'>PCS</option>\n' +
+            '                                                <option value="ROLL" '+getSelectedUOM('ROLL',cost_labors[x-1])+'>ROLL</option><option value="SET" '+getSelectedUOM('SET',cost_labors[x-1])+'>SET</option><option value="UNIT" '+getSelectedUOM('UNIT',cost_labors[x-1])+'>UNIT</option>\n' +
+            '                                               <option value="GM" '+getSelectedUOM('GM',cost_labors[x-1])+'>GM</option><option value="KG" '+getSelectedUOM('KG',cost_labors[x-1])+'>KG</option>' +
             '                                       </select>' +
             '                                     </td>' +
             '                                    <td>\n' +

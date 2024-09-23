@@ -54,65 +54,77 @@ costing_add_fabric_row_btn.click(function(e){
     let fabric_row_tds = '' +
         '   <tr class="costing_fabric_data" id="costing_fabric_tr'+fabric_row_string+'">\n' +
         '                                    <td  id="costing_fabric_tr_tds'+fabric_row_string+'">' +
-        '                                    <input type="checkbox" id="costing_fabric_cb'+fabric_row_string+'" name="costing_fabric_cb'+fabric_row_string+'" class="css-costing-cb" >'+fabric_row_string.padStart(3,"0")+
+        '                                    <input style="display:none;"   type="checkbox" id="costing_fabric_cb'+fabric_row_string+'" name="costing_fabric_cb'+fabric_row_string+'" class="css-costing-cb costing_fabric_cb" >'+fabric_row_string.padStart(3,"0")+
         '                                    </td>\n' +
-        '                                    <td>\n' +
-        '                                    <input type="text" id="costing_fabric_component'+fabric_row_string+'" name="costing_fabric_component'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <td >\n' +
+        '                                    <input   type="text" id="costing_fabric_component'+fabric_row_string+'" name="costing_fabric_component'+fabric_row_string+'" value="" class=" css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_fabric_material_id'+fabric_row_string+'" name="costing_fabric_material_id'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input   type="text" id="costing_fabric_material_id'+fabric_row_string+'" name="costing_fabric_material_id'+fabric_row_string+'" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_fabric_categories'+fabric_row_string+'" name="costing_fabric_categories'+fabric_row_string+'" value="Fabric" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
+        '                                    <input   type="text" id="costing_fabric_categories'+fabric_row_string+'" name="costing_fabric_categories'+fabric_row_string+'" value="Fabric" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_fabric_nominated'+fabric_row_string+'" name="costing_fabric_nominated'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input  type="text" id="costing_fabric_nominated'+fabric_row_string+'" name="costing_fabric_nominated'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_fabric_coo'+fabric_row_string+'" name="costing_fabric_coo'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input  type="text" id="costing_fabric_coo'+fabric_row_string+'" name="costing_fabric_coo'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_fabric_supplier_ref'+fabric_row_string+'" name="costing_fabric_supplier_ref'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input  type="text" id="costing_fabric_customer_mtl'+fabric_row_string+'" name="costing_fabric_customer_mtl'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_fabric_description'+fabric_row_string+'" name="costing_fabric_description'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input  type="text" id="costing_fabric_supplier_mtl'+fabric_row_string+'" name="costing_fabric_supplier_mtl'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
+        '                                     </td>' +
+        '                                    <td >\n' +
+        '                                    <input  type="text" id="costing_fabric_description'+fabric_row_string+'" name="costing_fabric_description'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_fabric_location'+fabric_row_string+'" name="costing_fabric_location'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input  type="text" id="costing_fabric_location'+fabric_row_string+'" name="costing_fabric_location'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_fabric_mill_supplier'+fabric_row_string+'" name="costing_fabric_mill_supplier'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_fabric_mill_supplier'+fabric_row_string+'" name="costing_fabric_mill_supplier'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                      <select id="costing_fabric_uom'+fabric_row_string+'" name="costing_fabric_uom'+fabric_row_string+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+        '                                      <select id="costing_fabric_uom'+fabric_row_string+'"   name="costing_fabric_uom'+fabric_row_string+'" class="css-select-costing-table css-select-costing-table-uom">' +
+        '                                                <option value="MM" >MM</option>\n' +
+        '                                                <option value="CM"  >CM</option><option value="M" >M</option><option value="IN">IN</option>\n' +
+        '                                                <option value="FT" >FT</option><option value="YD" >YD</option><option value="CM2" >CM2</option>\n' +
+        '                                                <option value="M2" >M2</option><option value="in2" >in2</option><option value="f\'t2" >f\'t2</option>\n' +
+        '                                                <option value="EA" >EA</option><option value="Pair">Pair</option><option value="PCS">PCS</option>\n' +
+        '                                                <option value="ROLL">ROLL</option><option value="SET" >SET</option><option value="UNIT" >UNIT</option>\n' +
+        '                                               <option value="GM">GM</option><option value="KG">KG</option>' +
+        '                                       </select>' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_fabric_wedth'+fabric_row_string+'" name="costing_fabric_wedth'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_fabric_wedth'+fabric_row_string+'" name="costing_fabric_wedth'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="number" id="costing_fabric_usage'+fabric_row_string+'" name="costing_fabric_usage'+fabric_row_string+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
+        '                                    <input step="any"  type="number" id="costing_fabric_usage'+fabric_row_string+'" name="costing_fabric_usage'+fabric_row_string+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="number" id="costing_fabric_wastage'+fabric_row_string+'" name="costing_fabric_wastage'+fabric_row_string+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
+        '                                    <input step="any" type="number" id="costing_fabric_wastage'+fabric_row_string+'" name="costing_fabric_wastage'+fabric_row_string+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="number" readonly id="costing_fabric_gross_yield'+fabric_row_string+'" name="costing_fabric_gross_yield'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input  type="number" readonly id="costing_fabric_gross_yield'+fabric_row_string+'" name="costing_fabric_gross_yield'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="number" id="costing_fabric_unit_cost'+fabric_row_string+'" name="costing_fabric_unit_cost'+fabric_row_string+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input step="any" type="number" id="costing_fabric_unit_cost'+fabric_row_string+'" name="costing_fabric_unit_cost'+fabric_row_string+'" class="costing_formula_unit_cost css-input-costing-data" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="number" id="costing_fabric_handling'+fabric_row_string+'" name="costing_fabric_handling'+fabric_row_string+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input step="any" type="number" id="costing_fabric_handling'+fabric_row_string+'" name="costing_fabric_handling'+fabric_row_string+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
+
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="number" id="costing_fabric_total_cost'+fabric_row_string+'" name="costing_fabric_total_cost'+fabric_row_string+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+        '                                    <input value="0" type="number" id="costing_fabric_total_cost'+fabric_row_string+'" name="costing_fabric_total_cost'+fabric_row_string+'"  class="costing_formula_total_cost css-input-costing-data"  readonly>\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_fabric_comment'+fabric_row_string+'" name="costing_fabric_comment'+fabric_row_string+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_fabric_comment'+fabric_row_string+'" name="costing_fabric_comment'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
         fabric_row_tds_add +
@@ -189,67 +201,79 @@ costing_add_trim_row_btn.click(function(e){
 
     let trim_row_string = trim_row_last_num.toString();
     let trim_row_tds = ' ' +
-        '   <tr class="costing_trim_data" id="costing_trim_tr'+trim_row_string+'">\n' +
-        '                                    <td  id="costing_trim_tr_tds'+trim_row_string+'">' +
-        '                                    <input type="checkbox" id="costing_trim_cb'+trim_row_string+'" name="costing_trim_cb'+trim_row_string+'" class="css-costing-cb" >'+trim_row_string.padStart(3,"0")+
+        '   <tr class="costing_fabric_data" id="costing_fabric_tr'+fabric_row_string+'">\n' +
+        '                                    <td  id="costing_fabric_tr_tds'+fabric_row_string+'">' +
+        '                                    <input style="display:none;"   type="checkbox" id="costing_fabric_cb'+fabric_row_string+'" name="costing_fabric_cb'+fabric_row_string+'" class="css-costing-cb costing_fabric_cb" >'+fabric_row_string.padStart(3,"0")+
         '                                    </td>\n' +
-        '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_component'+trim_row+'" name="costing_trim_component'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <td >\n' +
+        '                                    <input   type="text" id="costing_fabric_component'+fabric_row_string+'" name="costing_fabric_component'+fabric_row_string+'" value="" class=" css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_material_id'+trim_row+'" name="costing_trim_material_id'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input   type="text" id="costing_fabric_material_id'+fabric_row_string+'" name="costing_fabric_material_id'+fabric_row_string+'" class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_categories'+trim_row+'" name="costing_trim_categories'+trim_row+'" value="Trim" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
+        '                                    <input   type="text" id="costing_fabric_categories'+fabric_row_string+'" name="costing_fabric_categories'+fabric_row_string+'" value="Fabric" class="css-input-costing-data-solo" style="text-align: start;" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_nominated'+trim_row+'" name="costing_trim_nominated'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input  type="text" id="costing_fabric_nominated'+fabric_row_string+'" name="costing_fabric_nominated'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_coo'+trim_row+'" name="costing_trim_coo'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input  type="text" id="costing_fabric_coo'+fabric_row_string+'" name="costing_fabric_coo'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_supplier_ref'+trim_row+'" name="costing_trim_supplier_ref'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input  type="text" id="costing_fabric_customer_mtl'+fabric_row_string+'" name="costing_fabric_customer_mtl'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_description'+trim_row+'" name="costing_trim_description'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input  type="text" id="costing_fabric_supplier_mtl'+fabric_row_string+'" name="costing_fabric_supplier_mtl'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
+        '                                     </td>' +
+        '                                    <td >\n' +
+        '                                    <input  type="text" id="costing_fabric_description'+fabric_row_string+'" name="costing_fabric_description'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_location'+trim_row+'" name="costing_trim_location'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input  type="text" id="costing_fabric_location'+fabric_row_string+'" name="costing_fabric_location'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_mill_supplier'+trim_row+'" name="costing_trim_mill_supplier'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_fabric_mill_supplier'+fabric_row_string+'" name="costing_fabric_mill_supplier'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                      <select id="costing_trim_uom'+trim_row+'" name="costing_trim_uom'+trim_row+'" class="css-select-costing-table css-select-costing-table-uom"></select>' +
+        '                                      <select id="costing_fabric_uom'+fabric_row_string+'"   name="costing_fabric_uom'+fabric_row_string+'" class="css-select-costing-table css-select-costing-table-uom">' +
+        '                                                <option value="MM" >MM</option>\n' +
+        '                                                <option value="CM"  >CM</option><option value="M" >M</option><option value="IN">IN</option>\n' +
+        '                                                <option value="FT" >FT</option><option value="YD" >YD</option><option value="CM2" >CM2</option>\n' +
+        '                                                <option value="M2" >M2</option><option value="in2" >in2</option><option value="f\'t2" >f\'t2</option>\n' +
+        '                                                <option value="EA" >EA</option><option value="Pair">Pair</option><option value="PCS">PCS</option>\n' +
+        '                                                <option value="ROLL">ROLL</option><option value="SET" >SET</option><option value="UNIT" >UNIT</option>\n' +
+        '                                               <option value="GM">GM</option><option value="KG">KG</option>' +
+        '                                       </select>' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_wedth'+trim_row+'" namme="costing_trim_wedth'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_fabric_wedth'+fabric_row_string+'" name="costing_fabric_wedth'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="number" id="costing_trim_usage'+trim_row+'" name="costing_trim_usage'+trim_row+'" value="" class="costing_formula_usage css-input-costing-data-solo" >\n' +
+        '                                    <input step="any"  type="number" id="costing_fabric_usage'+fabric_row_string+'" name="costing_fabric_usage'+fabric_row_string+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="number" id="costing_trim_wastage'+trim_row+'" name="costing_trim_wastage'+trim_row+'" value="" class="costing_formula_wastage css-input-costing-data" style="width: 62px;" >\n' +
+        '                                    <input step="any" type="number" id="costing_fabric_wastage'+fabric_row_string+'" name="costing_fabric_wastage'+fabric_row_string+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="number" readonly id="costing_trim_gross_yield'+trim_row+'" name="costing_trim_gross_yield'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input  type="number" readonly id="costing_fabric_gross_yield'+fabric_row_string+'" name="costing_fabric_gross_yield'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="number" id="costing_trim_unit_cost'+trim_row+'" name="costing_trim_unit_cost'+trim_row+'" value="0" class="costing_formula_unit_cost css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input step="any" type="number" id="costing_fabric_unit_cost'+fabric_row_string+'" name="costing_fabric_unit_cost'+fabric_row_string+'" class="costing_formula_unit_cost css-input-costing-data" >\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="number" id="costing_trim_handling'+trim_row+'" name="costing_trim_handling'+trim_row+'" value="" class="costing_formula_handling css-input-costing-data" style="width: 57px;" >\n' +
+        '                                    <input step="any" type="number" id="costing_fabric_handling'+fabric_row_string+'" name="costing_fabric_handling'+fabric_row_string+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
         '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
         '                                     </td>' +
+
         '                                    <td>\n' +
         '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-        '                                    <input type="number" id="costing_trim_total_cost'+trim_row+'" name="costing_trim_total_cost'+trim_row+'" value="0.00" class="css-input-costing-data" style="width: 68px;" readonly>\n' +
+        '                                    <input value="0" type="number" id="costing_fabric_total_cost'+fabric_row_string+'" name="costing_fabric_total_cost'+fabric_row_string+'"  class="costing_formula_total_cost css-input-costing-data"  readonly>\n' +
         '                                     </td>' +
         '                                    <td>\n' +
-        '                                    <input type="text" id="costing_trim_comment'+trim_row+'" name="costing_trim_comment'+trim_row+'" value="" class="css-input-costing-data-solo" >\n' +
+        '                                    <input type="text" id="costing_fabric_comment'+fabric_row_string+'" name="costing_fabric_comment'+fabric_row_string+'"  class="css-input-costing-data-solo" >\n' +
         '                                     </td>' +
         '                                    <td  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></td>\n' +
         trim_row_tds_add +
