@@ -506,7 +506,7 @@ function getLabelRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input value="'+getCategoryValue('unit_cost',cost_labels[x-1],0)+'" type="number" id="costing_label_unit_cost'+x+'" name="costing_label_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('unit_cost',cost_labels[x-1],0)+'" type="number" id="costing_label_unit_cost'+x+'" name="costing_label_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input step="any" value="'+getCategoryValue('handling',cost_labels[x-1],0)+'" type="number" id="costing_label_handling'+x+'" name="costing_label_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
