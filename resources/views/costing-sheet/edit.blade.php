@@ -34,7 +34,7 @@
 
 
                             <div class="d-flex justify-content-center mt-3">
-                                <button type="submit"  class="btn btn-primary" id="costing_update_btn">Update </button>
+                                <button type="submit"  class="btn btn-primary" id="costing_update_btn" style="position: fixed;bottom: 10px;">Update </button>
                             </div>
 
                         </form>
