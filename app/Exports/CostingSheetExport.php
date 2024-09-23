@@ -655,7 +655,7 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
             }
             $e =0;
             $j=0;
-            for($r = $this->cost_sizes_count;$r< ($this->cost_sizes_count+$this->cost_colors_count);$r++){
+            for($r = ($this->cost_sizes_count-1);$r< ($this->cost_sizes_count+$this->cost_colors_count);$r++){
                 $cost_array_key = 'cost_color_' . $j;
                 $event->sheet->setCellValue($this->letters[$r].$row_start,$data[$cost_array_key])->getStyle($this->letters[$r].$row_start)->applyFromArray($style_data);
                 $e++;
