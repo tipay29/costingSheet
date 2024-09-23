@@ -66,10 +66,10 @@ function getFabricRow(){
             '                                    <input value="'+getCategoryValue('width',cost_fabrics[i-1],'')+'" type="text" id="costing_fabric_wedth'+item_no+'" name="costing_fabric_wedth'+item_no+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('usage',cost_fabrics[i-1],0)+'" type="number" id="costing_fabric_usage'+item_no+'" name="costing_fabric_usage'+item_no+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('usage',cost_fabrics[i-1],0)+'" type="number" id="costing_fabric_usage'+item_no+'" name="costing_fabric_usage'+item_no+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('wastage',cost_fabrics[i-1],0)+'" type="number" id="costing_fabric_wastage'+item_no+'" name="costing_fabric_wastage'+item_no+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('wastage',cost_fabrics[i-1],0)+'" type="number" id="costing_fabric_wastage'+item_no+'" name="costing_fabric_wastage'+item_no+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -77,10 +77,10 @@ function getFabricRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input value="'+getCategoryValue('unit_cost',cost_fabrics[i-1],0)+'" type="number" id="costing_fabric_unit_cost'+item_no+'" name="costing_fabric_unit_cost'+item_no+'" class="costing_formula_unit_cost css-input-costing-data" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('unit_cost',cost_fabrics[i-1],0)+'" type="number" id="costing_fabric_unit_cost'+item_no+'" name="costing_fabric_unit_cost'+item_no+'" class="costing_formula_unit_cost css-input-costing-data" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('handling',cost_fabrics[i-1],0)+'" type="number" id="costing_fabric_handling'+item_no+'" name="costing_fabric_handling'+item_no+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('handling',cost_fabrics[i-1],0)+'" type="number" id="costing_fabric_handling'+item_no+'" name="costing_fabric_handling'+item_no+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
 
@@ -173,10 +173,10 @@ function getTrimRow(){
             '                                    <input value="'+getCategoryValue('width',cost_trims[x-1],'')+'" type="text" id="costing_trim_wedth'+x+'" name="costing_trim_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('usage',cost_trims[x-1],0)+'" type="number" id="costing_trim_usage'+x+'" name="costing_trim_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('usage',cost_trims[x-1],0)+'" type="number" id="costing_trim_usage'+x+'" name="costing_trim_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('wastage',cost_trims[x-1],0)+'" type="number" id="costing_trim_wastage'+x+'" name="costing_trim_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('wastage',cost_trims[x-1],0)+'" type="number" id="costing_trim_wastage'+x+'" name="costing_trim_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data" >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -184,10 +184,10 @@ function getTrimRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input value="'+getCategoryValue('unit_cost',cost_trims[x-1],0)+'" type="number" id="costing_trim_unit_cost'+x+'" name="costing_trim_unit_cost'+x+'"  class="costing_formula_unit_cost css-input-costing-data" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('unit_cost',cost_trims[x-1],0)+'" type="number" id="costing_trim_unit_cost'+x+'" name="costing_trim_unit_cost'+x+'"  class="costing_formula_unit_cost css-input-costing-data" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('handling',cost_trims[x-1],0)+'" type="number" id="costing_trim_handling'+x+'" name="costing_trim_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('handling',cost_trims[x-1],0)+'" type="number" id="costing_trim_handling'+x+'" name="costing_trim_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -276,10 +276,10 @@ function getZipperRow(){
             '                                    <input value="'+getCategoryValue('width',cost_zippers[x-1],'')+'" type="text" id="costing_zipper_wedth'+x+'" name="costing_zipper_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('usage',cost_zippers[x-1],0)+'" type="number" id="costing_zipper_usage'+x+'" name="costing_zipper_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('usage',cost_zippers[x-1],0)+'" type="number" id="costing_zipper_usage'+x+'" name="costing_zipper_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('wastage',cost_zippers[x-1],0)+'" type="number" id="costing_zipper_wastage'+x+'" name="costing_zipper_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('wastage',cost_zippers[x-1],0)+'" type="number" id="costing_zipper_wastage'+x+'" name="costing_zipper_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -287,10 +287,10 @@ function getZipperRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input value="'+getCategoryValue('unit_cost',cost_zippers[x-1],0)+'" type="number" id="costing_zipper_unit_cost'+x+'" name="costing_zipper_unit_cost'+x+'"  class="costing_formula_unit_cost css-input-costing-data" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('unit_cost',cost_zippers[x-1],0)+'" type="number" id="costing_zipper_unit_cost'+x+'" name="costing_zipper_unit_cost'+x+'"  class="costing_formula_unit_cost css-input-costing-data" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('handling',cost_zippers[x-1],0)+'" type="number" id="costing_zipper_handling'+x+'" name="costing_zipper_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('handling',cost_zippers[x-1],0)+'" type="number" id="costing_zipper_handling'+x+'" name="costing_zipper_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -386,10 +386,10 @@ function getEmbelishmentRow(){
             '                                    <input value="'+getCategoryValue('width',cost_embelishments[x-1],'')+'" type="text" id="costing_embelishment_wedth'+x+'" name="costing_embelishment_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('usage',cost_embelishments[x-1],0)+'" type="number" id="costing_embelishment_usage'+x+'" name="costing_embelishment_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('usage',cost_embelishments[x-1],0)+'" type="number" id="costing_embelishment_usage'+x+'" name="costing_embelishment_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('wastage',cost_embelishments[x-1],0)+'" type="number" id="costing_embelishment_wastage'+x+'" name="costing_embelishment_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('wastage',cost_embelishments[x-1],0)+'" type="number" id="costing_embelishment_wastage'+x+'" name="costing_embelishment_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -397,10 +397,10 @@ function getEmbelishmentRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input value="'+getCategoryValue('unit_cost',cost_embelishments[x-1],0)+'" type="number" id="costing_embelishment_unit_cost'+x+'" name="costing_embelishment_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('unit_cost',cost_embelishments[x-1],0)+'" type="number" id="costing_embelishment_unit_cost'+x+'" name="costing_embelishment_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('handling',cost_embelishments[x-1],0)+'" type="number" id="costing_embelishment_handling'+x+'" name="costing_embelishment_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('handling',cost_embelishments[x-1],0)+'" type="number" id="costing_embelishment_handling'+x+'" name="costing_embelishment_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -493,10 +493,10 @@ function getLabelRow(){
             '                                    <input value="'+getCategoryValue('width',cost_labels[x-1],'')+'" type="text" id="costing_label_wedth'+x+'" name="costing_label_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('usage',cost_labels[x-1],0)+'" type="number" id="costing_label_usage'+x+'" name="costing_label_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('usage',cost_labels[x-1],0)+'" type="number" id="costing_label_usage'+x+'" name="costing_label_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('wastage',cost_labels[x-1],0)+'" type="number" id="costing_label_wastage'+x+'" name="costing_label_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('wastage',cost_labels[x-1],0)+'" type="number" id="costing_label_wastage'+x+'" name="costing_label_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -507,12 +507,12 @@ function getLabelRow(){
             '                                    <input value="'+getCategoryValue('unit_cost',cost_labels[x-1],0)+'" type="number" id="costing_label_unit_cost'+x+'" name="costing_label_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('handling',cost_labels[x-1],0)+'" type="number" id="costing_label_handling'+x+'" name="costing_label_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('handling',cost_labels[x-1],0)+'" type="number" id="costing_label_handling'+x+'" name="costing_label_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input value="'+getCategoryValue('total',cost_labels[x-1],0)+'" type="number" id="costing_label_total_cost'+x+'" name="costing_label_total_cost'+x+'" value="0.00" class="costing_formula_total_cost css-input-costing-data"  readonly>\n' +
+            '                                    <input step="any" value="'+getCategoryValue('total',cost_labels[x-1],0)+'" type="number" id="costing_label_total_cost'+x+'" name="costing_label_total_cost'+x+'" value="0.00" class="costing_formula_total_cost css-input-costing-data"  readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input value="'+getCategoryValue('comment',cost_labels[x-1],'')+'" type="text" id="costing_label_comment'+x+'" name="costing_label_comment'+x+'"  class="css-input-costing-data-solo" >\n' +
@@ -602,10 +602,10 @@ function getThreadRow(){
             '                                    <input value="'+getCategoryValue('width',cost_threads[x-1],'')+'" type="text" id="costing_thread_wedth'+x+'" name="costing_thread_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('usage',cost_threads[x-1],0)+'" type="number" id="costing_thread_usage'+x+'" name="costing_thread_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('usage',cost_threads[x-1],0)+'" type="number" id="costing_thread_usage'+x+'" name="costing_thread_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('wastage',cost_threads[x-1],0)+'" type="number" id="costing_thread_wastage'+x+'" name="costing_thread_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('wastage',cost_threads[x-1],0)+'" type="number" id="costing_thread_wastage'+x+'" name="costing_thread_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -613,10 +613,10 @@ function getThreadRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input value="'+getCategoryValue('unit_cost',cost_threads[x-1],0)+'" type="number" id="costing_thread_unit_cost'+x+'" name="costing_thread_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('unit_cost',cost_threads[x-1],0)+'" type="number" id="costing_thread_unit_cost'+x+'" name="costing_thread_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('handling',cost_threads[x-1],0)+'" type="number" id="costing_thread_handling'+x+'" name="costing_thread_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('handling',cost_threads[x-1],0)+'" type="number" id="costing_thread_handling'+x+'" name="costing_thread_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -713,10 +713,10 @@ function getPackageRow(){
             '                                    <input value="'+getCategoryValue('width',cost_packages[x-1],'')+'" type="text" id="costing_package_wedth'+x+'" name="costing_package_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('usage',cost_packages[x-1],0)+'" type="number" id="costing_package_usage'+x+'" name="costing_package_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('usage',cost_packages[x-1],0)+'" type="number" id="costing_package_usage'+x+'" name="costing_package_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('wastage',cost_packages[x-1],0)+'" type="number" id="costing_package_wastage'+x+'" name="costing_package_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('wastage',cost_packages[x-1],0)+'" type="number" id="costing_package_wastage'+x+'" name="costing_package_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -724,15 +724,15 @@ function getPackageRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input value="'+getCategoryValue('unit_cost',cost_packages[x-1],0)+'" type="number" id="costing_package_unit_cost'+x+'" name="costing_package_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('unit_cost',cost_packages[x-1],0)+'" type="number" id="costing_package_unit_cost'+x+'" name="costing_package_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('handling',cost_packages[x-1],0)+'" type="number" id="costing_package_handling'+x+'" name="costing_package_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('handling',cost_packages[x-1],0)+'" type="number" id="costing_package_handling'+x+'" name="costing_package_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input value="'+getCategoryValue('total',cost_packages[x-1],0)+'" type="number" id="costing_package_total_cost'+x+'" name="costing_package_total_cost'+x+'" value="0.00" class="costing_formula_total_cost css-input-costing-data"  readonly>\n' +
+            '                                    <input step="any" value="'+getCategoryValue('total',cost_packages[x-1],0)+'" type="number" id="costing_package_total_cost'+x+'" name="costing_package_total_cost'+x+'" value="0.00" class="costing_formula_total_cost css-input-costing-data"  readonly>\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input value="'+getCategoryValue('comment',cost_packages[x-1],'')+'" type="text" id="costing_package_comment'+x+'" name="costing_package_comment'+x+'"  class="css-input-costing-data-solo" >\n' +
@@ -826,10 +826,10 @@ function getFinishRow(){
             '                                    <input value="'+getCategoryValue('width',cost_finishes[x-1],'')+'" type="text" id="costing_finish_wedth'+x+'" name="costing_finish_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('usage',cost_finishes[x-1],0)+'" type="number" id="costing_finish_usage'+x+'" name="costing_finish_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('usage',cost_finishes[x-1],0)+'" type="number" id="costing_finish_usage'+x+'" name="costing_finish_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('wastage',cost_finishes[x-1],0)+'" type="number" id="costing_finish_wastage'+x+'" name="costing_finish_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('wastage',cost_finishes[x-1],0)+'" type="number" id="costing_finish_wastage'+x+'" name="costing_finish_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -837,10 +837,10 @@ function getFinishRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input value="'+getCategoryValue('unit_cost',cost_finishes[x-1],0)+'" type="number" id="costing_finish_unit_cost'+x+'" name="costing_finish_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('unit_cost',cost_finishes[x-1],0)+'" type="number" id="costing_finish_unit_cost'+x+'" name="costing_finish_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('handling',cost_finishes[x-1],0)+'" type="number" id="costing_finish_handling'+x+'" name="costing_finish_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('handling',cost_finishes[x-1],0)+'" type="number" id="costing_finish_handling'+x+'" name="costing_finish_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
             '                                    <input  type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -941,10 +941,10 @@ function getExportRow(){
             '                                    <input value="'+getCategoryValue('width',cost_exports[x-1],'')+'" type="text" id="costing_export_wedth'+x+'" name="costing_export_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('usage',cost_exports[x-1],0)+'" type="number" id="costing_export_usage'+x+'" name="costing_export_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('usage',cost_exports[x-1],0)+'" type="number" id="costing_export_usage'+x+'" name="costing_export_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                     <td>\n' +
-            '                                    <input value="'+getCategoryValue('wastage',cost_exports[x-1],0)+'" type="number" id="costing_export_wastage'+x+'" name="costing_export_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('wastage',cost_exports[x-1],0)+'" type="number" id="costing_export_wastage'+x+'" name="costing_export_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
             '                                    <input  type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -952,10 +952,10 @@ function getExportRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input value="'+getCategoryValue('unit_cost',cost_exports[x-1],0)+'" type="number" id="costing_export_unit_cost'+x+'" name="costing_export_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('unit_cost',cost_exports[x-1],0)+'" type="number" id="costing_export_unit_cost'+x+'" name="costing_export_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('handling',cost_exports[x-1],0)+'" type="number" id="costing_export_handling'+x+'" name="costing_export_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('handling',cost_exports[x-1],0)+'" type="number" id="costing_export_handling'+x+'" name="costing_export_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -1058,10 +1058,10 @@ function getTestingRow(){
             '                                    <input value="'+getCategoryValue('width',cost_testings[x-1],'')+'" type="text" id="costing_testing_wedth'+x+'" name="costing_testing_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('usage',cost_testings[x-1],0)+'" type="number" id="costing_testing_usage'+x+'" name="costing_testing_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('usage',cost_testings[x-1],0)+'" type="number" id="costing_testing_usage'+x+'" name="costing_testing_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('wastage',cost_testings[x-1],0)+'" type="number" id="costing_testing_wastage'+x+'" name="costing_testing_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('wastage',cost_testings[x-1],0)+'" type="number" id="costing_testing_wastage'+x+'" name="costing_testing_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -1069,10 +1069,10 @@ function getTestingRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input value="'+getCategoryValue('unit_cost',cost_testings[x-1],0)+'" type="number" id="costing_testing_unit_cost'+x+'" name="costing_testing_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('unit_cost',cost_testings[x-1],0)+'" type="number" id="costing_testing_unit_cost'+x+'" name="costing_testing_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('handling',cost_testings[x-1],0)+'" type="number" id="costing_testing_handling'+x+'" name="costing_testing_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('handling',cost_testings[x-1],0)+'" type="number" id="costing_testing_handling'+x+'" name="costing_testing_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -1177,10 +1177,10 @@ function getOtherRow(){
             '                                    <input value="'+getCategoryValue('width',cost_others[x-1],'')+'" type="text" id="costing_other_wedth'+x+'" name="costing_other_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('usage',cost_others[x-1],0)+'" type="number" id="costing_other_usage'+x+'" name="costing_other_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('usage',cost_others[x-1],0)+'" type="number" id="costing_other_usage'+x+'" name="costing_other_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('wastage',cost_others[x-1],0)+'" type="number" id="costing_other_wastage'+x+'" name="costing_other_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('wastage',cost_others[x-1],0)+'" type="number" id="costing_other_wastage'+x+'" name="costing_other_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -1188,10 +1188,10 @@ function getOtherRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input value="'+getCategoryValue('unit_cost',cost_others[x-1],0)+'" type="number" id="costing_other_unit_cost'+x+'" name="costing_other_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('unit_cost',cost_others[x-1],0)+'" type="number" id="costing_other_unit_cost'+x+'" name="costing_other_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('handling',cost_others[x-1],0)+'" type="number" id="costing_other_handling'+x+'" name="costing_other_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('handling',cost_others[x-1],0)+'" type="number" id="costing_other_handling'+x+'" name="costing_other_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -1298,10 +1298,10 @@ function getLaborRow(){
             '                                    <input value="'+getCategoryValue('width',cost_labors[i-1],'')+'" type="text" id="costing_labor_wedth'+x+'" name="costing_labor_wedth'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('usage',cost_labors[x-1],0)+'" type="number" id="costing_labor_usage'+x+'" name="costing_labor_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('usage',cost_labors[x-1],0)+'" type="number" id="costing_labor_usage'+x+'" name="costing_labor_usage'+x+'"  class="costing_formula_usage css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('wastage',cost_labors[x-1],0)+'" type="number" id="costing_labor_wastage'+x+'" name="costing_labor_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('wastage',cost_labors[x-1],0)+'" type="number" id="costing_labor_wastage'+x+'" name="costing_labor_wastage'+x+'"  class="costing_formula_wastage css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +
@@ -1309,10 +1309,10 @@ function getLaborRow(){
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input type="text" disabled value="$" class="costing_fob_sign costing_fob_sign_data">\n' +
-            '                                    <input value="'+getCategoryValue('unit_cost',cost_labors[x-1],0)+'" type="number" id="costing_labor_unit_cost'+x+'" name="costing_labor_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('unit_cost',cost_labors[x-1],0)+'" type="number" id="costing_labor_unit_cost'+x+'" name="costing_labor_unit_cost'+x+'" value="0" class="costing_formula_unit_cost css-input-costing-data" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('handling',cost_labors[x-1],0)+'" type="number" id="costing_labor_handling'+x+'" name="costing_labor_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
+            '                                    <input step="any" value="'+getCategoryValue('handling',cost_labors[x-1],0)+'" type="number" id="costing_labor_handling'+x+'" name="costing_labor_handling'+x+'"  class="costing_formula_handling css-input-costing-data"  >\n' +
             '                                    <input type="text"  disabled value="%" class="costing_percent_sign_data">\n' +
             '                                     </td>' +
             '                                    <td>\n' +

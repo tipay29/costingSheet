@@ -27,8 +27,8 @@
 
                             @csrf
 
-                            <div class="d-flex justify-content-center mt-3" style="position: fixed;bottom: 10px;">
-                                <button type="submit"  class="btn btn-primary" id="costing_save_btn">Save </button>
+                            <div class="d-flex justify-content-center mt-3" >
+                                <button type="submit"  class="btn btn-primary" id="costing_save_btn" style="position: fixed;bottom: 10px;">Save </button>
                             </div>
 
                         </form>
