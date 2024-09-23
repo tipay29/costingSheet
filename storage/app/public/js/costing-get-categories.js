@@ -143,7 +143,7 @@ function getTrimRow(){
             '                                    <input value="'+getCategoryValue('nominated',cost_trims[x-1],'')+'" type="text" id="costing_trim_nominated'+x+'" name="costing_trim_nominated'+x+'" class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
-            '                                    <input value="'+getCategoryValue('coo',cost_trims[x-1],'')+'" type="text" id="costing_trim_coo'+x+'" name="costing_trim_nominated'+x+'"  class="css-input-costing-data-solo" >\n' +
+            '                                    <input value="'+getCategoryValue('coo',cost_trims[x-1],'')+'" type="text" id="costing_trim_coo'+x+'" name="costing_trim_coo'+x+'"  class="css-input-costing-data-solo" >\n' +
             '                                     </td>' +
             '                                    <td>\n' +
             '                                    <input value="'+getCategoryValue('customer_mtl',cost_trims[x-1],'')+'" type="text" id="costing_trim_customer_mtl'+x+'" name="costing_trim_customer_mtl'+x+'"  class="css-input-costing-data-solo" >\n' +

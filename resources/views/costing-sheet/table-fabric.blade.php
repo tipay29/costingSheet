@@ -47,7 +47,7 @@ width: 100%;">
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Description</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .8em; ">Location/Position</th>
 
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Mill/Supplier</th>
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Supplier</th>
 
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">UOM</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Width</th>

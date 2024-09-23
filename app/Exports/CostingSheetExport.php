@@ -590,7 +590,7 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
         $event->sheet->setCellValue('I' . $row_start,'Supplier Material#')->getStyle('I' . $row_start)->applyFromArray($style_head);
         $event->sheet->setCellValue('J' . $row_start,'Description')->getStyle('J' . $row_start)->applyFromArray($style_head);
         $event->sheet->setCellValue('K' . $row_start,'Location/ Position')->getStyle('K' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('L' . $row_start,'Mill/Supplier')->getStyle('L' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('L' . $row_start,'Supplier')->getStyle('L' . $row_start)->applyFromArray($style_head);
         $event->sheet->setCellValue('M' . $row_start,'UOM')->getStyle('M' . $row_start)->applyFromArray($style_head);
         $event->sheet->setCellValue('N' . $row_start,'Width')->getStyle('N' . $row_start)->applyFromArray($style_head);
         $event->sheet->setCellValue('O' . $row_start,'Usage')->getStyle('O' . $row_start)->applyFromArray($style_head);
