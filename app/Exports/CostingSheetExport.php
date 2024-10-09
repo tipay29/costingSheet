@@ -418,8 +418,10 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
         $event->sheet->setCellValue('E18','成本类别')->getStyle('E18')->applyFromArray($style_ch);
         $event->sheet->setCellValue('F18','指定/非指定')->getStyle('F18')->applyFromArray($style_ch)->applyFromArray(['font' => ['size' => 6]]);
         $event->sheet->setCellValue('G18','产地')->getStyle('G18')->applyFromArray($style_ch);
-        $event->sheet->setCellValue('H18','客户料号')->getStyle('H18')->applyFromArray($style_ch)->applyFromArray(['font' => ['size' => 7]]);
-        $event->sheet->setCellValue('I18','供应商货号')->getStyle('I18')->applyFromArray($style_ch);
+        $event->sheet->setCellValue('H18','客户料号')->getStyle('H18')->applyFromArray($style_ch)->applyFromArray(['font' => ['size' => 7,
+            'color' => ['argb' => 'fc0814'],],]);
+        $event->sheet->setCellValue('I18','供应商货号')->getStyle('I18')->applyFromArray($style_ch)->applyFromArray(['font' => [
+            'color' => ['argb' => 'fc0814'],],]);
         $event->sheet->setCellValue('J18','物料描述')->getStyle('J18')->applyFromArray($style_ch);
         $event->sheet->setCellValue('K18','部位名称')->getStyle('K18')->applyFromArray($style_ch);
         $event->sheet->setCellValue('L18','供应商')->getStyle('L18')->applyFromArray($style_ch);
@@ -554,6 +556,72 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
         $event->sheet->setCellValue('R12','Days')->getStyle('R12')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
         $event->sheet->setCellValue('T12','(based on Material in-house)')->getStyle('T12')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
 
+        $event->sheet->setCellValue('W2','Categories')->getStyle('W2')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
+        $event->sheet->setCellValue('W3','Fabric')->getStyle('W3')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('W4','Trim')->getStyle('W4')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('W5','Zipper')->getStyle('W5')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('W6','Embelishment')->getStyle('W6')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('W7','Label')->getStyle('W7')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('W8','Thread')->getStyle('W8')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('W9','Package')->getStyle('W9')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('W10','Wash/Finish')->getStyle('W10')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('W11','Export/Import')->getStyle('W11')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('W12','Testing')->getStyle('W12')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('W13','Other')->getStyle('W13')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('W14','Labor')->getStyle('W14')->applyFromArray(['font' => ['size' => 9,]]);
+
+        $fabric_row_range = ($this->cost_fabric_row_start+1) . '-' . ($this->cost_fabric_row_start+$this->cost_fabric_data_row_count);
+        $trim_row_range = ($this->cost_trim_row_start+1) . '-' . ($this->cost_trim_row_start+$this->cost_trim_data_row_count);
+        $zipper_row_range = ($this->cost_zipper_row_start+1) . '-' . ($this->cost_zipper_row_start+$this->cost_zipper_data_row_count);
+        $embelishment_row_range = ($this->cost_embelishment_row_start+1) . '-' . ($this->cost_embelishment_row_start+$this->cost_embelishment_data_row_count);
+        $label_row_range = ($this->cost_label_row_start+1) . '-' . ($this->cost_label_row_start+$this->cost_label_data_row_count);
+        $thread_row_range = ($this->cost_thread_row_start+1) . '-' . ($this->cost_thread_row_start+$this->cost_thread_data_row_count);
+        $package_row_range = ($this->cost_package_row_start+1) . '-' . ($this->cost_package_row_start+$this->cost_package_data_row_count);
+        $finish_row_range = ($this->cost_finish_row_start+1) . '-' . ($this->cost_finish_row_start+$this->cost_finish_data_row_count);
+        $export_row_range = ($this->cost_export_row_start+1) . '-' . ($this->cost_export_row_start+$this->cost_export_data_row_count);
+        $testing_row_range = ($this->cost_testing_row_start+1) . '-' . ($this->cost_testing_row_start+$this->cost_testing_data_row_count);
+        $other_row_range = ($this->cost_other_row_start+1) . '-' . ($this->cost_other_row_start+$this->cost_other_data_row_count);
+        $labor_row_range = ($this->cost_labor_row_start+1) . '-' . ($this->cost_labor_row_start+$this->cost_labor_data_row_count);
+
+        $event->sheet->setCellValue('X2','Row Ranges')->getStyle('X2')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
+        $event->sheet->setCellValue('X3',$fabric_row_range)->getStyle('X3')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('X4',$trim_row_range)->getStyle('X4')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('X5',$zipper_row_range)->getStyle('X5')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('X6',$embelishment_row_range)->getStyle('X6')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('X7',$label_row_range)->getStyle('X7')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('X8',$thread_row_range)->getStyle('X8')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('X9',$package_row_range)->getStyle('X9')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('X10',$finish_row_range)->getStyle('X10')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('X11',$export_row_range)->getStyle('X11')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('X12',$testing_row_range)->getStyle('X12')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('X13',$other_row_range)->getStyle('X13')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('X14',$labor_row_range)->getStyle('X14')->applyFromArray(['font' => ['size' => 9,]]);
+
+        $event->sheet->setCellValue('Z2','Labor Costs')->getStyle('Z2')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
+        $event->sheet->setCellValue('Z3','1')->getStyle('Z3')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('Z4','2')->getStyle('Z4')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('AA2','Row Ranges')->getStyle('AA2')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
+        $event->sheet->setCellValue('AA3','K'. ($this->cost_bottom_second_row_start+1). '-'. ($this->cost_bottom_second_row_start+10))
+            ->getStyle('AA3')->applyFromArray(['font' => ['size' => 9, ]]);
+        $event->sheet->setCellValue('AA4','L'. ($this->cost_bottom_second_row_start+1). '-'. ($this->cost_bottom_second_row_start+10))
+            ->getStyle('AA4')->applyFromArray(['font' => ['size' => 9, ]]);
+
+        $event->sheet->setCellValue('Z6','Remarks')->getStyle('Z6')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
+        $event->sheet->setCellValue('Z7','1-10')->getStyle('Z7')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('AA6','Row Ranges')->getStyle('AA6')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
+        $event->sheet->setCellValue('AA7','C'. ($this->cost_bottom_second_row_start+1). '-'. ($this->cost_bottom_second_row_start+10))
+            ->getStyle('AA7')->applyFromArray(['font' => ['size' => 9,]]);
+
+        $event->sheet->setCellValue('Z9','MOQs')->getStyle('Z9')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
+        $event->sheet->setCellValue('Z10','Qty')->getStyle('Z10')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('Z11','Upcharge')->getStyle('Z11')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('AA9','Row Ranges')->getStyle('AA9')->applyFromArray(['font' => ['size' => 9, 'bold' => true,]]);
+        $event->sheet->setCellValue('AA10','P'. ($this->cost_bottom_second_row_start+4). '-'. 'U'. ($this->cost_bottom_second_row_start+4))
+            ->getStyle('AA10')->applyFromArray(['font' => ['size' => 9,]]);
+        $event->sheet->setCellValue('AA11','P'. ($this->cost_bottom_second_row_start+5). '-'. 'U'. ($this->cost_bottom_second_row_start+5))
+            ->getStyle('AA11')->applyFromArray(['font' => ['size' => 9,]]);
+
+
     }
 
     protected function exportCategoryHeader($event,$row_start, $category)
@@ -590,7 +658,7 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
         $event->sheet->setCellValue('I' . $row_start,'Supplier Material#')->getStyle('I' . $row_start)->applyFromArray($style_head);
         $event->sheet->setCellValue('J' . $row_start,'Description')->getStyle('J' . $row_start)->applyFromArray($style_head);
         $event->sheet->setCellValue('K' . $row_start,'Location/ Position')->getStyle('K' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('L' . $row_start,'Supplier')->getStyle('L' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('L' . $row_start,'Supplier')->getStyle('L' . $row_start)->applyFromArray($style_head)->applyFromArray(['font' => ['color' => ['argb' => 'fc0814'],],]);
         $event->sheet->setCellValue('M' . $row_start,'UOM')->getStyle('M' . $row_start)->applyFromArray($style_head);
         $event->sheet->setCellValue('N' . $row_start,'Width')->getStyle('N' . $row_start)->applyFromArray($style_head);
         $event->sheet->setCellValue('O' . $row_start,'Usage')->getStyle('O' . $row_start)->applyFromArray($style_head);
@@ -598,7 +666,7 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
         $event->sheet->setCellValue('Q' . $row_start,'Gross Yield')->getStyle('Q' . $row_start)->applyFromArray($style_head);
         $event->sheet->setCellValue('R' . $row_start,'Unit Cost')->getStyle('R' . $row_start)->applyFromArray($style_head);
         $event->sheet->setCellValue('S' . $row_start,'Handling')->getStyle('S' . $row_start)->applyFromArray($style_head);
-        $event->sheet->setCellValue('T' . $row_start,'Total')->getStyle('T' . $row_start)->applyFromArray($style_head);
+        $event->sheet->setCellValue('T' . $row_start,'Total Costs')->getStyle('T' . $row_start)->applyFromArray($style_head)->applyFromArray(['font' => ['color' => ['argb' => 'fc0814'],],]);
         $event->sheet->setCellValue('U' . $row_start,'Comment')->getStyle('U' . $row_start)->applyFromArray($style_head);
         for($w = 0;$w < $this->cost_sizes_count;$w++){
             $event->sheet->setCellValue($this->letters[$w].$row_start,$this->cost_sizes_head_name[$w])->getStyle($this->letters[$w].$row_start)->applyFromArray($style_head);
@@ -1181,7 +1249,7 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
     {
         $drawings = new Drawing();
         if(count($this->costing_sheet['cost_sketches']) > 0){
-                if($this->costing_sheet['cost_sketches'][0]['cost_right_sketch'] !== null) {
+                if($this->costing_sheet['cost_sketches'][0]['cost_front_sketch'] !== null) {
 
                     $drawings->setName('Front Photo');
                     $drawings->setDescription('Front Photo Header');
