@@ -13,7 +13,7 @@
     <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Description</th>
     <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .8em; ">Location/Position</th>
 
-    <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Mill/Supplier</th>
+    <th scope="col" style="vertical-align: top;background-color: #7b9ddb;color:red; ">Supplier</th>
 
     <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">UOM</th>
     <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Width</th>
@@ -22,7 +22,7 @@
     <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .8em; ">Gross Yield</th>
     <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Unit Cost</th>
     <th scope="col" style="vertical-align: top;background-color: #7b9ddb; font-size: .8em;">Handling</th>
-    <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Total</th>
+    <th scope="col" style="vertical-align: top;background-color: #7b9ddb;color:red; ">Total Costs</th>
     <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Comment</th>
     <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>
 

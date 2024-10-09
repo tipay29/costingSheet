@@ -88,6 +88,18 @@ if(loc_split.includes('costing-sheets') && loc_split.includes('create')){
     let costing_other_row = 5;
     let costing_labor_row = 3;
 
+    sessionStorage.setItem("costing_cb_fabric", 0);
+    sessionStorage.setItem("costing_cb_trim", 0);
+    sessionStorage.setItem("costing_cb_zipper", 0);
+    sessionStorage.setItem("costing_cb_embelishment", 0);
+    sessionStorage.setItem("costing_cb_label", 0);
+    sessionStorage.setItem("costing_cb_thread", 0);
+    sessionStorage.setItem("costing_cb_package", 0);
+    sessionStorage.setItem("costing_cb_finish", 0);
+    sessionStorage.setItem("costing_cb_export", 0);
+    sessionStorage.setItem("costing_cb_testing", 0);
+    sessionStorage.setItem("costing_cb_other", 0);
+    sessionStorage.setItem("costing_cb_labor", 0);
 
     sessionStorage.setItem("costing_fabric_row", costing_fabric_row);
     sessionStorage.setItem("costing_trim_row", costing_trim_row);
@@ -121,6 +133,19 @@ if(loc_split.includes('costing-sheets') && loc_split.includes('create')){
 }
 
 if(loc_split.includes('costing-sheets') && loc_split.includes('edit')){
+
+    sessionStorage.setItem("costing_cb_fabric", 0);
+    sessionStorage.setItem("costing_cb_trim", 0);
+    sessionStorage.setItem("costing_cb_zipper", 0);
+    sessionStorage.setItem("costing_cb_embelishment", 0);
+    sessionStorage.setItem("costing_cb_label", 0);
+    sessionStorage.setItem("costing_cb_thread", 0);
+    sessionStorage.setItem("costing_cb_package", 0);
+    sessionStorage.setItem("costing_cb_finish", 0);
+    sessionStorage.setItem("costing_cb_export", 0);
+    sessionStorage.setItem("costing_cb_testing", 0);
+    sessionStorage.setItem("costing_cb_other", 0);
+    sessionStorage.setItem("costing_cb_labor", 0);
 
     let costing_sheet_id = $('#costing_sheet_id').val();
 

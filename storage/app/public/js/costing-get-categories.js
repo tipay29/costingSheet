@@ -120,8 +120,7 @@ function getTrimRow(){
     let x = 1;
     sessionStorage.setItem("costing_trim_row_ids", ((parseInt(before_row_count)+1) + '-'+ trim_row_count));
     $('#costing_trim_row_names').val((parseInt(before_row_count)+1) + '-'+ trim_row_count);
-    console.log(before_row_count+1);
-    console.log(trim_row_count);
+
     for (let i = before_row_count+1; i <= trim_row_count; i++) {
         let item_no = i.toString();
 

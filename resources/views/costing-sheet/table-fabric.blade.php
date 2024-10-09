@@ -15,8 +15,8 @@ width: 100%;">
                         <th  scope="col" class="cost_col_category" style="vertical-align: top;background-color: #e3ed26; ">成本类别</th>
                         <th  scope="col" class="cost_col_nominated" style="vertical-align: top;background-color: #e3ed26; ">指定/非指定</th>
                         <th  scope="col" class="cost_col_coo" style="vertical-align: top;background-color: #e3ed26; ">产地</th>
-                        <th  scope="col" class="cost_col_mtl" style="vertical-align: top;background-color: #e3ed26; ">客户料号</th>
-                        <th  scope="col" class="cost_col_supplier_ref" style="vertical-align: top;background-color: #e3ed26;font-size:.9em; ">供应商货号</th>
+                        <th  scope="col" class="cost_col_mtl" style="vertical-align: top;background-color: #e3ed26;color:red; ">客户料号</th>
+                        <th  scope="col" class="cost_col_supplier_ref" style="vertical-align: top;background-color: #e3ed26;font-size:.9em; color:red;">供应商货号</th>
                         <th  scope="col" class="cost_col_description" style="vertical-align: top;background-color: #e3ed26; ">物料描述</th>
                         <th  scope="col" class="cost_col_location" style="vertical-align: top;background-color: #e3ed26; ">部位名称</th>
                         <th  scope="col" class="cost_col_mill_supplier" style="vertical-align: top;background-color: #e3ed26; ">供应商</th>
@@ -56,7 +56,7 @@ width: 100%;">
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .8em; ">Gross Yield</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Unit Cost</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb;font-size: .8em; ">Handling</th>
-                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Total</th>
+                        <th scope="col" style="vertical-align: top;background-color: #7b9ddb;color:red; ">Total Costs</th>
                         <th scope="col" style="vertical-align: top;background-color: #7b9ddb; ">Comment</th>
                         <th  scope="col" style="min-width:35px;border:1px solid var(--bs-body-bg);"></th>
                     </tr>
