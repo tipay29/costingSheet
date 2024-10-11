@@ -14,6 +14,10 @@
                                class="btn btn-outline-primary"
                             >Create</a>
 
+                            <a href="{{route('costing-sheets.upload')}}"
+                               class="btn btn-outline-primary"
+                            >Upload</a>
+
                             <a id="costing_btn_copy_cs" type="button" class="btn btn-outline-warning" data-bs-toggle="modal"
                                data-bs-target="#showCopyCSModal">
                                 Copy

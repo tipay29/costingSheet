@@ -672,7 +672,7 @@ class CostingSheetExport implements FromCollection,WithEvents,WithDrawings,WithC
             $event->sheet->setCellValue($this->letters[$w].$row_start,$this->cost_sizes_head_name[$w])->getStyle($this->letters[$w].$row_start)->applyFromArray($style_head);
         }
         $e =0;
-        for($r = $this->cost_sizes_count;$r< ($this->cost_sizes_count+$this->cost_colors_count);$r++){
+        for($r = $this->cost_sizes_count;$r< ($this->cost_sizes_count+$this->cost_colors_count-1);$r++){
             $event->sheet->setCellValue($this->letters[$r].$row_start,$this->cost_colors_head_name[$e])->getStyle($this->letters[$r].$row_start)->applyFromArray($style_head);
         $e++;
         }

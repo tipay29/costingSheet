@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\CostingSheetExport;
+use App\Imports\CostingSheetImport;
 use App\Models\CostingSheet;
 use App\Models\CostSketch;
 use Illuminate\Http\Request;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 use function Maatwebsite\Excel\Cache\delete;
 
 class CostingSheetController extends Controller
@@ -32,6 +34,11 @@ class CostingSheetController extends Controller
         return view('costing-sheet.create', compact('costingsheet','sketches'));
     }
 
+    public function upload(){
+
+        return view('costing-sheet.upload');
+    }
+
     public function edit($costingsheet)
     {
         $sketches = CostSketch::where('costing_sheet_id',$costingsheet)->first();
@@ -49,6 +56,81 @@ class CostingSheetController extends Controller
 //        dd($costingSheet->cost_fabrics);
         return Excel::download(new CostingSheetExport($costingSheet), 'costingSheet.xlsx');
 
+    }
+
+
+
+    public function import(){
+
+        $file = request()->file('file');
+        $before_cs_id = CostingSheet::max('id');
+
+        Excel::import(new CostingSheetImport(), $file);
+
+        $costing_sheet_id = CostingSheet::max('id');
+
+        if($before_cs_id !== $costing_sheet_id){
+
+                $reader = new Xlsx();
+                $spreadsheet = $reader->load($file);
+                $sheet = $spreadsheet->getActiveSheet();
+                $drawings = $sheet->getDrawingCollection();
+
+                if(count($drawings) !== 0){
+                        $sketch_data = [];
+                        $sketch_data['costing_sheet_id'] = $costing_sheet_id;
+                        foreach($drawings as $drawing){
+                            $coordinates =  $drawing->getCoordinates();
+                            $path = $drawing->getPath();
+
+                            $img_name = '';
+
+                            if(substr($coordinates, 0, 1) === "B"){
+                                $img_name = 'front';
+                                $img_url = "/storage/images/costing-sheet/cs".$costing_sheet_id. $img_name.'.png';
+                                $img_path = public_path($img_url);
+
+                                $contents = file_get_contents($path);
+                                file_put_contents($img_path,$contents);
+
+                                $sketch_data['cost_front_sketch'] = $img_url;
+                            }else if(substr($coordinates, 0, 1) === "D"){
+                                $img_name = 'back';
+                                $img_url = "/storage/images/costing-sheet/cs".$costing_sheet_id. $img_name.'.png';
+                                $img_path = public_path($img_url);
+
+                                $contents = file_get_contents($path);
+                                file_put_contents($img_path,$contents);
+
+                                $sketch_data['cost_back_sketch'] = $img_url;
+                            }else if(substr($coordinates, 0, 1) === "F"){
+                                $img_name = 'left';
+                                $img_url = "/storage/images/costing-sheet/cs".$costing_sheet_id. $img_name.'.png';
+                                $img_path = public_path($img_url);
+
+                                $contents = file_get_contents($path);
+                                file_put_contents($img_path,$contents);
+
+                                $sketch_data['cost_left_sketch'] = $img_url;
+                            }else if(substr($coordinates, 0, 1) === "H"){
+                                $img_name = 'right';
+                                $img_url = "/storage/images/costing-sheet/cs".$costing_sheet_id. $img_name.'.png';
+                                $img_path = public_path($img_url);
+
+                                $contents = file_get_contents($path);
+                                file_put_contents($img_path,$contents);
+
+                                $sketch_data['cost_right_sketch'] = $img_url;
+                            }
+
+
+                        }
+
+                        CostSketch::create($sketch_data);
+                }
+        }
+
+        return CostingSheet::max('id');
 
     }
 
